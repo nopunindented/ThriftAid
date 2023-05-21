@@ -1,9 +1,11 @@
 import React from "react";
-import Button from 'react-bootstrap/Button';
+import './about'
+import AboutButton from "./about";
 
 export default function Navbar () {
     return(
         <nav>
+            <AboutButton />
         </nav>
     )
 }
