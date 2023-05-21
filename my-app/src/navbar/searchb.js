@@ -3,7 +3,7 @@ import Button from '@mui/material/Button';
 
 
 
-export default function AboutButton() {
+export default function SearchButton() {
     return(
         <Button
       variant="text"
@@ -15,7 +15,7 @@ export default function AboutButton() {
         fontWeight: 700,
         textAlign: 'center',
         height: 50,
-        left: -350,
+        left: -300,
         top: 19,
         textTransform: 'none',
         ":hover": {
@@ -23,8 +23,8 @@ export default function AboutButton() {
           color: "#25A96F"
         }
       }}
-    onClick={'http://localhost:3000/about'}>
-      About
+    onClick={'http://localhost:3000/search'}>
+      Search
     </Button>
   );
 }
