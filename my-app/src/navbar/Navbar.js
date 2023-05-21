@@ -1,9 +1,9 @@
 import React from "react";
+import Button from 'react-bootstrap/Button';
 
 export default function Navbar () {
     return(
         <nav>
-            <h1>Hello</h1>
         </nav>
     )
 }
