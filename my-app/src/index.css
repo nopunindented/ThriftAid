@@ -13,5 +13,22 @@ code {
 }
 
 nav {
-  box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
+  background: #25A96F;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  height: 73px;
+  width: 100%;
+  top: 0px;
+  position: absolute;
 }
+/* Rectangle 1 */
+
+/*
+position: absolute;
+width: 878px;
+height: 73px;
+left: -10px;
+top: 0px;
+
+background: #25A96F;
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+*/
