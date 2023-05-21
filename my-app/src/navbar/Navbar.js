@@ -1,6 +1,6 @@
 import React from "react";
-import './about'
-import AboutButton from "./about";
+import './aboutb'
+import AboutButton from "./aboutb";
 
 export default function Navbar () {
     return(
