@@ -12,6 +12,8 @@ export default function Homebody () {
                 and a nearby homeless shelter can choose to accept it. 
                 </p>
                 <ellipse className="ellipse1" />
+                <ellipse className="ellipse2" />
+                <ellipse className="ellipse3" />
             </div>
         </div>
     )

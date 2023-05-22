@@ -30,16 +30,18 @@ nav {
 
 .homep{
   margin: 0px;
-  height: 720px;
+  height: 713px;
   background-color: #25A96F;
+
 }
 
 
 .bodyofhome{
   position: absolute;
   align-content: center;
-  left: 30%;
-  top: 20%;
+  height: 500px;
+  width: 1530px;
+  overflow: hidden;
 }
 
 .hometextmain{
@@ -83,9 +85,25 @@ mix-blend-mode: normal;
 position: absolute;
 width: 600px;
 height: 600px;
-left: -520px;
-top: -320px;
+left: -120px;
+top: -220px;
 border-radius: 50%;
 background: rgba(120, 240, 187, 0.21);
 box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.15);
+}
+
+.ellipse2{
+  /* Ellipse 2 */
+
+position: absolute;
+width: 500px;
+height: 600px;
+left: 1050px;
+top: -250px;
+border-radius: 50%;
+background: rgba(120, 240, 187, 0.28);
+box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.15);
+overflow: hidden;
+
+
 }
