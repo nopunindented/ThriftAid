@@ -39,19 +39,19 @@ nav {
 .bodyofhome{
   position: absolute;
   align-content: center;
-  height: 500px;
+  height: 600px;
   width: 1535px;
   overflow: hidden;
 }
 
 .hometextmain{
   position: absolute;
-  top: 150px;
-  left: 450px;
+  top: 170px;
+  left: 340px;
   font-family: 'Share Tech Mono';
   font-style: normal;
   font-weight: 400;
-  font-size: 120px;
+  font-size: 170px;
   line-height: 135px;
   letter-spacing: 0.1em;
 
@@ -64,14 +64,14 @@ text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.4);
 
 .hometextsecondary{
   /* ThriftAid is an application that links thrift stores and homeless shelters, with the goal of reducing waste. Thrift stores with excess clothes can post a listing (with options for pick up or delivery), and a nearby homeless shelter can choose to accept it. */
-top: 70%;
-left: 500px;
+top: 420px;
+left: 420px;
 position: absolute;
-width: 600px;
+width: 830px;
 font-family: 'Noto Sans';
 font-style: normal;
 font-weight: 600;
-font-size: 12px;
+font-size: 15px;
 line-height: 25px;
 text-align: center;
 letter-spacing: 0.05em;
