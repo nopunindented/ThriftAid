@@ -21,26 +21,9 @@ nav {
   position: absolute;
 }
 
-
-/* About */
-
-/* About */
-
-/*
-position: absolute;
-width: 78px;
-height: 29px;
-left: 118px;
-top: 19px;
-
-font-family: 'Noto Sans';
-font-style: normal;
-font-weight: 700;
-font-size: 22px;
-line-height: 30px;
-text-align: center;
-
-color: #F7F3F3;
-
-mix-blend-mode: normal;
-*/
+.shirt{
+  left: 10px;
+  position: absolute;
+  display: inline-block;
+  width: 100px;
+}
