@@ -6,11 +6,12 @@ import Navbar from './navbar/Navbar';
 import { Route } from 'react-router-dom';
 import Home from './pages/Home'
 import About from './pages/About'
+import Homepage from './pages/Home';
 
 function App() {
   return (
     <div className='App'>
-      <Navbar />
+      <Homepage />
     </div>
   );
 }

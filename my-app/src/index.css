@@ -27,3 +27,30 @@ nav {
   display: inline-block;
   width: 100px;
 }
+
+.homep{
+  margin: 0px;
+  height: 713px;
+  background-color: #25A96F;
+}
+
+.bodyofhome{
+  position: absolute;
+  align-content: center;
+  left: 45%;
+  top: 40%;
+}
+
+.ellipse1{
+  /* Ellipse 1 */
+
+position: absolute;
+width: 419px;
+height: 458px;
+left: -57px;
+top: -185px;
+border-radius: 50%;
+background: rgba(120, 240, 187, 0.21);
+box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.15);
+
+}
