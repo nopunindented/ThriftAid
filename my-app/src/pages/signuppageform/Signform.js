@@ -4,27 +4,20 @@ import { render } from "react-dom";
 import validator from "validator";
 
 export default function SignupForm() {
-  const [message, setMessage] = useState(false);
-  const validateEmail = (email) => {
-    if (validator.isEmail(email)) {
-      setMessage(true);
-    } else {
-      setMessage(false);
-    }
-  };
-
   // Setting inputs
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   // Setting input error handlers
   const [error, setError] = useState(false);
+  const [invalidEmail, setInvalidEmail] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
   // Email change handler
   const handleEmail = (e) => {
     setEmail(e.target.value);
     setSubmitted(false);
+    setInvalidEmail(false);
   };
 
   // Password change handler
@@ -36,25 +29,23 @@ export default function SignupForm() {
   // Submission handler
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (email === "" || password === "") {
+    if ((email === "" || !validator.isEmail(email)) && (password !== "")) {
+      setInvalidEmail(true);
+      setError(false);
+    } else if (email === "" && password === "") {
       setError(true);
-      setMessage("Please enter all the fields");
-    } else if (!validateEmail(email)) {
-      setError(true);
-      return(
-        <h1 className="invalidemail">put a proper email</h1>
-      )
+      setInvalidEmail(false);
     } else {
       setSubmitted(true);
       setError(false);
-      setMessage("User successfully registered!!");
+      setInvalidEmail(false);
     }
   };
 
   const successMessage = () => {
     return (
       <div className="success" style={{ display: submitted ? "" : "none" }}>
-        <h1>{message}</h1>
+        <h1>User successfully registered!!</h1>
       </div>
     );
   };
@@ -63,7 +54,15 @@ export default function SignupForm() {
   const errorMessage = () => {
     return (
       <div className="error" style={{ display: error ? "" : "none" }}>
-        <h1>{message}</h1>
+        <h1>Please enter all the fields</h1>
+      </div>
+    );
+  };
+
+  const emailInvalidMessage = () => {
+    return (
+      <div className="message" style={{ display: invalidEmail ? "" : "none" }}>
+        <h1>Please enter a valid email</h1>
       </div>
     );
   };
@@ -78,25 +77,16 @@ export default function SignupForm() {
       <div className="messages">
         {errorMessage()}
         {successMessage()}
+        {emailInvalidMessage()}
       </div>
 
       <form>
         {/* Labels and inputs for form data */}
         <label className="label">Email</label>
-        <input
-          onChange={handleEmail}
-          className="input"
-          value={email}
-          type="email"
-        />
+        <input onChange={handleEmail} className="input" value={email} type="email" />
 
         <label className="label">Password</label>
-        <input
-          onChange={handlePassword}
-          className="input"
-          value={password}
-          type="password"
-        />
+        <input onChange={handlePassword} className="input" value={password} type="password" />
 
         <button onClick={handleSubmit} className="btn" type="submit">
           Submit
