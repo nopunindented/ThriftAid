@@ -1,5 +1,4 @@
 import React from "react";
-import AboutButton from "./aboutb.js";
 import SearchButton from "./searchb.js";
 import SignupButton from "./Signup.js";
 import LoginButton from "./Login.js";
@@ -11,8 +10,7 @@ export default function Navbar () {
         <div>
             <nav>
                 <Logo />
-                <Link to='/about'><AboutButton /></Link>
-                <Link to='/search'><SearchButton /></Link>
+                <Link to='/postings'><SearchButton /></Link>
                 <Link to='/signup'><SignupButton /></Link>
                 <Link to='/login'><LoginButton /></Link>
             </nav>

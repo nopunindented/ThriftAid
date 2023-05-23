@@ -23,8 +23,8 @@ export default function SearchButton() {
           color: "#25A96F"
         }
       }}
-    onClick={'http://localhost:3000/search'}>
-      Search
+    onClick={'http://localhost:3000/postings'}>
+      Search Postings
     </Button>
   );
 }

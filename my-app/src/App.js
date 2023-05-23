@@ -4,16 +4,18 @@ import './navbar/Navbar'
 import { Route, Routes } from 'react-router-dom';
 import Navbar from './navbar/Navbar';
 import Home from './pages/Home'
-import About from './pages/About'
+import SignupPage from './pages/Signupp';
+import { useLocation } from 'react-router-dom';
+import NavbarMaybe from './navmaybe';
 
 function App() {
   return (
     <div className='App'>
       <Routes>
-      <Route exact path="/" Component={Home} />
-      <Route exact path="/about" Component={About} />
+        <Route exact path="/" Component={Home} />
+        <Route exact path= "/signup" Component={SignupPage} />
       </Routes>
-      <Navbar />
+      <NavbarMaybe />
     </div>
   );
 }
