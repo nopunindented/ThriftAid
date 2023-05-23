@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { render } from "react-dom";
 import validator from "validator";
+import Button from '@mui/material/Button';
 
 export default function SignupForm() {
   // Setting inputs
@@ -29,10 +30,10 @@ export default function SignupForm() {
   // Submission handler
   const handleSubmit = (e) => {
     e.preventDefault();
-    if ((email === "" || !validator.isEmail(email)) && (password !== "")) {
+    if (email !== "" && !validator.isEmail(email)) {
       setInvalidEmail(true);
       setError(false);
-    } else if (email === "" && password === "") {
+    } else if (email === "" || password === "") {
       setError(true);
       setInvalidEmail(false);
     } else {
@@ -88,9 +89,27 @@ export default function SignupForm() {
         <label className="label">Password</label>
         <input onChange={handlePassword} className="input" value={password} type="password" />
 
-        <button onClick={handleSubmit} className="btn" type="submit">
-          Submit
-        </button>
+        <Button
+      variant="text"
+      sx={{
+        color: "#F7F3F3",
+        fontFamily: 'Noto Sans',
+        fontSize: 30,
+        fontStyle: 'normal',
+        fontWeight: 700,
+        textAlign: 'center',
+        height: 50,
+        left: -300,
+        top: 19,
+        textTransform: 'none',
+        ":hover": {
+          bgcolor: "#F7F3F3",
+          color: "#25A96F"
+        }
+      }}
+    onClick={handleSubmit}>
+      Submit
+    </Button>
       </form>
     </div>
   );
