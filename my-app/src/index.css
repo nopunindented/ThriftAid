@@ -163,22 +163,40 @@ overflow: hidden;
 .emailheader{
   font-family: 'Oswald';
   position: absolute;
-  left: 80px;
+  left: 50px;
+  color: #436157;
+  top: 150px;
+  font-size: 30px;
+}
+
+.passwordheader{
+  font-family: 'Oswald';
+  position: absolute;
+  color: #436157;
+  left: 50px;
+  top: 250px;
+  font-size: 30px;
 }
 
 .inputemail{
   position: absolute;
-  left: 80px;
-  width: 300px;
+  left: 50px;
+  width: 350px;
+  top: 200px;
   height: 40px;
   border-radius: 0%;
 }
 
 .inputpassword{
   position: absolute;
-  left: 80px;
-  top: 230px;
-  width: 300px;
+  left: 50px;
+  top: 300px;
+  width: 350px;
   height: 40px;
   border-radius: 0%;
+}
+
+.messages{
+  margin: 0px;
+  height: 0px;
 }

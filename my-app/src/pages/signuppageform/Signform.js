@@ -3,12 +3,20 @@ import { useState } from "react";
 import { render } from "react-dom";
 import validator from "validator";
 import Button from '@mui/material/Button';
-import { AlignHorizontalRight } from "@mui/icons-material";
+import { AlignHorizontalRight, NoEncryption } from "@mui/icons-material";
+
+function SubmissionMessage() {
+  return(
+    <h1>Signedup!!!!</h1>
+  )
+}
 
 export default function SignupForm() {
   // Setting inputs
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   // Setting input error handlers
   const [error, setError] = useState(false);
@@ -31,6 +39,7 @@ export default function SignupForm() {
   // Submission handler
   const handleSubmit = (e) => {
     e.preventDefault();
+    // Perform form validation and submission logic here
     if (email !== "" && !validator.isEmail(email)) {
       setInvalidEmail(true);
       setError(false);
@@ -38,7 +47,8 @@ export default function SignupForm() {
       setError(true);
       setInvalidEmail(false);
     } else {
-      setSubmitted(true);
+      // Set isSubmitted to true if the submission is successful
+      setIsSubmitted(true);
       setError(false);
       setInvalidEmail(false);
     }
@@ -90,26 +100,33 @@ export default function SignupForm() {
         <label className="passwordheader">Password</label>
         <input onChange={handlePassword} className="inputpassword" value={password} type="password" />
 
+        <div>
+      {!isSubmitted && (
         <Button
-      variant="contained"
-      sx={{
-        color: "#F7F3F3",
-        bgcolor: "#24a0ed",
-        fontFamily: 'Open Sans',
-        fontSize: 25,
-        fontStyle: 'normal',
-        fontWeight: 400,
-        textAlign: 'left',
-        justifyContent: 'center',
-        width: 100,
-        height: 50,
-        left: 5,
-        top: 19,
-        textTransform: 'none',
-      }}
-    onClick={handleSubmit}>
-      Submit
-    </Button>
+          variant="contained"
+          sx={{
+            color: "#F7F3F3",
+            bgcolor: "#24a0ed",
+            fontFamily: 'Open Sans',
+            fontSize: 25,
+            fontStyle: 'normal',
+            fontWeight: 400,
+            textAlign: 'left',
+            justifyContent: 'center',
+            width: 100,
+            height: 50,
+            left: 5,
+            top: 280,
+            textTransform: 'none',
+            display: "flex",
+          }}
+          onClick={handleSubmit}
+        >
+          Submit
+        </Button>
+      )}
+    </div>
+
       </form>
     </div>
   );
