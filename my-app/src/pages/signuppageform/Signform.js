@@ -18,6 +18,7 @@ export default function SignupForm() {
 
   const [isSubmitted, setIsSubmitted] = useState(false);
 
+
   // Setting input error handlers
   const [error, setError] = useState(false);
   const [invalidEmail, setInvalidEmail] = useState(false);
@@ -126,7 +127,9 @@ export default function SignupForm() {
         </Button>
       )}
     </div>
-
+       <div>
+        {isSubmitted && (<h1>successfully registered!</h1>)}
+       </div>
       </form>
     </div>
   );
