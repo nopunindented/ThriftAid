@@ -159,3 +159,26 @@ overflow: hidden;
 .invalidemail{
   text-decoration: red;
 }
+
+.emailheader{
+  font-family: 'Oswald';
+  position: absolute;
+  left: 80px;
+}
+
+.inputemail{
+  position: absolute;
+  left: 80px;
+  width: 300px;
+  height: 40px;
+  border-radius: 0%;
+}
+
+.inputpassword{
+  position: absolute;
+  left: 80px;
+  top: 230px;
+  width: 300px;
+  height: 40px;
+  border-radius: 0%;
+}

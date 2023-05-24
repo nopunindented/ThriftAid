@@ -3,6 +3,7 @@ import { useState } from "react";
 import { render } from "react-dom";
 import validator from "validator";
 import Button from '@mui/material/Button';
+import { AlignHorizontalRight } from "@mui/icons-material";
 
 export default function SignupForm() {
   // Setting inputs
@@ -83,29 +84,28 @@ export default function SignupForm() {
 
       <form>
         {/* Labels and inputs for form data */}
-        <label className="label">Email</label>
-        <input onChange={handleEmail} className="input" value={email} type="email" />
+        <label className="emailheader">Email</label>
+        <input onChange={handleEmail} className="inputemail" value={email} type="email" />
 
-        <label className="label">Password</label>
-        <input onChange={handlePassword} className="input" value={password} type="password" />
+        <label className="passwordheader">Password</label>
+        <input onChange={handlePassword} className="inputpassword" value={password} type="password" />
 
         <Button
-      variant="text"
+      variant="contained"
       sx={{
         color: "#F7F3F3",
-        fontFamily: 'Noto Sans',
-        fontSize: 30,
+        bgcolor: "#24a0ed",
+        fontFamily: 'Open Sans',
+        fontSize: 25,
         fontStyle: 'normal',
-        fontWeight: 700,
-        textAlign: 'center',
+        fontWeight: 400,
+        textAlign: 'left',
+        justifyContent: 'center',
+        width: 100,
         height: 50,
-        left: -300,
+        left: 5,
         top: 19,
         textTransform: 'none',
-        ":hover": {
-          bgcolor: "#F7F3F3",
-          color: "#25A96F"
-        }
       }}
     onClick={handleSubmit}>
       Submit
