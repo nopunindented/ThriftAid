@@ -3,16 +3,16 @@ import { useState } from "react";
 import { render } from "react-dom";
 import validator from "validator";
 import Button from '@mui/material/Button';
-import { AlignHorizontalRight, NoEncryption } from "@mui/icons-material";
+import { Link } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
+import Home from "../Home";
 
-function SubmissionMessage() {
-  return(
-    <h1>Signedup!!!!</h1>
-  )
-}
+
 
 export default function SignupForm() {
   // Setting inputs
+
+  
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -128,7 +128,7 @@ export default function SignupForm() {
       )}
     </div>
        <div>
-        {isSubmitted && (<h1>successfully registered!</h1>)}
+        {isSubmitted && ((<h1>welldone</h1>)) && (setTimeout((window.location.href='/dashboard'),3000))}
        </div>
       </form>
     </div>
