@@ -5,7 +5,7 @@ import Navbar from "./navbar/Navbar";
 
 export default function NavbarMaybe() {
     let location= useLocation()
-    if(location.pathname.match(/signup/)){
+    if(location.pathname.match(/signup/) || location.pathname.match(/dashboard/)){
         return null;
     }
     else{

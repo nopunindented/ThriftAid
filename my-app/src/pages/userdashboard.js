@@ -1,8 +1,8 @@
 import React from "react";
-
+import Logoutb from "./loginpage/Logoutbutton";
 
 export default function Dashboard() {
     return(
-        <h1>hello!</h1>
+        <Logoutb /> 
     )
 }
