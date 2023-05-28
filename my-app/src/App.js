@@ -9,6 +9,7 @@ import NavbarMaybe from './navmaybe';
 import Dashboard from './pages/userdashboard';
 import Sign from './pages/signuppageform/Signform';
 import Loggedin from './pages/loginpage/Loginpage';
+import Userfront from "@userfront/core";
 
 function App() {
   return (

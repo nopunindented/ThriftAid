@@ -3,10 +3,11 @@ import Userfront from "@userfront/react";
 
 Userfront.init("rbv5jmqn");
 
-const LogoutButton = Userfront.build({
-  toolId: "bamlmrd"
-});
-
 export default function Logoutb() {
-  return <LogoutButton />;
+  const handleLogout = () => {
+    Userfront.logout();
+  };
+
+  return <button onClick={handleLogout}>Logout</button>;
 }
+
