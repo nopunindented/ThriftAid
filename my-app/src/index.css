@@ -213,7 +213,24 @@ overflow: hidden;
   background-color: #25A96F; /* Set the background color */
 }
 
+.logout{
+  color: "#F7F3F3";
+  font-family: 'Noto Sans';
+  font-size: 30;
+  font-style: 'normal';
+  font-weight: 700;
+  text-align: 'center';
+  height: 50;
+  left: 500;
+  top: 19;
+  text-transform: 'none';
+}
 
+.logout:hover{
+
+  background-color: "#F7F3F3";
+  color: "#25A96F";
+}
 
 
 /*

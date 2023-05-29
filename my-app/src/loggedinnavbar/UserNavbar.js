@@ -5,6 +5,7 @@ import SearchButton from "../navbar/searchb.js";
 import SignupButton from "../navbar/Signup.js";
 import Userfront from "@userfront/react";
 import LoginButton from "../navbar/Login.js";
+import Logoutb from "../pages/loginpage/Logoutbutton.js";
 
 export default function UserNavbar() {
   const handleLogout = () => {
@@ -24,9 +25,7 @@ export default function UserNavbar() {
         <Link to="/signup">
           <SignupButton />
         </Link>
-        (
-          <button onClick={handleLogout}>Logout</button>
-        )
+          <Logoutb />
       </nav>
     </div>
   )
