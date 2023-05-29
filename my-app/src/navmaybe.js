@@ -13,9 +13,9 @@ export default function NavbarMaybe() {
   };
 
   if (isLoggedOut) {
-    return <Navbar />;
+    return <Navbar />
   } else {
-    return <UserNavbar handleLogout={handleLogout} />;
+    return <UserNavbar handleLogout={handleLogout} />
   }
 }
 

@@ -15,7 +15,7 @@ export default function Navbar() {
         <Link to='/'><Logo /></Link>
         <Link to='/postings'><SearchButton /></Link>
         <Link to='/signup'><SignupButton /></Link>
-        <LoginButton />
+        <Link to='/login'><SignupButton /><LoginButton /></Link>
       </nav>
     </div>
   )

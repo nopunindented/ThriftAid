@@ -201,13 +201,38 @@ overflow: hidden;
   height: 0px;
 }
 
-button,
+.signupformstyle{
+  position: absolute;
+  top: 150px;
+  left: 600px;
+
+}
+
+.signupformstyle > button {
+  color: #FFFFFF; /* Set the text color */
+  background-color: #25A96F; /* Set the background color */
+}
+
+
+
+
+/*
+button{
+  position: relative;
+  display: block;
+  top: 200px;
+  left: 620px;
+  width: 300px;
+  margin-bottom: 10px;
+  color: #25A96F;
+}
 input {
   position: relative;
   display: block;
-  top: 600px;
-  margin-left: 100px;
-  margin-bottom: 10px;
+  margin-top: 10px;
+  top: 100px;
+  left: 700px;
+  width: 300px;
 }
 
 #alert {
@@ -215,8 +240,27 @@ input {
   margin-bottom: 10px;
 }
 
-.emailinput {
-  color: #25A96F;
+.signupformc{
   position: absolute;
-  top: 600px;
+  left: 400px;
+  color:#25A96F;
 }
+
+.passwordverify{
+  position: absolute;
+  color: #25A96F;
+  top: 200px;
+}
+
+.rectangle {
+  position: absolute;
+  display: inline-block;
+  width: 420px;
+  height: 500px;
+  top: 150px;
+  left: 550px;
+  border-radius: 3%;
+  background: white;
+  box-shadow: 0px 4px 30px rgba(0.1, 0.1, 0.1, 0.25);
+}
+*/
