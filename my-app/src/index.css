@@ -200,3 +200,23 @@ overflow: hidden;
   margin: 0px;
   height: 0px;
 }
+
+button,
+input {
+  position: relative;
+  display: block;
+  top: 600px;
+  margin-left: 100px;
+  margin-bottom: 10px;
+}
+
+#alert {
+  color: red;
+  margin-bottom: 10px;
+}
+
+.emailinput {
+  color: #25A96F;
+  position: absolute;
+  top: 600px;
+}
