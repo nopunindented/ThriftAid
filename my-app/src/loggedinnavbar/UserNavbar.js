@@ -26,6 +26,7 @@ export default function UserNavbar() {
           <SignupButton />
         </Link>
           <Logoutb />
+          <h1>{Userfront.user.email}</h1>
       </nav>
     </div>
   )
@@ -43,7 +44,9 @@ export default function UserNavbar() {
           <Link to="/signup">
             <SignupButton />
           </Link>
-          <Link to="/login"> <LoginButton /></Link>
+          <Link to="/login">
+            <LoginButton />
+          </Link>
         </nav>
       </div> 
     )
