@@ -24,7 +24,6 @@ export default function UserNavbar() {
           <SearchButton />
         </Link>
         <AccountMenu />
-          <Logoutb />
       </nav>
     </div>
   )

@@ -31,17 +31,16 @@ export default function AccountMenu() {
   };
   return (
     <React.Fragment>
-      <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
+      <Box sx={{alignItems: 'center', textAlign: 'center',}}>
         <Tooltip title="Account settings">
-          <Button
+          <Button variant='text'
             onClick={handleClick}
-            size="small"
-            sx={{ ml: 140 }}
+            sx={{  width: 180, height: 30, backgroundColor: 'transparent', fontSize: 12, color: '#F7F3F3',fontFamily: 'Noto Sans', fontWeight: 700, left: 1330, position: 'absolute',
+            ":hover":{bgcolor: "#F7F3F3", color: "#25A96F"}}}
             aria-controls={open ? 'account-menu' : undefined}
             aria-haspopup="true"
             aria-expanded={open ? 'true' : undefined}
-          >
-            <Box sx={{  width: 200, height: 50, backgroundColor: 'transparent', fontSize: 12, color: '#F7F3F3',":hover":{bgcolor: "#F7F3F3", color: "#25A96F"}}}>{Userfront.user.email}</Box>
+          >{Userfront.user.email}
           </Button>
         </Tooltip>
       </Box>
@@ -58,9 +57,9 @@ export default function AccountMenu() {
             filter: 'drop-shadow(0px 2px 8px rgba(0,0,0,0.32))',
             mt: 1.5,
             '& .MuiAvatar-root': {
-              width: 32,
-              height: 32,
-              ml: -0.5,
+              width: 55,
+              height: 36,
+              ml: 0.3,
               mr: 1,
             },
             '&:before': {
