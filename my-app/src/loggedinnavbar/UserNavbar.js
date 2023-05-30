@@ -5,7 +5,8 @@ import SearchButton from "../navbar/searchb.js";
 import SignupButton from "../navbar/Signup.js";
 import Userfront from "@userfront/react";
 import LoginButton from "../navbar/Login.js";
-import Logoutb from "../pages/loginpage/Logoutbutton.js";
+import Logoutb from "../pages/account/loginpage/Logoutbutton.js";
+import AccountMenu from "../pages/account/accountnavbar.tsx";
 
 export default function UserNavbar() {
   const handleLogout = () => {
@@ -22,11 +23,8 @@ export default function UserNavbar() {
         <Link to="/postings">
           <SearchButton />
         </Link>
-        <Link to="/signup">
-          <SignupButton />
-        </Link>
+        <AccountMenu />
           <Logoutb />
-          <h1>{Userfront.user.email}</h1>
       </nav>
     </div>
   )

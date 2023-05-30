@@ -1,5 +1,5 @@
 import React from "react";
-import Logoutb from "./loginpage/Logoutbutton";
+import Logoutb from "./account/loginpage/Logoutbutton";
 
 export default function Dashboard() {
     return(
