@@ -147,9 +147,9 @@ overflow: hidden;
 .signupbox{
   position: absolute;
   display: inline-block;
-  width: 450px;
+  width: 400px;
   height: 500px;
-  top: 100px;
+  top: 140px;
   left: 550px;
   border-radius: 3%;
   background: white;
@@ -178,40 +178,18 @@ overflow: hidden;
   font-size: 30px;
 }
 
-.inputemail{
-  position: absolute;
-  left: 50px;
-  width: 350px;
-  top: 200px;
-  height: 40px;
-  border-radius: 0%;
-}
-
-.inputpassword{
-  position: absolute;
-  left: 50px;
-  top: 300px;
-  width: 350px;
-  height: 40px;
-  border-radius: 0%;
-}
-
 .messages{
   margin: 0px;
   height: 0px;
 }
 
-.signupformstyle{
+.signon{
   position: absolute;
-  top: 150px;
-  left: 600px;
-
+  left: 1000px;
+  top: 500px;
 }
 
-.signupformstyle > button {
-  color: #FFFFFF; /* Set the text color */
-  background-color: #25A96F; /* Set the background color */
-}
+
 
 .logout{
   color: "#F7F3F3";
@@ -240,4 +218,15 @@ overflow: hidden;
   padding: 20px;
   width: 200px;
   height: 10px;
+}
+
+.passwordinputbar{
+  border-radius: 5px;
+  position: absolute;
+  left: -400px;
+  width: 330px;
+  height: 33px;
+  border-width: 0.5px;
+  border
+  border-color: #D3D3D3;
 }

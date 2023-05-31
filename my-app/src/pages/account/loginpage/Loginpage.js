@@ -9,7 +9,7 @@ const LoginForm = Userfront.build({
 
 export default function Loggedin() {
   return(
-  <div className='signupformstyle'>
+  <div className='kk'>
   <LoginForm />
   </div>
   )
