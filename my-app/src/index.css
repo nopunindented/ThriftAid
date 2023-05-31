@@ -144,18 +144,6 @@ overflow: hidden;
 
 }
 
-.signupbox{
-  position: absolute;
-  display: inline-block;
-  width: 400px;
-  height: 500px;
-  top: 140px;
-  left: 550px;
-  border-radius: 3%;
-  background: white;
-  box-shadow: 0px 4px 30px rgba(0.1, 0.1, 0.1, 0.25);
-}
-
 .invalidemail{
   text-decoration: red;
 }
@@ -220,13 +208,33 @@ overflow: hidden;
   height: 10px;
 }
 
-.passwordinputbar{
-  border-radius: 5px;
+.signupbox{
   position: absolute;
-  left: -400px;
-  width: 330px;
-  height: 33px;
+  display: inline-block;
+  width: 335px;
+  height: 400px;
+  top: 160px;
+  left: 580px;
+  border-radius: 2%;
+  background: white;
+  box-shadow: 0px 4px 30px rgba(0.1, 0.1, 0.1, 0.25);
+}
+
+.passwordinputbar{
+  border-radius: 3px;
+  position: absolute;
+  left: -397px;
+  top: -150px;
+  width: 290px;
+  height: 38px;
   border-width: 0.5px;
-  border
-  border-color: #D3D3D3;
+  border-color: '#D3D3D3';
+}
+
+.passwordinputbar::placeholder{
+  position: relative;
+  font-size: 18px;
+  font-weight: 10;
+  left: 10px;
+  top: 3px;
 }

@@ -77,6 +77,7 @@ export class Signup extends React.Component {
             <input className="passwordinputbar"
               name="password"
               type="password"
+              placeholder="Password"
               value={this.state.password}
               onChange={this.handleInputChange}
             />
