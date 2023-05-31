@@ -37,7 +37,7 @@ export default function AccountMenu() {
             aria-controls={open ? 'account-menu' : undefined}
             aria-haspopup="true"
             aria-expanded={open ? 'true' : undefined}
-          >{Userfront.user.accountType}
+          >{Userfront.user.email}
           </Button>
         </Tooltip>
       </Box>
