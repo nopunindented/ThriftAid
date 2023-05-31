@@ -92,7 +92,16 @@ export class Signup extends React.Component {
             />
           </label>
           <label>
-            <input className="radiobuttons"
+            <input className="thriftradio"
+              name="typeofaccount"
+              type="radio"
+              placeholder="Verify Password"
+              value="ThriftStore"
+              onChange={this.handleInputChange}
+            />
+          </label>
+          <label>
+            <input className="homelessradio"
               name="typeofaccount"
               type="radio"
               placeholder="Verify Password"
