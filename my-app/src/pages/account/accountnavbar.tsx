@@ -10,6 +10,7 @@ import Settings from '@mui/icons-material/Settings';
 import Logout from '@mui/icons-material/Logout';
 import Userfront from "@userfront/react";
 import { Button } from '@mui/material';
+import { Signup } from './signuppageform/Signform';
 
 
 const handleLogout = () => {
@@ -36,7 +37,7 @@ export default function AccountMenu() {
             aria-controls={open ? 'account-menu' : undefined}
             aria-haspopup="true"
             aria-expanded={open ? 'true' : undefined}
-          >{Userfront.user.email}
+          >{Userfront.user.accountType}
           </Button>
         </Tooltip>
       </Box>

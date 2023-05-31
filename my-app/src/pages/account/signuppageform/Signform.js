@@ -40,6 +40,9 @@ export class Signup extends React.Component {
     if (this.state.password !== this.state.passwordVerify) {
       return this.setAlertMessage('Passwords must match');
     }
+    if (this.state.accountType === '') {
+      return this.setAlertMessage('Must choose an account type');
+    }
     // Call Userfront.signup()
     Userfront.signup({
       method: "password",
@@ -56,7 +59,6 @@ export class Signup extends React.Component {
   setAlertMessage(message) {
     this.setState({ alertMessage: message });
   }
-
   render() {
     return (
       <div>
@@ -92,23 +94,27 @@ export class Signup extends React.Component {
             />
           </label>
           <label>
-            <input className="thriftradio"
-              name="typeofaccount"
-              type="radio"
-              placeholder="Verify Password"
-              value="ThriftStore"
-              onChange={this.handleInputChange}
+            <input
+            className="thriftradio"
+            name="accountType"
+            type="radio"
+            value="thrift store"
+            checked={this.state.accountType === "thrift store"}
+            onChange={this.handleInputChange}
             />
+            Thrift Store
           </label>
           <label>
-            <input className="homelessradio"
-              name="typeofaccount"
-              type="radio"
-              placeholder="Verify Password"
-              value="ThriftStore"
-              onChange={this.handleInputChange}
+            <input
+            className="homelessradio"
+            name="accountType"
+            type="radio"
+            value="homeless shelter"
+            checked={this.state.accountType === "homeless shelter"}
+            onChange={this.handleInputChange}
             />
-          </label>
+            Homeless Shelter
+</label>
           <Button
       type="submit"
       sx={{
