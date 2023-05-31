@@ -1,5 +1,6 @@
 import Userfront from "@userfront/react";
 import React from "react";
+import { Button } from "@mui/material";
 
 
 Userfront.init("rbv5jmqn");
@@ -10,7 +11,7 @@ export class Signup extends React.Component {
     super(props);
     this.state = {
       email: "",
-      accountName: "",
+      accountType: "",
       password: "",
       passwordVerify: "",
       alertMessage: ""
@@ -45,7 +46,7 @@ export class Signup extends React.Component {
       email: this.state.email,
       password: this.state.password,
       data: {
-        accountName: this.state.accountName
+        accountType: this.state.accountType
       }
     }).catch((error) => {
       this.setAlertMessage(error.message);
@@ -64,16 +65,15 @@ export class Signup extends React.Component {
         <Alert message={this.state.alertMessage} />
         <form onSubmit={this.handleSubmit}>
           <label>
-            Email address
-            <input
+            <input className="emailinputbar"
               name="email"
               type="email"
+              placeholder="Email"
               value={this.state.email}
               onChange={this.handleInputChange}
             />
           </label>
           <label>
-            Password
             <input className="passwordinputbar"
               name="password"
               type="password"
@@ -83,15 +83,48 @@ export class Signup extends React.Component {
             />
           </label>
           <label>
-            Verify password
-            <input
+            <input className="verifypasswordinputbar"
               name="passwordVerify"
               type="password"
+              placeholder="Verify Password"
               value={this.state.passwordVerify}
               onChange={this.handleInputChange}
             />
           </label>
-          <button type="submit">Sign up</button>
+          <label>
+            <input className="radiobuttons"
+              name="typeofaccount"
+              type="radio"
+              placeholder="Verify Password"
+              value="ThriftStore"
+              onChange={this.handleInputChange}
+            />
+          </label>
+          <Button
+      type="submit"
+      sx={{
+        position:'absolute',
+        display: "flex",
+        color: "#F7F3F3",
+        fontFamily: 'Noto Sans',
+        fontSize: 30,
+        fontStyle: 'normal',
+        fontWeight: 700,
+        textAlign: 'center',
+        height: 50,
+        left: -375,
+        top: -40,
+        width: 250,
+        textTransform: 'none',
+        bgcolor: "#24a0ed",
+        ":hover": {
+          bgcolor: "#0792e8",
+          color: "#F7F3F3",
+          textTransform: 'none',
+        }
+      }} >
+      Sign up
+    </Button>
         </form>
       </div>
       </div>

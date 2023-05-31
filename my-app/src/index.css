@@ -224,14 +224,52 @@ overflow: hidden;
   border-radius: 3px;
   position: absolute;
   left: -397px;
-  top: -150px;
+  top: -170px;
   width: 290px;
-  height: 38px;
+  height: 35px;
   border-width: 0.5px;
   border-color: '#D3D3D3';
 }
 
 .passwordinputbar::placeholder{
+  position: relative;
+  font-size: 18px;
+  font-weight: 10;
+  left: 10px;
+  top: 3px;
+}
+
+.verifypasswordinputbar{
+  border-radius: 3px;
+  position: absolute;
+  left: -397px;
+  top: -120px;
+  width: 290px;
+  height: 35px;
+  border-width: 0.5px;
+  border-color: '#D3D3D3';
+}
+
+.verifypasswordinputbar::placeholder{
+  position: relative;
+  font-size: 18px;
+  font-weight: 10;
+  left: 10px;
+  top: 3px;
+}
+
+.emailinputbar{
+  border-radius: 3px;
+  position: absolute;
+  left: -397px;
+  top: -220px;
+  width: 290px;
+  height: 35px;
+  border-width: 0.5px;
+  border-color: '#D3D3D3';
+}
+
+.emailinputbar::placeholder{
   position: relative;
   font-size: 18px;
   font-weight: 10;
