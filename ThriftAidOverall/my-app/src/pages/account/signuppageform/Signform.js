@@ -106,7 +106,7 @@ export class Signup extends React.Component {
             />
             Thrift Store
           </label>
-          <label>
+          <label className="radiohomelesslabel">
             <input
             className="homelessradio"
             name="accountType"
@@ -130,7 +130,7 @@ export class Signup extends React.Component {
         textAlign: 'center',
         height: 30,
         left: -388,
-        top: -10,
+        top: 20,
         width: 312,
         textTransform: 'none',
         bgcolor: "#24a0ed",
@@ -144,6 +144,7 @@ export class Signup extends React.Component {
     </Button>
         </form>
       </div>
+      <div className="oroption">or</div>
       </div>
     );
   }
