@@ -13,22 +13,39 @@ export default function UserNavbar() {
     Userfront.logout();
   };
 
-  if(Userfront.accessToken()){
-  return (
-    <div>
-      <nav>
-        <Link to="/">
-          <Logo />
-        </Link>
-        <Link to="/postings">
-          <SearchButton />
-        </Link>
-        <AccountMenu />
-      </nav>
-    </div>
-  )
-  }
-  else{
+  const currentPath = window.location.pathname;
+
+  if (Userfront.accessToken()) {
+    return (
+      <div>
+        <nav>
+          <Link to="/">
+            <Logo />
+          </Link>
+          <Link to="/postings">
+            <SearchButton />
+          </Link>
+          <AccountMenu />
+        </nav>
+      </div>
+    );
+  } else if (currentPath === "/login" || currentPath === "/signup") {
     return null;
+  } else {
+    return (
+      <div>
+        <nav>
+          <Link to="/">
+            <Logo />
+          </Link>
+          <Link to="/postings">
+            <SearchButton />
+          </Link>
+          <SignupButton />
+          <LoginButton />
+        </nav>
+      </div>
+    );
   }
 }
+

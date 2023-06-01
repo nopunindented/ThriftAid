@@ -2,6 +2,9 @@ import React from "react";
 import Button from '@mui/material/Button';
 
 
+const handleLoginClick = () => {
+  window.location.href = 'http://localhost:3000/login';
+};
 
 export default function LoginButton() {
     return(
@@ -23,7 +26,7 @@ export default function LoginButton() {
           color: "#25A96F"
         }
       }}
-    onClick={'http://localhost:3000/login'}>
+    onClick={handleLoginClick}>
       Login
     </Button>
   );

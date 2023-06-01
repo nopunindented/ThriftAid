@@ -1,7 +1,9 @@
 import React from "react";
 import Button from '@mui/material/Button';
 
-
+const handleSignupBClick = () => {
+  window.location.href = 'http://localhost:3000/signup';
+};
 
 export default function SignupButton() {
     return(
@@ -23,7 +25,7 @@ export default function SignupButton() {
           color: "#25A96F"
         }
       }}
-    onClick={'http://localhost:3000/signup'}>
+    onClick={handleSignupBClick}>
       Sign up
     </Button>
   );
