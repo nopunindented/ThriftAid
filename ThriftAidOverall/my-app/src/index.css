@@ -303,11 +303,18 @@ overflow: hidden;
   top: 3px;
 }
 
+
+.radiothriftlabel{
+  position: absolute;
+  left: -360px;
+  top: -35px;
+  font-size: 14px;
+}
 .thriftradio{
   border-radius: 3px;
   position: absolute;
-  left: -390px;
-  top: -70px;
+  left: -30px;
+  top: 0.5px;
   border-width: 0.5px;
   border-color: '#D3D3D3';
 }

@@ -95,11 +95,11 @@ export class Signup extends React.Component {
               onChange={this.handleInputChange}
             />
           </label>
-          <label>
+          <label className="radiothriftlabel">
             <input
             className="thriftradio"
             name="accountType"
-            type="button"
+            type="radio"
             value="thrift store"
             checked={this.state.accountType === "thrift store"}
             onChange={this.handleInputChange}
@@ -110,7 +110,7 @@ export class Signup extends React.Component {
             <input
             className="homelessradio"
             name="accountType"
-            type="button"
+            type="radio"
             value="homeless shelter"
             checked={this.state.accountType === "homeless shelter"}
             onChange={this.handleInputChange}
