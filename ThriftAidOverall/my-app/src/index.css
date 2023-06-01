@@ -208,6 +208,7 @@ overflow: hidden;
   height: 10px;
 }
 
+/*
 .signupbox{
   position: absolute;
   display: inline-block;
@@ -219,16 +220,20 @@ overflow: hidden;
   background: white;
   box-shadow: 0px 4px 30px rgba(0.1, 0.1, 0.1, 0.25);
 }
+*/
 
 .passwordinputbar{
   border-radius: 3px;
   position: absolute;
-  left: -397px;
-  top: -170px;
-  width: 290px;
+  left: -390px;
+  top: -182px;
+  width: 310px;
   height: 35px;
+  font-size: 18px;
+  font-weight: 10;
   border-width: 0.5px;
   border-color: '#D3D3D3';
+  text-indent: 5px;
 }
 
 .passwordinputbar::placeholder{
@@ -242,12 +247,25 @@ overflow: hidden;
 .verifypasswordinputbar{
   border-radius: 3px;
   position: absolute;
-  left: -397px;
-  top: -120px;
-  width: 290px;
+  left: -390px;
+  top: -125px;
+  width: 310px;
   height: 35px;
+  font-size: 18px;
+  font-weight: 10;
   border-width: 0.5px;
   border-color: '#D3D3D3';
+  text-indent: 5px;
+}
+
+.verifypasswordinputbar:focus{
+  outline: 0;
+  border: 3px solid #24a0ed;
+}
+
+.passwordinputbar:focus{
+  outline: 0;
+  border: 3px solid #24a0ed;
 }
 
 .verifypasswordinputbar::placeholder{
@@ -261,12 +279,20 @@ overflow: hidden;
 .emailinputbar{
   border-radius: 3px;
   position: absolute;
-  left: -397px;
-  top: -220px;
-  width: 290px;
+  left: -390px;
+  top: -240px;
+  font-size: 18px;
+  font-weight: 10;
+  width: 310px;
   height: 35px;
   border-width: 0.5px;
   border-color: '#D3D3D3';
+  text-indent: 5px;
+}
+
+.emailinputbar:focus{
+  outline: 0;
+  border: 3px solid #24a0ed;
 }
 
 .emailinputbar::placeholder{
@@ -275,4 +301,13 @@ overflow: hidden;
   font-weight: 10;
   left: 10px;
   top: 3px;
+}
+
+.thriftradio{
+  border-radius: 3px;
+  position: absolute;
+  left: -390px;
+  top: -70px;
+  border-width: 0.5px;
+  border-color: '#D3D3D3';
 }

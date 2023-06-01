@@ -6,6 +6,7 @@ import { Button } from "@mui/material";
 Userfront.init("rbv5jmqn");
 
 // Define the Signup form component
+
 export class Signup extends React.Component {
   constructor(props) {
     super(props);
@@ -82,6 +83,7 @@ export class Signup extends React.Component {
               placeholder="Password"
               value={this.state.password}
               onChange={this.handleInputChange}
+
             />
           </label>
           <label>
@@ -97,7 +99,7 @@ export class Signup extends React.Component {
             <input
             className="thriftradio"
             name="accountType"
-            type="radio"
+            type="button"
             value="thrift store"
             checked={this.state.accountType === "thrift store"}
             onChange={this.handleInputChange}
@@ -108,7 +110,7 @@ export class Signup extends React.Component {
             <input
             className="homelessradio"
             name="accountType"
-            type="radio"
+            type="button"
             value="homeless shelter"
             checked={this.state.accountType === "homeless shelter"}
             onChange={this.handleInputChange}
@@ -122,14 +124,14 @@ export class Signup extends React.Component {
         display: "flex",
         color: "#F7F3F3",
         fontFamily: 'Noto Sans',
-        fontSize: 30,
+        fontSize: 15,
         fontStyle: 'normal',
         fontWeight: 700,
         textAlign: 'center',
-        height: 50,
-        left: -375,
-        top: -40,
-        width: 250,
+        height: 30,
+        left: -388,
+        top: -10,
+        width: 312,
         textTransform: 'none',
         bgcolor: "#24a0ed",
         ":hover": {
