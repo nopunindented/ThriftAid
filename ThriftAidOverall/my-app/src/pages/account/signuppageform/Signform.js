@@ -7,6 +7,10 @@ Userfront.init("rbv5jmqn");
 
 // Define the Signup form component
 
+const handleLoginClick = () => {
+  window.location.href = 'http://localhost:3000/login';
+};
+
 export class Signup extends React.Component {
   constructor(props) {
     super(props);
@@ -145,6 +149,32 @@ export class Signup extends React.Component {
         </form>
       </div>
       <div className="oroption">or</div>
+      <Button
+      type="text"
+      sx={{
+        position:'absolute',
+        display: "flex",
+        color: "#F7F3F3",
+        fontFamily: 'Noto Sans',
+        fontSize: 15,
+        fontStyle: 'normal',
+        fontWeight: 700,
+        textAlign: 'center',
+        height: 30,
+        left: 612,
+        top: 585,
+        width: 312,
+        textTransform: 'none',
+        bgcolor: "#5ab0f2",
+        ":hover": {
+          bgcolor: "#4baaf2",
+          color: "#F7F3F3",
+          textTransform: 'none',
+        }
+      }}
+    onClick={handleLoginClick}>
+      Click here to login instead!
+    </Button>
       </div>
     );
   }
