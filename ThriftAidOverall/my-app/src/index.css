@@ -226,7 +226,7 @@ overflow: hidden;
   border-radius: 3px;
   position: absolute;
   left: -390px;
-  top: -182px;
+  top: -168px;
   width: 310px;
   height: 35px;
   font-size: 18px;
@@ -248,7 +248,7 @@ overflow: hidden;
   border-radius: 3px;
   position: absolute;
   left: -390px;
-  top: -125px;
+  top: -111px;
   width: 310px;
   height: 35px;
   font-size: 18px;
@@ -280,7 +280,7 @@ overflow: hidden;
   border-radius: 3px;
   position: absolute;
   left: -390px;
-  top: -240px;
+  top: -226px;
   font-size: 18px;
   font-weight: 10;
   width: 310px;
@@ -307,14 +307,14 @@ overflow: hidden;
 .radiothriftlabel{
   position: absolute;
   left: -360px;
-  top: -35px;
+  top: -10px;
   font-size: 14px;
 }
 .thriftradio{
   border-radius: 3px;
   position: absolute;
   left: -30px;
-  top: 0.5px;
+  top: 2px;
   border-width: 0.5px;
   border-color: '#D3D3D3';
 }
@@ -322,7 +322,7 @@ overflow: hidden;
 .radiohomelesslabel{
   position: absolute;
   left: -250px;
-  top: -35px;
+  top: -10px;
   font-size: 14px;
 }
 
@@ -330,7 +330,7 @@ overflow: hidden;
   border-radius: 3px;
   position: absolute;
   left: -30px;
-  top: 0.5px;
+  top: 2px;
   border-width: 0.5px;
   border-color: '#D3D3D3';
 }
@@ -338,8 +338,29 @@ overflow: hidden;
 .oroption{
   position: absolute;
   left: 758px;
-  top: 556px;
+  top: 570px;
   font-size: 16px;
   font-weight: 20px;
   color: #919394;
+}
+
+.signupshirt{
+  left: 701px;
+  position: absolute;
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  top: 70px;
+  
+}
+
+.ellipse5{
+position: absolute;
+width: 148px;
+height: 150px;
+left: 695px;
+border-radius: 50%;
+top: 7px;
+background: rgba(53, 235, 150, 0.488);
+box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);
 }

@@ -1,6 +1,8 @@
 import Userfront from "@userfront/react";
 import React from "react";
 import { Button } from "@mui/material";
+import SignupLogo from "./Signuppagelogo.js";
+import { Link } from "react-router-dom";
 
 
 Userfront.init("rbv5jmqn");
@@ -134,7 +136,7 @@ export class Signup extends React.Component {
         textAlign: 'center',
         height: 30,
         left: -388,
-        top: 20,
+        top: 34,
         width: 312,
         textTransform: 'none',
         bgcolor: "#24a0ed",
@@ -162,7 +164,7 @@ export class Signup extends React.Component {
         textAlign: 'center',
         height: 30,
         left: 612,
-        top: 585,
+        top: 599,
         width: 312,
         textTransform: 'none',
         bgcolor: "#5ab0f2",
@@ -175,6 +177,7 @@ export class Signup extends React.Component {
     onClick={handleLoginClick}>
       Click here to login instead!
     </Button>
+    <Link to='/'><SignupLogo /></Link>
       </div>
     );
   }
