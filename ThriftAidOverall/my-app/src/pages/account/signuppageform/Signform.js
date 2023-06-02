@@ -41,7 +41,7 @@ export class Signup extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
     // Reset the alert to empty
-    this.setAlertMessage();
+    this.setAlertMessage("");
     // Verify that the passwords match
     if (this.state.password !== this.state.passwordVerify) {
       this.setAlertMessage("Passwords must match");
@@ -80,13 +80,13 @@ export class Signup extends React.Component {
               className="notmatchpassword"
               style={{
                 position: 'absolute',
-                top: -100,
-                left: 100,
+                top: -270,
                 backgroundColor: "transparent",
                 color: "red",
-                fontSize: "15px",
+                fontSize: "20px",
                 width: 30,
-                whiteSpace: 'nowrap'
+                whiteSpace: 'nowrap',
+                left: alertMessage === "Must choose an account type" ? -350 : -330
               }}
             >
               {alertMessage}
@@ -232,3 +232,5 @@ class SSOButton extends React.Component {
 }
 
 export default Signup;
+
+
