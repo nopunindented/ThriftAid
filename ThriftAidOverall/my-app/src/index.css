@@ -345,22 +345,30 @@ overflow: hidden;
 }
 
 .signupshirt{
-  left: 701px;
+  left: 5px;
   position: absolute;
   display: inline-block;
-  width: 50px;
-  height: 50px;
-  top: 70px;
+  width: 52px;
+  height: 52px;
+  top: 5.5px;
   
 }
 
 .ellipse5{
 position: absolute;
-width: 148px;
-height: 150px;
-left: 695px;
+width: 60px;
+height: 60px;
+left: 740px;
 border-radius: 50%;
-top: 7px;
-background: rgba(53, 235, 150, 0.488);
+top: 110px;
+background: rgba(24, 170, 237, 0.589);
 box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);
 }
+
+.singupwelcometo{
+  position: absolute;
+  left: 740px;
+  top: 175px;
+  font-family: 'Open sans';
+}
+

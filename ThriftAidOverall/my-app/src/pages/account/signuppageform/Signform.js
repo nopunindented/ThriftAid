@@ -45,7 +45,11 @@ export class Signup extends React.Component {
     this.setAlertMessage();
     // Verify that the passwords match
     if (this.state.password !== this.state.passwordVerify) {
-      return this.setAlertMessage('Passwords must match');
+      return (
+        <div className="notmatchpassword" style={{ backgroundColor: 'red', color: 'white', padding: '10px' }}>
+          {this.setAlertMessage('Passwords must match')}
+        </div>
+      );
     }
     if (this.state.accountType === '') {
       return this.setAlertMessage('Must choose an account type');
@@ -178,6 +182,7 @@ export class Signup extends React.Component {
       Click here to login instead!
     </Button>
     <Link to='/'><SignupLogo /></Link>
+    <div className="singupwelcometo">Sign up</div>
       </div>
     );
   }
