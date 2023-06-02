@@ -4,13 +4,12 @@ import { Button } from "@mui/material";
 import SignupLogo from "./Signuppagelogo.js";
 import { Link } from "react-router-dom";
 
-
 Userfront.init("rbv5jmqn");
 
 // Define the Signup form component
 
 const handleLoginClick = () => {
-  window.location.href = 'http://localhost:3000/login';
+  window.location.href = "http://localhost:3000/login";
 };
 
 export class Signup extends React.Component {
@@ -45,14 +44,12 @@ export class Signup extends React.Component {
     this.setAlertMessage();
     // Verify that the passwords match
     if (this.state.password !== this.state.passwordVerify) {
-      return (
-        <div className="notmatchpassword" style={{ backgroundColor: 'red', color: 'white', padding: '10px' }}>
-          {this.setAlertMessage('Passwords must match')}
-        </div>
-      );
+      this.setAlertMessage("Passwords must match");
+      return;
     }
-    if (this.state.accountType === '') {
-      return this.setAlertMessage('Must choose an account type');
+    if (this.state.accountType === "") {
+      this.setAlertMessage("Must choose an account type");
+      return;
     }
     // Call Userfront.signup()
     Userfront.signup({
@@ -70,132 +67,146 @@ export class Signup extends React.Component {
   setAlertMessage(message) {
     this.setState({ alertMessage: message });
   }
+
   render() {
+    const { alertMessage } = this.state;
+
     return (
       <div>
-      <div className="signupbox" />
-      <div className="signon">
-        <Alert message={this.state.alertMessage} />
-        <form onSubmit={this.handleSubmit}>
-          <label>
-            <input className="emailinputbar"
-              name="email"
-              type="email"
-              placeholder="Email"
-              value={this.state.email}
-              onChange={this.handleInputChange}
-            />
-          </label>
-          <label>
-            <input className="passwordinputbar"
-              name="password"
-              type="password"
-              placeholder="Password"
-              value={this.state.password}
-              onChange={this.handleInputChange}
-
-            />
-          </label>
-          <label>
-            <input className="verifypasswordinputbar"
-              name="passwordVerify"
-              type="password"
-              placeholder="Verify Password"
-              value={this.state.passwordVerify}
-              onChange={this.handleInputChange}
-            />
-          </label>
-          <label className="radiothriftlabel">
-            <input
-            className="thriftradio"
-            name="accountType"
-            type="radio"
-            value="thrift store"
-            checked={this.state.accountType === "thrift store"}
-            onChange={this.handleInputChange}
-            />
-            Thrift Store
-          </label>
-          <label className="radiohomelesslabel">
-            <input
-            className="homelessradio"
-            name="accountType"
-            type="radio"
-            value="homeless shelter"
-            checked={this.state.accountType === "homeless shelter"}
-            onChange={this.handleInputChange}
-            />
-            Homeless Shelter
-</label>
-          <Button
-      type="submit"
-      sx={{
-        position:'absolute',
-        display: "flex",
-        color: "#F7F3F3",
-        fontFamily: 'Noto Sans',
-        fontSize: 15,
-        fontStyle: 'normal',
-        fontWeight: 700,
-        textAlign: 'center',
-        height: 30,
-        left: -388,
-        top: 34,
-        width: 312,
-        textTransform: 'none',
-        bgcolor: "#24a0ed",
-        ":hover": {
-          bgcolor: "#0792e8",
-          color: "#F7F3F3",
-          textTransform: 'none',
-        }
-      }} >
-      Sign up
-    </Button>
-        </form>
-      </div>
-      <div className="oroption">or</div>
-      <Button
-      type="text"
-      sx={{
-        position:'absolute',
-        display: "flex",
-        color: "#F7F3F3",
-        fontFamily: 'Noto Sans',
-        fontSize: 15,
-        fontStyle: 'normal',
-        fontWeight: 700,
-        textAlign: 'center',
-        height: 30,
-        left: 612,
-        top: 599,
-        width: 312,
-        textTransform: 'none',
-        bgcolor: "#5ab0f2",
-        ":hover": {
-          bgcolor: "#4baaf2",
-          color: "#F7F3F3",
-          textTransform: 'none',
-        }
-      }}
-    onClick={handleLoginClick}>
-      Click here to login instead!
-    </Button>
-    <Link to='/'><SignupLogo /></Link>
-    <div className="singupwelcometo">Sign up</div>
+        <div className="signupbox" />
+        <div className="signon">
+          {alertMessage && (
+            <div
+              className="notmatchpassword"
+              style={{
+                position: 'absolute',
+                top: -100,
+                left: 100,
+                backgroundColor: "transparent",
+                color: "red",
+                fontSize: "15px",
+                width: 30,
+                whiteSpace: 'nowrap'
+              }}
+            >
+              {alertMessage}
+            </div>
+          )}
+          <form onSubmit={this.handleSubmit}>
+            <label>
+              <input
+                className="emailinputbar"
+                name="email"
+                type="email"
+                placeholder="Email"
+                value={this.state.email}
+                onChange={this.handleInputChange}
+              />
+            </label>
+            <label>
+              <input
+                className="passwordinputbar"
+                name="password"
+                type="password"
+                placeholder="Password"
+                value={this.state.password}
+                onChange={this.handleInputChange}
+              />
+            </label>
+            <label>
+              <input
+                className="verifypasswordinputbar"
+                name="passwordVerify"
+                type="password"
+                placeholder="Verify Password"
+                value={this.state.passwordVerify}
+                onChange={this.handleInputChange}
+              />
+            </label>
+            <label className="radiothriftlabel">
+              <input
+                className="thriftradio"
+                name="accountType"
+                type="radio"
+                value="thrift store"
+                checked={this.state.accountType === "thrift store"}
+                onChange={this.handleInputChange}
+              />
+              Thrift Store
+            </label>
+            <label className="radiohomelesslabel">
+              <input
+                className="homelessradio"
+                name="accountType"
+                type="radio"
+                value="homeless shelter"
+                checked={this.state.accountType === "homeless shelter"}
+                onChange={this.handleInputChange}
+              />
+              Homeless Shelter
+            </label>
+            <Button
+              type="submit"
+              sx={{
+                position: "absolute",
+                display: "flex",
+                color: "#F7F3F3",
+                fontFamily: "Noto Sans",
+                fontSize: 15,
+                fontStyle: "normal",
+                fontWeight: 700,
+                textAlign: "center",
+                height: 30,
+                left: -388,
+                top: 34,
+                width: 312,
+                textTransform: "none",
+                bgcolor: "#24a0ed",
+                ":hover": {
+                  bgcolor: "#0792e8",
+                  color: "#F7F3F3",
+                  textTransform: "none"
+                }
+              }}
+            >
+              Sign up
+            </Button>
+          </form>
+        </div>
+        <div className="oroption">or</div>
+        <Button
+          type="text"
+          sx={{
+            position: "absolute",
+            display: "flex",
+            color: "#F7F3F3",
+            fontFamily: "Noto Sans",
+            fontSize: 15,
+            fontStyle: "normal",
+            fontWeight: 700,
+            textAlign: "center",
+            height: 30,
+            left: 612,
+            top: 599,
+            width: 312,
+            textTransform: "none",
+            bgcolor: "#5ab0f2",
+            ":hover": {
+              bgcolor: "#4baaf2",
+              color: "#F7F3F3",
+              textTransform: "none"
+            }
+          }}
+          onClick={handleLoginClick}
+        >
+          Click here to login instead!
+        </Button>
+        <Link to="/">
+          <SignupLogo />
+        </Link>
+        <div className="singupwelcometo">Sign up</div>
       </div>
     );
-  }
-}
-
-// Define the alert component
-class Alert extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-  render() {
-    if (!this.props.message) return "";
-    return <div id="alert">{this.props.message}</div>;
   }
 }
 
@@ -219,3 +230,5 @@ class SSOButton extends React.Component {
     );
   }
 }
+
+export default Signup;
