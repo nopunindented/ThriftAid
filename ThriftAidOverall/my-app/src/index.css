@@ -232,7 +232,7 @@ overflow: hidden;
   font-size: 18px;
   font-weight: 10;
   border-width: 0.5px;
-  border-color: '#D3D3D3';
+  border-color: #a9a9a9;
   text-indent: 5px;
 }
 
@@ -254,7 +254,7 @@ overflow: hidden;
   font-size: 18px;
   font-weight: 10;
   border-width: 0.5px;
-  border-color: '#D3D3D3';
+  border-color: #a9a9a9;
   text-indent: 5px;
 }
 
@@ -286,7 +286,7 @@ overflow: hidden;
   width: 310px;
   height: 35px;
   border-width: 0.5px;
-  border-color: '#D3D3D3';
+  border-color: #a9a9a9;
   text-indent: 5px;
 }
 
@@ -372,3 +372,21 @@ box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);
   font-family: 'Open sans';
 }
 
+.typeofaccountoutline {
+  position: absolute;
+  background: transparent;
+  left: 610px;
+  top: 485px;
+  width: 315px;
+  height: 30px;
+  border-radius: 3px;
+  border: 0.1px solid #a9a9a9;
+}
+
+.choicebetweenaccounts{
+  position: absolute;
+  left: 610px;
+  top: 460px;
+  font-family: 'Open sans';
+  font-size: 12px;
+}

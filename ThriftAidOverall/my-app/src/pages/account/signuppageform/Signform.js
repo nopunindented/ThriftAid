@@ -73,6 +73,7 @@ export class Signup extends React.Component {
 
     return (
       <div>
+        <div className="typeofaccountoutline"></div>
         <div className="signupbox" />
         <div className="signon">
           {alertMessage && (
@@ -187,7 +188,7 @@ export class Signup extends React.Component {
             textAlign: "center",
             height: 30,
             left: 612,
-            top: 599,
+            top: 601,
             width: 312,
             textTransform: "none",
             bgcolor: "#5ab0f2",
@@ -205,6 +206,7 @@ export class Signup extends React.Component {
           <SignupLogo />
         </Link>
         <div className="singupwelcometo">Sign up</div>
+        <div className="choicebetweenaccounts">Choose your account type:</div>
       </div>
     );
   }
