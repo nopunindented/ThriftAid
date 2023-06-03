@@ -6,7 +6,8 @@ import { Link } from "react-router-dom";
 
 Userfront.init("rbv5jmqn");
 
-// Define the Signup form component
+
+
 
 const handleLoginClick = () => {
   window.location.href = "http://localhost:3000/login";
@@ -47,7 +48,7 @@ export class Signup extends React.Component {
       this.setAlertMessage("Passwords must match");
       return;
     }
-    if (this.state.accountType === "") {
+    else if (this.state.accountType === "") {
       this.setAlertMessage("Must choose an account type");
       return;
     }
