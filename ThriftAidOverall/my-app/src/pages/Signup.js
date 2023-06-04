@@ -2,15 +2,16 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
+import { Button } from "@mui/material";
 
 const Signup = () => {
   const navigate = useNavigate();
   const [inputValue, setInputValue] = useState({
     email: "",
     password: "",
-    username: "",
+    usertype: "",
   });
-  const { email, password, username } = inputValue;
+  const { email, password, usertype } = inputValue;
   const handleOnChange = (e) => {
     const { name, value } = e.target;
     setInputValue({
@@ -32,7 +33,7 @@ const Signup = () => {
     e.preventDefault();
     try {
       const { data } = await axios.post(
-        "http://localhost:4000/signup",
+        "http://localhost:3000/signup",
         {
           ...inputValue,
         },
@@ -54,7 +55,7 @@ const Signup = () => {
       ...inputValue,
       email: "",
       password: "",
-      username: "",
+      usertype: "",
     });
   };
 
@@ -63,36 +64,79 @@ const Signup = () => {
       <h2>Signup Account</h2>
       <form onSubmit={handleSubmit}>
         <div>
-          <label htmlFor="email">Email</label>
+          <label >
           <input
+            className="emailinputbar"
             type="email"
             name="email"
             value={email}
-            placeholder="Enter your email"
+            placeholder="Email"
             onChange={handleOnChange}
           />
+          </label>
         </div>
         <div>
-          <label htmlFor="email">Username</label>
-          <input
-            type="text"
-            name="username"
-            value={username}
-            placeholder="Enter your username"
-            onChange={handleOnChange}
-          />
-        </div>
+        <label className="radiothriftlabel">
+              <input
+                className="thriftradio"
+                name="accountType"
+                type="radio"
+                value="Thrift Store"
+                checked={usertype === "thrift store"}
+                onChange={handleOnChange}
+              />
+              Thrift Store
+            </label>
+            <label className="radiohomelesslabel">
+              <input
+                className="homelessradio"
+                name="accountType"
+                type="radio"
+                value="Homeless Shelter"
+                checked={usertype === "Homeless Shelter"}
+                onChange={handleOnChange}
+              />
+              Homeless Shelter
+            </label>
+            </div>
         <div>
-          <label htmlFor="password">Password</label>
+          <label>
           <input
+            className="passwordinputbar"
             type="password"
             name="password"
             value={password}
             placeholder="Enter your password"
             onChange={handleOnChange}
           />
+          </label>
         </div>
-        <button type="submit">Submit</button>
+        <Button
+              type="submit"
+              sx={{
+                position: "absolute",
+                display: "flex",
+                color: "#F7F3F3",
+                fontFamily: "Noto Sans",
+                fontSize: 15,
+                fontStyle: "normal",
+                fontWeight: 700,
+                textAlign: "center",
+                height: 30,
+                left: 388,
+                top: 34,
+                width: 312,
+                textTransform: "none",
+                bgcolor: "#24a0ed",
+                ":hover": {
+                  bgcolor: "#0792e8",
+                  color: "#F7F3F3",
+                  textTransform: "none"
+                }
+              }}
+            >
+              Sign up
+            </Button>
         <span>
           Already have an account? <Link to={"/login"}>Login</Link>
         </span>
