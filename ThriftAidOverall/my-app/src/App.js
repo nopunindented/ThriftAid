@@ -7,8 +7,8 @@ import Home from './pages/Home'
 import { useLocation } from 'react-router-dom';
 import NavbarMaybe from './navmaybe';
 import Dashboard from './pages/userdashboard';
-import SignupFormNew from './pages/account/signuppageform/newsignupage';
-import { LoginForm } from './pages/account/loginpage/Loginpage';
+import { Signup } from './pages/account/signuppageform/Signform';
+import Loggedin from './pages/account/loginpage/Loginpage';
 import Userfront from "@userfront/core";
 import UserNavbar from './loggedinnavbar/UserNavbar';
 
