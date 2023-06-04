@@ -8,7 +8,7 @@ import { useLocation } from 'react-router-dom';
 import NavbarMaybe from './navmaybe';
 import Dashboard from './pages/userdashboard';
 import { Signup } from './pages/account/signuppageform/Signform';
-import Loggedin from './pages/account/loginpage/Loginpage';
+import { LoginForm } from './pages/account/loginpage/Loginpage';
 import Userfront from "@userfront/core";
 import UserNavbar from './loggedinnavbar/UserNavbar';
 
@@ -19,7 +19,7 @@ function App() {
         <Route exact path="/" Component={Home} />
         <Route exact path= "/signup" Component={Signup} />
         <Route exact path= "/dashboard" Component={Dashboard} />
-        <Route exact path= "/login" Component={Loggedin} />
+        <Route exact path= "/login" Component={LoginForm} />
       </Routes>
       <NavbarMaybe />
     </div>
