@@ -3,6 +3,11 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import { Button } from "@mui/material";
+import SignupLogo from "./account/signuppageform/Signuppagelogo";
+
+const handleLoginClick = () => {
+  window.location.href = "http://localhost:3000/login";
+};
 
 const Signup = () => {
   const navigate = useNavigate();
@@ -123,8 +128,8 @@ const Signup = () => {
                 fontWeight: 700,
                 textAlign: "center",
                 height: 30,
-                left: 388,
-                top: 34,
+                left: 612,
+                top: 505,
                 width: 312,
                 textTransform: "none",
                 bgcolor: "#24a0ed",
@@ -141,7 +146,39 @@ const Signup = () => {
           Already have an account? <Link to={"/login"}>Login</Link>
         </span>
       </form>
+
       <ToastContainer />
+      <div className="oroption">or</div>
+        <Button
+          type="text"
+          sx={{
+            position: "absolute",
+            display: "flex",
+            color: "#F7F3F3",
+            fontFamily: "Noto Sans",
+            fontSize: 15,
+            fontStyle: "normal",
+            fontWeight: 700,
+            textAlign: "center",
+            height: 30,
+            left: 612,
+            top: 601,
+            width: 312,
+            textTransform: "none",
+            bgcolor: "#5ab0f2",
+            ":hover": {
+              bgcolor: "#4baaf2",
+              color: "#F7F3F3",
+              textTransform: "none"
+            }
+          }}
+          onClick={handleLoginClick}
+        >
+          Click here to login instead!
+        </Button>
+        <Link to="/">
+          <SignupLogo />
+        </Link>
     </div>
   );
 };
