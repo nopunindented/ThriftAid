@@ -6,7 +6,7 @@ import { Button } from "@mui/material";
 import SignupLogo from "./account/signuppageform/Signuppagelogo";
 
 const handleLoginClick = () => {
-  window.location.href = "http://localhost:3000/login";
+  window.location.href = "http://localhost:4000/login";
 };
 
 const Signup = () => {
@@ -38,7 +38,7 @@ const Signup = () => {
     e.preventDefault();
     try {
       const { data } = await axios.post(
-        "http://localhost:3000/signup",
+        "http://localhost:4000/signup",
         {
           ...inputValue,
         },
@@ -66,7 +66,6 @@ const Signup = () => {
 
   return (
     <div className="form_container">
-      <h2>Signup Account</h2>
       <form onSubmit={handleSubmit}>
         <div>
           <label >
@@ -81,13 +80,13 @@ const Signup = () => {
           </label>
         </div>
         <div>
-        <label className="radiothriftlabel">
+           <label className="radiothriftlabel">
               <input
                 className="thriftradio"
-                name="accountType"
+                name="usertype"
                 type="radio"
                 value="Thrift Store"
-                checked={usertype === "thrift store"}
+                checked={usertype === "Thrift Store"}
                 onChange={handleOnChange}
               />
               Thrift Store
@@ -95,7 +94,7 @@ const Signup = () => {
             <label className="radiohomelesslabel">
               <input
                 className="homelessradio"
-                name="accountType"
+                name="usertype"
                 type="radio"
                 value="Homeless Shelter"
                 checked={usertype === "Homeless Shelter"}
@@ -129,7 +128,7 @@ const Signup = () => {
                 textAlign: "center",
                 height: 30,
                 left: 612,
-                top: 505,
+                top: 535,
                 width: 312,
                 textTransform: "none",
                 bgcolor: "#24a0ed",
@@ -142,9 +141,6 @@ const Signup = () => {
             >
               Sign up
             </Button>
-        <span>
-          Already have an account? <Link to={"/login"}>Login</Link>
-        </span>
       </form>
 
       <ToastContainer />

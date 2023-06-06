@@ -226,7 +226,7 @@ overflow: hidden;
   border-radius: 3px;
   position: absolute;
   left: 610px;
-  top: 386px;
+  top: 400px;
   width: 310px;
   height: 35px;
   font-size: 18px;
@@ -280,7 +280,7 @@ overflow: hidden;
   border-radius: 3px;
   position: absolute;
   left: 610px;
-  top: 326px;
+  top: 346px;
   font-size: 18px;
   font-weight: 10;
   width: 310px;
@@ -306,31 +306,31 @@ overflow: hidden;
 
 .radiothriftlabel{
   position: absolute;
-  left: -360px;
-  top: -10px;
+  left: 642px;
+  top: 485px;
   font-size: 14px;
 }
 .thriftradio{
   border-radius: 3px;
   position: absolute;
-  left: -30px;
-  top: 2px;
+  left: -27px;
+  top: 1px;
   border-width: 0.5px;
   border-color: '#D3D3D3';
 }
 
 .radiohomelesslabel{
   position: absolute;
-  left: 250px;
-  top: 10px;
+  left: 750px;
+  top: 485px;
   font-size: 14px;
 }
 
 .homelessradio{
   border-radius: 3px;
   position: absolute;
-  left: -30px;
-  top: 2px;
+  left: -31px;
+  top: 1px;
   border-width: 0.5px;
   border-color: '#D3D3D3';
 }
