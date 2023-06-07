@@ -1,59 +1,61 @@
-import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import React, { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
+import { registerUser } from "../actions/authActions.js";
+import classnames from "classnames";
 
-const Signup = () => {
+function Register({ registerUser, auth, errors }) {
   const navigate = useNavigate();
-  const [formData, setFormData] = useState({
-    email: '',
-    password: '',
+  const [state, setState] = useState({
+    usertype: "",
+    email: "",
+    password: "",
+    password2: "",
+    errors: {}
   });
 
-  const handleChange = (e) => {
-    setFormData((prevFormData) => ({
-      ...prevFormData,
-      [e.target.name]: e.target.value,
-    }));
+  useEffect(() => {
+    if (auth.isAuthenticated) {
+      navigate("/dashboard");
+    }
+  }, [auth.isAuthenticated, navigate]);
+
+  useEffect(() => {
+    setState((prevState) => ({ ...prevState, errors }));
+  }, [errors]);
+
+  const onChange = (e) => {
+    setState((prevState) => ({ ...prevState, [e.target.id]: e.target.value }));
   };
 
-  const handleSubmit = async (e) => {
+  const onSubmit = (e) => {
     e.preventDefault();
-
-    try {
-      const response = await axios.post('http://localhost:4000/auth/signup', formData, { withCredentials: true });
-      const data = response.data;
-      const { success, message } = data;
-      if (success) {
-        console.log(message); // Replace with your desired action
-        navigate('/dashboard');
-      } else {
-        console.log(message); // Replace with your desired action
-      }
-    } catch (error) {
-      console.log(error); // Replace with your desired action
-      console.log('Server Error'); // Replace with your desired action
-    }
+    const newUser = {
+      usertype: state.usertype,
+      email: state.email,
+      password: state.password,
+      password2: state.password2
+    };
+    registerUser(newUser, navigate);
   };
 
   return (
-    <div>
-      <h2>Signup</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="email">Email</label>
-          <input type="email" name="email" value={formData.email} onChange={handleChange} />
-        </div>
-        <div>
-          <label htmlFor="password">Password</label>
-          <input type="password" name="password" value={formData.password} onChange={handleChange} />
-        </div>
-        <button type="submit">Signup</button>
-      </form>
-      <p>
-        Already have an account? <Link to="/login">Login</Link>
-      </p>
+    <div className="container">
+      {/* Rest of the component code */}
     </div>
   );
+}
+
+Register.propTypes = {
+  registerUser: PropTypes.func.isRequired,
+  auth: PropTypes.object.isRequired,
+  errors: PropTypes.object.isRequired
 };
 
-export default Signup;
+const mapStateToProps = (state) => ({
+  auth: state.auth,
+  errors: state.errors
+});
+
+export default connect(mapStateToProps, { registerUser })(Register);
