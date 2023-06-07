@@ -16,7 +16,7 @@ function matches(str, pattern, modifiers) {
     pattern = new RegExp(pattern, modifiers);
   }
 
-  return !!str.match(pattern);
+  return pattern.test(str);
 }
 
 module.exports = exports.default;
