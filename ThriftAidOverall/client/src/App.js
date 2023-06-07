@@ -1,18 +1,19 @@
-import "./App.css";
-import { BrowserRouter as Router, Route } from "react-router-dom";
-import NavbarMaybe from "./navmaybe";
-import Register from "./pages/Signup.js";
-import Login from "./pages/Login.js";
-import { Provider } from "react-redux";
-import store from "./store";
+import { useLocation } from 'react-router-dom';
+import NavbarMaybe from './navmaybe';
+import { LoginForm } from './pages/account/loginpage/Loginpage';
+import Register from './pages/Signup.js'
+import { Routes, Route } from 'react-router-dom';
+import Home from './pages/Home'
 import jwt_decode from "jwt-decode";
 import setAuthToken from "./utils/setAuthToken";
 import { setCurrentUser, logoutUser } from "./actions/authActions";
+import store from "./store";
 import PrivateRoute from "./pages/private-route/PrivateRoute";
-import Dashboard from "./pages/dashboard/Dashboard";
-import Home from "./pages/Home.js";
+import Dashboard from './pages/dashboard/Dashboard';
+import { Provider } from "react-redux";
+import Login from './pages/Login';
 
-// Check for token to keep the user logged in
+
 if (localStorage.jwtToken) {
   // Set auth token header auth
   const token = localStorage.jwtToken;
@@ -33,17 +34,16 @@ if (localStorage.jwtToken) {
 
 function App() {
   return (
-    <div className="App">
-      <Provider store={store}>
-        <Router>
-          <NavbarMaybe />
-          <Route exact path="/" component={Home} />
-          <Route exact path="/register" component={Register} />
-          <Route exact path="/login" component={Login} />
-          <PrivateRoute exact path="/dashboard" component={Dashboard} />
-        </Router>
-      </Provider>
-    </div>
+    <Provider store={store}>
+      <div className="App">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/dashboard" element={<PrivateRoute component={Dashboard} />} />
+        </Routes>
+      </div>
+    </Provider>
   );
 }
 
