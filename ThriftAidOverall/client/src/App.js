@@ -1,6 +1,3 @@
-import { useLocation } from 'react-router-dom';
-import NavbarMaybe from './navmaybe';
-import { LoginForm } from './pages/account/loginpage/Loginpage';
 import Register from './pages/Signup.js'
 import { Routes, Route } from 'react-router-dom';
 import Home from './pages/Home'
