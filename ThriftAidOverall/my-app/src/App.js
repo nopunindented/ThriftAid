@@ -6,11 +6,9 @@ import Navbar from './navbar/Navbar';
 import Home from './pages/Home'
 import { useLocation } from 'react-router-dom';
 import NavbarMaybe from './navmaybe';
-import Dashboard from './pages/userdashboard';
+import Dashboard from './pages/Dashboard';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
-import Userfront from "@userfront/core";
-import UserNavbar from './loggedinnavbar/UserNavbar';
 
 function App() {
   return (

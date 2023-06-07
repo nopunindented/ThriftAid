@@ -5,7 +5,9 @@ const app = express();
 require("dotenv").config();
 const cookieParser = require("cookie-parser");
 const authRoute = require("./Routes/AuthRoute");
-const MONGO_URL = 'mongodb+srv://mufiaz:skIF1Y525tbDj9mT@thriftaid.oankunu.mongodb.net/?retryWrites=true&w=majority';
+const { userVerification } = require("./Middlewares/AuthMiddleware");
+
+const MONGO_URL = process.env.MONGO_URL;
 const PORT = 4000;
 
 mongoose
@@ -22,13 +24,20 @@ app.listen(PORT, () => {
 
 app.use(
   cors({
-    origin: "http://localhost:3000", // Allow requests from this origin
+    origin: "http://localhost:3000",
     methods: ["GET", "POST", "PUT", "DELETE"],
-    credentials: true, // Enable sending cookies in cross-origin requests
+    credentials: true,
   })
 );
 app.use(cookieParser());
-
 app.use(express.json());
 
-app.use("/", authRoute);
+app.use("/auth", authRoute);
+
+// Middleware to verify user authentication
+app.use(userVerification);
+
+// Redirect /login to /auth/login
+app.get('/login', (req, res) => {
+  res.redirect('/auth/login');
+});
