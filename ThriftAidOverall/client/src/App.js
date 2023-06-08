@@ -1,35 +1,40 @@
-import Register from './auth/Signup.js'
-import { Routes, Route } from 'react-router-dom';
-import Home from './pages/Home'
-import jwt_decode from "jwt-decode";
-import setAuthToken from "./utils/setAuthToken";
-import { setCurrentUser, logoutUser } from "./actions/authActions";
-import store from "./store";
-import PrivateRoute from "./pages/private-route/PrivateRoute";
-import Dashboard from './pages/dashboard/Dashboard';
-import { Provider } from "react-redux";
+import React, { useEffect } from 'react';
+import { Routes, Route, Navigate } from 'react-router-dom';
+import jwt_decode from 'jwt-decode';
+import setAuthToken from './utils/setAuthToken';
+import { setCurrentUser, logoutUser } from './actions/authActions';
+import store from './store';
+import { Provider } from 'react-redux';
 import Login from './auth/Login.js';
-
-
-if (localStorage.jwtToken) {
-  // Set auth token header auth
-  const token = localStorage.jwtToken;
-  setAuthToken(token);
-  // Decode token and get user info and exp
-  const decoded = jwt_decode(token);
-  // Set user and isAuthenticated
-  store.dispatch(setCurrentUser(decoded));
-  // Check for expired token
-  const currentTime = Date.now() / 1000; // to get in milliseconds
-  if (decoded.exp < currentTime) {
-    // Logout user
-    store.dispatch(logoutUser());
-    // Redirect to login
-    window.location.href = "./login";
-  }
-}
+import Home from './pages/Home.js';
+import Register from './auth/Signup';
+import Dashboard from './pages/dashboard/Dashboard';
 
 function App() {
+  useEffect(() => {
+    // Check if the user is logged in on each App render
+    const jwtToken = localStorage.getItem('jwtToken');
+    if (jwtToken) {
+      setAuthToken(jwtToken);
+      const decoded = jwt_decode(jwtToken);
+      store.dispatch(setCurrentUser(decoded));
+
+      const currentTime = Date.now() / 1000;
+      if (decoded.exp < currentTime) {
+        store.dispatch(logoutUser());
+        window.location.href = '/login';
+      }
+    }
+  }, []);
+
+  // Handle redirecting to login page when user is not authenticated
+  const { isAuthenticated } = store.getState().auth;
+  useEffect(() => {
+    if (!isAuthenticated) {
+      return <Navigate to="/login" />;
+    }
+  }, [isAuthenticated]);
+
   return (
     <Provider store={store}>
       <div className="App">
@@ -37,7 +42,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/dashboard" element={<PrivateRoute component={Dashboard} />} />
+          <Route path="/dashboard" element={<Dashboard />} />
         </Routes>
       </div>
     </Provider>

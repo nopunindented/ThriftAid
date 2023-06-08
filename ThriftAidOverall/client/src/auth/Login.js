@@ -2,8 +2,9 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { loginUser } from "../../actions/authActions";
+import { loginUser } from "../actions/authActions";
 import classnames from "classnames";
+
 class Login extends Component {
   constructor() {
     super();
@@ -13,34 +14,41 @@ class Login extends Component {
       errors: {}
     };
   }
-componentDidMount() {
-    // If logged in and user navigates to Login page, should redirect them to dashboard
+
+  componentDidMount() {
     if (this.props.auth.isAuthenticated) {
       this.props.history.push("/dashboard");
     }
   }
-componentWillReceiveProps(nextProps) {
+
+  componentWillReceiveProps(nextProps) {
     if (nextProps.auth.isAuthenticated) {
-      this.props.history.push("/dashboard"); // push user to dashboard when they login
+      this.props.history.push("/dashboard");
     }
-if (nextProps.errors) {
+
+    if (nextProps.errors) {
       this.setState({
         errors: nextProps.errors
       });
     }
   }
-onChange = e => {
+
+  onChange = e => {
     this.setState({ [e.target.id]: e.target.value });
   };
-onSubmit = e => {
+
+  onSubmit = e => {
     e.preventDefault();
-const userData = {
+
+    const userData = {
       email: this.state.email,
       password: this.state.password
     };
-this.props.loginUser(userData); // since we handle the redirect within our component, we don't need to pass in this.props.history as a parameter
+
+    this.props.loginUser(userData);
   };
-render() {
+
+  render() {
     const { errors } = this.state;
 return (
       <div className="container">
@@ -114,16 +122,16 @@ return (
     );
   }
 }
+
 Login.propTypes = {
   loginUser: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired,
   errors: PropTypes.object.isRequired
 };
+
 const mapStateToProps = state => ({
   auth: state.auth,
   errors: state.errors
 });
-export default connect(
-  mapStateToProps,
-  { loginUser }
-)(Login);
+
+export default connect(mapStateToProps, { loginUser })(Login);
