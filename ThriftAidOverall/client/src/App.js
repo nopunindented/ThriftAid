@@ -1,4 +1,4 @@
-import Register from './pages/Signup.js'
+import Register from './auth/Signup.js'
 import { Routes, Route } from 'react-router-dom';
 import Home from './pages/Home'
 import jwt_decode from "jwt-decode";
@@ -8,7 +8,7 @@ import store from "./store";
 import PrivateRoute from "./pages/private-route/PrivateRoute";
 import Dashboard from './pages/dashboard/Dashboard';
 import { Provider } from "react-redux";
-import Login from './pages/Login';
+import Login from './auth/Login.js';
 
 
 if (localStorage.jwtToken) {

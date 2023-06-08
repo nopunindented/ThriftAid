@@ -1,13 +1,14 @@
-import { SET_CURRENT_USER, USER_LOADING } from "../actions/types.js";
-import isEmpty from "is-empty";
-
+import {
+  SET_CURRENT_USER,
+  USER_LOADING
+} from "../actions/types";
+const isEmpty = require("is-empty");
 const initialState = {
   isAuthenticated: false,
   user: {},
   loading: false
 };
-
-const authReducer = (state = initialState, action) => {
+export default function(state = initialState, action) {
   switch (action.type) {
     case SET_CURRENT_USER:
       return {
@@ -23,6 +24,4 @@ const authReducer = (state = initialState, action) => {
     default:
       return state;
   }
-};
-
-export default authReducer;
+}
