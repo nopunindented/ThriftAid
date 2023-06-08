@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Routes, Route, Navigate } from 'react-router-dom';
+import { Routes, Route, useNavigate } from 'react-router-dom';
 import jwt_decode from 'jwt-decode';
 import setAuthToken from './utils/setAuthToken';
 import { setCurrentUser, logoutUser } from './actions/authActions';
@@ -25,15 +25,15 @@ function App() {
         window.location.href = '/login';
       }
     }
+
+    // Handle redirecting to login page when user is not authenticated
+    const { isAuthenticated } = store.getState().auth;
+    if (!isAuthenticated) {
+      navigate('/login');
+    }
   }, []);
 
-  // Handle redirecting to login page when user is not authenticated
-  const { isAuthenticated } = store.getState().auth;
-  useEffect(() => {
-    if (!isAuthenticated) {
-      return <Navigate to="/login" />;
-    }
-  }, [isAuthenticated]);
+  const navigate = useNavigate(); // Add this line to import the `useNavigate` hook
 
   return (
     <Provider store={store}>
