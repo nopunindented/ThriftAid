@@ -11,6 +11,8 @@ import Register from './auth/Signup';
 import Dashboard from './pages/dashboard/Dashboard';
 
 function App() {
+  const navigate = useNavigate(); // Declare navigate here
+
   useEffect(() => {
     // Check if the user is logged in on each App render
     const jwtToken = localStorage.getItem('jwtToken');
@@ -25,15 +27,15 @@ function App() {
         window.location.href = '/login';
       }
     }
+  }, []);
 
+  useEffect(() => {
     // Handle redirecting to login page when user is not authenticated
     const { isAuthenticated } = store.getState().auth;
     if (!isAuthenticated) {
       navigate('/login');
     }
-  }, []);
-
-  const navigate = useNavigate(); // Add this line to import the `useNavigate` hook
+  }, [navigate]);
 
   return (
     <Provider store={store}>

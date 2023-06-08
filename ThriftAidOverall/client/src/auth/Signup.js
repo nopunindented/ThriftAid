@@ -5,29 +5,6 @@ import { registerUser } from "../actions/authActions";
 import classnames from "classnames";
 import { Link } from "react-router-dom";
 
-import {
-  useLocation,
-  useNavigate,
-  useParams
-} from "react-router-dom";
-
-function withRouter(Component) {
-  function ComponentWithRouterProp(props) {
-    let location = useLocation();
-    let navigate = useNavigate();
-    let params = useParams();
-    return (
-      <Component
-        {...props}
-        router={{ location, navigate, params }}
-      />
-    );
-  }
-
-  return ComponentWithRouterProp;
-}
-
-
 class Register extends Component {
   constructor() {
     super();
@@ -39,41 +16,48 @@ class Register extends Component {
       errors: {}
     };
   }
+
   componentDidMount() {
-    // If logged in and user navigates to Register page, should redirect them to dashboard
+    // If logged in and user navigates to Register page, redirect them to the dashboard
     if (this.props.auth.isAuthenticated) {
       this.props.history.push("/dashboard");
     }
   }
-componentWillReceiveProps(nextProps) {
-    if (nextProps.errors) {
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.errors !== this.props.errors) {
       this.setState({
-        errors: nextProps.errors
+        errors: this.props.errors
       });
     }
   }
-onChange = e => {
+
+  onChange = (e) => {
     this.setState({ [e.target.id]: e.target.value });
   };
-onSubmit = e => {
+
+  onSubmit = (e) => {
     e.preventDefault();
-const newUser = {
-      usertype: this.state.usertype,
+
+    const newUser = {
+      usertype: this.state.usertype.toLowerCase(),
       email: this.state.email,
       password: this.state.password,
       password2: this.state.password2
     };
-this.props.registerUser(newUser, this.props.history); 
+
+    this.props.registerUser(newUser, this.props.history);
   };
-render() {
+
+  render() {
     const { errors } = this.state;
-return (
+
+    return (
       <div className="container">
         <div className="row">
           <div className="col s8 offset-s2">
             <Link to="/" className="btn-flat waves-effect">
-              <i className="material-icons left">keyboard_backspace</i> Back to
-              home
+              <i className="material-icons left">keyboard_backspace</i> Back to home
             </Link>
             <div className="col s12" style={{ paddingLeft: "11.250px" }}>
               <h4>
@@ -95,7 +79,7 @@ return (
                     invalid: errors.usertype
                   })}
                 />
-                <label htmlFor="usertype">usertype</label>
+                <label htmlFor="usertype">User Type</label>
                 <span className="red-text">{errors.usertype}</span>
               </div>
               <div className="input-field col s12">
@@ -161,16 +145,16 @@ return (
     );
   }
 }
+
 Register.propTypes = {
   registerUser: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired,
   errors: PropTypes.object.isRequired
 };
-const mapStateToProps = state => ({
+
+const mapStateToProps = (state) => ({
   auth: state.auth,
   errors: state.errors
 });
-export default connect(
-  mapStateToProps,
-  { registerUser }
-)(withRouter(Register));
+
+export default connect(mapStateToProps, { registerUser })(Register);

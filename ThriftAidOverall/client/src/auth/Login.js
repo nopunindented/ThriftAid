@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
@@ -11,7 +11,13 @@ const Login = ({ loginUser, auth, errors }) => {
   const [password, setPassword] = useState("");
   const [loginErrors, setLoginErrors] = useState({});
 
-  const onSubmit = e => {
+  useEffect(() => {
+    if (auth.isAuthenticated) {
+      navigate("/dashboard");
+    }
+  }, [auth.isAuthenticated, navigate]);
+
+  const onSubmit = (e) => {
     e.preventDefault();
 
     const userData = {
@@ -21,10 +27,6 @@ const Login = ({ loginUser, auth, errors }) => {
 
     loginUser(userData, navigate);
   };
-
-  if (auth.isAuthenticated) {
-    navigate("/dashboard");
-  }
 
   return (
     <div className="container">
