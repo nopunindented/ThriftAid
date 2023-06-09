@@ -5,6 +5,7 @@ import { registerUser } from "../actions/authActions";
 import classnames from "classnames";
 import { Link } from "react-router-dom";
 
+
 class Register extends Component {
   constructor() {
     super();
@@ -17,6 +18,7 @@ class Register extends Component {
     };
   }
 
+  
   componentDidMount() {
     // If logged in and user navigates to Register page, redirect them to the dashboard
     if (this.props.auth.isAuthenticated) {
@@ -40,7 +42,7 @@ class Register extends Component {
     e.preventDefault();
 
     const newUser = {
-      usertype: this.state.usertype.toLowerCase(),
+      usertype: this.state.usertype,
       email: this.state.email,
       password: this.state.password,
       password2: this.state.password2
@@ -68,20 +70,34 @@ class Register extends Component {
               </p>
             </div>
             <form noValidate onSubmit={this.onSubmit}>
-              <div className="input-field col s12">
-                <input
-                  onChange={this.onChange}
-                  value={this.state.usertype}
-                  error={errors.usertype}
-                  id="usertype"
-                  type="text"
-                  className={classnames("", {
-                    invalid: errors.usertype
-                  })}
-                />
-                <label htmlFor="usertype">User Type</label>
-                <span className="red-text">{errors.usertype}</span>
-              </div>
+            <label className="radiothriftlabel">
+              <input
+                className= "thriftradio"
+                onChange={this.onChange}
+                value="thrift store"
+                error={errors.usertype}
+                name="usertype"
+                type="radio"
+                checked={this.state.usertype === "thrift store"}
+              />
+              Thrift Store
+              <span className="red-text">{errors.usertype}</span>
+            
+            </label>
+            <label className="radiohomelesslabel">
+              <input
+                className="homelessradio"
+                onChange={this.onChange}
+                value="homeless shelter"
+                error={errors.usertype}
+                id="usertype"
+                type="radio"
+                checked={this.state.usertype === "homeless shelter"}
+              />
+              Homeless Shelter
+              <span className="red-text">{errors.usertype}</span>
+            
+            </label>
               <div className="input-field col s12">
                 <input
                   onChange={this.onChange}
@@ -93,6 +109,7 @@ class Register extends Component {
                     invalid: errors.email
                   })}
                 />
+                
                 <label htmlFor="email">Email</label>
                 <span className="red-text">{errors.email}</span>
               </div>

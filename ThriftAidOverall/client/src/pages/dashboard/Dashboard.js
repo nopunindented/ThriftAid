@@ -27,7 +27,7 @@ const Dashboard = ({ auth, logoutUser }) => {
 
   if (!user || !user.email) {
     console.log(user); // Add this line
-    console.log(user && user.email);
+    console.log(user && user.email && user.usertype);
     return (
       <div style={{ height: "75vh" }} className="container valign-wrapper">
         <div className="row">
@@ -64,7 +64,7 @@ const Dashboard = ({ auth, logoutUser }) => {
             <b>Hey there,</b> {user.email}
           </h4>
           <p className="flow-text grey-text text-darken-1">
-            Your user type is: {user.usertype}
+            <b>Your user type is:</b> {user.usertype}
           </p>
           <button
             style={{

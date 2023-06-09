@@ -29,13 +29,6 @@ function App() {
     }
   }, []);
 
-  useEffect(() => {
-    // Handle redirecting to login page when user is not authenticated
-    const { isAuthenticated } = store.getState().auth;
-    if (!isAuthenticated) {
-      navigate('/login');
-    }
-  }, [navigate]);
 
   return (
     <Provider store={store}>
