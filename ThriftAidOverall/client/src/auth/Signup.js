@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { registerUser } from "../actions/authActions";
-import classnames from "classnames";
 import { Link } from "react-router-dom";
 
 
@@ -40,7 +39,8 @@ class Register extends Component {
 
   onSubmit = (e) => {
     e.preventDefault();
-
+    // Reset the alert to empty
+    
     const newUser = {
       usertype: this.state.usertype,
       email: this.state.email,

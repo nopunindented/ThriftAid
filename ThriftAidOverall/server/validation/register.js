@@ -8,7 +8,7 @@ module.exports = function validateRegisterInput(data) {
   data.password = !isEmpty(data.password) ? data.password : "";
   data.password2 = !isEmpty(data.password2) ? data.password2 : "";
 // Name checks
-  if (Validator.isEmpty(data.usertype)) {
+  if (Validator.isEmpty(data.usertype) && Validator.isLength(data.password, { min: 8, max: 30 }) && !Validator.isEmpty(data.email) && !Validator.isEmpty(data.password) && !Validator.isEmpty(data.password2) && Validator.equals(data.password, data.password2)) {
     errors.usertype = "Must pick an account type";
   }
 // Email checks
@@ -18,16 +18,16 @@ module.exports = function validateRegisterInput(data) {
     errors.email = "Email is invalid";
   }
 // Password checks
-  if (Validator.isEmpty(data.password)) {
+  if (Validator.isEmpty(data.password) && !Validator.isEmpty(data.email)) {
     errors.password = "Password field is required";
   }
-if (Validator.isEmpty(data.password2)) {
+if (Validator.isEmpty(data.password2) && !Validator.isEmpty(data.email) && !Validator.isEmpty(data.password)) {
     errors.password2 = "Confirm password field is required";
   }
-if (!Validator.isLength(data.password, { min: 8, max: 30 })) {
+if (!Validator.isLength(data.password, { min: 8, max: 30 }) && !Validator.isEmpty(data.password) && !Validator.isEmpty(data.email) && !Validator.isEmpty(data.password2)) {
     errors.password = "Password must be at least 8 characters";
   }
-if (!Validator.equals(data.password, data.password2)) {
+if (!Validator.equals(data.password, data.password2) && !Validator.isEmpty(data.password) && !Validator.isEmpty(data.password2)) {
     errors.password2 = "Passwords must match";
   }
 return {
