@@ -98,16 +98,15 @@ class Register extends Component {
               <span className="red-text">{errors.usertype}</span>
             
             </label>
-              <div className="input-field col s12">
+              <div>
                 <input
                   onChange={this.onChange}
                   value={this.state.email}
                   error={errors.email}
                   id="email"
                   type="email"
-                  className={classnames("", {
-                    invalid: errors.email
-                  })}
+                  placeholder="Email"
+                  className="emailinputbar"
                 />
                 
                 <label htmlFor="email">Email</label>
@@ -120,9 +119,6 @@ class Register extends Component {
                   error={errors.password}
                   id="password"
                   type="password"
-                  className={classnames("", {
-                    invalid: errors.password
-                  })}
                 />
                 <label htmlFor="password">Password</label>
                 <span className="red-text">{errors.password}</span>
@@ -134,9 +130,7 @@ class Register extends Component {
                   error={errors.password2}
                   id="password2"
                   type="password"
-                  className={classnames("", {
-                    invalid: errors.password2
-                  })}
+                  className="passwordinputbar"
                 />
                 <label htmlFor="password2">Confirm Password</label>
                 <span className="red-text">{errors.password2}</span>
