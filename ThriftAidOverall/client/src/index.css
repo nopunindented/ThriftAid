@@ -225,7 +225,7 @@ overflow: hidden;
 .passwordinputbar{
   border-radius: 3px;
   position: fixed;
-  top: 45%;
+  top: 47%;
   left: 38.5%;
   font-size: 18px;
   font-weight: 10;
@@ -238,21 +238,21 @@ overflow: hidden;
 
 .passwordinputbar::placeholder{
   position: relative;
-  font-size: 18px;
+  font-size: 22px;
   font-weight: 10;
-  left: 10px;
-  top: 3px;
+  left:0%;
+  top: 7%;
 }
 
 .verifypasswordinputbar{
   border-radius: 3px;
-  position: absolute;
-  left: -390px;
-  top: -111px;
-  width: 310px;
-  height: 35px;
+  position: fixed;
+  top: 54%;
+  left: 38.5%;
   font-size: 18px;
   font-weight: 10;
+  width: 310px;
+  height: 35px;
   border-width: 0.5px;
   border-color: #a9a9a9;
   text-indent: 5px;
@@ -270,10 +270,10 @@ overflow: hidden;
 
 .verifypasswordinputbar::placeholder{
   position: relative;
-  font-size: 18px;
+  font-size: 22px;
   font-weight: 10;
-  left: 10px;
-  top: 3px;
+  left:0%;
+  top: 7%;
 }
 
 .emailinputbar{

@@ -119,6 +119,8 @@ class Register extends Component {
                   error={errors.password}
                   id="password"
                   type="password"
+                  placeholder="Password"
+                  className="passwordinputbar"
                 />
                 <label htmlFor="password">Password</label>
                 <span className="red-text">{errors.password}</span>
@@ -130,7 +132,8 @@ class Register extends Component {
                   error={errors.password2}
                   id="password2"
                   type="password"
-                  className="passwordinputbar"
+                  className="verifypasswordinputbar"
+                  placeholder="Verify Password"
                 />
                 <label htmlFor="password2">Confirm Password</label>
                 <span className="red-text">{errors.password2}</span>
