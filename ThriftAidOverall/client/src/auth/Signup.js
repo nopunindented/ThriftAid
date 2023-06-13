@@ -81,7 +81,7 @@ class Register extends Component {
                 checked={this.state.usertype === "thrift store"}
               />
               Thrift Store
-              <span className="red-text">{errors.usertype}</span>
+              <div className="inputerrors">{errors.usertype}</div>
             
             </label>
             <label className="radiohomelesslabel">
@@ -95,7 +95,7 @@ class Register extends Component {
                 checked={this.state.usertype === "homeless shelter"}
               />
               Homeless Shelter
-              <span className="red-text">{errors.usertype}</span>
+              <div className="inputerrors">{errors.usertype}</div>
             
             </label>
               <div>
@@ -110,7 +110,7 @@ class Register extends Component {
                 />
                 
                 <label htmlFor="email">Email</label>
-                <span className="red-text">{errors.email}</span>
+                <div className="inputerrors">{errors.email}</div>
               </div>
               <div className="input-field col s12">
                 <input
@@ -123,7 +123,7 @@ class Register extends Component {
                   className="passwordinputbar"
                 />
                 <label htmlFor="password">Password</label>
-                <span className="red-text">{errors.password}</span>
+                <div className="inputerrors">{errors.password}</div>
               </div>
               <div className="input-field col s12">
                 <input
@@ -136,7 +136,7 @@ class Register extends Component {
                   placeholder="Verify Password"
                 />
                 <label htmlFor="password2">Confirm Password</label>
-                <span className="red-text">{errors.password2}</span>
+                <div className="inputerrors">{errors.password2}</div>
               </div>
               <div className="col s12" style={{ paddingLeft: "11.250px" }}>
                 <button
