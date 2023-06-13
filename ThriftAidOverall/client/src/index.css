@@ -306,8 +306,8 @@ overflow: hidden;
 
 .radiothriftlabel{
   position: absolute;
-  left: 642px;
-  top: 485px;
+  left: 42.1%;
+  top: 66.5%;
   font-size: 14px;
 }
 .thriftradio{
@@ -321,8 +321,8 @@ overflow: hidden;
 
 .radiohomelesslabel{
   position: absolute;
-  left: 750px;
-  top: 485px;
+  left: 49.2%;
+  top: 66.5%;
   font-size: 14px;
 }
 
@@ -337,17 +337,17 @@ overflow: hidden;
 
 .oroption{
   position: absolute;
-  left: 758px;
-  top: 570px;
+  left: 49.8%;
+  top: 77.5%;
   font-size: 16px;
   font-weight: 20px;
   color: #919394;
 }
 
 .signupshirt{
-  left: 5px;
   position: absolute;
   display: inline-block;
+  left: 5px;
   width: 52px;
   height: 52px;
   top: 5.5px;
@@ -358,25 +358,25 @@ overflow: hidden;
 position: absolute;
 width: 60px;
 height: 60px;
-left: 740px;
+left: 48%;
 border-radius: 50%;
-top: 110px;
+top: 13%;
 background: rgba(24, 170, 237, 0.589);
 box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);
 }
 
 .singupwelcometo{
   position: absolute;
-  left: 740px;
-  top: 175px;
+  left: 48.15%;
+  top: 22%;
   font-family: 'Open sans';
 }
 
 .typeofaccountoutline {
   position: absolute;
   background: transparent;
-  left: 610px;
-  top: 485px;
+  left: 40%;
+  top: 65.7%;
   width: 315px;
   height: 30px;
   border-radius: 3px;
@@ -385,8 +385,8 @@ box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);
 
 .choicebetweenaccounts{
   position: absolute;
-  left: 610px;
-  top: 460px;
+  left: 40%;
+  top: 63%;
   font-family: 'Open sans';
   font-size: 12px;
 }

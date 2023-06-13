@@ -3,7 +3,12 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { registerUser } from "../actions/authActions";
 import { Link } from "react-router-dom";
+import { Button } from "@mui/material";
+import SignupLogo from "./Signuppagelogo.js";
 
+const handleLoginClick = () => {
+  window.location.href = "http://localhost:3000/login";
+};
 
 class Register extends Component {
   constructor() {
@@ -57,18 +62,9 @@ class Register extends Component {
     return (
       <div className="container">
         <div className="row">
+        <div className="typeofaccountoutline"></div>
+        <div className="choicebetweenaccounts">Choose your account type:</div>
           <div className="col s8 offset-s2">
-            <Link to="/" className="btn-flat waves-effect">
-              <i className="material-icons left">keyboard_backspace</i> Back to home
-            </Link>
-            <div className="col s12" style={{ paddingLeft: "11.250px" }}>
-              <h4>
-                <b>Register</b> below
-              </h4>
-              <p className="grey-text text-darken-1">
-                Already have an account? <Link to="/login">Log in</Link>
-              </p>
-            </div>
             <form noValidate onSubmit={this.onSubmit}>
             <label className="radiothriftlabel">
               <input
@@ -76,7 +72,7 @@ class Register extends Component {
                 onChange={this.onChange}
                 value="thrift store"
                 error={errors.usertype}
-                name="usertype"
+                id="usertype"
                 type="radio"
                 checked={this.state.usertype === "thrift store"}
               />
@@ -108,8 +104,6 @@ class Register extends Component {
                   placeholder="Email"
                   className="emailinputbar"
                 />
-                
-                <label htmlFor="email">Email</label>
                 <div className="inputerrors">{errors.email}</div>
               </div>
               <div className="input-field col s12">
@@ -122,7 +116,6 @@ class Register extends Component {
                   placeholder="Password"
                   className="passwordinputbar"
                 />
-                <label htmlFor="password">Password</label>
                 <div className="inputerrors">{errors.password}</div>
               </div>
               <div className="input-field col s12">
@@ -135,25 +128,68 @@ class Register extends Component {
                   className="verifypasswordinputbar"
                   placeholder="Verify Password"
                 />
-                <label htmlFor="password2">Confirm Password</label>
                 <div className="inputerrors">{errors.password2}</div>
               </div>
-              <div className="col s12" style={{ paddingLeft: "11.250px" }}>
-                <button
-                  style={{
-                    width: "150px",
-                    borderRadius: "3px",
-                    letterSpacing: "1.5px",
-                    marginTop: "1rem"
-                  }}
-                  type="submit"
-                  className="btn btn-large waves-effect waves-light hoverable blue accent-3"
-                >
-                  Sign up
-                </button>
-              </div>
+              <Button
+              type="submit"
+              sx={{
+                position: "absolute",
+                display: "flex",
+                color: "#F7F3F3",
+                fontFamily: "Noto Sans",
+                fontSize: 15,
+                fontStyle: "normal",
+                fontWeight: 700,
+                textAlign: "center",
+                height: 30,
+                left: "40%",
+                top: "73%",
+                width: 317,
+                textTransform: "none",
+                bgcolor: "#24a0ed",
+                ":hover": {
+                  bgcolor: "#0792e8",
+                  color: "#F7F3F3",
+                  textTransform: "none"
+                }
+              }}
+            >
+              Sign up
+            </Button>
             </form>
           </div>
+          <div className="oroption">or</div>
+        <Button
+          type="text"
+          sx={{
+            position: "absolute",
+            display: "flex",
+            color: "#F7F3F3",
+            fontFamily: "Noto Sans",
+            fontSize: 15,
+            fontStyle: "normal",
+            fontWeight: 700,
+            textAlign: "center",
+            height: 30,
+            left: "40%",
+            top: "81%",
+            width: 317,
+            textTransform: "none",
+            bgcolor: "#5ab0f2",
+            ":hover": {
+              bgcolor: "#4baaf2",
+              color: "#F7F3F3",
+              textTransform: "none"
+            }
+          }}
+          onClick={handleLoginClick}
+        >
+          Click here to login instead!
+        </Button>
+        <Link to="/">
+          <SignupLogo />
+        </Link>
+        <div className="singupwelcometo">Sign up</div>
         </div>
       </div>
     );

@@ -1,7 +1,7 @@
 import Userfront from "@userfront/react";
 import React from "react";
 import { Button } from "@mui/material";
-import SignupLogo from "./Signuppagelogo.js";
+import SignupLogo from "../../../auth/Signuppagelogo.js";
 import { Link } from "react-router-dom";
 
 Userfront.init("rbv5jmqn");
