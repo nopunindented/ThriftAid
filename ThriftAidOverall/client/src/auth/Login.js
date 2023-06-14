@@ -4,13 +4,17 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { loginUser } from "../actions/authActions";
 import classnames from "classnames";
+import { Button } from "@mui/material";
 
 const Login = ({ loginUser, auth, errors }) => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loginErrors, setLoginErrors] = useState({});
-
+  useEffect(() => {
+    setLoginErrors(errors);
+  }, [errors]);
+  
   useEffect(() => {
     if (auth.isAuthenticated) {
       navigate("/dashboard");
@@ -32,16 +36,7 @@ const Login = ({ loginUser, auth, errors }) => {
     <div className="container">
       <div style={{ marginTop: "4rem" }} className="row">
         <div className="col s8 offset-s2">
-          <Link to="/" className="btn-flat waves-effect">
-            <i className="material-icons left">keyboard_backspace</i> Back to home
-          </Link>
           <div className="col s12" style={{ paddingLeft: "11.250px" }}>
-            <h4>
-              <b>Login</b> below
-            </h4>
-            <p className="grey-text text-darken-1">
-              Don't have an account? <Link to="/register">Register</Link>
-            </p>
           </div>
           <form noValidate onSubmit={onSubmit}>
             <div className="input-field col s12">
@@ -51,12 +46,10 @@ const Login = ({ loginUser, auth, errors }) => {
                 error={loginErrors.email}
                 id="email"
                 type="email"
-                className={classnames("", {
-                  invalid: loginErrors.email || loginErrors.emailnotfound
-                })}
+                className="emailinputbar"
+                placeholder="Email"
               />
-              <label htmlFor="email">Email</label>
-              <span className="red-text">
+              <span className="inputerror">
                 {loginErrors.email}
                 {loginErrors.emailnotfound}
               </span>
@@ -68,30 +61,39 @@ const Login = ({ loginUser, auth, errors }) => {
                 error={loginErrors.password}
                 id="password"
                 type="password"
-                className={classnames("", {
-                  invalid: loginErrors.password || loginErrors.passwordincorrect
-                })}
+                className="passwordinputbar"
               />
-              <label htmlFor="password">Password</label>
-              <span className="red-text">
+              <span className="inputerror">
                 {loginErrors.password}
                 {loginErrors.passwordincorrect}
               </span>
             </div>
-            <div className="col s12" style={{ paddingLeft: "11.250px" }}>
-              <button
-                style={{
-                  width: "150px",
-                  borderRadius: "3px",
-                  letterSpacing: "1.5px",
-                  marginTop: "1rem"
-                }}
-                type="submit"
-                className="btn btn-large waves-effect waves-light hoverable blue accent-3"
-              >
-                Login
-              </button>
-            </div>
+            <Button
+              type="submit"
+              sx={{
+                position: "absolute",
+                display: "flex",
+                color: "#F7F3F3",
+                fontFamily: "Noto Sans",
+                fontSize: 15,
+                fontStyle: "normal",
+                fontWeight: 700,
+                textAlign: "center",
+                height: 30,
+                left: "40%",
+                top: "55%",
+                width: 317,
+                textTransform: "none",
+                bgcolor: "#24a0ed",
+                ":hover": {
+                  bgcolor: "#0792e8",
+                  color: "#F7F3F3",
+                  textTransform: "none"
+                }
+              }}
+            >
+              Login
+            </Button>
           </form>
         </div>
       </div>
