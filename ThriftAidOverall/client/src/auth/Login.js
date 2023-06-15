@@ -5,6 +5,12 @@ import { connect } from "react-redux";
 import { loginUser } from "../actions/authActions";
 import classnames from "classnames";
 import { Button } from "@mui/material";
+import LoginLogo from "./Loginpagelogo";
+
+
+const handleSignupClick = () => {
+  window.location.href = "http://localhost:3000/register";
+};
 
 const Login = ({ loginUser, auth, errors }) => {
   const navigate = useNavigate();
@@ -34,8 +40,8 @@ const Login = ({ loginUser, auth, errors }) => {
 
   return (
     <div className="container">
-      <div className="loginwelcometo">Welcome Back</div>
       <div className="signupbox" />
+      <div className="loginwelcometoo">Sign in</div>
       <div style={{ marginTop: "4rem" }} className="row">
         <div className="col s8 offset-s2">
           <div className="col s12" style={{ paddingLeft: "11.250px" }}>
@@ -97,7 +103,38 @@ const Login = ({ loginUser, auth, errors }) => {
             >
               Login
             </Button>
+            <div className="loginoroption">or</div>
+            <Link to="/">
+              <LoginLogo />
+            </Link>
           </form>
+          <Button
+          type="text"
+          sx={{
+            position: "absolute",
+            display: "flex",
+            color: "#F7F3F3",
+            fontFamily: "Noto Sans",
+            fontSize: 15,
+            fontStyle: "normal",
+            fontWeight: 700,
+            textAlign: "center",
+            height: 30,
+            left: "40%",
+            top: "64%",
+            width: 317,
+            textTransform: "none",
+            bgcolor: "#5ab0f2",
+            ":hover": {
+              bgcolor: "#4baaf2",
+              color: "#F7F3F3",
+              textTransform: "none"
+            }
+          }}
+          onClick={handleSignupClick}
+        >
+          Click here to sign up instead!
+        </Button>
         </div>
       </div>
     </div>

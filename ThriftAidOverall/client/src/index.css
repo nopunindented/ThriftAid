@@ -428,8 +428,19 @@ box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);
   border-right: 3px solid;
   font-family: monospace;
   font-size: 35px;
-  left: 39.3%;
+  left: 39.4%;
   top: 14.7%;
+}
+
+.loginbolded{
+  position: absolute;
+  font-family: 'Noto Sans';
+  letter-spacing: 1px;
+  font-size: 30px;
+  left: 40%;
+  top: 21.5%;
+  font-style: bold;
+  font-weight: 500;
 }
 
 @keyframes typing {
@@ -442,4 +453,41 @@ box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);
   70% {
     border-color: transparent
   }
+}
+
+.loginshirt{
+  position: absolute;
+  display: inline-block;
+  left: 5px;
+  width: 52px;
+  height: 52px;
+  top: 4.3px;
+  
+}
+
+.ellipse6{
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  left: 48.2%;
+  border-radius: 50%;
+  top: 22%;
+  background: rgba(24, 170, 237, 0.589);
+  box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);
+  }
+
+.loginwelcometoo{
+  position: absolute;
+  left: 48.5%;
+  top: 30%;
+  font-family: 'Open sans';
+}
+
+.loginoroption{
+  position: absolute;
+  left: 49.8%;
+  top: 60%;
+  font-size: 16px;
+  font-weight: 20px;
+  color: #919394;
 }
