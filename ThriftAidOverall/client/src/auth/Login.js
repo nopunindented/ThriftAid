@@ -34,6 +34,8 @@ const Login = ({ loginUser, auth, errors }) => {
 
   return (
     <div className="container">
+      <div className="loginwelcometo">Welcome Back</div>
+      <div className="signupbox" />
       <div style={{ marginTop: "4rem" }} className="row">
         <div className="col s8 offset-s2">
           <div className="col s12" style={{ paddingLeft: "11.250px" }}>
@@ -61,6 +63,7 @@ const Login = ({ loginUser, auth, errors }) => {
                 error={loginErrors.password}
                 id="password"
                 type="password"
+                placeholder="Password"
                 className="passwordinputbar"
               />
               <span className="inputerror">

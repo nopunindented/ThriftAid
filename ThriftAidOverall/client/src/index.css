@@ -208,19 +208,19 @@ overflow: hidden;
   height: 10px;
 }
 
-/*
+
 .signupbox{
   position: absolute;
   display: inline-block;
   width: 335px;
   height: 400px;
-  top: 160px;
-  left: 580px;
+  top: 21%;
+  left: 39.3%;
   border-radius: 2%;
   background: white;
   box-shadow: 0px 4px 30px rgba(0.1, 0.1, 0.1, 0.25);
 }
-*/
+
 
 .passwordinputbar{
   border-radius: 3px;
@@ -407,7 +407,7 @@ box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);
 
 .inputerror {
   position: absolute;
-  top: 40%;
+  top: 36%;
   left: 40%;
   color: red;
   max-width: 310px; /* Adjust this value as needed */
@@ -419,3 +419,27 @@ box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);
   text-align: center;
 }
 
+.loginwelcometo {
+  position: absolute;
+  width: 12ch;
+  animation: typing 2s steps(13), blink .5s step-end infinite alternate;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid;
+  font-family: monospace;
+  font-size: 35px;
+  left: 39.3%;
+  top: 14.7%;
+}
+
+@keyframes typing {
+  from {
+    width: 0
+  }
+}
+    
+@keyframes blink {
+  70% {
+    border-color: transparent
+  }
+}
