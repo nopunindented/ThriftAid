@@ -3,19 +3,17 @@ import { Link } from "react-router-dom";
 import Logo from "../navbar/Logo.js";
 import SearchButton from "../navbar/searchb.js";
 import SignupButton from "../navbar/Signup.js";
-import Userfront from "@userfront/react";
 import LoginButton from "../navbar/Login.js";
-import Logoutb from "../pages/account/loginpage/Logoutbutton.js";
+import { connect } from "react-redux";
+import { logoutUser } from "../actions/authActions.js";
+import { useNavigate } from "react-router-dom";
 import AccountMenu from "../pages/account/accountnavbar.tsx";
 
-export default function UserNavbar() {
-  const handleLogout = () => {
-    Userfront.logout();
-  };
-
+const UserNavbar = ({ auth, logoutUser }) => {
+  const navigate = useNavigate();
   const currentPath = window.location.pathname;
 
-  if (Userfront.accessToken()) {
+  if (auth.isAuthenticated) {
     return (
       <div>
         <nav>
@@ -25,7 +23,7 @@ export default function UserNavbar() {
           <Link to="/postings">
             <SearchButton />
           </Link>
-          <AccountMenu />
+          <AccountMenu logoutUser={logoutUser} />
         </nav>
       </div>
     );
@@ -47,5 +45,10 @@ export default function UserNavbar() {
       </div>
     );
   }
-}
+};
 
+const mapStateToProps = (state) => ({
+  auth: state.auth,
+});
+
+export default connect(mapStateToProps, { logoutUser })(UserNavbar);

@@ -2,7 +2,7 @@ import React from "react";
 import Button from '@mui/material/Button';
 
 const handleSignupBClick = () => {
-  window.location.href = 'http://localhost:3000/signup';
+  window.location.href = 'http://localhost:3000/register';
 };
 
 export default function SignupButton() {

@@ -5,19 +5,19 @@ import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import Tooltip from '@mui/material/Tooltip';
-import PersonAdd from '@mui/icons-material/PersonAdd';
-import Settings from '@mui/icons-material/Settings';
 import Logout from '@mui/icons-material/Logout';
-import Userfront from "@userfront/react";
 import { Button } from '@mui/material';
-import { Signup } from './signuppageform/Signform';
+import { useEffect } from 'react';
+import jwt_decode from 'jwt-decode';
+import setAuthToken from '../../utils/setAuthToken';
+import { setCurrentUser } from '../../actions/authActions';
+import { logoutUser } from '../../actions/authActions';
+import store from '../../store';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
-
-const handleLogout = () => {
-  Userfront.logout();
-}
-
-export default function AccountMenu() {
+const AccountMenu: React.FC<any> = ({ auth, logoutUser }) => {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
@@ -26,18 +26,55 @@ export default function AccountMenu() {
   const handleClose = () => {
     setAnchorEl(null);
   };
+  const navigate = useNavigate(); // Declare navigate here
+  const { user, isAuthenticated }: any = auth;
+
+  const onLogoutClick = (e: React.MouseEvent<HTMLElement>) => {
+    e.preventDefault();
+    logoutUser();
+    navigate('/login');
+  };
+
+  useEffect(() => {
+    // Check if the user is logged in on each App render
+    const jwtToken = localStorage.getItem('jwtToken');
+    if (jwtToken) {
+      setAuthToken(jwtToken);
+      const decoded: any = jwt_decode(jwtToken);
+      store.dispatch(setCurrentUser(decoded));
+
+      const currentTime = Date.now() / 1000;
+      if (decoded.exp < currentTime) {
+        store.dispatch(logoutUser());
+        window.location.href = '/login';
+      }
+    }
+  }, []);
+
   return (
     <React.Fragment>
-      <Box sx={{alignItems: 'center', textAlign: 'center',}}>
+      <Box sx={{ alignItems: 'center', textAlign: 'center' }}>
         <Tooltip title="Account settings">
-          <Button variant='text'
+          <Button
+            variant="text"
             onClick={handleClick}
-            sx={{  width: 180, height: 30, backgroundColor: 'transparent', fontSize: 12, color: '#F7F3F3',fontFamily: 'Noto Sans', fontWeight: 700, left: 1330, position: 'absolute',
-            ":hover":{bgcolor: "#F7F3F3", color: "#25A96F"}}}
+            sx={{
+              width: 180,
+              height: 30,
+              backgroundColor: 'transparent',
+              fontSize: 12,
+              color: '#F7F3F3',
+              fontFamily: 'Noto Sans',
+              fontWeight: 700,
+              left: 1330,
+              position: 'absolute',
+              ':hover': { bgcolor: '#F7F3F3', color: '#25A96F' },
+            }}
             aria-controls={open ? 'account-menu' : undefined}
             aria-haspopup="true"
             aria-expanded={open ? 'true' : undefined}
-          >{Userfront.user.email}
+          >
+            {user.email}
           </Button>
         </Tooltip>
       </Box>
@@ -79,7 +116,7 @@ export default function AccountMenu() {
         <MenuItem onClick={handleClose}>
           <Avatar /> Dashboard
         </MenuItem>
-        <MenuItem onClick={handleLogout}>
+        <MenuItem onClick={onLogoutClick}>
           <ListItemIcon>
             <Logout fontSize="small" />
           </ListItemIcon>
@@ -88,4 +125,15 @@ export default function AccountMenu() {
       </Menu>
     </React.Fragment>
   );
-}
+};
+
+AccountMenu.propTypes = {
+  logoutUser: PropTypes.func.isRequired,
+  auth: PropTypes.object.isRequired,
+};
+
+const mapStateToProps = (state) => ({
+  auth: state.auth,
+});
+
+export default connect(mapStateToProps, { logoutUser })(AccountMenu);
