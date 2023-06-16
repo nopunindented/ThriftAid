@@ -27,7 +27,7 @@ const UserNavbar = ({ auth, logoutUser }) => {
         </nav>
       </div>
     );
-  } else if (currentPath === "/login" || currentPath === "/signup") {
+  } else if (currentPath === "/login" || currentPath === "/register") {
     return null;
   } else {
     return (

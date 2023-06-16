@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
 import { useNavigate } from "react-router-dom";
 
+
 const Dashboard = ({ auth, logoutUser }) => {
   console.log(auth);
   const navigate = useNavigate();

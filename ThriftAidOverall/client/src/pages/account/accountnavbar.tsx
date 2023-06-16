@@ -1,35 +1,30 @@
-import * as React from 'react';
-import Box from '@mui/material/Box';
-import Avatar from '@mui/material/Avatar';
-import Menu from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import Tooltip from '@mui/material/Tooltip';
+import React, { useEffect } from 'react';
+import { Box, Button, Avatar, Menu, MenuItem, ListItemIcon, Tooltip } from '@mui/material';
 import Logout from '@mui/icons-material/Logout';
-import { Button } from '@mui/material';
-import { useEffect } from 'react';
-import jwt_decode from 'jwt-decode';
-import setAuthToken from '../../utils/setAuthToken';
-import { setCurrentUser } from '../../actions/authActions';
-import { logoutUser } from '../../actions/authActions';
-import store from '../../store';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import jwt_decode from 'jwt-decode';
 
-const AccountMenu: React.FC<any> = ({ auth, logoutUser }) => {
-  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+import setAuthToken from '../../utils/setAuthToken';
+import { setCurrentUser, logoutUser } from '../../actions/authActions';
+import store from '../../store';
+
+const AccountMenu = ({ auth, logoutUser }) => {
+  const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
-  const handleClick = (event: React.MouseEvent<HTMLElement>) => {
+  const navigate = useNavigate(); // Declare navigate here
+  const { user, isAuthenticated } = auth;
+
+  const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
+
   const handleClose = () => {
     setAnchorEl(null);
   };
-  const navigate = useNavigate(); // Declare navigate here
-  const { user, isAuthenticated }: any = auth;
 
-  const onLogoutClick = (e: React.MouseEvent<HTMLElement>) => {
+  const onLogoutClick = (e) => {
     e.preventDefault();
     logoutUser();
     navigate('/login');
@@ -40,7 +35,7 @@ const AccountMenu: React.FC<any> = ({ auth, logoutUser }) => {
     const jwtToken = localStorage.getItem('jwtToken');
     if (jwtToken) {
       setAuthToken(jwtToken);
-      const decoded: any = jwt_decode(jwtToken);
+      const decoded = jwt_decode(jwtToken);
       store.dispatch(setCurrentUser(decoded));
 
       const currentTime = Date.now() / 1000;
@@ -52,7 +47,7 @@ const AccountMenu: React.FC<any> = ({ auth, logoutUser }) => {
   }, []);
 
   return (
-    <React.Fragment>
+    <>
       <Box sx={{ alignItems: 'center', textAlign: 'center' }}>
         <Tooltip title="Account settings">
           <Button
@@ -74,7 +69,7 @@ const AccountMenu: React.FC<any> = ({ auth, logoutUser }) => {
             aria-haspopup="true"
             aria-expanded={open ? 'true' : undefined}
           >
-            {user.email}
+            {isAuthenticated ? auth.user.usertype : ''}
           </Button>
         </Tooltip>
       </Box>
@@ -123,7 +118,7 @@ const AccountMenu: React.FC<any> = ({ auth, logoutUser }) => {
           Logout
         </MenuItem>
       </Menu>
-    </React.Fragment>
+    </>
   );
 };
 

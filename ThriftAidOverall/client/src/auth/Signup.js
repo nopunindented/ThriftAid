@@ -39,7 +39,11 @@ class Register extends Component {
   }
 
   onChange = (e) => {
-    this.setState({ [e.target.id]: e.target.value });
+    if (e.target.name === 'usertype') {
+      this.setState({ usertype: e.target.value });
+    } else {
+      this.setState({ [e.target.id]: e.target.value });
+    }
   };
 
   onSubmit = (e) => {
@@ -67,29 +71,31 @@ class Register extends Component {
           <div className="col s8 offset-s2">
             <form noValidate onSubmit={this.onSubmit}>
             <label className="radiothriftlabel">
-              <input
-                className= "thriftradio"
-                onChange={this.onChange}
-                value="thrift store"
-                error={errors.usertype}
-                id="usertype"
-                type="radio"
-                checked={this.state.usertype === "thrift store"}
-              />
+            <input
+              className="thriftradio"
+              onChange={this.onChange}
+              value="thrift store"
+              error={errors.usertype}
+              id="thrift"
+              name="usertype"
+              type="radio"
+              checked={this.state.usertype === "thrift store"}
+            />
               Thrift Store
               <div className="inputerrors">{errors.usertype}</div>
             
             </label>
             <label className="radiohomelesslabel">
-              <input
-                className="homelessradio"
-                onChange={this.onChange}
-                value="homeless shelter"
-                error={errors.usertype}
-                id="usertype"
-                type="radio"
-                checked={this.state.usertype === "homeless shelter"}
-              />
+            <input
+              className="homelessradio"
+              onChange={this.onChange}
+              value="homeless shelter"
+              error={errors.usertype}
+              id="homeless"
+              name="usertype"
+              type="radio"
+              checked={this.state.usertype === "homeless shelter"}
+            />
               Homeless Shelter
               <div className="inputerrors">{errors.usertype}</div>
             

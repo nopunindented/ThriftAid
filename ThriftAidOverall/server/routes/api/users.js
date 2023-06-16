@@ -86,7 +86,7 @@ router.post("/login", (req, res) => {
         };
         // Sign token
         jwt.sign(
-          payload,
+          { ...payload, usertype: user.usertype }, // Include usertype in the payload
           keys.secretOrKey,
           {
             expiresIn: 31556926 // 1 year in seconds
@@ -99,7 +99,8 @@ router.post("/login", (req, res) => {
             });
           }
         );
-      } else {
+        
+        } else {
         console.log("Login failed. Incorrect password");
         return res
           .status(400)
