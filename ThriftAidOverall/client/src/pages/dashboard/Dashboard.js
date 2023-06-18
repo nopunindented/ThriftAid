@@ -5,6 +5,7 @@ import { logoutUser } from "../../actions/authActions";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@mui/material";
 
+
 const Dashboard = ({ auth, logoutUser }) => {
   console.log(auth);
   const navigate = useNavigate();
