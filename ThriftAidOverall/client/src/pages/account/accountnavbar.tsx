@@ -30,12 +30,16 @@ const AccountMenu = ({ auth, logoutUser }) => {
     navigate('/login');
   };
 
+  const onDashboard = (e) => {
+    navigate('/dashboard');
+  };
+
   useEffect(() => {
     // Check if the user is logged in on each App render
     const jwtToken = localStorage.getItem('jwtToken');
     if (jwtToken) {
       setAuthToken(jwtToken);
-      const decoded = jwt_decode(jwtToken);
+      const decoded : any = jwt_decode(jwtToken);
       store.dispatch(setCurrentUser(decoded));
 
       const currentTime = Date.now() / 1000;
@@ -69,7 +73,7 @@ const AccountMenu = ({ auth, logoutUser }) => {
             aria-haspopup="true"
             aria-expanded={open ? 'true' : undefined}
           >
-            {isAuthenticated ? auth.user.usertype : ''}
+            {isAuthenticated ? auth.user.email : ''}
           </Button>
         </Tooltip>
       </Box>
@@ -108,7 +112,7 @@ const AccountMenu = ({ auth, logoutUser }) => {
         transformOrigin={{ horizontal: 'right', vertical: 'top' }}
         anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
       >
-        <MenuItem onClick={handleClose}>
+        <MenuItem onClick={onDashboard}>
           <Avatar /> Dashboard
         </MenuItem>
         <MenuItem onClick={onLogoutClick}>
