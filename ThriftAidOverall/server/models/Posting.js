@@ -2,9 +2,9 @@ const mongoose= require('mongoose');
 const Schema = mongoose.Schema;
 
 const Postings = new Schema({
-    userId:  {
+    thriftstore: {
       type: String,
-       required: true
+      required: true
     },
     address: {
       type: String,
