@@ -18,11 +18,18 @@ function App() {
     const jwtToken = localStorage.getItem('jwtToken');
     if (jwtToken) {
       setAuthToken(jwtToken);
-      const decoded = jwt_decode(jwtToken);
-      store.dispatch(setCurrentUser(decoded));
-
-      const currentTime = Date.now() / 1000;
-      if (decoded.exp < currentTime) {
+      try {
+        const decoded = jwt_decode(jwtToken);
+        store.dispatch(setCurrentUser(decoded));
+  
+        const currentTime = Date.now() / 1000;
+        if (decoded.exp < currentTime) {
+          store.dispatch(logoutUser());
+          window.location.href = '/login';
+        }
+      } catch (error) {
+        // Handle any errors that occur while decoding the token
+        console.error('Error decoding JWT token:', error);
         store.dispatch(logoutUser());
         window.location.href = '/login';
       }
