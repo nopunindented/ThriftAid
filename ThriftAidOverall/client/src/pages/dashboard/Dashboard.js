@@ -5,9 +5,7 @@ import { logoutUser } from "../../actions/authActions";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@mui/material";
 
-
 const Dashboard = ({ auth, logoutUser }) => {
-  console.log(auth);
   const navigate = useNavigate();
   const { user, isAuthenticated } = auth;
 
@@ -28,8 +26,6 @@ const Dashboard = ({ auth, logoutUser }) => {
   }
 
   if (!user || !user.email) {
-    console.log(user); // Add this line
-    console.log(user && user.email && user.usertype);
     return (
       <div style={{ height: "75vh" }} className="container valign-wrapper">
         <div className="row">
@@ -58,45 +54,46 @@ const Dashboard = ({ auth, logoutUser }) => {
     );
   }
 
-  else if(user.usertype==='thrift store'){
-  return (
-    <div>
-      <div className="pastpostings">
-        Your past postings:
-      </div>
-      
-      <Button
-        type="submit"
-        sx={{
-          position: "absolute",
-          display: "flex",
-          color: "#F7F3F3",
-          fontFamily: "Noto Sans",
-          fontSize: 15,
-          fontStyle: "normal",
-          fontWeight: 700,
-          textAlign: "center",
-          height: 30,
-          left: "40%",
-          top: "55%",
-          width: 317,
-          textTransform: "none",
-          bgcolor: "#24a0ed",
-          ":hover": {
-            bgcolor: "#0792e8",
+  else if (user.usertype === "thrift store") {
+    const createPosting = () => {
+      navigate("/profile");
+    };
+
+    return (
+      <div>
+        <div className="pastpostings">Your past postings:</div>
+
+        <Button
+          type="submit"
+          sx={{
+            position: "absolute",
+            display: "flex",
             color: "#F7F3F3",
-            textTransform: "none"
-          }
-        }}
+            fontFamily: "Noto Sans",
+            fontSize: 15,
+            fontStyle: "normal",
+            fontWeight: 700,
+            textAlign: "center",
+            height: 30,
+            left: "40%",
+            top: "55%",
+            width: 317,
+            textTransform: "none",
+            bgcolor: "#24a0ed",
+            ":hover": {
+              bgcolor: "#0792e8",
+              color: "#F7F3F3",
+              textTransform: "none",
+            },
+          }}
+          onClick={createPosting}
         >
           Create a posting
         </Button>
-
-
-    </div>
-  )
+      </div>
+    );
+  }
 };
-}
 
 Dashboard.propTypes = {
   logoutUser: PropTypes.func.isRequired,

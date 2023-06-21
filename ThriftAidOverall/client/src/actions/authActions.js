@@ -21,6 +21,23 @@ export const registerUser = (userData, history) => dispatch => {
     });
 };
 
+export const createProfile = (userData, history) => dispatch => {
+  axios
+    .post("http://localhost:5000/api/users/prof", userData)
+    .then(res => history.push("/login"))
+    .catch(err => {
+      if (err.response) {
+        dispatch({
+          type: GET_ERRORS,
+          payload: err.response.data
+        });
+      } else {
+        // Handle other errors, such as network issues
+        // You can dispatch a different action or handle the error in a different way
+      }
+    });
+};
+
 
 // Login - get user token
 // Login - get user token

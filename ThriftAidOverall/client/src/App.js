@@ -10,6 +10,7 @@ import Home from './pages/Home.js';
 import Register from './auth/Signup';
 import Dashboard from './pages/dashboard/Dashboard';
 import UserNavbar from './loggedinnavbar/UserNavbar.js';
+import Profile from './pages/profile/Profile';
 
 function App() {
   useEffect(() => {
@@ -42,7 +43,8 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/dashboard" element={<Dashboard /> }/>
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/dashboard" element={<Dashboard />} />
         </Routes>
         <UserNavbar />
       </div>
