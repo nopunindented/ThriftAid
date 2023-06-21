@@ -21,9 +21,9 @@ export const registerUser = (userData, history) => dispatch => {
     });
 };
 
-export const createProfile = (userData, history) => dispatch => {
+export const createProfile = (newProfile, history) => dispatch => {
   axios
-    .post("http://localhost:5000/api/users/prof", userData)
+    .post("http://localhost:5000/api/users/profile", newProfile)
     .then(res => history.push("/login"))
     .catch(err => {
       if (err.response) {

@@ -18,14 +18,6 @@ const UserSchema = new Schema({
     type: String,
     required: true
   },
-  thriftstorename: {
-    type: String,
-  },
-  website: {
-    type: String,
-    required: false,
-    unique: false
-  }
 
 });
 module.exports = User = mongoose.model("users", UserSchema);

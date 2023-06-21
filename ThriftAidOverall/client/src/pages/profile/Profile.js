@@ -1,26 +1,58 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { logoutUser } from "../../actions/authActions";
-import { useNavigate } from "react-router-dom";
+import { createProfile, logoutUser } from "../../actions/authActions";
 import { Button } from "@mui/material";
 
-const Profile = ({ auth, logoutUser }) => {
-  const navigate = useNavigate();
+const Profile = ({ auth, createProfile, logoutUser, errors }) => {
   const { user, isAuthenticated } = auth;
+  const [establishmentname, setEstablishment] = useState("");
+  const [website, setWebsite] = useState("");
+  const [phonenumber, setPhonenumber] = useState("");
+  const [profileErrors, setProfileErrors] = useState({});
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  
+    const newProfile = {
+      establishmentname: establishmentname,
+      website: website,
+      phonenumber: phonenumber,
+    };
+  
+    createProfile(newProfile, (profile, err) => {
+      if (err) {
+        console.log("Error while creating profile:", err);
+        setProfileErrors(err.response.data);
+      } else {
+        console.log("Profile created successfully:", profile);
+        // Redirect to a new page after profile creation
+        // Replace "/new-route" with the desired route
+        window.location.href = "/new-route";
+      }
+    });
+  };
+  
+
+  const handleLogout = (e) => {
+    e.preventDefault();
+    logoutUser();
+    // Redirect to the login page after logout
+    // Replace "/login" with the desired login route
+    window.location.href = "/login";
+  };
+
+  useEffect(() => {
+    setProfileErrors(errors);
+  }, [errors]);
 
   useEffect(() => {
     if (!isAuthenticated) {
-      navigate("/login");
+      // Redirect to the login page if not authenticated
+      // Replace "/login" with the desired login route
+      window.location.href = "/login";
     }
-  }, [isAuthenticated, navigate]);
-
-  const onLogoutClick = (e) => {
-    e.preventDefault();
-    logoutUser();
-    navigate("/login");
-  };
-
+  }, [isAuthenticated]);
 
   if (!isAuthenticated) {
     return null; // or a loading spinner or any other indication
@@ -44,7 +76,7 @@ const Profile = ({ auth, logoutUser }) => {
                 letterSpacing: "1.5px",
                 marginTop: "1rem",
               }}
-              onClick={onLogoutClick}
+              onClick={handleLogout}
               className="btn btn-large waves-effect waves-light hoverable blue accent-3"
             >
               Logout
@@ -55,113 +87,70 @@ const Profile = ({ auth, logoutUser }) => {
     );
   }
 
-  const onSubmit = (e) => {
-    e.preventDefault();
-
-    const userData = {
-      email: email,
-      password: password
-    };
-
-    loginUser(userData, navigate);
-  };
-
   return (
     <div className="container">
       <div className="signupbox" />
       <div className="loginwelcometoo">Sign in</div>
       <div style={{ marginTop: "4rem" }} className="row">
         <div className="col s8 offset-s2">
-          <div className="col s12" style={{ paddingLeft: "11.250px" }}>
-          </div>
-          <form noValidate onSubmit={onSubmit}>
+          <div className="col s12" style={{ paddingLeft: "11.250px" }}></div>
+          <form noValidate onSubmit={handleSubmit}>
             <div className="input-field col s12">
               <input
-                onChange={e => setEmail(e.target.value)}
-                value={email}
-                error={loginErrors.email}
-                id="email"
-                type="email"
+                onChange={(e) => setEstablishment(e.target.value)}
+                value={establishmentname}
+                error={profileErrors.establishmentname}
+                id="establishmentname"
+                type="establishmentname"
                 className="emailinputbar"
-                placeholder="Email"
+                autoComplete="off"
               />
-              <span className="inputerror">
-                {loginErrors.email}
-                {loginErrors.emailnotfound}
+              <label htmlFor="establishmentname">Establishment Name</label>
+              <span className="red-text">
+                {profileErrors.establishmentname}
               </span>
             </div>
             <div className="input-field col s12">
               <input
-                onChange={e => setPassword(e.target.value)}
-                value={password}
-                error={loginErrors.password}
-                id="password"
-                type="password"
-                placeholder="Password"
-                className="passwordinputbar"
+                onChange={(e) => setWebsite(e.target.value)}
+                value={website}
+                error={profileErrors.website}
+                id="website"
+                type="website"
+                className="emailinputbar"
+                autoComplete="off"
               />
-              <span className="inputerror">
-                {loginErrors.password}
-                {loginErrors.passwordincorrect}
-              </span>
+              <label htmlFor="website">Website</label>
+              <span className="red-text">{profileErrors.website}</span>
             </div>
-            <Button
-              type="submit"
-              sx={{
-                position: "absolute",
-                display: "flex",
-                color: "#F7F3F3",
-                fontFamily: "Noto Sans",
-                fontSize: 15,
-                fontStyle: "normal",
-                fontWeight: 700,
-                textAlign: "center",
-                height: 30,
-                left: "40%",
-                top: "55%",
-                width: 317,
-                textTransform: "none",
-                bgcolor: "#24a0ed",
-                ":hover": {
-                  bgcolor: "#0792e8",
-                  color: "#F7F3F3",
-                  textTransform: "none"
-                }
-              }}
-            >
-              Login
-            </Button>
-            <div className="loginoroption">or</div>
-            <Link to="/">
-              <LoginLogo />
-            </Link>
+            <div className="input-field col s12">
+              <input
+                onChange={(e) => setPhonenumber(e.target.value)}
+                value={phonenumber}
+                error={profileErrors.phonenumber}
+                id="phonenumber"
+                type="phonenumber"
+                className="passwordinputbar"
+                autoComplete="off"
+              />
+              <label htmlFor="phonenumber">Phone Number</label>
+              <span className="red-text">{profileErrors.phonenumber}</span>
+            </div>
+            <div className="col s12" style={{ paddingLeft: "11.250px" }}>
+              <button
+                style={{
+                  width: "150px",
+                  borderRadius: "3px",
+                  letterSpacing: "1.5px",
+                  marginTop: "1rem",
+                }}
+                type="submit"
+                className="btn btn-large waves-effect waves-light hoverable blue accent-3"
+              >
+                Save
+              </button>
+            </div>
           </form>
-          <Button
-          type="text"
-          sx={{
-            position: "absolute",
-            display: "flex",
-            color: "#F7F3F3",
-            fontFamily: "Noto Sans",
-            fontSize: 15,
-            fontStyle: "normal",
-            fontWeight: 700,
-            textAlign: "center",
-            height: 30,
-            left: "40%",
-            top: "64%",
-            width: 317,
-            textTransform: "none",
-            bgcolor: "#5ab0f2",
-            ":hover": {
-              bgcolor: "#4baaf2",
-              color: "#F7F3F3",
-              textTransform: "none"
-            }
-          }}
-        >
-          Click here to sign up instead!
-        </Button>
         </div>
       </div>
     </div>
@@ -169,12 +158,15 @@ const Profile = ({ auth, logoutUser }) => {
 };
 
 Profile.propTypes = {
+  createProfile: PropTypes.func.isRequired,
   logoutUser: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired,
+  errors: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = (state) => ({
   auth: state.auth,
+  errors: state.errors,
 });
 
-export default connect(mapStateToProps, { logoutUser })(Profile);
+export default connect(mapStateToProps, { createProfile, logoutUser })(Profile);

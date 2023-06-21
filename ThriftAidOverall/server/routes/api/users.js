@@ -6,9 +6,11 @@ const keys = require("../../config/keys");
 // Load input validation
 const validateRegisterInput = require("../../validation/register");
 const validateLoginInput = require("../../validation/login");
+const validateProfileInput= require("../../validation/profilename");
 
 // Load User model
 const User = require("../../models/User");
+const Profile = require("../../models/Profile")
 
 // @route POST api/users/register
 // @desc Register user
@@ -56,44 +58,31 @@ router.post("/register", (req, res) => {
 
 router.post("/profile", (req, res) => {
   // Form validation
-  const { errors, isValid } = validateRegisterInput(req.body);
+  const { errors, isValid } = validateProfileInput(req.body);
   // Check validation
   if (!isValid) {
-    console.log("Registration validation errors:", errors);
+    console.log("Profile validation errors:", errors);
     return res.status(400).json(errors);
   }
 
-  User.findOne({ email: req.body.email }).then(user => {
-    if (user) {
-      console.log("Registration failed. Email already exists:", req.body.email);
-      return res.status(400).json({ email: "Email already exists" });
-    } else {
-      const new = new User({
-        usertype: req.body.usertype,
-        email: req.body.email,
-        password: req.body.password
-      });
-
-      // Hash password before saving in database
-      bcrypt.genSalt(10, (err, salt) => {
-        bcrypt.hash(newUser.password, salt, (err, hash) => {
-          if (err) throw err;
-          newUser.password = hash;
-          newUser
-            .save()
-            .then(user => {
-              console.log("User registered successfully:", user);
-              res.json(user);
-            })
-            .catch(err => {
-              console.log("Error while registering user:", err);
-              res.status(500).json(err);
-            });
-        });
-      });
-    }
+  const newProfile = new Profile({
+    establishmentname: req.body.establishmentname,
+    website: req.body.website,
+    phonenumber: req.body.phonenumber
   });
+
+  newProfile
+    .save()
+    .then(profile => {
+      console.log("Profile created successfully:", profile);
+      res.json(profile);
+    })
+    .catch(err => {
+      console.log("Error while creating profile:", err);
+      res.status(500).json(err);
+    });
 });
+        
 
 // @route POST api/users/login
 // @desc Login user and return JWT token
