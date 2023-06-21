@@ -117,7 +117,7 @@ const Profile = ({ auth, createProfile, logoutUser, errors }) => {
                 error={profileErrors.website}
                 id="website"
                 type="website"
-                className="emailinputbar"
+                className="passwordinputbar"
                 autoComplete="off"
               />
               <label htmlFor="website">Website</label>
@@ -130,7 +130,7 @@ const Profile = ({ auth, createProfile, logoutUser, errors }) => {
                 error={profileErrors.phonenumber}
                 id="phonenumber"
                 type="phonenumber"
-                className="passwordinputbar"
+                className="verifypasswordinputbar"
                 autoComplete="off"
               />
               <label htmlFor="phonenumber">Phone Number</label>
