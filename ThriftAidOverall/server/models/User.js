@@ -18,6 +18,19 @@ const UserSchema = new Schema({
     type: String,
     required: true
   },
+  establishmentname: {
+    type: String,
+  },
+  website: {
+    type: String,
+    required: false,
+    unique: false
+  },
+  phonenumber: {
+    type: String,
+    required: false,
+    unique: false
+  }
 
 });
 module.exports = User = mongoose.model("users", UserSchema);

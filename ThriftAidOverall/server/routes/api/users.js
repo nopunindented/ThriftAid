@@ -65,20 +65,23 @@ router.post("/profile", (req, res) => {
     return res.status(400).json(errors);
   }
 
-  const newProfile = new Profile({
+  const profileFields = {
     establishmentname: req.body.establishmentname,
     website: req.body.website,
     phonenumber: req.body.phonenumber
-  });
+  };
 
-  newProfile
-    .save()
-    .then(profile => {
-      console.log("Profile created successfully:", profile);
-      res.json(profile);
+  User.findOneAndUpdate(
+    { email: req.body.email },
+    { $set: profileFields },
+    { new: true }
+  )
+    .then(user => {
+      console.log("Profile updated successfully:", user);
+      res.json(user);
     })
     .catch(err => {
-      console.log("Error while creating profile:", err);
+      console.log("Error while updating profile:", err);
       res.status(500).json(err);
     });
 });

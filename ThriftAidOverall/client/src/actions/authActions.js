@@ -21,19 +21,18 @@ export const registerUser = (userData, history) => dispatch => {
     });
 };
 
-export const createProfile = (newProfile, history) => dispatch => {
+export const updateProfile = (updatedProfile) => dispatch => {
   axios
-    .post("http://localhost:5000/api/users/profile", newProfile)
-    .then(res => history.push("/login"))
+    .post("http://localhost:5000/api/users/profile", updatedProfile)
+    .then(res => {
+      console.log("Profile updated successfully:", res.data);
+    })
     .catch(err => {
       if (err.response) {
         dispatch({
           type: GET_ERRORS,
           payload: err.response.data
         });
-      } else {
-        // Handle other errors, such as network issues
-        // You can dispatch a different action or handle the error in a different way
       }
     });
 };
