@@ -80,6 +80,7 @@ router.post("/profile", (req, res) => {
       console.log("Profile updated successfully:", user);
       res.json(user);
     })
+    
     .catch(err => {
       console.log("Error while updating profile:", err);
       res.status(500).json(err);
@@ -142,5 +143,7 @@ router.post("/login", (req, res) => {
     });
   });
 });
+
+
 
 module.exports = router;

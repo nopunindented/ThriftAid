@@ -42,6 +42,7 @@ const Profile = ({ auth, updateProfile, errors }) => {
             <h1 className="display-4 text-center">Profile</h1>
             <form onSubmit={onSubmit}>
               <input
+              className="emailinputbar"
                 placeholder="Establishment Name"
                 name="establishmentname"
                 value={establishmentname}
@@ -49,6 +50,7 @@ const Profile = ({ auth, updateProfile, errors }) => {
                 error={profileErrors.establishmentname}
               />
               <input
+              className="passwordinputbar"
                 placeholder="Website"
                 name="website"
                 value={website}
@@ -56,6 +58,7 @@ const Profile = ({ auth, updateProfile, errors }) => {
                 error={profileErrors.website}
               />
               <input
+              className="verifypasswordinputbar"
                 placeholder="Phone Number"
                 name="phonenumber"
                 value={phonenumber}

@@ -507,3 +507,13 @@ box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);
   font-size: 40px;
   font-weight: 470;
 }
+
+.currentprofileinfo{
+    position: absolute;
+    top: 80%;
+    left: 40%;
+    color: black;
+    font-family: 'Open Sans';
+    font-size: 40px;
+    font-weight: 470;
+}
