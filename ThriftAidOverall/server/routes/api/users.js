@@ -10,7 +10,6 @@ const validateProfileInput= require("../../validation/profilename");
 
 // Load User model
 const User = require("../../models/User");
-const Profile = require("../../models/Profile")
 
 // @route POST api/users/register
 // @desc Register user
@@ -80,7 +79,6 @@ router.post("/profile", (req, res) => {
       console.log("Profile updated successfully:", user);
       res.json(user);
     })
-    
     .catch(err => {
       console.log("Error while updating profile:", err);
       res.status(500).json(err);
@@ -144,6 +142,22 @@ router.post("/login", (req, res) => {
   });
 });
 
+router.get("/profile", (req, res) => {
+  User.findOne({ email: req.query.email })
+    .then(user => {
+      if (user) {
+        console.log("Profile retrieved successfully:", user);
+        res.json(user);
+      } else {
+        console.log("Profile not found for the given email");
+        res.status(404).json({ profileNotFound: "Profile not found" });
+      }
+    })
+    .catch(err => {
+      console.log("Error while retrieving profile:", err);
+      res.status(500).json(err);
+    });
+});
 
 
 module.exports = router;

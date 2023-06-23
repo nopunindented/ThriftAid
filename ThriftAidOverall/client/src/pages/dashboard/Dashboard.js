@@ -61,7 +61,7 @@ const Dashboard = ({ auth, logoutUser }) => {
 
     return (
       <div>
-        <div className="pastpostings">Your past postings:</div>
+        <div className="pastpostings">Your past postings: </div>
 
         <Button
           type="submit"

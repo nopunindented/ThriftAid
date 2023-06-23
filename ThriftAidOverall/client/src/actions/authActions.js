@@ -26,6 +26,7 @@ export const updateProfile = (updatedProfile) => dispatch => {
     .post("http://localhost:5000/api/users/profile", updatedProfile)
     .then(res => {
       console.log("Profile updated successfully:", res.data);
+      dispatch(setCurrentUser(res.data));
     })
     .catch(err => {
       if (err.response) {

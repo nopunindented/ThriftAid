@@ -2,12 +2,13 @@ import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { updateProfile } from "../../actions/authActions";
+import axios from "axios";
 
 const Profile = ({ auth, updateProfile, errors }) => {
   const { user, isAuthenticated } = auth;
-  const [establishmentname, setEstablishment] = useState(user.establishmentname || "");
-  const [website, setWebsite] = useState(user.website || "");
-  const [phonenumber, setPhonenumber] = useState(user.phonenumber || "");
+  const [establishmentname, setEstablishment] = useState("");
+  const [website, setWebsite] = useState("");
+  const [phonenumber, setPhonenumber] = useState("");
   const [profileErrors, setProfileErrors] = useState({});
 
   useEffect(() => {
@@ -18,8 +19,27 @@ const Profile = ({ auth, updateProfile, errors }) => {
     if (!isAuthenticated) {
       // Redirect to login page if not authenticated
       window.location.href = "/login";
+    } else {
+      console.log(user)
+      // Fetch profile data
+      fetchProfile(user.email);
     }
-  }, [isAuthenticated]);
+  }, [isAuthenticated, user]);
+
+  const fetchProfile = (email) => {
+    axios.get(`http://localhost:5000/api/users/profile?email=${email}`)
+      .then(res => {
+        const profile = res.data;
+        if (profile) {
+          setEstablishment(profile.establishmentname || "");
+          setWebsite(profile.website || "");
+          setPhonenumber(profile.phonenumber || "");
+        }
+      })
+      .catch(err => {
+        console.log("Error while fetching profile:", err);
+      });
+  };
 
   const onSubmit = e => {
     e.preventDefault();
@@ -42,7 +62,7 @@ const Profile = ({ auth, updateProfile, errors }) => {
             <h1 className="display-4 text-center">Profile</h1>
             <form onSubmit={onSubmit}>
               <input
-              className="emailinputbar"
+                className="emailinputbar"
                 placeholder="Establishment Name"
                 name="establishmentname"
                 value={establishmentname}
@@ -50,7 +70,7 @@ const Profile = ({ auth, updateProfile, errors }) => {
                 error={profileErrors.establishmentname}
               />
               <input
-              className="passwordinputbar"
+                className="passwordinputbar"
                 placeholder="Website"
                 name="website"
                 value={website}
@@ -58,7 +78,7 @@ const Profile = ({ auth, updateProfile, errors }) => {
                 error={profileErrors.website}
               />
               <input
-              className="verifypasswordinputbar"
+                className="verifypasswordinputbar"
                 placeholder="Phone Number"
                 name="phonenumber"
                 value={phonenumber}
@@ -67,6 +87,11 @@ const Profile = ({ auth, updateProfile, errors }) => {
               />
               <input type="submit" className="btn btn-info btn-block mt-4" />
             </form>
+            <div className="currentprofileinfo">
+              <h4>Establishment Name: {establishmentname}</h4>
+              <h4>Website: {website}</h4>
+              <h4>Phone Number: {phonenumber}</h4>
+            </div>
           </div>
         </div>
       </div>
