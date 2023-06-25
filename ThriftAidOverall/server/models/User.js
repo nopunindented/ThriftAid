@@ -23,12 +23,10 @@ const UserSchema = new Schema({
   },
   website: {
     type: String,
-    required: false,
     unique: false
   },
   phonenumber: {
     type: String,
-    required: false,
     unique: false
   }
 
