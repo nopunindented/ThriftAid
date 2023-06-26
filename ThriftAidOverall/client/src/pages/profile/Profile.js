@@ -98,8 +98,8 @@ const Profile = ({ auth, updateProfile, errors, setCurrentUser }) => {
               <input type="submit" className="btn btn-info btn-block mt-4" />
             </form>
             <div className="currentprofileinfo">
-              <h4>Establishment Name: {profileUser.establishmentname || ''}</h4>
-              <h4>Website: {profileUser.website || ''}</h4>
+              <h4>Establishment Name: {user.establishmentname || ''}</h4>
+              <h4>Website: {user.website || ''}</h4>
               <h4>Phone Number: {user.phonenumber || ''}</h4>
             </div>
           </div>
