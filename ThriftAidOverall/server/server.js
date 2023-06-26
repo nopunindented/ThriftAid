@@ -3,7 +3,11 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const passport = require("passport");
 const cors = require("cors");
+const session = require("express-session");
+const MongoDBStore = require("connect-mongodb-session")(session);
+
 const users = require("./routes/api/users.js");
+const keys = require("./config/keys");
 
 const app = express();
 
@@ -12,7 +16,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 // DB Config
-const db = require("./config/keys").mongoURI;
+const db = keys.mongoURI;
 
 // Connect to MongoDB
 mongoose
@@ -32,6 +36,22 @@ require("./config/passport")(passport);
 
 // Enable CORS
 app.use(cors());
+
+// Create a new instance of the session store
+const store = new MongoDBStore({
+  uri: db,
+  collection: "sessions",
+});
+
+// Configure the session middleware
+app.use(
+  session({
+    secret: keys.secretOrKey,
+    resave: false,
+    saveUninitialized: false,
+    store: store,
+  })
+);
 
 // Routes
 app.use("/api/users", users);

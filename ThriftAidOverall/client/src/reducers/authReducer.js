@@ -1,29 +1,19 @@
-import {
-  SET_CURRENT_USER,
-  USER_LOADING
-} from "../actions/types";
-const isEmpty = require("is-empty");
+import { SET_CURRENT_USER, USER_LOADING } from "../actions/types";
+import isEmpty from "is-empty";
+
 const initialState = {
   isAuthenticated: false,
-  user: {
-    establishmentname: "",
-    phonenumber: "",
-    website: ""
-  },
+  user: null,
   loading: false
 };
 
 export default function(state = initialState, action) {
   switch (action.type) {
     case SET_CURRENT_USER:
-      console.log("SET_CURRENT_USER action payload:", action.payload); // Debugging statement
       return {
         ...state,
         isAuthenticated: !isEmpty(action.payload),
-        user: {
-          ...state.user,
-          ...action.payload
-        }
+        user: action.payload
       };
     case USER_LOADING:
       return {

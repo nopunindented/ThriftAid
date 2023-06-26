@@ -6,7 +6,7 @@ const keys = require("../../config/keys");
 // Load input validation
 const validateRegisterInput = require("../../validation/register");
 const validateLoginInput = require("../../validation/login");
-const validateProfileInput= require("../../validation/profilename");
+const validateProfileInput = require("../../validation/profilename");
 
 // Load User model
 const User = require("../../models/User");
@@ -23,7 +23,7 @@ router.post("/register", (req, res) => {
     return res.status(400).json(errors);
   }
 
-  User.findOne({ email: req.body.email }).then(user => {
+  User.findOne({ email: req.body.email }).then((user) => {
     if (user) {
       console.log("Registration failed. Email already exists:", req.body.email);
       return res.status(400).json({ email: "Email already exists" });
@@ -31,7 +31,10 @@ router.post("/register", (req, res) => {
       const newUser = new User({
         usertype: req.body.usertype,
         email: req.body.email,
-        password: req.body.password
+        password: req.body.password,
+        establishmentname: "",
+        website: "",
+        phonenumber: "",
       });
 
       // Hash password before saving in database
@@ -41,11 +44,11 @@ router.post("/register", (req, res) => {
           newUser.password = hash;
           newUser
             .save()
-            .then(user => {
+            .then((user) => {
               console.log("User registered successfully:", user);
               res.json(user);
             })
-            .catch(err => {
+            .catch((err) => {
               console.log("Error while registering user:", err);
               res.status(500).json(err);
             });
@@ -55,7 +58,17 @@ router.post("/register", (req, res) => {
   });
 });
 
-router.post("/profile", (req, res) => {
+router.get("/profile", (req, res) => {
+  const profile = {
+    establishmentname: req.session.establishmentname || "",
+    website: req.session.website || "",
+    phonenumber: req.session.phonenumber || "",
+  };
+
+  res.json(profile);
+});
+
+router.post("/profile", async (req, res) => {
   // Form validation
   const { errors, isValid } = validateProfileInput(req.body);
   // Check validation
@@ -67,25 +80,43 @@ router.post("/profile", (req, res) => {
   const profileFields = {
     establishmentname: req.body.establishmentname,
     website: req.body.website,
-    phonenumber: req.body.phonenumber
+    phonenumber: req.body.phonenumber,
   };
 
-  User.findOneAndUpdate(
-    { email: req.body.email },
-    { $set: profileFields },
-    { new: true }
-  )
-    .then(user => {
-      console.log("Profile updated successfully:", user);
-      res.json(user);
-    })
-    .catch(err => {
-      console.log("Error while updating profile:", err);
-      res.status(500).json(err);
-    });
-});
-        
+  try {
+    const user = await User.findOneAndUpdate(
+      { email: req.body.email },
+      { $set: profileFields },
+      { new: true }
+    );
 
+    console.log("Profile updated successfully:", user);
+
+    req.session.establishmentname = user.establishmentname; // Update establishment name in session
+    req.session.website = user.website; // Update website in session
+    req.session.phonenumber = user.phonenumber; // Update phone number in session
+
+    res.json(user);
+  } catch (err) {
+    console.log("Error while updating profile:", err);
+    res.status(500).json(err);
+  }
+});
+
+router.get("/profile", (req, res) => {
+  const user = req.session.user;
+
+  if (user) {
+    const profile = {
+      establishmentname: user.establishmentname,
+      website: user.website,
+      phonenumber: user.phonenumber,
+    };
+    res.json(profile);
+  } else {
+    res.status(404).json({ profilenotfound: "Profile not found" });
+  }
+});
 // @route POST api/users/login
 // @desc Login user and return JWT token
 // @access Public
@@ -101,38 +132,37 @@ router.post("/login", (req, res) => {
   const email = req.body.email;
   const password = req.body.password;
   // Find user by email
-  User.findOne({ email }).then(user => {
+  User.findOne({ email }).then((user) => {
     // Check if user exists
     if (!user) {
       console.log("Login failed. Email not found:", email);
       return res.status(404).json({ emailnotfound: "Email not found" });
     }
     // Check password
-    bcrypt.compare(password, user.password).then(isMatch => {
+    bcrypt.compare(password, user.password).then((isMatch) => {
       if (isMatch) {
         // User matched
         // Create JWT Payload
         const payload = {
           id: user.id,
-          email: user.email
+          email: user.email,
         };
         // Sign token
         jwt.sign(
-          { ...payload, usertype: user.usertype }, // Include usertype in the payload
+          { ...payload, usertype: user.usertype, establishmentname: user.establishmentname, website: user.website, phonenumber: user.phonenumber }, // Include usertype in the payload
           keys.secretOrKey,
           {
-            expiresIn: 31556926 // 1 year in seconds
+            expiresIn: 31556926, // 1 year in seconds
           },
           (err, token) => {
             console.log("User logged in successfully:", user);
             res.json({
               success: true,
-              token: "Bearer " + token
+              token: "Bearer " + token,
             });
           }
         );
-        
-        } else {
+      } else {
         console.log("Login failed. Incorrect password");
         return res
           .status(400)
@@ -141,23 +171,5 @@ router.post("/login", (req, res) => {
     });
   });
 });
-
-router.get("/profile", (req, res) => {
-  User.findOne({ email: req.query.email })
-    .then(user => {
-      if (user) {
-        console.log("Profile retrieved successfully:", user);
-        res.json(user);
-      } else {
-        console.log("Profile not found for the given email");
-        res.status(404).json({ profileNotFound: "Profile not found" });
-      }
-    })
-    .catch(err => {
-      console.log("Error while retrieving profile:", err);
-      res.status(500).json(err);
-    });
-});
-
 
 module.exports = router;

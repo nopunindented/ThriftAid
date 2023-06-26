@@ -28,13 +28,11 @@ function App() {
           window.location.href = '/login';
         }
       } catch (error) {
-        // Handle any errors that occur while decoding the token
         console.error('Error decoding JWT token:', error);
         store.dispatch(logoutUser());
       }
     }
   }, []);
-
 
   return (
     <Provider store={store}>

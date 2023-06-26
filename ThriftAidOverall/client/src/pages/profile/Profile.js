@@ -1,15 +1,17 @@
-import React, { useState, useEffect } from "react";
-import { connect } from "react-redux";
-import PropTypes from "prop-types";
-import { updateProfile } from "../../actions/authActions";
-import axios from "axios";
+import React, { useState, useEffect } from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import { updateProfile } from '../../actions/authActions';
+import axios from 'axios';
+import { setCurrentUser } from '../../actions/authActions';
 
-const Profile = ({ auth, updateProfile, errors }) => {
+const Profile = ({ auth, updateProfile, errors, setCurrentUser }) => {
   const { user, isAuthenticated } = auth;
-  const [establishmentname, setEstablishment] = useState("");
-  const [website, setWebsite] = useState("");
-  const [phonenumber, setPhonenumber] = useState("");
+  const [establishmentname, setEstablishment] = useState('');
+  const [website, setWebsite] = useState('');
+  const [phonenumber, setPhonenumber] = useState('');
   const [profileErrors, setProfileErrors] = useState({});
+  const [profileUser, setProfileUser] = useState({});
 
   useEffect(() => {
     setProfileErrors(errors);
@@ -18,40 +20,48 @@ const Profile = ({ auth, updateProfile, errors }) => {
   useEffect(() => {
     if (!isAuthenticated) {
       // Redirect to login page if not authenticated
-      window.location.href = "/login";
-    } else {
-      console.log(user)
-      // Fetch profile data
+      window.location.href = '/login';
+    } else if (isAuthenticated && user) {
       fetchProfile(user.email);
     }
-  }, [isAuthenticated, user]);
+  }, [isAuthenticated, user, setCurrentUser]);
 
   const fetchProfile = (email) => {
-    axios.get(`http://localhost:5000/api/users/profile?email=${email}`)
-      .then(res => {
+    axios
+      .get(`http://localhost:5000/api/users/profile?email=${email}`)
+      .then((res) => {
         const profile = res.data;
         if (profile) {
-          setEstablishment(profile.establishmentname || "");
-          setWebsite(profile.website || "");
-          setPhonenumber(profile.phonenumber || "");
+          setProfileUser(profile);
+          setEstablishment(profile.establishmentname || '');
+          setWebsite(profile.website || '');
+          setPhonenumber(profile.phonenumber || '');
         }
       })
-      .catch(err => {
-        console.log("Error while fetching profile:", err);
+      .catch((err) => {
+        console.log('Error while fetching profile:', err);
       });
   };
 
-  const onSubmit = e => {
+  const onSubmit = (e) => {
     e.preventDefault();
 
     const updatedProfile = {
       establishmentname,
       website,
       phonenumber,
-      email: user.email
+      email: user.email,
     };
 
     updateProfile(updatedProfile);
+
+    const updatedUser = {
+      ...(user || {}),
+      establishmentname,
+      website,
+      phonenumber,
+    };
+    setCurrentUser(updatedUser);
   };
 
   return (
@@ -66,7 +76,7 @@ const Profile = ({ auth, updateProfile, errors }) => {
                 placeholder="Establishment Name"
                 name="establishmentname"
                 value={establishmentname}
-                onChange={e => setEstablishment(e.target.value)}
+                onChange={(e) => setEstablishment(e.target.value)}
                 error={profileErrors.establishmentname}
               />
               <input
@@ -74,7 +84,7 @@ const Profile = ({ auth, updateProfile, errors }) => {
                 placeholder="Website"
                 name="website"
                 value={website}
-                onChange={e => setWebsite(e.target.value)}
+                onChange={(e) => setWebsite(e.target.value)}
                 error={profileErrors.website}
               />
               <input
@@ -82,15 +92,15 @@ const Profile = ({ auth, updateProfile, errors }) => {
                 placeholder="Phone Number"
                 name="phonenumber"
                 value={phonenumber}
-                onChange={e => setPhonenumber(e.target.value)}
+                onChange={(e) => setPhonenumber(e.target.value)}
                 error={profileErrors.phonenumber}
               />
               <input type="submit" className="btn btn-info btn-block mt-4" />
             </form>
             <div className="currentprofileinfo">
-              <h4>Establishment Name: {establishmentname}</h4>
-              <h4>Website: {website}</h4>
-              <h4>Phone Number: {phonenumber}</h4>
+              <h4>Establishment Name: {profileUser.establishmentname || ''}</h4>
+              <h4>Website: {profileUser.website || ''}</h4>
+              <h4>Phone Number: {user.phonenumber || ''}</h4>
             </div>
           </div>
         </div>
@@ -102,12 +112,13 @@ const Profile = ({ auth, updateProfile, errors }) => {
 Profile.propTypes = {
   auth: PropTypes.object.isRequired,
   updateProfile: PropTypes.func.isRequired,
-  errors: PropTypes.object.isRequired
+  errors: PropTypes.object.isRequired,
+  setCurrentUser: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   auth: state.auth,
-  errors: state.errors
+  errors: state.errors,
 });
 
-export default connect(mapStateToProps, { updateProfile })(Profile);
+export default connect(mapStateToProps, { updateProfile, setCurrentUser })(Profile);
