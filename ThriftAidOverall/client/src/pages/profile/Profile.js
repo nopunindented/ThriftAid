@@ -4,6 +4,11 @@ import PropTypes from 'prop-types';
 import { updateProfile } from '../../actions/authActions';
 import axios from 'axios';
 import { setCurrentUser } from '../../actions/authActions';
+import Swal from 'sweetalert2';
+
+const theAlert= () => {
+  Swal.fire('Good job!', 'Your profile was updated successfully', 'success')
+}
 
 const Profile = ({ auth, updateProfile, errors, setCurrentUser }) => {
   const { user, isAuthenticated } = auth;
@@ -62,6 +67,7 @@ const Profile = ({ auth, updateProfile, errors, setCurrentUser }) => {
       phonenumber,
     };
     setCurrentUser(updatedUser);
+    setTimeout(theAlert, 500); 
   };
 
   return (
