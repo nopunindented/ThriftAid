@@ -517,3 +517,98 @@ box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);
     font-size: 40px;
     font-weight: 470;
 }
+
+.signupbox{
+  position: absolute;
+  display: inline-block;
+  width: 335px;
+  height: 400px;
+  top: 21%;
+  left: 39.3%;
+  border-radius: 2%;
+  background: white;
+  box-shadow: 0px 4px 30px rgba(0.1, 0.1, 0.1, 0.25);
+}
+
+
+.websiteinputbar{
+  border-radius: 3px;
+  position: fixed;
+  top: 47%;
+  left: 40%;
+  font-size: 18px;
+  font-weight: 10;
+  width: 310px;
+  height: 35px;
+  border-width: 0.5px;
+  border-color: #a9a9a9;
+  text-indent: 5px;
+}
+
+.websiteinputbar::placeholder{
+  position: relative;
+  font-size: 22px;
+  font-weight: 10;
+  left:0%;
+  top: 7%;
+}
+
+.phonenumberinputbar{
+  border-radius: 3px;
+  position: fixed;
+  top: 54%;
+  left: 40%;
+  font-size: 18px;
+  font-weight: 10;
+  width: 310px;
+  height: 35px;
+  border-width: 0.5px;
+  border-color: #a9a9a9;
+  text-indent: 5px;
+}
+
+.phonenumberinputbar:focus{
+  outline: 0;
+  border: 3px solid #24a0ed;
+}
+
+.websiteinputbar:focus{
+  outline: 0;
+  border: 3px solid #24a0ed;
+}
+
+.phonenumberinputbar::placeholder{
+  position: relative;
+  font-size: 22px;
+  font-weight: 10;
+  left:0%;
+  top: 7%;
+}
+
+.establishmentinputbar{
+  border-radius: 3px;
+  position: fixed;
+  top: 40%;
+  left: 35%;
+  font-size: 18px;
+  font-weight: 10;
+  width: 310px;
+  height: 35px;
+  border-width: 0.5px;
+  border-color: #a9a9a9;
+  text-indent: 5px;
+}
+
+.establishmentinputbar:focus{
+  outline: 0;
+  border: 3px solid #24a0ed;
+}
+
+.establishmentinputbar::placeholder{
+  position: relative;
+  font-size: 22px;
+  font-weight: 10;
+  left:0%;
+  top: 7%;
+}
+

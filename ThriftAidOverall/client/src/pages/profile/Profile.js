@@ -5,10 +5,11 @@ import { updateProfile } from '../../actions/authActions';
 import axios from 'axios';
 import { setCurrentUser } from '../../actions/authActions';
 import Swal from 'sweetalert2';
+import { Button, Fade, Slide } from '@mui/material';
 
-const theAlert= () => {
-  Swal.fire('Good job!', 'Your profile was updated successfully', 'success')
-}
+const theAlert = () => {
+  Swal.fire('Good job!', 'Your profile was updated successfully', 'success');
+};
 
 const Profile = ({ auth, updateProfile, errors, setCurrentUser }) => {
   const { user, isAuthenticated } = auth;
@@ -17,6 +18,47 @@ const Profile = ({ auth, updateProfile, errors, setCurrentUser }) => {
   const [phonenumber, setPhonenumber] = useState('');
   const [profileErrors, setProfileErrors] = useState({});
   const [profileUser, setProfileUser] = useState({});
+  const [contentProfile, setContentProfile] = useState('yes');
+
+  const notContent = () => {
+    setContentProfile('no');
+  };
+
+  const yesContent = () => {
+    setContentProfile('yes');
+  };
+
+  function UpdateProfileButton() {
+    return (
+      <Button
+        type="submit"
+        sx={{
+          position: 'absolute',
+          display: 'flex',
+          color: '#F7F3F3',
+          fontFamily: 'Noto Sans',
+          fontSize: 15,
+          fontStyle: 'normal',
+          fontWeight: 700,
+          textAlign: 'center',
+          height: 30,
+          left: '40%',
+          top: '55%',
+          width: 317,
+          textTransform: 'none',
+          bgcolor: '#24a0ed',
+          ':hover': {
+            bgcolor: '#0792e8',
+            color: '#F7F3F3',
+            textTransform: 'none',
+          },
+        }}
+        onClick={notContent}
+      >
+        Click here to update profile
+      </Button>
+    );
+  }
 
   useEffect(() => {
     setProfileErrors(errors);
@@ -67,52 +109,65 @@ const Profile = ({ auth, updateProfile, errors, setCurrentUser }) => {
       phonenumber,
     };
     setCurrentUser(updatedUser);
-    setTimeout(theAlert, 500); 
+    setTimeout(theAlert, 500);
   };
 
-  return (
-    <div className="profile">
-      <div className="container">
-        <div className="row">
-          <div className="col-md-8 m-auto">
-            <h1 className="display-4 text-center">Profile</h1>
-            <form onSubmit={onSubmit}>
-              <input
-                className="emailinputbar"
-                placeholder="Establishment Name"
-                name="establishmentname"
-                value={establishmentname}
-                onChange={(e) => setEstablishment(e.target.value)}
-                error={profileErrors.establishmentname}
-              />
-              <input
-                className="passwordinputbar"
-                placeholder="Website"
-                name="website"
-                value={website}
-                onChange={(e) => setWebsite(e.target.value)}
-                error={profileErrors.website}
-              />
-              <input
-                className="verifypasswordinputbar"
-                placeholder="Phone Number"
-                name="phonenumber"
-                value={phonenumber}
-                onChange={(e) => setPhonenumber(e.target.value)}
-                error={profileErrors.phonenumber}
-              />
-              <input type="submit" className="btn btn-info btn-block mt-4" />
-            </form>
-            <div className="currentprofileinfo">
-              <h4>Establishment Name: {user.establishmentname || ''}</h4>
-              <h4>Website: {user.website || ''}</h4>
-              <h4>Phone Number: {user.phonenumber || ''}</h4>
+  if (contentProfile === 'yes') {
+    return (
+      <div className="currentprofileinfo">
+        <h4 className='establishmentinputbar'>Establishment Name: {user.establishmentname || ''}</h4>
+        <h4 className='websiteinputbar'>Website: {user.website || ''}</h4>
+        <h4 className='phonenumberinputbar'>Phone Number: {user.phonenumber || ''}</h4>
+        <UpdateProfileButton />
+      </div>
+    );
+  } else if (contentProfile === 'no') {
+    return (
+      <Fade in={true}>
+        <div className="profile">
+          <div className="container">
+            <div className="row">
+              <div className="col-md-8 m-auto">
+                <h1 className="display-4 text-center">Profile</h1>
+                <form onSubmit={onSubmit}>
+                  <input
+                    className="establishmentinputbar"
+                    placeholder="Establishment Name"
+                    name="establishmentname"
+                    value={establishmentname}
+                    onChange={(e) => setEstablishment(e.target.value)}
+                    error={profileErrors.establishmentname}
+                  />
+                  <input
+                    className="websiteinputbar"
+                    placeholder="Website"
+                    name="website"
+                    value={website}
+                    onChange={(e) => setWebsite(e.target.value)}
+                    error={profileErrors.website}
+                  />
+                  <input
+                    className="phonenumberinputbar"
+                    placeholder="Phone Number"
+                    name="phonenumber"
+                    value={phonenumber}
+                    onChange={(e) => setPhonenumber(e.target.value)}
+                    error={profileErrors.phonenumber}
+                  />
+                  <input type="submit" className="btn btn-info btn-block mt-4" />
+                </form>
+                <div className="currentprofileinfo">
+                  <h4 className='establishmentinputbar'>Establishment Name: {user.establishmentname || ''}</h4>
+                  <h4 className='websiteinputbar'>Website: {user.website || ''}</h4>
+                  <h4 className='phonenumberinputbar'>Phone Number: {user.phonenumber || ''}</h4>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
-  );
+      </Fade>
+    );
+  }
 };
 
 Profile.propTypes = {
