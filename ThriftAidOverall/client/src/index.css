@@ -624,7 +624,8 @@ box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);
   height: 35px;
   border-width: 0.5px;
   border-color: #a9a9a9;
-  text-indent: 5px;
+  padding: 0 10px; /* Add padding/margin effect to the wrapped lines */
+  box-sizing: border-box; /* Include padding in the element's total width */
 }
 
 .websiteinputbarv2::placeholder{
@@ -646,7 +647,8 @@ box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);
   height: 35px;
   border-width: 0.5px;
   border-color: #a9a9a9;
-  text-indent: 5px;
+  padding: 0 10px; /* Add padding/margin effect to the wrapped lines */
+  box-sizing: border-box; /* Include padding in the element's total width */
 }
 
 .phonenumberinputbarv2:focus{
