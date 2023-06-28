@@ -5,7 +5,9 @@ import { updateProfile } from '../../actions/authActions';
 import axios from 'axios';
 import { setCurrentUser } from '../../actions/authActions';
 import Swal from 'sweetalert2';
-import { Button, Fade, Slide } from '@mui/material';
+import { Button, Fade } from '@mui/material';
+import ProfileLogo from './Profilepagelogo';
+import { Link } from 'react-router-dom';
 
 const theAlert = () => {
   Swal.fire('Good job!', 'Your profile was updated successfully', 'success');
@@ -42,9 +44,9 @@ const Profile = ({ auth, updateProfile, errors, setCurrentUser }) => {
           fontWeight: 700,
           textAlign: 'center',
           height: 30,
-          left: '40%',
-          top: '55%',
-          width: 317,
+          left: '41.1%',
+          top: '67%',
+          width: 292,
           textTransform: 'none',
           bgcolor: '#24a0ed',
           ':hover': {
@@ -114,11 +116,18 @@ const Profile = ({ auth, updateProfile, errors, setCurrentUser }) => {
 
   if (contentProfile === 'yes') {
     return (
+      <div>
+      <div className='currentprofilebox' />
+      <Link to= '/'>
+        <ProfileLogo />
+      </Link>
+      <div className="profilewelcometoo">Profile</div>
+      <UpdateProfileButton />
       <div className="currentprofileinfo">
-        <h4 className='establishmentinputbar'>Establishment Name: {user.establishmentname || ''}</h4>
-        <h4 className='websiteinputbar'>Website: {user.website || ''}</h4>
-        <h4 className='phonenumberinputbar'>Phone Number: {user.phonenumber || ''}</h4>
-        <UpdateProfileButton />
+        <h4 className='establishmentinputbarv2'>Establishment Name: {user.establishmentname || ''}</h4>
+        <h4 className='websiteinputbarv2'>Website: {user.website || ''}</h4>
+        <h4 className='phonenumberinputbarv2'>Phone Number: {user.phonenumber || ''}</h4>
+      </div>
       </div>
     );
   } else if (contentProfile === 'no') {

@@ -443,17 +443,6 @@ box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);
   font-weight: 500;
 }
 
-@keyframes typing {
-  from {
-    width: 0
-  }
-}
-    
-@keyframes blink {
-  70% {
-    border-color: transparent
-  }
-}
 
 .loginshirt{
   position: absolute;
@@ -599,12 +588,12 @@ box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);
   text-indent: 5px;
 }
 
-.establishmentinputbar:focus{
+.establishmentinputbarv2:focus{
   outline: 0;
   border: 3px solid #24a0ed;
 }
 
-.establishmentinputbar::placeholder{
+.establishmentinputbarv2::placeholder{
   position: relative;
   font-size: 22px;
   font-weight: 10;
@@ -612,3 +601,111 @@ box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);
   top: 7%;
 }
 
+.currentprofilebox{
+  position: absolute;
+  display: inline-block;
+  width: 335px;
+  height: 400px;
+  top: 21%;
+  left: 39.3%;
+  border-radius: 2%;
+  background: white;
+  box-shadow: 0px 4px 30px rgba(0.1, 0.1, 0.1, 0.25);
+}
+
+.websiteinputbarv2{
+  border-radius: 3px;
+  position: fixed;
+  top: 46%;
+  left: 40.7%;
+  font-size: 18px;
+  font-weight: 10;
+  width: 310px;
+  height: 35px;
+  border-width: 0.5px;
+  border-color: #a9a9a9;
+  text-indent: 5px;
+}
+
+.websiteinputbarv2::placeholder{
+  position: relative;
+  font-size: 22px;
+  font-weight: 10;
+  left:0%;
+  top: 7%;
+}
+
+.phonenumberinputbarv2{
+  border-radius: 3px;
+  position: fixed;
+  top: 55%;
+  left: 40.75%;
+  font-size: 18px;
+  font-weight: 10;
+  width: 310px;
+  height: 35px;
+  border-width: 0.5px;
+  border-color: #a9a9a9;
+  text-indent: 5px;
+}
+
+.phonenumberinputbarv2:focus{
+  outline: 0;
+  border: 3px solid #24a0ed;
+}
+
+.websiteinputbarv2:focus{
+  outline: 0;
+  border: 3px solid #24a0ed;
+}
+
+.phonenumberinputbarv2::placeholder{
+  position: relative;
+  font-size: 22px;
+  font-weight: 10;
+  left:0%;
+  top: 7%;
+}
+
+.establishmentinputbarv2 {
+  border-radius: 3px;
+  position: fixed;
+  top: 36%;
+  left: 40.4%;
+  font-size: 18px;
+  font-weight: 10;
+  width: 310px;
+  height: 35px;
+  border-width: 0.5px;
+  border-color: #a9a9a9;
+  padding: 0 10px; /* Add padding/margin effect to the wrapped lines */
+  box-sizing: border-box; /* Include padding in the element's total width */
+}
+
+.ellipse8{
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  left: 48.5%;
+  border-radius: 50%;
+  top: 22%;
+  background: rgba(24, 170, 237, 0.589);
+  box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);
+  }
+
+  .profileshirt{
+    position: absolute;
+    display: inline-block;
+    left: 4.8px;
+    width: 52px;
+    height: 52px;
+    top: 4.3px;
+    
+  }
+
+  .profilewelcometoo{
+    position: absolute;
+    left: 48.9%;
+    top: 30.1%;
+    font-family: 'Open sans';
+  }
