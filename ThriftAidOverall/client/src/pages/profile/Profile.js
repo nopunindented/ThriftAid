@@ -39,7 +39,7 @@ const Profile = ({ auth, updateProfile, errors, setCurrentUser }) => {
           display: 'flex',
           color: '#F7F3F3',
           fontFamily: 'Noto Sans',
-          fontSize: 15,
+          fontSize: 10,
           fontStyle: 'normal',
           fontWeight: 700,
           textAlign: 'center',
@@ -57,11 +57,41 @@ const Profile = ({ auth, updateProfile, errors, setCurrentUser }) => {
         }}
         onClick={notContent}
       >
-        Click here to update profile
+        Want to create/update your profile? Click here!
       </Button>
     );
   }
-
+  function CreateProfileButton() {
+    return (
+      <Button
+        type="submit"
+        sx={{
+          position: 'absolute',
+          display: 'flex',
+          color: '#F7F3F3',
+          fontFamily: 'Noto Sans',
+          fontSize: 15,
+          fontStyle: 'normal',
+          fontWeight: 700,
+          textAlign: 'center',
+          height: 30,
+          left: '41.1%',
+          top: '67%',
+          width: 292,
+          textTransform: 'none',
+          bgcolor: '#24a0ed',
+          ':hover': {
+            bgcolor: '#0792e8',
+            color: '#F7F3F3',
+            textTransform: 'none',
+          },
+        }}
+        onClick={onSubmit}
+      >
+        Click here to create/update profile
+      </Button>
+    );
+  }
   useEffect(() => {
     setProfileErrors(errors);
   }, [errors]);
@@ -112,6 +142,7 @@ const Profile = ({ auth, updateProfile, errors, setCurrentUser }) => {
     };
     setCurrentUser(updatedUser);
     setTimeout(theAlert, 500);
+    yesContent();
   };
 
   if (contentProfile === 'yes') {
@@ -134,6 +165,7 @@ const Profile = ({ auth, updateProfile, errors, setCurrentUser }) => {
     return (
       <Fade in={true}>
         <div className="profile">
+        <div className='currentprofilebox' />
           <div className="container">
             <div className="row">
               <div className="col-md-8 m-auto">
@@ -163,13 +195,8 @@ const Profile = ({ auth, updateProfile, errors, setCurrentUser }) => {
                     onChange={(e) => setPhonenumber(e.target.value)}
                     error={profileErrors.phonenumber}
                   />
-                  <input type="submit" className="btn btn-info btn-block mt-4" />
+                <CreateProfileButton />
                 </form>
-                <div className="currentprofileinfo">
-                  <h4 className='establishmentinputbar'>Establishment Name: {user.establishmentname || ''}</h4>
-                  <h4 className='websiteinputbar'>Website: {user.website || ''}</h4>
-                  <h4 className='phonenumberinputbar'>Phone Number: {user.phonenumber || ''}</h4>
-                </div>
               </div>
             </div>
           </div>
