@@ -5,6 +5,11 @@ import { registerUser } from "../actions/authActions";
 import { Link } from "react-router-dom";
 import { Button } from "@mui/material";
 import SignupLogo from "./Signuppagelogo.js";
+import Swal from 'sweetalert2';
+
+const theAlert = () => {
+  Swal.fire('Good job!', 'Your profile was updated successfully', 'success');
+};
 
 const handleLoginClick = () => {
   window.location.href = "http://localhost:3000/login";
