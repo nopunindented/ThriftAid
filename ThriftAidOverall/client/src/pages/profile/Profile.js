@@ -75,9 +75,9 @@ const Profile = ({ auth, updateProfile, errors, setCurrentUser }) => {
           fontWeight: 700,
           textAlign: 'center',
           height: 30,
-          left: '41.1%',
-          top: '67%',
-          width: 292,
+          left: '40.05%',
+          top: '62.5%',
+          width: '20.6%',
           textTransform: 'none',
           bgcolor: '#24a0ed',
           ':hover': {
@@ -166,6 +166,11 @@ const Profile = ({ auth, updateProfile, errors, setCurrentUser }) => {
       <Fade in={true}>
         <div className="profile">
         <div className='currentprofilebox' />
+        <div className='currentprofilebox' />
+      <Link to= '/'>
+        <ProfileLogo />
+      </Link>
+      <div className="profilewelcometoo">Profile</div>
           <div className="container">
             <div className="row">
               <div className="col-md-8 m-auto">
