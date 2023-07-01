@@ -37,7 +37,7 @@ export const updateProfile = (updatedProfile) => dispatch => {
     });
 };
 
-export const createPosting = (postingData, history) => (dispatch) => {
+export const createPosting = (postingData) => (dispatch) => {
   // Set the Authorization header with the JWT token
   const token = localStorage.getItem("jwtToken");
   if (token) {
