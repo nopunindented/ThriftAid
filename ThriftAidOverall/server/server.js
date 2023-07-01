@@ -7,6 +7,7 @@ const session = require("express-session");
 const MongoDBStore = require("connect-mongodb-session")(session);
 
 const users = require("./routes/api/users.js");
+const postings = require("./routes/api/postings.js"); // Import the postings route
 const keys = require("./config/keys");
 
 const app = express();
@@ -55,6 +56,7 @@ app.use(
 
 // Routes
 app.use("/api/users", users);
+app.use("/api/postings", postings); // Use the postings route
 
 const port = process.env.PORT || 5000;
 

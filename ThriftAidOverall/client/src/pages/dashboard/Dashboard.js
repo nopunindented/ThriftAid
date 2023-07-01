@@ -22,7 +22,7 @@ const Dashboard = ({ auth, logoutUser }) => {
   };
 
   if (!isAuthenticated) {
-    return null; // or a loading spinner or any other indication
+    return null;
   }
 
   if (!user || !user.email) {
@@ -58,6 +58,9 @@ const Dashboard = ({ auth, logoutUser }) => {
     const createPosting = () => {
       navigate("/profile");
     };
+    const newPosting = () => {
+      navigate("/create");
+    };
 
     return (
       <div>
@@ -87,6 +90,33 @@ const Dashboard = ({ auth, logoutUser }) => {
             },
           }}
           onClick={createPosting}
+        >
+          Check Profile
+        </Button>
+        <Button
+          type="submit"
+          sx={{
+            position: "absolute",
+            display: "flex",
+            color: "#F7F3F3",
+            fontFamily: "Noto Sans",
+            fontSize: 15,
+            fontStyle: "normal",
+            fontWeight: 700,
+            textAlign: "center",
+            height: 30,
+            left: "40%",
+            top: "65%",
+            width: 317,
+            textTransform: "none",
+            bgcolor: "#24a0ed",
+            ":hover": {
+              bgcolor: "#0792e8",
+              color: "#F7F3F3",
+              textTransform: "none",
+            },
+          }}
+          onClick={newPosting}
         >
           Create a posting
         </Button>

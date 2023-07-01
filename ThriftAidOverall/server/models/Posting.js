@@ -4,15 +4,12 @@ const Schema = mongoose.Schema;
 const Postings = new Schema({
     thriftstore: {
       type: String,
-      required: true
     },
     address: {
       type: String,
-      required: true
     },
     country: {
       type: String,
-      required: true
     },
     timeofposting: {
       type: Date,
@@ -20,17 +17,17 @@ const Postings = new Schema({
     },
     city: {
       type: String,
-      required: true
     },
     pickupdate: {
         type: String,
-        required: true
       },
+    numberofphone: {
+      type: String,
+    },
     pickuptime :{
         type: Number,
-        required: true,
         min: 0,
         max: 2400,
     }
   });
-  module.exports = Posting = mongoose.model("users", Postings);
+  module.exports = Posting = mongoose.model("postings", Postings);

@@ -15,8 +15,7 @@ export const registerUser = (userData, history) => dispatch => {
           payload: err.response.data
         });
       } else {
-        // Handle other errors, such as network issues
-        // You can dispatch a different action or handle the error in a different way
+        //empty for the moment 
       }
     });
 };
@@ -38,9 +37,30 @@ export const updateProfile = (updatedProfile) => dispatch => {
     });
 };
 
+export const createPosting = (postingData, history) => (dispatch) => {
+  // Set the Authorization header with the JWT token
+  const token = localStorage.getItem("jwtToken");
+  if (token) {
+    axios.defaults.headers.common["Authorization"] = token;
+  } else {
+    delete axios.defaults.headers.common["Authorization"];
+  }
 
-// Login - get user token
-// Login - get user token
+  axios
+    .post("http://localhost:5000/api/postings/create", postingData)
+    .then((res) => {
+      // Update the user object in the Redux store
+      dispatch(setCurrentUser(res.data));
+    })
+    .catch((err) => {
+      dispatch({
+        type: GET_ERRORS,
+        payload: err.response.data,
+      });
+    });
+};
+
+
 export const loginUser = userData => dispatch => {
   axios
     .post("http://localhost:5000/api/users/login", userData)
@@ -88,3 +108,4 @@ export const logoutUser = () => dispatch => {
   setAuthToken(false);
   dispatch(setCurrentUser({}));
 };
+
