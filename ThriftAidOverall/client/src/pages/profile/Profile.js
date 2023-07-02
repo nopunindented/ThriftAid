@@ -184,6 +184,9 @@ const Profile = ({ auth, updateProfile, errors, setCurrentUser }) => {
                     onChange={(e) => setEstablishment(e.target.value)}
                     error={profileErrors.establishmentname}
                   />
+              <span className="inputerror">
+                {profileErrors.establishmentname}
+              </span>
                   <input
                     className="websiteinputbar"
                     placeholder="Website"
@@ -192,6 +195,9 @@ const Profile = ({ auth, updateProfile, errors, setCurrentUser }) => {
                     onChange={(e) => setWebsite(e.target.value)}
                     error={profileErrors.website}
                   />
+              <span className="inputerror">
+                {profileErrors.website}
+              </span>
                   <input
                     className="phonenumberinputbar"
                     placeholder="Phone Number"
@@ -200,6 +206,9 @@ const Profile = ({ auth, updateProfile, errors, setCurrentUser }) => {
                     onChange={(e) => setPhonenumber(e.target.value)}
                     error={profileErrors.phonenumber}
                   />
+              <span className="inputerror">
+                {profileErrors.phonenumber}
+              </span>
                 <CreateProfileButton />
                 </form>
               </div>

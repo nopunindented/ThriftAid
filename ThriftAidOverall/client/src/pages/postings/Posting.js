@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { createPosting } from '../../actions/authActions';
 import { Button, Fade } from '@mui/material';
 
-const NewPosting = ({ auth, createPosting, errors, history }) => {
+const NewPosting = ({ auth, createPosting, errors, history, }) => {
   const { user, isAuthenticated } = auth;
 
   const [address, setAddress] = useState('');

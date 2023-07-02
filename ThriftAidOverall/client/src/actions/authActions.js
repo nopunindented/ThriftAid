@@ -50,7 +50,7 @@ export const createPosting = (postingData) => (dispatch) => {
     .post("http://localhost:5000/api/postings/create", postingData)
     .then((res) => {
       // Update the user object in the Redux store
-      dispatch(setCurrentUser(res.data));
+
     })
     .catch((err) => {
       dispatch({
