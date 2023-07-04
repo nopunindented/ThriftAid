@@ -43,6 +43,7 @@ const NewPosting = ({ auth, createPosting, errors, history, }) => {
       <Link to= '/'>
         <PostingLogo />
       </Link>
+      <div className="postingwelcometoo">Create Posting</div>
         <form onSubmit={onSubmit}>
           <input
             className="establishmentinputbarv3"

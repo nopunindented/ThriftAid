@@ -718,13 +718,6 @@ box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);
     
   }
 
-  .profilewelcometoo{
-    position: absolute;
-    left: 48.9%;
-    top: 30.1%;
-    font-family: 'Open sans';
-  }
-
 
   .establishmentinputbarv3:focus{
     outline: 0;
@@ -857,7 +850,7 @@ box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);
     .profilewelcometoo{
       position: absolute;
       left: 48.9%;
-      top: 30.1%;
+      top: 31.1%;
       font-family: 'Open sans';
     }
 
@@ -916,4 +909,11 @@ box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);
       border-color: #a9a9a9;
       padding: 0 10px; /* Add padding/margin effect to the wrapped lines */
       box-sizing: border-box; /* Include padding in the element's total width */
+    }
+
+    .postingwelcometoo{
+      position: absolute;
+      left: 35.1%;
+      top: 16.7%;
+      font-family: 'Open sans';
     }
