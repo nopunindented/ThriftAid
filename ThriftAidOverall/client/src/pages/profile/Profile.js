@@ -166,7 +166,6 @@ const Profile = ({ auth, updateProfile, errors, setCurrentUser }) => {
       <Fade in={true}>
         <div className="profile">
         <div className='currentprofilebox' />
-        <div className='currentprofilebox' />
       <Link to= '/'>
         <ProfileLogo />
       </Link>

@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { createPosting } from '../../actions/authActions';
 import { Button, Fade } from '@mui/material';
+import PostingLogo from './postinglogo';
+import { Link } from 'react-router-dom';
 
 const NewPosting = ({ auth, createPosting, errors, history, }) => {
   const { user, isAuthenticated } = auth;
@@ -37,13 +39,13 @@ const NewPosting = ({ auth, createPosting, errors, history, }) => {
 
   return (
     <Fade in={true}>
-      <div className="posting">
-        <div className='posting-box' />
-        <div className='posting-box' />
-        <h1 className="display-4 text-center">Create Posting</h1>
+      <div className='newpostbox' >
+      <Link to= '/'>
+        <PostingLogo />
+      </Link>
         <form onSubmit={onSubmit}>
           <input
-            className="address-input"
+            className="establishmentinputbarv3"
             placeholder="Address"
             name="address"
             value={address}
@@ -51,7 +53,7 @@ const NewPosting = ({ auth, createPosting, errors, history, }) => {
             error={postingErrors.address}
           />
           <input
-            className="country-input"
+            className="websiteinputbarv3"
             placeholder="Country"
             name="country"
             value={country}
@@ -59,7 +61,7 @@ const NewPosting = ({ auth, createPosting, errors, history, }) => {
             error={postingErrors.country}
           />
           <input
-            className="city-input"
+            className="phonenumberinputbarv3"
             placeholder="City"
             name="city"
             value={city}
@@ -67,7 +69,7 @@ const NewPosting = ({ auth, createPosting, errors, history, }) => {
             error={postingErrors.city}
           />
           <input
-            className="pickupdate-input"
+            className="pickupd"
             placeholder="Pickup Date"
             name="pickupdate"
             value={pickupdate}
@@ -75,7 +77,7 @@ const NewPosting = ({ auth, createPosting, errors, history, }) => {
             error={postingErrors.pickupdate}
           />
           <input
-            className="pickuptime-input"
+            className="pickupt"
             placeholder="Pickup Time"
             name="pickuptime"
             value={pickuptime}
@@ -94,9 +96,9 @@ const NewPosting = ({ auth, createPosting, errors, history, }) => {
               fontWeight: 700,
               textAlign: 'center',
               height: 30,
-              left: '40.05%',
-              top: '62.5%',
-              width: '20.6%',
+              left: '4.1%',
+              top: '91%',
+              width: '92.6%',
               textTransform: 'none',
               bgcolor: '#24a0ed',
               ':hover': {

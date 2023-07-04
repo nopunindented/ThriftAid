@@ -724,3 +724,196 @@ box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);
     top: 30.1%;
     font-family: 'Open sans';
   }
+
+
+  .establishmentinputbarv3:focus{
+    outline: 0;
+    border: 3px solid #24a0ed;
+  }
+  
+  .establishmentinputbarv3::placeholder{
+    position: relative;
+    font-size: 22px;
+    font-weight: 10;
+    left:0%;
+    top: 7%;
+  }
+  
+  .newpostbox{
+    position: absolute;
+    display: inline-block;
+    width: 335px;
+    height: 60%;
+    top: 25%;
+    left: 30.3%;
+    border-radius: 2%;
+    background: white;
+    box-shadow: 0px 4px 30px rgba(0.1, 0.1, 0.1, 0.45);
+  }
+  
+  .websiteinputbarv3{
+    border-radius: 3px;
+    position: fixed;
+    top: 53%;
+    left: 31.15%;
+    font-size: 18px;
+    font-weight: 10;
+    width: 310px;
+    height: 35px;
+    border-width: 0.5px;
+    border-color: #a9a9a9;
+    padding: 0 10px; /* Add padding/margin effect to the wrapped lines */
+    box-sizing: border-box; /* Include padding in the element's total width */
+  }
+  
+  .websiteinputbarv3::placeholder{
+    position: relative;
+    font-size: 22px;
+    font-weight: 10;
+    left:0%;
+    top: 7%;
+  }
+  
+  .phonenumberinputbarv3{
+    border-radius: 3px;
+    position: fixed;
+    top: 60%;
+    left: 31.15%;
+    font-size: 18px;
+    font-weight: 10;
+    width: 310px;
+    height: 35px;
+    border-width: 0.5px;
+    border-color: #a9a9a9;
+    padding: 0 10px; /* Add padding/margin effect to the wrapped lines */
+    box-sizing: border-box; /* Include padding in the element's total width */
+  }
+  
+  .phonenumberinputbarv3:focus{
+    outline: 0;
+    border: 3px solid #24a0ed;
+  }
+  
+  .websiteinputbarv3:focus{
+    outline: 0;
+    border: 3px solid #24a0ed;
+  }
+  
+  .phonenumberinputbarv3::placeholder{
+    position: relative;
+    font-size: 22px;
+    font-weight: 10;
+    left:0%;
+    top: 7%;
+  }
+  
+  .establishmentinputbarv3 {
+    border-radius: 3px;
+    position: fixed;
+    top: 46%;
+    left: 31.15%;
+    font-size: 18px;
+    font-weight: 10;
+    width: 310px;
+    height: 35px;
+    border-width: 0.5px;
+    border-color: #a9a9a9;
+    padding: 0 10px; /* Add padding/margin effect to the wrapped lines */
+    box-sizing: border-box; /* Include padding in the element's total width */
+  }
+  
+  .ellipse9{
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    left: 48.5%;
+    border-radius: 50%;
+    top: 22%;
+    background: rgba(24, 170, 237, 0.589);
+    box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);
+    }
+  
+  .postingshirt{
+      position: absolute;
+      display: inline-block;
+      left: 4.8px;
+      width: 52px;
+      height: 52px;
+      top: 4.3px;
+      
+  }
+
+  .ellipse10{
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    left: 42.5%;
+    border-radius: 50%;
+    top: 2%;
+    background: rgba(24, 170, 237, 0.589);
+    box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);
+    }
+  
+    .profilewelcometoo{
+      position: absolute;
+      left: 48.9%;
+      top: 30.1%;
+      font-family: 'Open sans';
+    }
+
+
+    .pickupd:focus{
+      outline: 0;
+      border: 3px solid #24a0ed;
+    }
+    
+    .pickupd::placeholder{
+      position: relative;
+      font-size: 22px;
+      font-weight: 10;
+      left:0%;
+      top: 7%;
+    }
+
+    .pickupd {
+      border-radius: 3px;
+      position: fixed;
+      top: 66%;
+      left: 31.15%;
+      font-size: 18px;
+      font-weight: 10;
+      width: 310px;
+      height: 35px;
+      border-width: 0.5px;
+      border-color: #a9a9a9;
+      padding: 0 10px; /* Add padding/margin effect to the wrapped lines */
+      box-sizing: border-box; /* Include padding in the element's total width */
+    }
+
+    .pickupt:focus{
+      outline: 0;
+      border: 3px solid #24a0ed;
+    }
+    
+    .pickupt::placeholder{
+      position: relative;
+      font-size: 22px;
+      font-weight: 10;
+      left:0%;
+      top: 7%;
+    }
+
+    .pickupt {
+      border-radius: 3px;
+      position: fixed;
+      top: 73%;
+      left: 31.15%;
+      font-size: 18px;
+      font-weight: 10;
+      width: 310px;
+      height: 35px;
+      border-width: 0.5px;
+      border-color: #a9a9a9;
+      padding: 0 10px; /* Add padding/margin effect to the wrapped lines */
+      box-sizing: border-box; /* Include padding in the element's total width */
+    }
