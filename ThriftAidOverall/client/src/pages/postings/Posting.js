@@ -5,8 +5,9 @@ import { createPosting } from '../../actions/authActions';
 import { Button, Fade } from '@mui/material';
 import PostingLogo from './postinglogo';
 import { Link } from 'react-router-dom';
+import GoogleMaps from './googlemaps';
 
-const NewPosting = ({ auth, createPosting, errors, history, }) => {
+const NewPosting = ({ auth, createPosting, errors, history }) => {
   const { user, isAuthenticated } = auth;
 
   const [address, setAddress] = useState('');
@@ -39,11 +40,11 @@ const NewPosting = ({ auth, createPosting, errors, history, }) => {
 
   return (
     <Fade in={true}>
-      <div className='newpostbox' >
-      <Link to= '/'>
-        <PostingLogo />
-      </Link>
-      <div className="postingwelcometoo">Create Posting</div>
+      <div className="newpostbox">
+        <Link to="/">
+          <PostingLogo />
+        </Link>
+        <div className="postingwelcometoo">Create Posting</div>
         <form onSubmit={onSubmit}>
           <input
             className="establishmentinputbarv3"
@@ -111,8 +112,8 @@ const NewPosting = ({ auth, createPosting, errors, history, }) => {
           >
             Create Posting
           </Button>
-          
         </form>
+        {address !== '' ? <GoogleMaps address={address} /> : <p>Please enter an address.</p>}
       </div>
     </Fade>
   );
