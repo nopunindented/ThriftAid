@@ -118,7 +118,7 @@ const NewPosting = ({ auth, createPosting, errors, history }) => {
         {submitted && address !== '' ? (
           <GoogleMaps address={address} />
         ) : (
-          submitted && <p>Please enter an address.</p>
+          submitted
         )}
       </div>
     </Fade>
