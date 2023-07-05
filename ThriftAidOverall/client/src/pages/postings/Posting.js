@@ -16,6 +16,7 @@ const NewPosting = ({ auth, createPosting, errors, history }) => {
   const [pickupdate, setPickupdate] = useState('');
   const [pickuptime, setPickuptime] = useState('');
   const [postingErrors, setPostingErrors] = useState({});
+  const [submitted, setSubmitted] = useState(false);
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -31,6 +32,7 @@ const NewPosting = ({ auth, createPosting, errors, history }) => {
     };
 
     createPosting(newPosting, history);
+    setSubmitted(true);
   };
 
   if (!isAuthenticated) {
@@ -113,7 +115,11 @@ const NewPosting = ({ auth, createPosting, errors, history }) => {
             Create Posting
           </Button>
         </form>
-        {address !== '' ? <GoogleMaps address={address} /> : <p>Please enter an address.</p>}
+        {submitted && address !== '' ? (
+          <GoogleMaps address={address} />
+        ) : (
+          submitted && <p>Please enter an address.</p>
+        )}
       </div>
     </Fade>
   );
