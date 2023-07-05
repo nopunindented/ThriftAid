@@ -4,9 +4,7 @@ import { GoogleMap, useLoadScript, Marker } from "@react-google-maps/api";
 import { useState, useEffect } from "react";
 
 
-
-// set Google Maps Geocoding API for purposes of quota management. Its optional but recommended.
-Geocode.setApiKey("AIzaSyDaLOoS909LtIdR_JyKTioLt0p-LjLvn14");
+Geocode.setApiKey(process.env.REACT_APP_MAP_KEY);
 
 
 Geocode.setLanguage("en");
@@ -28,7 +26,7 @@ export default function GoogleMaps({ address }) {
   }, [address]);
 
   const { isLoaded, loadError } = useLoadScript({
-    googleMapsApiKey: "AIzaSyDaLOoS909LtIdR_JyKTioLt0p-LjLvn14",
+    googleMapsApiKey: process.env.REACT_APP_MAP_KEY,
     libraries,
   });
 

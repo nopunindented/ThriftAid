@@ -7,6 +7,7 @@ import PostingLogo from './postinglogo';
 import { Link } from 'react-router-dom';
 import GoogleMaps from './googlemaps';
 
+console.log(process.env.REACT_APP_MAP_KEY)
 const NewPosting = ({ auth, createPosting, errors, history }) => {
   const { user, isAuthenticated } = auth;
 
