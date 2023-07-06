@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
@@ -5,6 +6,7 @@ const passport = require("passport");
 const cors = require("cors");
 const session = require("express-session");
 const MongoDBStore = require("connect-mongodb-session")(session);
+const axios = require("axios");
 
 const users = require("./routes/api/users.js");
 const postings = require("./routes/api/postings.js"); // Import the postings route
@@ -18,6 +20,7 @@ app.use(bodyParser.json());
 
 // DB Config
 const db = keys.mongoURI;
+const REACT_APP_GMAP = keys.REACT_APP_MAP_KEY;
 
 // Connect to MongoDB
 mongoose
@@ -53,6 +56,23 @@ app.use(
     store: store,
   })
 );
+
+app.use(cors());
+app.get("/", (req, res) => {
+  res.send("gmaps");
+});
+
+app.get("/create", (req, res) => {
+  axios
+    .get(`https://maps.googleapis.com/maps/api/js?key=${REACT_APP_GMAP}&libraries=places`)
+    .then(() => {
+      res.json({ apiKey: REACT_APP_GMAP });
+    })
+    .catch((error) => {
+      console.log(error);
+      res.status(500).json({ error: "Failed to fetch API key", message: error.message });
+    });
+});
 
 // Routes
 app.use("/api/users", users);
