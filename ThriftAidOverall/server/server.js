@@ -11,6 +11,7 @@ const axios = require("axios");
 const users = require("./routes/api/users.js");
 const postings = require("./routes/api/postings.js"); // Import the postings route
 const keys = require("./config/keys");
+const listofpostings= require("./routes/api/everyposting.js")
 
 const app = express();
 
@@ -76,7 +77,8 @@ app.get("/create", (req, res) => {
 
 // Routes
 app.use("/api/users", users);
-app.use("/api/postings", postings); // Use the postings route
+app.use("/api/postings", postings);
+app.use("/api/everyposting", listofpostings); // Use the postings route
 
 const port = process.env.PORT || 5000;
 

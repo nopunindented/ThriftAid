@@ -12,6 +12,7 @@ import Dashboard from './pages/dashboard/Dashboard';
 import UserNavbar from './loggedinnavbar/UserNavbar.js';
 import Profile from './pages/profile/Profile';
 import NewPosting from './pages/postings/Posting'
+import AllPostings from './pages/postings/AllPostings';
 
 function App() {
   useEffect(() => {
@@ -44,6 +45,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/create" element={<NewPosting />} />
+          <Route path="/allpostings" element={<AllPostings />} />
           <Route path="/dashboard" element={<Dashboard />} />
         </Routes>
         <UserNavbar />

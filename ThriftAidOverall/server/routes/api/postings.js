@@ -18,7 +18,7 @@ router.post(
     try {
       const user = await User.findById(req.user.id);
 
-      const newPosting = {
+      const newPosting = new Posting( {
         thriftstore: user.establishmentname,
         address: req.body.address,
         country: req.body.country,
@@ -26,7 +26,7 @@ router.post(
         numberofphone: user.phonenumber,
         pickupdate: req.body.pickupdate,
         pickuptime: req.body.pickuptime,
-      };
+      });
 
       const posting = await Posting.create(newPosting); // saves the posting :D
 
@@ -39,5 +39,18 @@ router.post(
   }
 );
 
+router.get('/allpostings', passport.authenticate('jwt', { session: false }), async (req, res) => {
+  if (req.user.usertype !== 'homeless shelter') {
+    return res.status(403).json({ error: 'Only homeless shelters can create postings' });
+  }
+
+  try {
+    const postings = await Posting.find({});
+    res.json(postings);
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ error: 'Server Error' });
+  }
+});
 
 module.exports = router;

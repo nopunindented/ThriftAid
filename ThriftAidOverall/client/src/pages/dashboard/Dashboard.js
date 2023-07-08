@@ -123,6 +123,44 @@ const Dashboard = ({ auth, logoutUser }) => {
       </div>
     );
   }
+  else{
+    const findPostings = () => {
+      navigate("/allpostings");
+    };
+
+    return (
+      <div>
+        <div className="pastpostings">Your past postings: </div>
+        <Button
+          type="submit"
+          sx={{
+            position: "absolute",
+            display: "flex",
+            color: "#F7F3F3",
+            fontFamily: "Noto Sans",
+            fontSize: 15,
+            fontStyle: "normal",
+            fontWeight: 700,
+            textAlign: "center",
+            height: 30,
+            left: "40%",
+            top: "65%",
+            width: 317,
+            textTransform: "none",
+            bgcolor: "#24a0ed",
+            ":hover": {
+              bgcolor: "#0792e8",
+              color: "#F7F3F3",
+              textTransform: "none",
+            },
+          }}
+          onClick={findPostings}
+        >
+          Find Postings
+        </Button>
+      </div>
+    );
+  }
 };
 
 Dashboard.propTypes = {
