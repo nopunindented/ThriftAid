@@ -18,10 +18,10 @@ export default function AllPostings() {
   return (
     <div>
       <h1>All Postings</h1>
-      {postings.map((posting) => (
-        <div key={posting.address}>
-          <h3>{posting.establishmentname}</h3>
-          <p>{posting.pickupdate}</p>
+      {postings.map((postin) => (
+        <div key={postin.address}>
+          <h3>{postin.establishmentnam}</h3>
+          <p>{postin.address}</p>
         </div>
       ))}
     </div>
