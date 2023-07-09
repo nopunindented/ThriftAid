@@ -17,13 +17,15 @@ export default function AllPostings() {
 
   return (
     <div>
-      <h1>All Postings</h1>
-      {postings.map((postin) => (
-        <div key={postin.address}>
-          <h3>{postin.establishmentnam}</h3>
-          <p>{postin.address}</p>
-        </div>
-      ))}
+      <h1 className='allpostings-container'>All Postings</h1>
+      <div className='postings-container'>
+        {postings.map((postin) => (
+          <div key={postin.thriftstore} className='allpostingcontainer'>
+            <h1>{postin.thriftstore}</h1>
+            <h3>{postin.pickuptime}</h3>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

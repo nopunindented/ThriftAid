@@ -925,3 +925,30 @@ box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);
   left: 23.5vw;
   border-radius: 6px;
 }
+
+.locationforall{
+  top: 4%
+}
+
+.allpostings-container {
+  display: flex;
+  top: 40%;
+  flex-direction: column;
+  align-items: flex-start;
+  height: 100vh;
+  width: 10vw;
+  overflow: hidden;
+}
+
+.postings-container {
+  position:absolute;
+  flex: 1;
+  width: 10%;
+  top: 20%;
+  height: 10vh;
+  overflow-y: auto;
+}
+
+.allpostingcontainer {
+  top:40%;
+}
