@@ -954,7 +954,7 @@ box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  height: 100vh;
+  height: 95vh;
   width: 95vw;
   top: 10%;
   left: 40%;
@@ -977,12 +977,13 @@ box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);
   flex-grow: 0;
   flex-shrink: 0;
   font-family: 'Calibri';
-  height: 80%; /* Adjust the height as desired */
-  width: 3%; /* Adjust the width as desired */
+  height: 90%; /* Adjust the height as desired */
+  width: 2%; /* Adjust the width as desired */
   background-color: #edebeb;
   padding-left: 1.8%;
   margin-right: 1.5%;
-  margin-bottom: 5%;
-  left: 12%;
-  flex-basis: 20%; /* Adjust the flex-basis as desired */
+  margin-bottom: 6%;
+  left: 14%;
+  border-radius: 2%;
+  flex-basis: 19%; /* Adjust the flex-basis as desired */
 }
