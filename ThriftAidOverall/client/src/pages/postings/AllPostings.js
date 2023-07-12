@@ -16,11 +16,11 @@ export default function AllPostings() {
   }, []);
 
   return (
-    <div>
-      <h1 className='allpostings-container'>All Postings</h1>
-      <div className='postings-container'>
+    <div className="page-container">
+      <h1 className="allpostings-container">All Postings</h1>
+      <div className="postings-container">
         {postings.map((postin) => (
-          <div key={postin.thriftstore} className='thriftstorepost'>
+          <div key={postin.thriftstore} className="thriftstorepost">
             {postin.thriftstore}
           </div>
         ))}
