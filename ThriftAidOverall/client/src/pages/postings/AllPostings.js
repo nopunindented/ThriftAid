@@ -22,6 +22,8 @@ export default function AllPostings() {
         {postings.map((postin) => (
           <div key={postin.thriftstore} className="thriftstorepost">
             {postin.thriftstore}
+            <div className="address-top">{postin.address}</div>
+            <div className="city-top">{postin.city}</div>
           </div>
         ))}
       </div>
