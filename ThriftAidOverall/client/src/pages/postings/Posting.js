@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { createPosting } from '../../actions/authActions';
-import { Button, Fade } from '@mui/material';
+import { Button, Dialog, DialogContent, Fade, TextField } from '@mui/material';
 import PostingLogo from './postinglogo';
 import { Link } from 'react-router-dom';
 import GoogleMaps from './googlemaps';
 
-console.log(process.env.REACT_APP_MAP_KEY)
+console.log(process.env.REACT_APP_MAP_KEY);
 const NewPosting = ({ auth, createPosting, errors, history }) => {
   const { user, isAuthenticated } = auth;
 
@@ -16,8 +16,18 @@ const NewPosting = ({ auth, createPosting, errors, history }) => {
   const [city, setCity] = useState('');
   const [pickupdate, setPickupdate] = useState('');
   const [pickuptime, setPickuptime] = useState('');
+  const [pickupcomments, setPickupcomments] = useState('');
   const [postingErrors, setPostingErrors] = useState({});
   const [submitted, setSubmitted] = useState(false);
+  const [openDialog, setOpenDialog] = useState(false);
+
+  const handleDialogOpen = () => {
+    setOpenDialog(true);
+  };
+
+  const handleDialogClose = () => {
+    setOpenDialog(false);
+  };
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -25,9 +35,11 @@ const NewPosting = ({ auth, createPosting, errors, history }) => {
     const newPosting = {
       thriftstore: user.establishmentname,
       numberofphone: user.phonenumber,
+      email: user.email,
       address,
       country,
       city,
+      pickupcomments,
       pickupdate,
       pickuptime,
     };
@@ -121,6 +133,24 @@ const NewPosting = ({ auth, createPosting, errors, history }) => {
         ) : (
           submitted
         )}
+        <Button onClick={handleDialogOpen} variant="outlined">
+          Add Pickup Comments
+        </Button>
+        <Dialog open={openDialog} onClose={handleDialogClose}>
+          <DialogContent>
+            <TextField
+              multiline
+              rows={4}
+              variant="outlined"
+              placeholder="Enter pickup comments"
+              value={pickupcomments}
+              onChange={(e) => setPickupcomments(e.target.value)}
+            />
+            <Button onClick={handleDialogClose} variant="contained" color="primary">
+              Submit
+            </Button>
+          </DialogContent>
+        </Dialog>
       </div>
     </Fade>
   );

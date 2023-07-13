@@ -21,9 +21,9 @@ export default function AllPostings() {
       <div className="postings-container">
         {postings.map((postin) => (
           <div key={postin.thriftstore} className="thriftstorepost">
-            {postin.thriftstore}
+            <div className='thriftstorepostfont'>{postin.thriftstore}</div>
             <div className="address-top">{postin.address}</div>
-            <div className="city-top">{postin.city}</div>
+            <div className="city-top">{postin.pickupcomments}</div>
           </div>
         ))}
       </div>

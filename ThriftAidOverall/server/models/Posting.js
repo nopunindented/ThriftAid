@@ -34,6 +34,10 @@ const Postings = new Schema({
         type: Number,
         min: 0,
         max: 2400,
+    },
+    pickupcomments: {
+      type: String,
+      required: false
     }
   });
   module.exports = Posting = mongoose.model("postings", Postings);
