@@ -8,7 +8,6 @@ export default function AllPostings() {
     axios
       .get('http://localhost:5000/api/everyposting/allpostings')
       .then((response) => {
-        console.log(response.data)
         setPostings(response.data);
       })
       .catch((err) => {
@@ -24,7 +23,7 @@ export default function AllPostings() {
           <div key={postin.thriftstore} className="thriftstorepost">
             <div className='thriftstorepostfont'>{postin.thriftstore}</div>
             <div className="address-top">{postin.address}</div>
-            <div className="city-top">{postin.pickupcomments}</div>
+            <div className="city-top">{postin.city}, {postin.country}</div>
           </div>
         ))}
       </div>

@@ -736,7 +736,7 @@ box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);
     position: absolute;
     display: inline-block;
     width: 335px;
-    height: 60%;
+    height: 67%;
     top: 25%;
     left: 28.3%;
     border-radius: 2%;
@@ -999,4 +999,13 @@ box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);
   position: absolute;
   top: 22%;
   left: 4.3%;
+}
+
+.dialoguesubmission{
+  left: 4.6%;
+}
+
+.dialoguebackground{
+  position: absolute;
+  width: 100vw;
 }

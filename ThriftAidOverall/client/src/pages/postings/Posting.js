@@ -116,7 +116,7 @@ const NewPosting = ({ auth, createPosting, errors, history }) => {
               textAlign: 'center',
               height: 30,
               left: '4.1%',
-              top: '91%',
+              top: '82%',
               width: '92.6%',
               textTransform: 'none',
               bgcolor: '#24a0ed',
@@ -135,20 +135,44 @@ const NewPosting = ({ auth, createPosting, errors, history }) => {
         ) : (
           submitted
         )}
-        <Button onClick={handleDialogOpen} variant="outlined">
-          Add Pickup Comments
-        </Button>
-        <Dialog open={openDialog} onClose={handleDialogClose}>
+          <Button
+            type="submit"
+            sx={{
+              position: 'absolute',
+              display: 'flex',
+              color: '#F7F3F3',
+              fontFamily: 'Noto Sans',
+              fontSize: 15,
+              fontStyle: 'normal',
+              fontWeight: 700,
+              textAlign: 'center',
+              height: 30,
+              left: '4.1%',
+              top: '91%',
+              width: '92.6%',
+              textTransform: 'none',
+              bgcolor: "#5ab0f2",
+              ":hover": {
+                bgcolor: "#4baaf2",
+                color: "#F7F3F3",
+                textTransform: "none"
+              }
+            }}
+            onClick={handleDialogOpen}
+          >
+            Add Pickup Comments
+          </Button>
+        <Dialog open={openDialog} onClose={handleDialogClose} className='dialoguebackground'>
           <DialogContent>
             <TextField
               multiline
-              rows={4}
+              rows={8}
               variant="outlined"
               placeholder="Enter pickup comments"
               value={dialogPickupComments}
               onChange={(e) => setDialogPickupComments(e.target.value)}
             />
-            <Button onClick={handleDialogClose} variant="contained" color="primary">
+            <Button onClick={handleDialogClose} variant="contained" color="primary" className='dialoguesubmission'>
               Submit
             </Button>
           </DialogContent>
