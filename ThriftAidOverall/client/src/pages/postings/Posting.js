@@ -20,6 +20,7 @@ const NewPosting = ({ auth, createPosting, errors, history }) => {
   const [postingErrors, setPostingErrors] = useState({});
   const [submitted, setSubmitted] = useState(false);
   const [openDialog, setOpenDialog] = useState(false);
+  const [dialogPickupComments, setDialogPickupComments] = useState(''); // New state for pickup comments in dialog
 
   const handleDialogOpen = () => {
     setOpenDialog(true);
@@ -27,6 +28,7 @@ const NewPosting = ({ auth, createPosting, errors, history }) => {
 
   const handleDialogClose = () => {
     setOpenDialog(false);
+    setPickupcomments(dialogPickupComments); // Update pickupcomments state with dialogPickupComments when closing the dialog
   };
 
   const onSubmit = (e) => {
@@ -143,8 +145,8 @@ const NewPosting = ({ auth, createPosting, errors, history }) => {
               rows={4}
               variant="outlined"
               placeholder="Enter pickup comments"
-              value={pickupcomments}
-              onChange={(e) => setPickupcomments(e.target.value)}
+              value={dialogPickupComments}
+              onChange={(e) => setDialogPickupComments(e.target.value)}
             />
             <Button onClick={handleDialogClose} variant="contained" color="primary">
               Submit

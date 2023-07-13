@@ -8,6 +8,7 @@ export default function AllPostings() {
     axios
       .get('http://localhost:5000/api/everyposting/allpostings')
       .then((response) => {
+        console.log(response.data)
         setPostings(response.data);
       })
       .catch((err) => {

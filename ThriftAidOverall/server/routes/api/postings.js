@@ -20,12 +20,14 @@ router.post(
 
       const newPosting = new Posting( {
         thriftstore: user.establishmentname,
+        email: user.email,
         address: req.body.address,
         country: req.body.country,
         city: req.body.city,
         numberofphone: user.phonenumber,
         pickupdate: req.body.pickupdate,
         pickuptime: req.body.pickuptime,
+        pickupcomments: req.body.pickupcomments,
       });
 
       const posting = await Posting.create(newPosting); // saves the posting :D
