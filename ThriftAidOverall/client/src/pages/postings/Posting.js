@@ -31,6 +31,11 @@ const NewPosting = ({ auth, createPosting, errors, history }) => {
     setPickupcomments(dialogPickupComments); // Update pickupcomments state with dialogPickupComments when closing the dialog
   };
 
+  const handleDialogCancel = () => {
+    setOpenDialog(false);
+    setDialogPickupComments('');
+  };
+
   const onSubmit = (e) => {
     e.preventDefault();
 
@@ -163,6 +168,11 @@ const NewPosting = ({ auth, createPosting, errors, history }) => {
             Add Pickup Comments
           </Button>
         <Dialog open={openDialog} onClose={handleDialogClose} className='dialoguebackground'>
+        <div className="dialoguecancel-container">
+          <Button onClick={handleDialogCancel} variant="contained" color="primary" className='dialoguecancel'>
+              Cancel
+          </Button>
+        </div>
           <DialogContent>
             <TextField
               multiline
