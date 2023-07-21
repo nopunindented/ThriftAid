@@ -28,7 +28,6 @@ export default function AllPostings() {
 
   return (
     <div className="page-container">
-      <h1 className="allpostings-container">All Postings</h1>
       <div className="postings-container">
         {postings.map((postin) => (
           <div key={postin.thriftstore} className="thriftstorepost">

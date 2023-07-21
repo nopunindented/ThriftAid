@@ -928,16 +928,13 @@ box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);
 
 .page-container {
   position: fixed;
-  top: 0;
-  left: 0;
-  height: auto; /* Allow the height to increase dynamically */
-  max-height: 100vh; /* Set a maximum height to fill the viewport */
+  top: 0%;
+  height: calc(100vh - 6rem);
   width: 100vw;
   background-color: #f3f3f8;
-  overflow-y: auto; /* Enable vertical scrolling when content overflows */
+  overflow-y: auto;
   overflow-x: hidden;
-  padding-top: 10%; /* Add some padding to the top to push content down */
-  /* Add any other desired styles */
+  padding-top: 10%;
 }
 
 .allpostings-container {
@@ -952,24 +949,23 @@ box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
+  top: 0%;
+
   width: 100%;
-  /* Remove the fixed height and margin properties */
-  /* height: 20%; */
-  /* margin-top: -30%; */
-  /* left: 15%; */
 }
 
 .thriftstorepost {
   position: relative;
+  margin: 1rem;
   flex-grow: 0;
   flex-shrink: 0;
-  height: 50vh; /* Adjust the height as desired */
+  height: 48vh; /* Adjust the height as desired */
   width: 5vw; /* Adjust the width as desired */
   box-shadow: 5px 5px 5px rgba(163, 158, 198, 0.2);
-  padding-left: 1.6%;
+  padding-left: 0%;
   margin-right: 6%;
   margin-bottom: 6%;
-  left: 12%;
+  left: 10%;
   border-radius: 1.2%;
   background-color: #ffffff;
   flex-basis: 14.5%; /* Adjust the flex-basis as desired */
