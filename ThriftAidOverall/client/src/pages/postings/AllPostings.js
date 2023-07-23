@@ -1,21 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Dialog, Button,  DialogContent } from '@mui/material';
-import mapmarker from './mapmarker.svg'
-import clock from './clock.svg'
+import { Dialog, Button, DialogContent } from '@mui/material';
+import mapmarker from './mapmarker.svg';
+import clock from './clock.svg';
 
 export default function AllPostings() {
   const [postings, setPostings] = useState([]);
-  const [openDialog, setOpenDialog] = useState(false);
+  const [selectedPostin, setSelectedPostin] = useState(null);
 
-  const handleDialogOpen = () => {
-    setOpenDialog(true);
+  const handleDialogOpen = (postin) => {
+    setSelectedPostin(postin);
   };
 
   const handleDialogClose = () => {
-    setOpenDialog(false);
+    setSelectedPostin(null);
   };
-
 
   useEffect(() => {
     axios
@@ -35,55 +34,55 @@ export default function AllPostings() {
           <div key={postin.thriftstore} className="thriftstorepost">
             <div className='thriftstorepostfont'>{postin.thriftstore}</div>
             <div className="address-top">{postin.address}</div>
-            <img src={mapmarker} className="mapmarkerstyle"/>
-            <img src={clock} className="clockstyle"/>
+            <img src={mapmarker} className="mapmarkerstyle" alt="map marker" />
+            <img src={clock} className="clockstyle" alt="clock" />
             <div className='pickuptimestyle'>Pickup time: {postin.pickuptime}</div>
             <div className='pickupdatestyle'>Pickup date: {postin.pickupdate}</div>
             <div className="city-top">{postin.city}, {postin.country}</div>
             {postin.pickupcomments && (
-            
-            <>
-            <Button
-            type="submit"
-            sx={{
-              position: 'absolute',
-              display: 'flex',
-              color: '#F7F3F3',
-              fontFamily: 'Noto Sans',
-              fontSize: "1.5vh",
-              fontStyle: 'normal',
-              fontWeight: 700,
-              textAlign: 'center',
-              height: 30,
-              left: '15.7%',
-              top: '91%',
-              width: '70%',
-              textTransform: 'none',
-              bgcolor: "#5ab0f2",
-              ":hover": {
-                bgcolor: "#4baaf2",
-                color: "#F7F3F3",
-                textTransform: "none"
-              }
-            }}
-            onClick={handleDialogOpen}
-          >
-            View poster's comments
-          </Button>
-        <Dialog open={openDialog} onClose={handleDialogClose} className='dialoguebackgroundtwice'>
-        <div className="dialoguecancel-container">
-          <Button onClick={handleDialogClose} variant="contained" color="primary" className='dialoguecancel'>
-              Cancel
-          </Button>
-        </div>
-          <DialogContent>
-            <div className='postercomments'>
-            {postin.pickupcomments}
-            </div>
-          </DialogContent>
-        </Dialog>
-        </>
-         )}
+              <>
+                <Button
+                  sx={{
+                    position: 'absolute',
+                    display: 'flex',
+                    color: '#F7F3F3',
+                    fontFamily: 'Noto Sans',
+                    fontSize: '1.5vh',
+                    fontStyle: 'normal',
+                    fontWeight: 700,
+                    textAlign: 'center',
+                    height: 30,
+                    left: '15.7%',
+                    top: '91%',
+                    width: '70%',
+                    textTransform: 'none',
+                    bgcolor: '#5ab0f2',
+                    ':hover': {
+                      bgcolor: '#4baaf2',
+                      color: '#F7F3F3',
+                      textTransform: 'none',
+                    },
+                  }}
+                  onClick={() => handleDialogOpen(postin)}
+                >
+                  View poster's comments
+                </Button>
+                <Dialog
+                  open={selectedPostin === postin}
+                  onClose={handleDialogClose}
+                  className='dialoguebackgroundtwice'
+                >
+                  <DialogContent>
+                    <Button onClick={handleDialogClose} variant="contained" color="primary" className='dialoguecancel'>
+                      Cancel
+                    </Button>
+                    <div className='postercomments'>
+                      {postin.pickupcomments}
+                    </div>
+                  </DialogContent>
+                </Dialog>
+              </>
+            )}
           </div>
         ))}
       </div>
