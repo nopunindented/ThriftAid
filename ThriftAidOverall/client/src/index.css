@@ -1032,3 +1032,29 @@ box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);
   top: 24.5%;
   left: 1%;
 }
+
+.clockstyle{
+  position: absolute;
+  width: 1.3vw;
+  height: 4.5vh;
+  top: 39.5%;
+  left: 2%;
+}
+
+.pickupdatestyle {
+  font-size: 2vh;
+  position: absolute;
+  top: 44.8%;
+  width: 28.5vh;
+  left: 11.5%;
+  font-family: 'Uber Move Text';
+}
+
+.pickuptimestyle {
+  font-size: 2vh;
+  position: absolute;
+  top: 39.2%;
+  width: 28.5vh;
+  left: 11.5%;
+  font-family: 'Uber Move Text';
+}
