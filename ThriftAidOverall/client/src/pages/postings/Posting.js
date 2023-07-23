@@ -20,11 +20,10 @@ const NewPosting = ({ auth, createPosting, errors, history }) => {
   const [postingErrors, setPostingErrors] = useState({});
   const [submitted, setSubmitted] = useState(false);
   const [openDialog, setOpenDialog] = useState(false);
-  const [dialogPickupComments, setDialogPickupComments] = useState(''); // New state for pickup comments in dialog
+  const [dialogPickupComments, setDialogPickupComments] = useState('');
 
-  // Function to format date as MM/YYYY/DD
   const formatDate = (inputDate) => {
-    const date = inputDate.replace(/\D/g, ''); // Remove non-numeric characters
+    const date = inputDate.replace(/\D/g, '');
     if (date.length >= 5) {
       return `${date.slice(0, 2)}/${date.slice(2, 6)}/${date.slice(6, 8)}`;
     } else if (date.length >= 3) {
@@ -34,9 +33,35 @@ const NewPosting = ({ auth, createPosting, errors, history }) => {
     }
   };
 
+  const formatTime = (inputTime) => {
+    const time = inputTime.replace(/\D/g, '');
+    if (time.length >= 3) {
+      const hours = time.slice(0, 2);
+      const minutes = time.slice(2, 4);
+      let formattedTime = `${hours}:${minutes}`;
+      const numericHours = parseInt(hours);
+      if (numericHours >= 12) {
+        formattedTime += ' PM';
+        if (numericHours > 12) {
+          formattedTime = `${numericHours - 12}:${minutes} PM`;
+        }
+      } else {
+        formattedTime += ' AM';
+      }
+      return formattedTime;
+    } else {
+      return time;
+    }
+  };
+
   const handleDateChange = (e) => {
     const formattedDate = formatDate(e.target.value);
     setPickupdate(formattedDate);
+  };
+
+  const handleTimeChange = (e) => {
+    const formattedTime = formatTime(e.target.value);
+    setPickuptime(formattedTime);
   };
 
   const handleDialogOpen = () => {
@@ -45,7 +70,7 @@ const NewPosting = ({ auth, createPosting, errors, history }) => {
 
   const handleDialogClose = () => {
     setOpenDialog(false);
-    setPickupcomments(dialogPickupComments); // Update pickupcomments state with dialogPickupComments when closing the dialog
+    setPickupcomments(dialogPickupComments);
   };
 
   const handleDialogCancel = () => {
@@ -74,7 +99,7 @@ const NewPosting = ({ auth, createPosting, errors, history }) => {
 
   if (!isAuthenticated) {
     window.location.href = '/login';
-    return null; // Render nothing until redirected
+    return null;
   }
 
   return (
@@ -114,15 +139,15 @@ const NewPosting = ({ auth, createPosting, errors, history }) => {
             placeholder="Pickup Date (MM/YYYY/DD)"
             name="pickupdate"
             value={pickupdate}
-            onChange={handleDateChange} // Use the new handleDateChange function
+            onChange={handleDateChange}
             error={postingErrors.pickupdate}
           />
           <input
             className="pickupt"
-            placeholder="Pickup Time"
+            placeholder="Pickup Time (hh:mm)"
             name="pickuptime"
             value={pickuptime}
-            onChange={(e) => setPickuptime(e.target.value)}
+            onChange={handleTimeChange}
             error={postingErrors.pickuptime}
           />
           <Button
