@@ -22,6 +22,23 @@ const NewPosting = ({ auth, createPosting, errors, history }) => {
   const [openDialog, setOpenDialog] = useState(false);
   const [dialogPickupComments, setDialogPickupComments] = useState(''); // New state for pickup comments in dialog
 
+  // Function to format date as MM/YYYY/DD
+  const formatDate = (inputDate) => {
+    const date = inputDate.replace(/\D/g, ''); // Remove non-numeric characters
+    if (date.length >= 5) {
+      return `${date.slice(0, 2)}/${date.slice(2, 6)}/${date.slice(6, 8)}`;
+    } else if (date.length >= 3) {
+      return `${date.slice(0, 2)}/${date.slice(2)}`;
+    } else {
+      return date;
+    }
+  };
+
+  const handleDateChange = (e) => {
+    const formattedDate = formatDate(e.target.value);
+    setPickupdate(formattedDate);
+  };
+
   const handleDialogOpen = () => {
     setOpenDialog(true);
   };
@@ -94,10 +111,10 @@ const NewPosting = ({ auth, createPosting, errors, history }) => {
           />
           <input
             className="pickupd"
-            placeholder="Pickup Date"
+            placeholder="Pickup Date (MM/YYYY/DD)"
             name="pickupdate"
             value={pickupdate}
-            onChange={(e) => setPickupdate(e.target.value)}
+            onChange={handleDateChange} // Use the new handleDateChange function
             error={postingErrors.pickupdate}
           />
           <input
