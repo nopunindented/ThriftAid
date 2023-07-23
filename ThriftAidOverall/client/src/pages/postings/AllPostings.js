@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Dialog, Button,  DialogContent } from '@mui/material';
+import mapmarker from './mapmarker.svg'
 
 export default function AllPostings() {
   const [postings, setPostings] = useState([]);
@@ -33,6 +34,7 @@ export default function AllPostings() {
           <div key={postin.thriftstore} className="thriftstorepost">
             <div className='thriftstorepostfont'>{postin.thriftstore}</div>
             <div className="address-top">{postin.address}</div>
+            <img src={mapmarker} className="mapmarkerstyle"/>
             <div className="city-top">{postin.city}, {postin.country}</div>
             {postin.pickupcomments && (
             
