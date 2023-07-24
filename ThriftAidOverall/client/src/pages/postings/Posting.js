@@ -41,12 +41,12 @@ const NewPosting = ({ auth, createPosting, errors, history }) => {
       let formattedTime = `${hours}:${minutes}`;
       const numericHours = parseInt(hours);
       if (numericHours >= 12) {
-        formattedTime += ' PM';
+        formattedTime += ' pm';
         if (numericHours > 12) {
-          formattedTime = `${numericHours - 12}:${minutes} PM`;
+          formattedTime = `${numericHours - 12}:${minutes} pm`;
         }
       } else {
-        formattedTime += ' AM';
+        formattedTime += ' am';
       }
       return formattedTime;
     } else {
