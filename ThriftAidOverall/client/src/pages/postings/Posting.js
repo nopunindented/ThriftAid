@@ -20,11 +20,11 @@ const NewPosting = ({ auth, createPosting, errors, history }) => {
   const [postingErrors, setPostingErrors] = useState({});
   const [submitted, setSubmitted] = useState(false);
   const [openDialog, setOpenDialog] = useState(false);
-  const [dialogPickupComments, setDialogPickupComments] = useState('');
+  const [dialogPickupComments, setDialogPickupComments] = useState(''); // New state for pickup comments in dialog
 
   const formatDate = (inputDate) => {
     const date = inputDate.replace(/\D/g, '');
-    if (date.length >= 5) {
+    if (date.length >= 6) {
       return `${date.slice(0, 2)}/${date.slice(2, 6)}/${date.slice(6, 8)}`;
     } else if (date.length >= 3) {
       return `${date.slice(0, 2)}/${date.slice(2)}`;
@@ -32,6 +32,7 @@ const NewPosting = ({ auth, createPosting, errors, history }) => {
       return date;
     }
   };
+
 
   const formatTime = (inputTime) => {
     const time = inputTime.replace(/\D/g, '');
@@ -54,13 +55,13 @@ const NewPosting = ({ auth, createPosting, errors, history }) => {
     }
   };
 
-  const handleDateChange = (e) => {
-    const formattedDate = formatDate(e.target.value);
+  const handleDateChange = (x) => {
+    const formattedDate = formatDate(x);
     setPickupdate(formattedDate);
   };
 
-  const handleTimeChange = (e) => {
-    const formattedTime = formatTime(e.target.value);
+  const handleTimeChange = (y) => {
+    const formattedTime = formatTime(y);
     setPickuptime(formattedTime);
   };
 
@@ -70,7 +71,7 @@ const NewPosting = ({ auth, createPosting, errors, history }) => {
 
   const handleDialogClose = () => {
     setOpenDialog(false);
-    setPickupcomments(dialogPickupComments);
+    setPickupcomments(dialogPickupComments); // Update pickupcomments state with dialogPickupComments when closing the dialog
   };
 
   const handleDialogCancel = () => {
@@ -99,7 +100,7 @@ const NewPosting = ({ auth, createPosting, errors, history }) => {
 
   if (!isAuthenticated) {
     window.location.href = '/login';
-    return null;
+    return null; // Render nothing until redirected
   }
 
   return (
@@ -136,18 +137,18 @@ const NewPosting = ({ auth, createPosting, errors, history }) => {
           />
           <input
             className="pickupd"
-            placeholder="Pickup Date (MM/YYYY/DD)"
+            placeholder="Pickup Date"
             name="pickupdate"
             value={pickupdate}
-            onChange={handleDateChange}
+            onChange={(e) => handleDateChange(e.target.value)}
             error={postingErrors.pickupdate}
           />
           <input
             className="pickupt"
-            placeholder="Pickup Time (hh:mm)"
+            placeholder="Pickup Time"
             name="pickuptime"
             value={pickuptime}
-            onChange={handleTimeChange}
+            onChange={(e) => handleTimeChange(e.target.value)}
             error={postingErrors.pickuptime}
           />
           <Button

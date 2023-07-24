@@ -31,9 +31,7 @@ const Postings = new Schema({
       required: true
     },
     pickuptime :{
-        type: Number,
-        min: 0,
-        max: 2400,
+        type: String,
     },
     pickupcomments: {
       type: String,
