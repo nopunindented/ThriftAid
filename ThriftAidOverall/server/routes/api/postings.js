@@ -21,6 +21,7 @@ router.post(
       const newPosting = new Posting( {
         thriftstore: user.establishmentname,
         email: user.email,
+        website: user.website,
         address: req.body.address,
         country: req.body.country,
         city: req.body.city,

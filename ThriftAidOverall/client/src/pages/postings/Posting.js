@@ -115,7 +115,7 @@ const NewPosting = ({ auth, createPosting, errors, history }) => {
           <input
             className="establishmentinputbarv3"
             placeholder="Address"
-            name="address"
+            name="Pickup Address"
             value={address}
             onChange={(e) => setAddress(e.target.value)}
             error={postingErrors.address}
