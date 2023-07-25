@@ -38,7 +38,7 @@ export default function AllPostings() {
             <img src={clock} className="clockstyle" alt="clock" />
             <div className='pickuptimestyle'>Pickup time: {postin.pickuptime}</div>
             <div className='pickupdatestyle'>Pickup date: {postin.pickupdate}</div>
-            <div className="city-top">{postin.city}, {postin.country}</div>
+            <div className="city-top">{postin.city}, {postin.country}, {postin.website}</div>
             {postin.pickupcomments && (
               <>
                 <Button

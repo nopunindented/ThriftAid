@@ -85,6 +85,7 @@ const NewPosting = ({ auth, createPosting, errors, history }) => {
     const newPosting = {
       thriftstore: user.establishmentname,
       numberofphone: user.phonenumber,
+      website: user.website,
       email: user.email,
       address,
       country,
@@ -137,7 +138,7 @@ const NewPosting = ({ auth, createPosting, errors, history }) => {
           />
           <input
             className="pickupd"
-            placeholder="Pickup Date"
+            placeholder="Pickup Date (MM/YYYY/DD)"
             name="pickupdate"
             value={pickupdate}
             onChange={(e) => handleDateChange(e.target.value)}
@@ -145,7 +146,7 @@ const NewPosting = ({ auth, createPosting, errors, history }) => {
           />
           <input
             className="pickupt"
-            placeholder="Pickup Time"
+            placeholder="Pickup Time (hh:mm)"
             name="pickuptime"
             value={pickuptime}
             onChange={(e) => handleTimeChange(e.target.value)}

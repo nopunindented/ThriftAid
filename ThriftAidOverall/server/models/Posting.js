@@ -33,6 +33,9 @@ const Postings = new Schema({
     pickuptime :{
         type: String,
     },
+    website:{
+      type: String
+    },
     pickupcomments: {
       type: String,
       required: false
