@@ -6,6 +6,9 @@ const Postings = new Schema({
       type: String,
       required: true
     },
+    email: {
+      type: String
+    },
     address: {
       type: String,
       required: true
