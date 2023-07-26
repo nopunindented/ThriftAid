@@ -5,6 +5,7 @@ import mapmarker from './mapmarker.svg';
 import clock from './clock.svg';
 import phone from './phone.svg'
 import email from './email.svg'
+import internet from './internet.svg'
 
 export default function AllPostings() {
   const [postings, setPostings] = useState([]);
@@ -40,6 +41,7 @@ export default function AllPostings() {
             <img src={clock} className="clockstyle" alt="clock" />
             <img src={phone} className="phonestyle" alt="phone" />
             <img src={email} className="emailstyle" alt="email" />
+            <img src={internet} className="internetstyle" alt="websiteurl" />
             <div className='pickuptimestyle'>Pickup time: {postin.pickuptime}</div>
             <div className='pickupdatestyle'>Pickup date: {postin.pickupdate}</div>
             <div className="city-top">{postin.city}, {postin.country}</div>
