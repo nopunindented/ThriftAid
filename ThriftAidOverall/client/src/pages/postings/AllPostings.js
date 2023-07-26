@@ -63,7 +63,7 @@ export default function AllPostings() {
                     height: 30,
                     left: '15.7%',
                     top: '91%',
-                    width: '70%',
+                    width: '60%',
                     textTransform: 'none',
                     bgcolor: '#5ab0f2',
                     ':hover': {
@@ -80,11 +80,19 @@ export default function AllPostings() {
                   open={selectedPostin === postin}
                   onClose={handleDialogClose}
                   className='dialoguebackgroundtwice'
+                  PaperProps={{
+                    style: {
+                      width: '20%',
+                      height: '40%',
+                      maxWidth: 'none',
+                    },
+                  }}
                 >
                   <DialogContent>
                     <Button onClick={handleDialogClose} variant="contained" color="primary" className='dialoguecancel'>
-                      Cancel
+                      Close
                     </Button>
+                    <div className='backdrop-dialogue'/>
                     <div className='postercomments'>
                       {postin.pickupcomments}
                     </div>
