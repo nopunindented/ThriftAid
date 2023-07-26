@@ -5,6 +5,7 @@ import mapmarker from './mapmarker.svg';
 import clock from './clock.svg';
 import phone from './phone.svg'
 import email from './email.svg'
+import xmark from './xmark.png'
 import internet from './internet.svg'
 
 export default function AllPostings() {
@@ -85,14 +86,14 @@ export default function AllPostings() {
                       width: '20%',
                       height: '40%',
                       maxWidth: 'none',
+                      backgroundColor: '#f5f2f2'
                     },
                   }}
                 >
                   <DialogContent>
-                    <Button onClick={handleDialogClose} variant="contained" color="primary" className='dialoguecancel'>
-                      Close
+                    <Button onClick={handleDialogClose}>
+                    <img src={xmark} className="xmarkdialogue"/>
                     </Button>
-                    <div className='backdrop-dialogue'/>
                     <div className='postercomments'>
                       {postin.pickupcomments}
                     </div>

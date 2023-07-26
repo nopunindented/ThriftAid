@@ -1115,15 +1115,26 @@ box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);
 }
 
 .backdrop-dialogue{
-  position: absolute;
-  width: 10%;
-  height: 30%;
-  border-width: 1%;
-  border-color: #24a0ed;
+  position: fixed;
+  top: 0%;
+  height: calc(10vh - 6rem);
+  width: 15vw;
+  background-color: #f3f3f8;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-top: 10%;
 }
 
 .postercomments{
   position: absolute;
   width: 70%;
   font-size: 2vh;
+}
+
+.xmarkdialogue{
+  position: absolute;
+  left: 415%;
+  top: -170%;
+  width: 0.8vw;
+  height: 2vh;
 }
