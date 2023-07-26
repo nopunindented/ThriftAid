@@ -47,6 +47,7 @@ export default function AllPostings() {
             <div className="city-top">{postin.city}, {postin.country}</div>
             <div className="email-top">{postin.email}</div>
             <div className="phone-top">{postin.numberofphone}</div>
+            <div className="website-top">{postin.website}</div>
             {postin.pickupcomments && (
               <>
                 <Button

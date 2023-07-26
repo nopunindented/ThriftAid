@@ -1098,3 +1098,11 @@ box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);
   top: 62.9%;
   left: 11.5%;
 }
+
+.website-top {
+  font-size: 1.9vh;
+  position: absolute;
+  font-family: 'Uber Move Text';
+  top: 75%;
+  left: 11.5%;
+}
