@@ -36,11 +36,19 @@ const NewPosting = ({ auth, createPosting, errors, history }) => {
 
   const formatTime = (inputTime) => {
     const time = inputTime.replace(/\D/g, '');
+  
+    // Check if the time has at least 3 characters (hhm)
     if (time.length >= 3) {
-      const hours = time.slice(0, 2);
-      const minutes = time.slice(2, 4);
+      let hours = time.slice(0, -2);
+      let minutes = time.slice(-2);
+  
+      // Remove leading zeros for hours
+      hours = parseInt(hours, 10).toString();
+      // Remove leading zeros for minutes
+      minutes = parseInt(minutes, 10).toString().padStart(2, '0');
+  
       let formattedTime = `${hours}:${minutes}`;
-      const numericHours = parseInt(hours);
+      const numericHours = parseInt(hours, 10);
       if (numericHours >= 12) {
         formattedTime += ' pm';
         if (numericHours > 12) {
@@ -54,6 +62,7 @@ const NewPosting = ({ auth, createPosting, errors, history }) => {
       return time;
     }
   };
+  
 
   const handleDateChange = (x) => {
     const formattedDate = formatDate(x);
