@@ -98,6 +98,10 @@ const NewPosting = ({ auth, createPosting, errors, history }) => {
     createPosting(newPosting, history);
     setSubmitted(true);
   };
+  // Assuming you have 'address' and 'city' variables defined
+const properAddress = {
+  fulladdress: address + ', ' + city,
+};
 
   if (!isAuthenticated) {
     window.location.href = '/login';
@@ -180,7 +184,7 @@ const NewPosting = ({ auth, createPosting, errors, history }) => {
           </Button>
         </form>
         {submitted && address !== '' ? (
-          <GoogleMaps address={address} />
+          <GoogleMaps address={properAddress.fulladdress} />
         ) : (
           submitted
         )}
