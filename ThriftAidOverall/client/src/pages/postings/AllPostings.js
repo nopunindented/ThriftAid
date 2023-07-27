@@ -85,8 +85,8 @@ export default function AllPostings() {
                     style: {
                       width: '20%',
                       height: '40%',
-                      maxWidth: 'none',
-                      backgroundColor: '#f5f2f2'
+                      backgroundColor: '#f5f2f2',
+                      overflowY: 'auto'
                     },
                   }}
                 >

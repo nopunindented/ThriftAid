@@ -1125,12 +1125,12 @@ box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);
   padding-top: 10%;
 }
 
-.postercomments{
-  position: absolute;
-  width: 70%;
+.postercomments {
   font-size: 2vh;
-  left: 10%;
+  overflow-wrap: break-word;
+  margin-left: 0%;
 }
+
 
 .xmarkdialogue{
   position: absolute;
