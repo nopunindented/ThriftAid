@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import axios from 'axios';
 import { Dialog, Button, DialogContent } from '@mui/material';
 import mapmarker from './mapmarker.svg';
@@ -132,50 +132,55 @@ export default function AllPostings() {
       });
   }, []);
 
+  // Memoize the postings mapping using useMemo
+  const memoizedPostings = useMemo(() => (
+    postings.map((postin) => (
+      <div key={postin._id} className="thriftstorepost">
+        <div className='thriftstorepostfont'>{postin.thriftstore}</div>
+        <div className="address-top">{postin.address}</div>
+        <img src={mapmarker} className="mapmarkerstyle" alt="map marker" />
+        <img src={clock} className="clockstyle" alt="clock" />
+        <img src={phone} className="phonestyle" alt="phone" />
+        <img src={email} className="emailstyle" alt="email" />
+        <img src={internet} className="internetstyle" alt="websiteurl" />
+        <div className='pickuptimestyle'>Pickup time: {postin.pickuptime}</div>
+        <div className='pickupdatestyle'>Pickup date: {postin.pickupdate}</div>
+        <div className="city-top">{postin.city}, {postin.country}</div>
+        <div className="email-top">{postin.email}</div>
+        <div className="phone-top">{postin.numberofphone}</div>
+        <div className="website-top">{postin.website}</div>
+        {!postin.pickupcomments && <ButtonAcceptPosting onClick={() => handleAcceptPosting(postin)} />}
+        {postin.pickupcomments && (
+          <>
+            <ButtonAcceptPostingTwo onClick={() => handleAcceptPosting(postin)} />
+            <ButtonViewComments onClick={() => handleDialogOpen(postin)} />
+            <Dialog
+              open={selectedPostin === postin}
+              onClose={handleDialogClose}
+              className='dialoguebackgroundtwice'
+              PaperProps={{
+                style: dialogStyle,
+              }}
+            >
+              <DialogContent>
+                <Button onClick={handleDialogClose}>
+                  <img src={xmark} className="xmarkdialogue" alt="Close" />
+                </Button>
+                <div className='postercomments'>
+                  {postin.pickupcomments}
+                </div>
+              </DialogContent>
+            </Dialog>
+          </>
+        )}
+      </div>
+    ))
+  ), [postings, selectedPostin]);
+
   return (
     <div className="page-container">
       <div className="postings-container">
-        {postings.map((postin) => (
-          <div key={postin._id} className="thriftstorepost">
-            <div className='thriftstorepostfont'>{postin.thriftstore}</div>
-            <div className="address-top">{postin.address}</div>
-            <img src={mapmarker} className="mapmarkerstyle" alt="map marker" />
-            <img src={clock} className="clockstyle" alt="clock" />
-            <img src={phone} className="phonestyle" alt="phone" />
-            <img src={email} className="emailstyle" alt="email" />
-            <img src={internet} className="internetstyle" alt="websiteurl" />
-            <div className='pickuptimestyle'>Pickup time: {postin.pickuptime}</div>
-            <div className='pickupdatestyle'>Pickup date: {postin.pickupdate}</div>
-            <div className="city-top">{postin.city}, {postin.country}</div>
-            <div className="email-top">{postin.email}</div>
-            <div className="phone-top">{postin.numberofphone}</div>
-            <div className="website-top">{postin.website}</div>
-            {!postin.pickupcomments && <ButtonAcceptPosting onClick={() => handleAcceptPosting(postin)} />}
-            {postin.pickupcomments && (
-              <>
-                <ButtonAcceptPostingTwo onClick={() => handleAcceptPosting(postin)} />
-                <ButtonViewComments onClick={() => handleDialogOpen(postin)} />
-                <Dialog
-                  open={selectedPostin === postin}
-                  onClose={handleDialogClose}
-                  className='dialoguebackgroundtwice'
-                  PaperProps={{
-                    style: dialogStyle,
-                  }}
-                >
-                  <DialogContent>
-                    <Button onClick={handleDialogClose}>
-                      <img src={xmark} className="xmarkdialogue" alt="Close" />
-                    </Button>
-                    <div className='postercomments'>
-                      {postin.pickupcomments}
-                    </div>
-                  </DialogContent>
-                </Dialog>
-              </>
-            )}
-          </div>
-        ))}
+        {memoizedPostings}
       </div>
     </div>
   );
