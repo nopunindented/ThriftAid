@@ -3,10 +3,101 @@ import axios from 'axios';
 import { Dialog, Button, DialogContent } from '@mui/material';
 import mapmarker from './mapmarker.svg';
 import clock from './clock.svg';
-import phone from './phone.svg'
-import email from './email.svg'
-import xmark from './xmark.png'
-import internet from './internet.svg'
+import phone from './phone.svg';
+import email from './email.svg';
+import xmark from './xmark.png';
+import internet from './internet.svg';
+
+const buttonStyle = {
+  position: 'absolute',
+  display: 'flex',
+  color: '#F7F3F3',
+  fontFamily: 'Noto Sans',
+  fontSize: '1.4vh',
+  fontStyle: 'normal',
+  fontWeight: 700,
+  textAlign: 'center',
+  top: "91%",
+  height: '7%',
+  left: '21.7%',
+  width: '55%',
+  textTransform: 'none',
+  bgcolor: '#5ab0f2',
+  ':hover': {
+    bgcolor: '#4baaf2',
+    color: '#F7F3F3',
+    textTransform: 'none',
+  },
+};
+
+const pickupbutton = {
+  position: 'absolute',
+  display: 'flex',
+  color: '#F7F3F3',
+  fontFamily: 'Noto Sans',
+  fontSize: '1.4vh',
+  fontStyle: 'normal',
+  fontWeight: 700,
+  textAlign: 'center',
+  top: "92%",
+  height: '7%',
+  left: '21.7%',
+  width: '55%',
+  textTransform: 'none',
+  bgcolor: '#5ab0f2',
+  ':hover': {
+    bgcolor: '#4baaf2',
+    color: '#F7F3F3',
+    textTransform: 'none',
+  },
+};
+
+const pickupaccept = {
+  position: 'absolute',
+  display: 'flex',
+  color: '#F7F3F3',
+  fontFamily: 'Noto Sans',
+  fontSize: '1.4vh',
+  fontStyle: 'normal',
+  fontWeight: 700,
+  textAlign: 'center',
+  top: "84.5%",
+  height: '7%',
+  left: '21.7%',
+  width: '55%',
+  textTransform: 'none',
+  bgcolor: '#5ab0f2',
+  ':hover': {
+    bgcolor: '#4baaf2',
+    color: '#F7F3F3',
+    textTransform: 'none',
+  },
+};
+
+const dialogStyle = {
+  width: '20%',
+  height: '40%',
+  backgroundColor: '#f5f2f2',
+  overflowY: 'auto',
+};
+
+const ButtonAcceptPosting = ({ onClick }) => (
+  <Button sx={buttonStyle} onClick={onClick}>
+    Accept Posting
+  </Button>
+);
+
+const ButtonAcceptPostingTwo = ({ onClick }) => (
+  <Button sx={pickupaccept} onClick={onClick}>
+    Accept Posting
+  </Button>
+);
+
+const ButtonViewComments = ({ onClick }) => (
+  <Button sx={pickupbutton} onClick={onClick}>
+    View poster's comments
+  </Button>
+);
 
 export default function AllPostings() {
   const [postings, setPostings] = useState([]);
@@ -17,21 +108,14 @@ export default function AllPostings() {
   };
 
   const handleAcceptPosting = (postin) => {
-  let index = postings.indexOf(postin);
-  if (index !== -1) {
-    const newPostings = [...postings];
-    newPostings.splice(index, 1);
+    setPostings((prevPostings) => prevPostings.filter((p) => p._id !== postin._id));
 
     axios
       .post('http://localhost:5000/api/everyposting/acceptposting', { postinId: postin._id })
-      .then((response) => {
-        setPostings(newPostings);
-      })
       .catch((err) => {
         console.log('Error accepting posting', err);
       });
-  }
-};
+  };
 
   const handleDialogClose = () => {
     setSelectedPostin(null);
@@ -52,7 +136,7 @@ export default function AllPostings() {
     <div className="page-container">
       <div className="postings-container">
         {postings.map((postin) => (
-          <div key={postin.thriftstore} className="thriftstorepost">
+          <div key={postin._id} className="thriftstorepost">
             <div className='thriftstorepostfont'>{postin.thriftstore}</div>
             <div className="address-top">{postin.address}</div>
             <img src={mapmarker} className="mapmarkerstyle" alt="map marker" />
@@ -66,103 +150,22 @@ export default function AllPostings() {
             <div className="email-top">{postin.email}</div>
             <div className="phone-top">{postin.numberofphone}</div>
             <div className="website-top">{postin.website}</div>
-            {!postin.pickupcomments && 
-            (<Button
-                  sx={{
-                    position: 'absolute',
-                    display: 'flex',
-                    color: '#F7F3F3',
-                    fontFamily: 'Noto Sans',
-                    fontSize: '1.4vh',
-                    fontStyle: 'normal',
-                    fontWeight: 700,
-                    textAlign: 'center',
-                    height: '7%',
-                    left: '21.7%',
-                    top: '87%',
-                    width: '55%',
-                    textTransform: 'none',
-                    bgcolor: '#5ab0f2',
-                    ':hover': {
-                      bgcolor: '#4baaf2',
-                      color: '#F7F3F3',
-                      textTransform: 'none',
-                    },
-                  }}
-                  onClick={() => handleAcceptPosting(postin)}
-                >
-                  Accept Posting
-                </Button> )}
+            {!postin.pickupcomments && <ButtonAcceptPosting onClick={() => handleAcceptPosting(postin)} />}
             {postin.pickupcomments && (
               <>
-              <Button
-                  sx={{
-                    position: 'absolute',
-                    display: 'flex',
-                    color: '#F7F3F3',
-                    fontFamily: 'Noto Sans',
-                    fontSize: '1.4vh',
-                    fontStyle: 'normal',
-                    fontWeight: 700,
-                    textAlign: 'center',
-                    height: '7%',
-                    left: '21.7%',
-                    top: '84%',
-                    width: '55%',
-                    textTransform: 'none',
-                    bgcolor: '#5ab0f2',
-                    ':hover': {
-                      bgcolor: '#4baaf2',
-                      color: '#F7F3F3',
-                      textTransform: 'none',
-                    },
-                  }}
-                  onClick={() => handleAcceptPosting(postin)}
-                >
-                  Accept Posting
-                </Button> 
-                <Button
-                  sx={{
-                    position: 'absolute',
-                    display: 'flex',
-                    color: '#F7F3F3',
-                    fontFamily: 'Noto Sans',
-                    fontSize: '1.4vh',
-                    fontStyle: 'normal',
-                    fontWeight: 700,
-                    textAlign: 'center',
-                    height: '7%',
-                    left: '21.7%',
-                    top: '92%',
-                    width: '55%',
-                    textTransform: 'none',
-                    bgcolor: '#5ab0f2',
-                    ':hover': {
-                      bgcolor: '#4baaf2',
-                      color: '#F7F3F3',
-                      textTransform: 'none',
-                    },
-                  }}
-                  onClick={() => handleDialogOpen(postin)}
-                >
-                  View poster's comments
-                </Button>
+                <ButtonAcceptPostingTwo onClick={() => handleAcceptPosting(postin)} />
+                <ButtonViewComments onClick={() => handleDialogOpen(postin)} />
                 <Dialog
                   open={selectedPostin === postin}
                   onClose={handleDialogClose}
                   className='dialoguebackgroundtwice'
                   PaperProps={{
-                    style: {
-                      width: '20%',
-                      height: '40%',
-                      backgroundColor: '#f5f2f2',
-                      overflowY: 'auto'
-                    },
+                    style: dialogStyle,
                   }}
                 >
                   <DialogContent>
                     <Button onClick={handleDialogClose}>
-                    <img src={xmark} className="xmarkdialogue"/>
+                      <img src={xmark} className="xmarkdialogue" alt="Close" />
                     </Button>
                     <div className='postercomments'>
                       {postin.pickupcomments}
