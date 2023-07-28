@@ -4,6 +4,9 @@ const passport = require('passport');
 const Posting = require('../../models/Posting');
 const User = require('../../models/User');
 
+
+const deletedPostings= []
+
 router.get('/allpostings', passport.authenticate('jwt', { session: false }), async (req, res) => {
     if (req.user.usertype !== 'homeless shelter') {
       return res.status(403).json({ error: 'Only homeless shelters can create postings' });
@@ -31,6 +34,7 @@ router.get('/allpostings', passport.authenticate('jwt', { session: false }), asy
         return res.status(404).json({ error: 'Posting not found' });
       }
 
+      deletedPostings.push(acceptedPosting)
       await acceptedPosting.remove();
   
       const updatedAcceptedPostings = await Posting.find({});
@@ -43,5 +47,19 @@ router.get('/allpostings', passport.authenticate('jwt', { session: false }), asy
     }
   });
 
+  router.post('/deletedposts', passport.authenticate('jwt', { session: false }), async (req, res) => {
+  
+    try {
+      await deletedPostings;
+      if (!deletedPostings) {
+        return res.status(404).json({ error: 'Posting not found' });
+      }
+
+      res.json(deletedPostings);
+    } catch (err) {
+      console.log(err);
+      res.status(500).json({ error: 'Server Error' });
+    }
+  });
 
   module.exports = router;

@@ -1,13 +1,16 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 import { Button } from "@mui/material";
 
 const Dashboard = ({ auth, logoutUser }) => {
   const navigate = useNavigate();
   const { user, isAuthenticated } = auth;
+  const [acceptedposts, setAcceptedPosts] = useState(null);
+  
 
   useEffect(() => {
     if (!isAuthenticated) {
@@ -21,9 +24,20 @@ const Dashboard = ({ auth, logoutUser }) => {
     navigate("/login");
   };
 
-  if (!isAuthenticated) {
-    return null;
-  }
+  useEffect(() => {
+    if (!isAuthenticated) {
+      navigate("/login");
+    }
+    // Move the API call inside the useEffect to fetch data on component mount
+    axios
+      .post('http://localhost:5000/api/everyposting/deletedposts')
+      .then((response) => {
+        setAcceptedPosts(response.data); // Use response.data to access the array of accepted posts
+      })
+      .catch((err) => {
+        console.log('Error accepting posting', err);
+      });
+  }, [isAuthenticated, navigate]);
 
   if (!user || !user.email) {
     return (
@@ -130,7 +144,15 @@ const Dashboard = ({ auth, logoutUser }) => {
 
     return (
       <div>
-        <div className="pastpostings">Your past postings: </div>
+        <div className="pastpostings">
+        <ul>
+        {acceptedposts && acceptedposts.map((posting) => (
+          <li key={posting._id}>
+            {posting.thriftstore} - {posting.address}
+          </li>
+        ))}
+      </ul>
+      </div>
         <Button
           type="submit"
           sx={{
