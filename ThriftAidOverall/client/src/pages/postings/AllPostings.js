@@ -17,7 +17,8 @@ export default function AllPostings() {
   };
 
   const handleAcceptPosting = (postin) => {
-    const index = postings.findIndex((item) => item === postin);
+    let index = postings.indexOf(postin);
+
     if (index !== -1) {
       const newPostings = [...postings];
       newPostings.splice(index, 1);
