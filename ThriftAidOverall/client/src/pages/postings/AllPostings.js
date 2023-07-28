@@ -17,13 +17,21 @@ export default function AllPostings() {
   };
 
   const handleAcceptPosting = (postin) => {
-    let index = postings.indexOf(postin);
-    if (index !== -1) {
-      const newPostings = [...postings];
-      newPostings.splice(index, 1);
-      setPostings(newPostings);
-    }
-  };
+  let index = postings.indexOf(postin);
+  if (index !== -1) {
+    const newPostings = [...postings];
+    newPostings.splice(index, 1);
+
+    axios
+      .post('http://localhost:5000/api/everyposting/acceptposting', { postinId: postin._id })
+      .then((response) => {
+        setPostings(newPostings);
+      })
+      .catch((err) => {
+        console.log('Error accepting posting', err);
+      });
+  }
+};
 
   const handleDialogClose = () => {
     setSelectedPostin(null);
