@@ -1,5 +1,17 @@
-const ArrayifyModel = require('../../models/ArrayifyModel');
+const ArrayifyModel = require('../../models/Accept');
 
-const deletedPostings = new ArrayifyModel({ arrayify: [] });
+const getDeletedPostings = async () => {
+  try {
+    let deletedPostings = await ArrayifyModel.findOne({});
+    if (!deletedPostings) {
+      deletedPostings = new ArrayifyModel({ arrayify: [] });
+      await deletedPostings.save();
+    }
+    return deletedPostings;
+  } catch (error) {
+    console.error('Error getting deleted postings:', error);
+    return null;
+  }
+};
 
-module.exports = deletedPostings;
+module.exports = getDeletedPostings;

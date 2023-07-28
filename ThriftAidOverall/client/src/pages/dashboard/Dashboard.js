@@ -148,9 +148,10 @@ const Dashboard = ({ auth, logoutUser }) => {
       <div>
         <div className="pastpostings">
         <ul>
+          {console.log(acceptedposts)}
         {acceptedposts && acceptedposts.map((post) => (
           <li key={post.posting._id}>
-            {post.posting.thriftstore} - {post.posting.address}
+            {post.posting.thriftstore} - {post.userEmail}
           </li>
         ))}
       </ul>

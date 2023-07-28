@@ -3,9 +3,7 @@ const router = express.Router();
 const passport = require('passport');
 const Posting = require('../../models/Posting');
 const User = require('../../models/User');
-
-
-const deletedPostings = [];
+const getDeletedPostings = require('./acceptedposts');
 
 router.get('/allpostings', passport.authenticate('jwt', { session: false }), async (req, res) => {
   if (req.user.usertype !== 'homeless shelter') {
@@ -34,12 +32,19 @@ router.post('/acceptposting', passport.authenticate('jwt', { session: false }), 
       return res.status(404).json({ error: 'Posting not found' });
     }
 
-    deletedPostings.push({ posting: acceptedPosting, userEmail: req.user.email }); // Store the acceptedPosting and user email
+    const deletedPostingData = {
+      posting: acceptedPosting.toObject(),
+      userEmail: req.user.email,
+    };
+
+    const deletedPostingsData = await getDeletedPostings();
+
+    deletedPostingsData.arrayify.push(deletedPostingData);
+    await deletedPostingsData.save();
+
     await acceptedPosting.remove();
 
     const updatedAcceptedPostings = await Posting.find({});
-    AcceptedPostings = updatedAcceptedPostings;
-
     res.json(updatedAcceptedPostings);
   } catch (err) {
     console.log(err);
@@ -48,13 +53,14 @@ router.post('/acceptposting', passport.authenticate('jwt', { session: false }), 
 });
 
 router.post('/deletedposts', passport.authenticate('jwt', { session: false }), async (req, res) => {
-
   try {
-    res.json(deletedPostings); // Return the deletedPostings array
+    const deletedPostingsData = await getDeletedPostings();
+
+    res.json(deletedPostingsData.arrayify);
   } catch (err) {
     console.log(err);
     res.status(500).json({ error: 'Server Error' });
   }
 });
 
-  module.exports = router;
+module.exports = router;
