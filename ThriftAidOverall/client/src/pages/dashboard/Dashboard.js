@@ -27,16 +27,16 @@ const Dashboard = ({ auth, logoutUser }) => {
   useEffect(() => {
     if (!isAuthenticated) {
       navigate("/login");
+    } else {
+      axios
+        .post('http://localhost:5000/api/everyposting/deletedposts')
+        .then((response) => {
+          setAcceptedPosts(response.data);
+        })
+        .catch((err) => {
+          console.log('Error fetching deleted postings', err);
+        });
     }
-    // Move the API call inside the useEffect to fetch data on component mount
-    axios
-      .post('http://localhost:5000/api/everyposting/deletedposts')
-      .then((response) => {
-        setAcceptedPosts(response.data); // Use response.data to access the array of accepted posts
-      })
-      .catch((err) => {
-        console.log('Error accepting posting', err);
-      });
   }, [isAuthenticated, navigate]);
 
   if (!user || !user.email) {
@@ -142,6 +142,8 @@ const Dashboard = ({ auth, logoutUser }) => {
       navigate("/allpostings");
     };
 
+
+    console.log(acceptedposts)
     return (
       <div>
         <div className="pastpostings">
