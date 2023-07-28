@@ -18,7 +18,6 @@ export default function AllPostings() {
 
   const handleAcceptPosting = (postin) => {
     let index = postings.indexOf(postin);
-
     if (index !== -1) {
       const newPostings = [...postings];
       newPostings.splice(index, 1);
@@ -72,7 +71,7 @@ export default function AllPostings() {
                     textAlign: 'center',
                     height: '7%',
                     left: '21.7%',
-                    top: '86%',
+                    top: '87%',
                     width: '55%',
                     textTransform: 'none',
                     bgcolor: '#5ab0f2',

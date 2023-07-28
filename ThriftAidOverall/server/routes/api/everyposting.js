@@ -17,5 +17,7 @@ router.get('/allpostings', passport.authenticate('jwt', { session: false }), asy
       res.status(500).json({ error: 'Server Error' });
     }
   });
-  
+
+
+
   module.exports = router;
