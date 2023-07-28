@@ -5,7 +5,7 @@ const Posting = require('../../models/Posting');
 const User = require('../../models/User');
 
 
-const deletedPostings = []; // Initialize as an empty array
+const deletedPostings = [];
 
 router.get('/allpostings', passport.authenticate('jwt', { session: false }), async (req, res) => {
   if (req.user.usertype !== 'homeless shelter') {
