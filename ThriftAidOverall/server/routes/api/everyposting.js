@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router();
 const passport = require('passport');
 const Posting = require('../../models/Posting');
-const User = require('../../models/User');
 
 
 const deletedPostings = []; // Initialize as an empty array
