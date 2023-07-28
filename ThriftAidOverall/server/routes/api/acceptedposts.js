@@ -1,6 +1,5 @@
-const ArrayofPosts = require('../../models/Accept');
+const ArrayifyModel = require('../../models/ArrayifyModel');
 
-// Create an instance of ArrayofPosts model
-const deletedPostings = new ArrayofPosts({ arrayify: [] });
+const deletedPostings = new ArrayifyModel({ arrayify: [] });
 
 module.exports = deletedPostings;
