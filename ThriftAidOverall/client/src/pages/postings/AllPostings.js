@@ -59,7 +59,8 @@ export default function AllPostings() {
             <div className="email-top">{postin.email}</div>
             <div className="phone-top">{postin.numberofphone}</div>
             <div className="website-top">{postin.website}</div>
-            <Button
+            {!postin.pickupcomments && 
+            (<Button
                   sx={{
                     position: 'absolute',
                     display: 'flex',
@@ -71,7 +72,7 @@ export default function AllPostings() {
                     textAlign: 'center',
                     height: '7%',
                     left: '21.7%',
-                    top: '89%',
+                    top: '86%',
                     width: '55%',
                     textTransform: 'none',
                     bgcolor: '#5ab0f2',
@@ -84,9 +85,35 @@ export default function AllPostings() {
                   onClick={() => handleAcceptPosting(postin)}
                 >
                   Accept Posting
-                </Button>
+                </Button> )}
             {postin.pickupcomments && (
               <>
+              <Button
+                  sx={{
+                    position: 'absolute',
+                    display: 'flex',
+                    color: '#F7F3F3',
+                    fontFamily: 'Noto Sans',
+                    fontSize: '1.4vh',
+                    fontStyle: 'normal',
+                    fontWeight: 700,
+                    textAlign: 'center',
+                    height: '7%',
+                    left: '21.7%',
+                    top: '84%',
+                    width: '55%',
+                    textTransform: 'none',
+                    bgcolor: '#5ab0f2',
+                    ':hover': {
+                      bgcolor: '#4baaf2',
+                      color: '#F7F3F3',
+                      textTransform: 'none',
+                    },
+                  }}
+                  onClick={() => handleAcceptPosting(postin)}
+                >
+                  Accept Posting
+                </Button> 
                 <Button
                   sx={{
                     position: 'absolute',
