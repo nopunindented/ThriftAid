@@ -1018,13 +1018,14 @@ box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);
 .dialoguecancel-container {
   position: absolute;
   top: 25%;
-  left: 71.5%;
+  left: 50.6%;
 }
 
 .dialoguecancel {
   position: absolute;
-  width: 38%;
-  left: 80%;
+  width: 25%;
+  left: 71.8%;
+  top: 14vh;
 }
 
 .dialoguebacktwice{

@@ -225,11 +225,9 @@ const properAddress = {
             Add Pickup Comments
           </Button>
         <Dialog open={openDialog} onClose={handleDialogClose} className='dialoguebackground'>
-        <div className="dialoguecancel-container">
           <Button onClick={handleDialogCancel} variant="contained" color="primary" className='dialoguecancel'>
               Cancel
           </Button>
-        </div>
           <DialogContent>
             <TextField
               multiline
