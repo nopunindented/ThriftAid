@@ -108,6 +108,7 @@ export default function AllPostings() {
   };
 
   const handleAcceptPosting = (postin) => {
+    console.log(postin)
     setPostings((prevPostings) => prevPostings.filter((p) => p._id !== postin._id));
 
     axios
