@@ -76,9 +76,27 @@ const Dashboard = ({ auth, logoutUser }) => {
       navigate("/create");
     };
 
+    const findPostings = () => {
+      navigate("/allpostings");
+    };
+
+    const userAcceptedPosts = acceptedposts && acceptedposts.filter(
+      (post) => post.posting.email === user.email
+    );
+
     return (
       <div>
         <div className="pastpostings">Your past postings: </div>
+        <div className="pastpostings">
+        <ul>
+          {console.log(acceptedposts)}
+        {userAcceptedPosts && userAcceptedPosts.map((post) => (
+          <li key={post.posting.email}>
+            {post.posting.thriftstore} - {post.posting.email}
+          </li>
+        ))}
+      </ul>
+      </div>
 
         <Button
           type="submit"
@@ -150,7 +168,7 @@ const Dashboard = ({ auth, logoutUser }) => {
         <ul>
           {console.log(acceptedposts)}
         {acceptedposts && acceptedposts.map((post) => (
-          <li key={post.posting._id}>
+          <li key={post.posting.email}>
             {post.posting.thriftstore} - {post.userEmail}
           </li>
         ))}
