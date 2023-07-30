@@ -76,7 +76,7 @@ const Profile = ({ auth, updateProfile, errors, setCurrentUser }) => {
           textAlign: 'center',
           height: 30,
           left: '40.05%',
-          top: '62.5%',
+          top: '68.5%',
           width: '20.6%',
           textTransform: 'none',
           bgcolor: '#24a0ed',
