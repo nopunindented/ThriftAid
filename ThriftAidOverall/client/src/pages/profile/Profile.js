@@ -98,7 +98,7 @@ const Profile = ({ auth, updateProfile, errors, setCurrentUser }) => {
 
   useEffect(() => {
     if (!isAuthenticated) {
-      // Redirect to login page if not authenticated
+
       window.location.href = '/login';
     } else if (isAuthenticated && user) {
       fetchProfile(user.email);

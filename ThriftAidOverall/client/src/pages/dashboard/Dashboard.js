@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useMemo } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
@@ -11,7 +11,22 @@ const Dashboard = ({ auth, logoutUser }) => {
   const { user, isAuthenticated } = auth;
   const [acceptedposts, setAcceptedPosts] = useState(null);
   
+  const userAcceptedPosts = acceptedposts && acceptedposts.filter(
+    (post) => post.posting.email === user.email
+  );
 
+  const thriftAcceptedPosts= useMemo(() => (
+    <div className="postings-container">
+        <div className="pastpostings">
+        {userAcceptedPosts && userAcceptedPosts.map((post) => (
+          <div  key={post.posting.email} className="thriftstorepost">
+            {post.posting.thriftstore} - {post.posting.email}
+          </div>
+        ), [userAcceptedPosts])}
+      </div>
+      </div>
+  )
+  )
   useEffect(() => {
     if (!isAuthenticated) {
       navigate("/login");
@@ -80,22 +95,14 @@ const Dashboard = ({ auth, logoutUser }) => {
       navigate("/allpostings");
     };
 
-    const userAcceptedPosts = acceptedposts && acceptedposts.filter(
-      (post) => post.posting.email === user.email
-    );
 
     return (
       <div>
         <div className="pastpostings">Your past postings: </div>
-        <div className="pastpostings">
-        <ul>
-          {console.log(acceptedposts)}
-        {userAcceptedPosts && userAcceptedPosts.map((post) => (
-          <li key={post.posting.email}>
-            {post.posting.thriftstore} - {post.posting.email}
-          </li>
-        ))}
-      </ul>
+        <div className="page-container">
+      <div className="postings-container">
+          {thriftAcceptedPosts}
+      </div>
       </div>
 
         <Button
@@ -164,16 +171,7 @@ const Dashboard = ({ auth, logoutUser }) => {
     console.log(acceptedposts)
     return (
       <div>
-        <div className="pastpostings">
-        <ul>
-          {console.log(acceptedposts)}
-        {acceptedposts && acceptedposts.map((post) => (
-          <li key={post.posting.email}>
-            {post.posting.thriftstore} - {post.userEmail}
-          </li>
-        ))}
-      </ul>
-      </div>
+        {thriftAcceptedPosts}
         <Button
           type="submit"
           sx={{

@@ -133,7 +133,6 @@ export default function AllPostings() {
       });
   }, []);
 
-  // Memoize the postings mapping using useMemo
   const memoizedPostings = useMemo(() => (
     postings.map((postin) => (
       <div key={postin._id} className="thriftstorepost">
