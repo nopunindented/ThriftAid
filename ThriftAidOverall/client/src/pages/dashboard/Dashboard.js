@@ -15,6 +15,11 @@ const Dashboard = ({ auth, logoutUser }) => {
     (post) => post.posting.email === user.email
   );
 
+
+  const homelessAcceptedPosts = acceptedposts && acceptedposts.filter(
+    (post) => post.userEmail === user.email
+  );
+
   const thriftAcceptedPosts= useMemo(() => (
     <div className="postings-container">
         <div className="pastpostings">
@@ -27,6 +32,20 @@ const Dashboard = ({ auth, logoutUser }) => {
       </div>
   )
   )
+
+  const homelessPosts= useMemo(() => (
+    <div className="postings-container">
+        <div className="pastpostings">
+        {homelessAcceptedPosts && homelessAcceptedPosts.map((post) => (
+          <div  key={post.posting.email} className="thriftstorepost">
+            {post.posting.thriftstore} - {post.posting.email}
+          </div>
+        ), [userAcceptedPosts])}
+      </div>
+      </div>
+  )
+  )
+
   useEffect(() => {
     if (!isAuthenticated) {
       navigate("/login");
@@ -171,7 +190,7 @@ const Dashboard = ({ auth, logoutUser }) => {
     console.log(acceptedposts)
     return (
       <div>
-        {thriftAcceptedPosts}
+        {homelessPosts}
         <Button
           type="submit"
           sx={{
