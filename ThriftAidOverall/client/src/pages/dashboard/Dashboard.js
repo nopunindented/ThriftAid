@@ -5,12 +5,24 @@ import { logoutUser } from "../../actions/authActions";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { Button } from "@mui/material";
+import ScrollButton from "./Scroll";
 
 const Dashboard = ({ auth, logoutUser }) => {
   const navigate = useNavigate();
   const { user, isAuthenticated } = auth;
   const [acceptedposts, setAcceptedPosts] = useState(null);
-  
+  const [scrollPosition, setScrollPosition] = useState(0);
+
+  const scrollLeft = () => {
+    setScrollPosition((prevPosition) => prevPosition - 100);
+  };
+
+  const scrollRight = () => {
+    setScrollPosition((prevPosition) => prevPosition + 100);
+  };
+
+
+
   const userAcceptedPosts = acceptedposts && acceptedposts.filter(
     (post) => post.posting.email === user.email
   );
@@ -111,7 +123,11 @@ const Dashboard = ({ auth, logoutUser }) => {
       <div>
         <div className="pastpostings">Your past postings: </div>
         <div className="page-container-two">
-      <div className="postings-container-dashboard">
+      <div className="scroll-buttons">
+        <ScrollButton direction="left" onClick={scrollLeft} onMouseOver={scrollLeft} />
+        <ScrollButton direction="right" onClick={scrollRight} onMouseOver={scrollRight} />
+      </div>
+      <div className="postings-container-dashboard" style={{ transform: `translateX(${scrollPosition}px)` }}>
           {thriftAcceptedPosts}
       </div>
       </div>
@@ -183,7 +199,11 @@ const Dashboard = ({ auth, logoutUser }) => {
     return (
       <div>
       <div className="page-container-two">
-      <div className="postings-container-dashboard">
+      <div className="scroll-buttons">
+        <ScrollButton direction="left" onClick={scrollLeft} onMouseOver={scrollLeft} />
+        <ScrollButton direction="right" onClick={scrollRight} onMouseOver={scrollRight} />
+      </div>
+      <div className="postings-container-dashboard" style={{ transform: `translateX(${scrollPosition}px)` }}>
         {homelessPosts}
         <Button
           type="submit"

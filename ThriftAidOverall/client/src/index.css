@@ -1160,6 +1160,7 @@ box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);
   top: 30%;
   left: -5%;
   width: 100%;
+  flex-wrap: nowrap;
 }
 
 .thriftstorepost-dashboard {
@@ -1190,4 +1191,27 @@ box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);
   font-family:'Calibri';
   top: 1.5%;
   left: 3%;
+}
+
+.scroll-button {
+  padding: 0.5rem 1rem;
+  font-size: 14px;
+  cursor: pointer;
+  background-color: #24a0ed;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  transition: background-color 0.2s ease;
+}
+
+.scroll-button:hover {
+  background-color: #0792e8;
+}
+
+.scroll-button.left {
+  margin-right: 1rem;
+}
+
+.scroll-button.right {
+  margin-left: 1rem;
 }
