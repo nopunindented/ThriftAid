@@ -31,7 +31,7 @@ const Dashboard = ({ auth, logoutUser }) => {
 
   const homelessPosts= useMemo(() => (
         homelessAcceptedPosts && homelessAcceptedPosts.map((post) => (
-          <div  key={post.posting.email} className="thriftstorepost">
+          <div  key={post.posting.email} className="thriftstorepost-dashboard">
             {post.posting.thriftstore} - {post.posting.email}
           </div>
         ), [userAcceptedPosts])
@@ -110,8 +110,8 @@ const Dashboard = ({ auth, logoutUser }) => {
     return (
       <div>
         <div className="pastpostings">Your past postings: </div>
-        <div className="page-container">
-      <div className="postings-container">
+        <div className="page-container-two">
+      <div className="postings-container-dashboard">
           {thriftAcceptedPosts}
       </div>
       </div>
@@ -182,8 +182,8 @@ const Dashboard = ({ auth, logoutUser }) => {
     console.log(acceptedposts)
     return (
       <div>
-      <div className="page-container">
-      <div className="postings-container">
+      <div className="page-container-two">
+      <div className="postings-container-dashboard">
         {homelessPosts}
         <Button
           type="submit"

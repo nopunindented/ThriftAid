@@ -1140,3 +1140,54 @@ box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);
   width: 0.8vw;
   height: 2vh;
 }
+
+.page-container-two {
+  position: fixed;
+  top: 0%;
+  height: calc(100vh - 6rem);
+  width: 100vw;
+  background-color: #f3f3f8;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-top: 10%;
+}
+
+.postings-container-dashboard {
+  position: absolute;
+  display: flex;
+  overflow-x: auto;
+  justify-content: flex-start;
+  top: 30%;
+  left: -5%;
+  width: 100%;
+}
+
+.thriftstorepost-dashboard {
+  position: relative;
+  margin: 1rem;
+  flex-grow: 0;
+  flex-shrink: 0;
+  height: 48vh;
+  width: 5vw;
+  box-shadow: 5px 5px 5px rgba(163, 158, 198, 0.2);
+  padding-left: 3%;
+  margin-right: 6%;
+  margin-bottom: 6%;
+  left: 9%;
+  border-radius: 1.2%;
+  background-color: #ffffff;
+  flex-basis: 14.5%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.thriftstorepostfont{
+  position: absolute;
+  font-size: 4vh;
+  font-weight: 500;
+  font-family:'Calibri';
+  top: 1.5%;
+  left: 3%;
+}
