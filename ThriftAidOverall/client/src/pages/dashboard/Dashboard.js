@@ -5,7 +5,6 @@ import { logoutUser } from "../../actions/authActions";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { Button } from "@mui/material";
-import ScrollButton from "./Scroll";
 
 const Dashboard = ({ auth, logoutUser }) => {
   const navigate = useNavigate();
@@ -185,9 +184,10 @@ const Dashboard = ({ auth, logoutUser }) => {
     console.log(acceptedposts)
     return (
       <div>
-      <div className="page-container-two">
+      <div className="page-container-two" />
       <div className="postings-container-dashboard">
         {homelessPosts}
+      </div>
         <Button
           type="submit"
           sx={{
@@ -215,8 +215,6 @@ const Dashboard = ({ auth, logoutUser }) => {
         >
           Find Postings
         </Button>
-      </div>
-      </div>
       </div>
     );
   }
