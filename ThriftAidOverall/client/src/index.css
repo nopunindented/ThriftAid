@@ -1155,7 +1155,6 @@ box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);
 .postings-container-dashboard {
   position: absolute;
   display: flex;
-  overflow-x: auto;
   justify-content: flex-start;
   top: 30%;
   left: -5%;

@@ -11,15 +11,6 @@ const Dashboard = ({ auth, logoutUser }) => {
   const navigate = useNavigate();
   const { user, isAuthenticated } = auth;
   const [acceptedposts, setAcceptedPosts] = useState(null);
-  const [scrollPosition, setScrollPosition] = useState(0);
-
-  const scrollLeft = () => {
-    setScrollPosition((prevPosition) => prevPosition - 100);
-  };
-
-  const scrollRight = () => {
-    setScrollPosition((prevPosition) => prevPosition + 100);
-  };
 
 
 
@@ -123,11 +114,7 @@ const Dashboard = ({ auth, logoutUser }) => {
       <div>
         <div className="pastpostings">Your past postings: </div>
         <div className="page-container-two">
-      <div className="scroll-buttons">
-        <ScrollButton direction="left" onClick={scrollLeft} onMouseOver={scrollLeft} />
-        <ScrollButton direction="right" onClick={scrollRight} onMouseOver={scrollRight} />
-      </div>
-      <div className="postings-container-dashboard" style={{ transform: `translateX(${scrollPosition}px)` }}>
+      <div className="postings-container-dashboard">
           {thriftAcceptedPosts}
       </div>
       </div>
@@ -199,11 +186,7 @@ const Dashboard = ({ auth, logoutUser }) => {
     return (
       <div>
       <div className="page-container-two">
-      <div className="scroll-buttons">
-        <ScrollButton direction="left" onClick={scrollLeft} onMouseOver={scrollLeft} />
-        <ScrollButton direction="right" onClick={scrollRight} onMouseOver={scrollRight} />
-      </div>
-      <div className="postings-container-dashboard" style={{ transform: `translateX(${scrollPosition}px)` }}>
+      <div className="postings-container-dashboard">
         {homelessPosts}
         <Button
           type="submit"
