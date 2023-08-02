@@ -5,12 +5,22 @@ import { logoutUser } from "../../actions/authActions";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { Button } from "@mui/material";
+import GoogleMaps from "../postings/googlemaps";
 
 const Dashboard = ({ auth, logoutUser }) => {
   const navigate = useNavigate();
   const { user, isAuthenticated } = auth;
   const [acceptedposts, setAcceptedPosts] = useState(null);
+  const [selectedPostAddress, setSelectedPostAddress] = useState(null);
 
+
+  const handleThriftPostClick = (address) => {
+    setSelectedPostAddress(address);
+  };
+
+  const handleHomelessPostClick = (address) => {
+    setSelectedPostAddress(address);
+  };
 
 
   const userAcceptedPosts = acceptedposts && acceptedposts.filter(
@@ -24,7 +34,7 @@ const Dashboard = ({ auth, logoutUser }) => {
 
   const thriftAcceptedPosts= useMemo(() => (
         userAcceptedPosts && userAcceptedPosts.map((post) => (
-          <div  key={post.posting.email} className="thriftstorepost">
+          <div  key={post.posting.email} className="thriftstorepost" onClick={() => handleThriftPostClick(post.posting.address)}>
             {post.posting.thriftstore} - {post.posting.email}
           </div>
         ), [userAcceptedPosts])
@@ -33,7 +43,7 @@ const Dashboard = ({ auth, logoutUser }) => {
 
   const homelessPosts= useMemo(() => (
         homelessAcceptedPosts && homelessAcceptedPosts.map((post) => (
-          <div  key={post.posting.email} className="thriftstorepost-dashboard">
+          <div  key={post.posting.email} className="thriftstorepost-dashboard" onClick={() => handleHomelessPostClick(post.posting.address)}>
             {post.posting.thriftstore} - {post.posting.email}
           </div>
         ), [userAcceptedPosts])
@@ -117,7 +127,7 @@ const Dashboard = ({ auth, logoutUser }) => {
           {thriftAcceptedPosts}
       </div>
       </div>
-
+      {selectedPostAddress && <GoogleMaps address={selectedPostAddress} />}
         <Button
           type="submit"
           sx={{
@@ -188,6 +198,7 @@ const Dashboard = ({ auth, logoutUser }) => {
       <div className="postings-container-dashboard">
         {homelessPosts}
       </div>
+      {selectedPostAddress && <GoogleMaps address={selectedPostAddress} />}
         <Button
           type="submit"
           sx={{
