@@ -1207,3 +1207,21 @@ box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);
   border-radius: 6px;
 }
 
+.shirt-posting{
+  left: -18.8%;
+  top: 17.8%;
+  position: absolute;
+  display: inline-block;
+  width: 60%;
+  height: 68%;
+}
+
+.ellipse-accepted{
+  position: absolute;
+  width: 15%;
+  height: 71%;
+  left: 3%;
+  border-radius: 50%;
+  top: 15%;
+  border: 2px solid black;
+  }

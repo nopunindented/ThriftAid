@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { Button } from "@mui/material";
 import GoogleMaps from "../postings/googlemaps";
+import Logo from "./PostingLogo";
 
 const Dashboard = ({ auth, logoutUser }) => {
   const navigate = useNavigate();
@@ -35,6 +36,7 @@ const Dashboard = ({ auth, logoutUser }) => {
   const thriftAcceptedPosts= useMemo(() => (
         userAcceptedPosts && userAcceptedPosts.map((post) => (
           <div  key={post.posting.email} className="thriftstorepost-dashboard" tabIndex="0" onClick={() => handleThriftPostClick(post.posting.address, post.posting.city)}>
+            <Logo />
             {post.posting.thriftstore} - {post.posting.email}
           </div>
         ), [userAcceptedPosts])
@@ -44,6 +46,7 @@ const Dashboard = ({ auth, logoutUser }) => {
   const homelessPosts= useMemo(() => (
         homelessAcceptedPosts && homelessAcceptedPosts.map((post) => (
           <div  key={post.posting.email} className="thriftstorepost-dashboard" tabIndex="0" onClick={() => handleHomelessPostClick(post.posting.address, post.posting.city)}>
+            <Logo />
             {post.posting.thriftstore} - {post.posting.email}
           </div>
         ), [userAcceptedPosts])
