@@ -1175,7 +1175,7 @@ box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);
   margin-right: 6%;
   margin-bottom: 6%;
   left: 25%;
-  top: -4%;
+  top: -3%;
   border-radius: 2%;
   background-color: #e0dfdf;
   flex-basis: 23%;
@@ -1186,7 +1186,7 @@ box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);
 
 .thriftstorepost-dashboard:focus{
   outline: 0;
-  border: 3px solid #24a0ed;
+  border: 2px solid #000000;
 }
 
 .thriftstorepostfont{
