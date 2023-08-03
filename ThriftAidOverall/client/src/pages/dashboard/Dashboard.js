@@ -34,7 +34,7 @@ const Dashboard = ({ auth, logoutUser }) => {
 
   const thriftAcceptedPosts= useMemo(() => (
         userAcceptedPosts && userAcceptedPosts.map((post) => (
-          <div  key={post.posting.email} className="thriftstorepost" onClick={() => handleThriftPostClick(post.posting.address, post.posting.city)}>
+          <div  key={post.posting.email} className="thriftstorepost-dashboard" tabIndex="0" onClick={() => handleThriftPostClick(post.posting.address, post.posting.city)}>
             {post.posting.thriftstore} - {post.posting.email}
           </div>
         ), [userAcceptedPosts])
@@ -43,7 +43,7 @@ const Dashboard = ({ auth, logoutUser }) => {
 
   const homelessPosts= useMemo(() => (
         homelessAcceptedPosts && homelessAcceptedPosts.map((post) => (
-          <div  key={post.posting.email} className="thriftstorepost-dashboard" onClick={() => handleHomelessPostClick(post.posting.address, post.posting.city)}>
+          <div  key={post.posting.email} className="thriftstorepost-dashboard" tabIndex="0" onClick={() => handleHomelessPostClick(post.posting.address, post.posting.city)}>
             {post.posting.thriftstore} - {post.posting.email}
           </div>
         ), [userAcceptedPosts])
