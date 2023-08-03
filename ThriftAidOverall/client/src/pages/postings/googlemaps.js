@@ -7,7 +7,7 @@ Geocode.setLanguage("en");
 
 const libraries = ["places"];
 
-export default function GoogleMaps({ address }) {
+export default function GoogleMaps({ address, className }) {
   const [center, setCenter] = useState({ lat: 0, lng: 0 });
   const [apiKey, setApiKey] = useState(null);
   const [scriptLoaded, setScriptLoaded] = useState(false);
@@ -60,7 +60,7 @@ export default function GoogleMaps({ address }) {
     <GoogleMap
       zoom={10}
       center={center}
-      mapContainerClassName="map-container"
+      mapContainerClassName={`${className}`}
     >
       <Marker position={center} />
     </GoogleMap>

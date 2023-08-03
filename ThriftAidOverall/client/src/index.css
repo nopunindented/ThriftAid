@@ -1197,3 +1197,11 @@ box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);
   top: 1.5%;
   left: 3%;
 }
+
+.map-container-dashboard {
+  width: 60.5%;
+  height: 67.95vh;
+  top: 39.7%;
+  left: 86.5%;
+  border-radius: 6px;
+}

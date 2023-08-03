@@ -193,7 +193,7 @@ const properAddress = {
           </Button>
         </form>
         {submitted && address !== '' ? (
-          <GoogleMaps address={properAddress.fulladdress} />
+          <GoogleMaps className="map-container" address={properAddress.fulladdress} />
         ) : (
           submitted
         )}

@@ -198,7 +198,9 @@ const Dashboard = ({ auth, logoutUser }) => {
       <div className="postings-container-dashboard">
         {homelessPosts}
       </div>
-      {selectedPostAddress && <GoogleMaps address={selectedPostAddress} />}
+      <div className= "map-container-dashboard">
+      {selectedPostAddress && <GoogleMaps className="map-container-dashboard" address={selectedPostAddress} />}
+      </div>
       <Button
           type="submit"
           sx={{
