@@ -211,7 +211,7 @@ const Dashboard = ({ auth, logoutUser }) => {
             fontWeight: 700,
             textAlign: "center",
             height: "6%",
-            left: "17.3%",
+            left: "13.3%",
             top: "20%",
             width: "36.7%",
             textTransform: "none",
@@ -223,7 +223,7 @@ const Dashboard = ({ auth, logoutUser }) => {
             },
           }}
         >
-          Accepted Postings
+          Postings you Accepted
         </Button>
         <Button
           type="submit"
@@ -236,10 +236,10 @@ const Dashboard = ({ auth, logoutUser }) => {
             fontStyle: "normal",
             fontWeight: 700,
             textAlign: "center",
-            height: 30,
-            left: "40%",
-            top: "65%",
-            width: 317,
+            height: "6%",
+            left: "52.3%",
+            top: "20%",
+            width: "36.7%",
             textTransform: "none",
             bgcolor: "#24a0ed",
             ":hover": {
