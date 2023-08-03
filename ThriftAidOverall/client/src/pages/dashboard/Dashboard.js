@@ -199,6 +199,32 @@ const Dashboard = ({ auth, logoutUser }) => {
         {homelessPosts}
       </div>
       {selectedPostAddress && <GoogleMaps address={selectedPostAddress} />}
+      <Button
+          type="submit"
+          sx={{
+            position: "absolute",
+            display: "flex",
+            color: "#F7F3F3",
+            fontFamily: "Noto Sans",
+            fontSize: 15,
+            fontStyle: "normal",
+            fontWeight: 700,
+            textAlign: "center",
+            height: "6%",
+            left: "17.3%",
+            top: "20%",
+            width: "36.7%",
+            textTransform: "none",
+            bgcolor: "#832ed9",
+            ":hover": {
+              bgcolor: "#832ed9",
+              color: "#F7F3F3",
+              textTransform: "none",
+            },
+          }}
+        >
+          Accepted Postings
+        </Button>
         <Button
           type="submit"
           sx={{
