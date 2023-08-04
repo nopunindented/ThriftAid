@@ -197,7 +197,7 @@ const Dashboard = ({ auth, logoutUser }) => {
             <div className="address-dashboard-city">{post.posting.city}, {post.posting.country}</div>
             <div className="time-dashboard-city">{post.posting.pickuptime}, {post.posting.pickupdate}</div>
             <div className="website-dashboard-city">{post.posting.website}</div>
-            <div className="email-dashboard-city">{post.posting.userEmail}</div>
+            <div className="email-dashboard-city">{post.userEmail}</div>
             <div className="phone-dashboard-city">{post.posting.numberofphone}</div>
             <img src= {mapmarker} className="map-dashboard" />
             <img src= {clock} className="clock-dashboard" />
@@ -352,7 +352,7 @@ const Dashboard = ({ auth, logoutUser }) => {
           {thriftAcceptedPosts}
       </div>
       </div>
-      {selectedPostAddress && <GoogleMaps address={selectedPostAddress} />}
+      {selectedPostAddress && <GoogleMaps className="map-container-dashboard-thrift" address={selectedPostAddress} />}
         <Button
           type="submit"
           sx={{
