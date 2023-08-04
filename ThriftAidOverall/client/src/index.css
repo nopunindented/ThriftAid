@@ -1207,10 +1207,10 @@ box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);
 .thriftstorepostfont{
   position: absolute;
   font-size: 4vh;
-  font-weight: 500;
-  font-family:'Calibri';
+  font-weight: 540;
+  font-family:'Noto Sans';
   top: 1.5%;
-  left: 3%;
+  left: 2%;
 }
 
 .map-container-dashboard {
