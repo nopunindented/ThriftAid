@@ -138,7 +138,7 @@ export default function AllPostings() {
     if (!filterCity || filterCity === "") {
       return postings;
     } else {
-      return postings.filter((postin) => postin.city.toLowerCase() === filterCity.toLowerCase() || postin.city.toLowerCase() === filterCity.to);
+      return postings.filter((postin) => postin.city.toLowerCase() === filterCity.toLowerCase() || postin.country.toLowerCase() === filterCity.toLowerCase());
     }
   }, [postings, filterCity]);
 
@@ -190,8 +190,9 @@ export default function AllPostings() {
     <div className="page-container">
       <div>
         <input
+          className="searchbar-for-posts"
           type="text"
-          placeholder="Enter city name..."
+          placeholder="Enter a city or country to view posts from there"
           value={filterCity}
           onChange={(e) => setFilterCity(e.target.value)}
         />

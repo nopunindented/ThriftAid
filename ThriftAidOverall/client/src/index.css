@@ -1316,3 +1316,14 @@ box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);
   top: 65.95%;
   left: 65.8%;
 }
+
+.searchbar-for-posts{
+  position: absolute;
+  left: 29.55%;
+  width: 41.5%;
+  height: 4.5%;
+  border-radius: 1%;
+  border-width: 0.5px;
+  border-color: #a9a9a9;
+  box-sizing: border-box;
+}
