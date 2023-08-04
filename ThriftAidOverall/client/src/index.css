@@ -1257,20 +1257,20 @@ box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);
 
 .email-dashboard{
   position: absolute;
-  height: 13%;
-  left: 66.55%;
-  top: 65%
+  height: 15.5%;
+  left: 61.55%;
+  top: 41.5%
 }
 
 .phone-dashboard{
   position: absolute;
-  height: 13%;
-  left: 65.55%;
+  height: 12%;
+  left: 62%;
   top: 65%
 }
 
 .address-dashboard {
-  font-size: 1.2vh;
+  font-size: 1.1vh;
   position: absolute;
   font-family: 'Uber Move Text';
   top: 42%;
@@ -1283,4 +1283,36 @@ box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);
   font-family: 'Uber Move Text';
   top: 50%;
   left: 25.5%;
+}
+
+.time-dashboard-city {
+  font-size: 1.7vh;
+  position: absolute;
+  font-family: 'Uber Move Text';
+  top: 64.55%;
+  left: 25.5%;
+}
+
+.website-dashboard-city{
+  font-size: 1.7vh;
+  position: absolute;
+  font-family: 'Uber Move Text';
+  top: 82.95%;
+  left: 25.5%;
+}
+
+.email-dashboard-city{
+  font-size: 1.7vh;
+  position: absolute;
+  font-family: 'Uber Move Text';
+  top: 42.95%;
+  left: 65.8%;
+}
+
+.phone-dashboard-city{
+  font-size: 1.7vh;
+  position: absolute;
+  font-family: 'Uber Move Text';
+  top: 65.95%;
+  left: 65.8%;
 }
