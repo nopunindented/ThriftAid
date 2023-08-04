@@ -102,6 +102,7 @@ const ButtonViewComments = ({ onClick }) => (
 export default function AllPostings() {
   const [postings, setPostings] = useState([]);
   const [selectedPostin, setSelectedPostin] = useState(null);
+  const [filterCity, setFilterCity] = useState("");
 
   const handleDialogOpen = (postin) => {
     setSelectedPostin(postin);
@@ -133,8 +134,16 @@ export default function AllPostings() {
       });
   }, []);
 
+  const filteredPostings = useMemo(() => {
+    if (!filterCity || filterCity === "") {
+      return postings;
+    } else {
+      return postings.filter((postin) => postin.city.toLowerCase() === filterCity.toLowerCase() || postin.city.toLowerCase() === filterCity.to);
+    }
+  }, [postings, filterCity]);
+
   const memoizedPostings = useMemo(() => (
-    postings.map((postin) => (
+    filteredPostings.map((postin) => (
       <div key={postin._id} className="thriftstorepost">
         <div className='thriftstorepostfont'>{postin.thriftstore}</div>
         <div className="address-top">{postin.address}</div>
@@ -175,10 +184,18 @@ export default function AllPostings() {
         )}
       </div>
     ))
-  ), [postings, selectedPostin]);
+  ), [filteredPostings, selectedPostin]);
 
   return (
     <div className="page-container">
+      <div>
+        <input
+          type="text"
+          placeholder="Enter city name..."
+          value={filterCity}
+          onChange={(e) => setFilterCity(e.target.value)}
+        />
+      </div>
       <div className="postings-container">
         {memoizedPostings}
       </div>
