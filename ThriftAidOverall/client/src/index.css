@@ -1164,6 +1164,20 @@ box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);
   overflow-x: hidden;
 }
 
+.postings-container-dashboard-thrift {
+  position: absolute;
+  display: flex;
+  justify-content: flex-start;
+  top: 25%;
+  left: 0%;
+  width: 50%;
+  height: 68%;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
 .thriftstorepost-dashboard {
   position: relative;
   margin: 1rem;
@@ -1343,9 +1357,10 @@ box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);
 }
 
 .map-container-dashboard-thrift {
-  width: 60.5%;
-  height: 67.95vh;
-  top: 39.7%;
-  left: 86.5%;
+  position: absolute;
+  width: 36.9%;
+  height: 72.5vh;
+  top: 27%;
+  left: 52.3%;
   border-radius: 6px;
 }

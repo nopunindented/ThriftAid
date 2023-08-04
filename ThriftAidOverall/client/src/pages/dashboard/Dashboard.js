@@ -67,7 +67,7 @@ const Dashboard = ({ auth, logoutUser }) => {
             textAlign: "center",
             height: "6%",
             left: "13.3%",
-            top: "20%",
+            top: "18%",
             width: "36.7%",
             textTransform: "none",
             bgcolor: "#832ed9",
@@ -348,7 +348,7 @@ const Dashboard = ({ auth, logoutUser }) => {
         <div className="pastpostings">Your past postings: </div>
         <div className="page-container-two">
           <PurpleAcceptedOfYours />
-      <div className="postings-container-dashboard">
+      <div className="postings-container-dashboard-thrift">
           {thriftAcceptedPosts}
       </div>
       </div>
@@ -366,7 +366,7 @@ const Dashboard = ({ auth, logoutUser }) => {
             textAlign: "center",
             height: "6%",
             left: "52.3%",
-            top: "21.7%",
+            top: "19.7%",
             width: "18.15%",
             textTransform: "none",
             bgcolor: "#24a0ed",
@@ -393,7 +393,7 @@ const Dashboard = ({ auth, logoutUser }) => {
             textAlign: "center",
             height: "6%",
             left: "71%",
-            top: "21.7%",
+            top: "19.7%",
             width: "18.15%",
             textTransform: "none",
             bgcolor: "#24a0ed",
