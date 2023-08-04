@@ -7,6 +7,11 @@ import axios from "axios";
 import { Button } from "@mui/material";
 import GoogleMaps from "../postings/googlemaps";
 import Logo from "./PostingLogo";
+import mapmarker from "../postings/mapmarker.svg"
+import clock from "../postings/clock.svg"
+import website from "../postings/internet.svg"
+import emailicon from "../postings/email.svg"
+import phoneicon from "../postings/phone.svg"
 
 const Dashboard = ({ auth, logoutUser }) => {
   const navigate = useNavigate();
@@ -47,7 +52,15 @@ const Dashboard = ({ auth, logoutUser }) => {
         homelessAcceptedPosts && homelessAcceptedPosts.map((post) => (
           <div  key={post.posting.email} className="thriftstorepost-dashboard" tabIndex="0" onClick={() => handleHomelessPostClick(post.posting.address, post.posting.city)}>
             <Logo />
-            {post.posting.thriftstore} - {post.posting.email}
+            <div className="thrifted-name">{post.posting.thriftstore}</div>
+            <div className="address-dashboard">{post.posting.address}</div>
+            <div className="address-dashboard-city">{post.posting.city}, {post.posting.country}</div>
+            <img src= {mapmarker} className="map-dashboard" />
+            <img src= {clock} className="clock-dashboard" />
+            <img src= {website} className="website-dashboard" />
+            <img src= {phoneicon} className= "phone-dashboard" />
+            <img src= {emailicon} className="email-dashboard" />
+            {post.posting.email}
           </div>
         ), [userAcceptedPosts])
   )

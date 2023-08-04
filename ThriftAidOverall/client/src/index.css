@@ -1169,7 +1169,7 @@ box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);
   margin: 1rem;
   flex-grow: 0;
   flex-shrink: 0;
-  height: 20%;
+  height: 24%;
   width: 35.3vw;
   padding-left: 3%;
   margin-right: 6%;
@@ -1178,7 +1178,7 @@ box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);
   top: -3%;
   border-radius: 2%;
   background-color: #e0dfdf;
-  flex-basis: 23%;
+  flex-basis: 25%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1225,3 +1225,62 @@ box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);
   top: 15%;
   border: 2px solid black;
   }
+
+.thrifted-name{
+  position: absolute;
+  top: 11%;
+  left: 21%;
+  font-size: 3.2vh;
+  font-weight: 520;
+  font-family: 'Noto Sans';
+  }
+
+.map-dashboard{
+  position: absolute;
+  height: 17%;
+  left: 21%;
+}
+
+.clock-dashboard{
+  position: absolute;
+  height: 13%;
+  left: 21.55%;
+  top: 64%
+}
+
+.website-dashboard{
+  position: absolute;
+  height: 13%;
+  left: 21.55%;
+  top: 83%
+}
+
+.email-dashboard{
+  position: absolute;
+  height: 13%;
+  left: 66.55%;
+  top: 65%
+}
+
+.phone-dashboard{
+  position: absolute;
+  height: 13%;
+  left: 65.55%;
+  top: 65%
+}
+
+.address-dashboard {
+  font-size: 1.2vh;
+  position: absolute;
+  font-family: 'Uber Move Text';
+  top: 42%;
+  left: 25.5%;
+}
+
+.address-dashboard-city {
+  font-size: 1.2vh;
+  position: absolute;
+  font-family: 'Uber Move Text';
+  top: 50%;
+  left: 25.5%;
+}
