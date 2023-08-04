@@ -30,6 +30,22 @@ const Profile = ({ auth, updateProfile, errors, setCurrentUser }) => {
     setContentProfile('yes');
   };
 
+  const formatPhoneNumber = (inputValue) => {
+    // Remove all non-numeric characters from the input value
+    const numericValue = inputValue.replace(/\D/g, '');
+
+    // Apply the desired phone number format using regular expressions
+    const phoneNumberRegex = /^(\d{3})(\d{3})(\d{4})$/;
+    const formattedValue = numericValue.replace(phoneNumberRegex, '($1)-$2-$3');
+
+    return formattedValue;
+  };
+
+  const setPhoneNumberFormatted = (inputValue) => {
+    const formattedPhoneNumber = formatPhoneNumber(inputValue);
+    setPhonenumber(formattedPhoneNumber);
+  };
+
   function UpdateProfileButton() {
     return (
       <Button
@@ -61,6 +77,7 @@ const Profile = ({ auth, updateProfile, errors, setCurrentUser }) => {
       </Button>
     );
   }
+
   function CreateProfileButton() {
     return (
       <Button
@@ -92,13 +109,13 @@ const Profile = ({ auth, updateProfile, errors, setCurrentUser }) => {
       </Button>
     );
   }
+
   useEffect(() => {
     setProfileErrors(errors);
   }, [errors]);
 
   useEffect(() => {
     if (!isAuthenticated) {
-
       window.location.href = '/login';
     } else if (isAuthenticated && user) {
       fetchProfile(user.email);
@@ -148,28 +165,28 @@ const Profile = ({ auth, updateProfile, errors, setCurrentUser }) => {
   if (contentProfile === 'yes') {
     return (
       <div>
-      <div className='currentprofilebox' />
-      <Link to= '/'>
-        <ProfileLogo />
-      </Link>
-      <div className="profilewelcometoo">Profile</div>
-      <UpdateProfileButton />
-      <div className="currentprofileinfo">
-        <h4 className='establishmentinputbarv2'>Establishment Name: {user.establishmentname || ''}</h4>
-        <h4 className='websiteinputbarv2'>Website: {user.website || ''}</h4>
-        <h4 className='phonenumberinputbarv2'>Phone Number: {user.phonenumber || ''}</h4>
-      </div>
+        <div className="currentprofilebox" />
+        <Link to="/">
+          <ProfileLogo />
+        </Link>
+        <div className="profilewelcometoo">Profile</div>
+        <UpdateProfileButton />
+        <div className="currentprofileinfo">
+          <h4 className="establishmentinputbarv2">Establishment Name: {user.establishmentname || ''}</h4>
+          <h4 className="websiteinputbarv2">Website: {user.website || ''}</h4>
+          <h4 className="phonenumberinputbarv2">Phone Number: {formatPhoneNumber(user.phonenumber) || ''}</h4>
+        </div>
       </div>
     );
   } else if (contentProfile === 'no') {
     return (
       <Fade in={true}>
         <div className="profile">
-        <div className='currentprofilebox' />
-      <Link to= '/'>
-        <ProfileLogo />
-      </Link>
-      <div className="profilewelcometoo">Profile</div>
+          <div className="currentprofilebox" />
+          <Link to="/">
+            <ProfileLogo />
+          </Link>
+          <div className="profilewelcometoo">Profile</div>
           <div className="container">
             <div className="row">
               <div className="col-md-8 m-auto">
@@ -183,9 +200,7 @@ const Profile = ({ auth, updateProfile, errors, setCurrentUser }) => {
                     onChange={(e) => setEstablishment(e.target.value)}
                     error={profileErrors.establishmentname}
                   />
-              <span className="inputerror">
-                {profileErrors.establishmentname}
-              </span>
+                  <span className="inputerror">{profileErrors.establishmentname}</span>
                   <input
                     className="websiteinputbar"
                     placeholder="Website"
@@ -194,21 +209,17 @@ const Profile = ({ auth, updateProfile, errors, setCurrentUser }) => {
                     onChange={(e) => setWebsite(e.target.value)}
                     error={profileErrors.website}
                   />
-              <span className="inputerror">
-                {profileErrors.website}
-              </span>
+                  <span className="inputerror">{profileErrors.website}</span>
                   <input
                     className="phonenumberinputbar"
                     placeholder="Phone Number"
                     name="phonenumber"
-                    value={phonenumber}
-                    onChange={(e) => setPhonenumber(e.target.value)}
+                    value={formatPhoneNumber(phonenumber)} // Format the phone number for display
+                    onChange={(e) => setPhoneNumberFormatted(e.target.value)} // Automatically format and store the phone number
                     error={profileErrors.phonenumber}
                   />
-              <span className="inputerror">
-                {profileErrors.phonenumber}
-              </span>
-                <CreateProfileButton />
+                  <span className="inputerror">{profileErrors.phonenumber}</span>
+                  <CreateProfileButton />
                 </form>
               </div>
             </div>
