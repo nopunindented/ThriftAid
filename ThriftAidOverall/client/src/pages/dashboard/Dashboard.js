@@ -21,6 +21,68 @@ const Dashboard = ({ auth, logoutUser }) => {
   const [selectedPostAddress, setSelectedPostAddress] = useState(null);
   const [selectedPostin, setSelectedPostin] = useState(null);
 
+  function PurpleAccepted () {
+    return(
+         <Button
+          type="submit"
+          sx={{
+            position: "absolute",
+            display: "flex",
+            color: "#F7F3F3",
+            fontFamily: "Noto Sans",
+            fontSize: 15,
+            fontStyle: "normal",
+            fontWeight: 700,
+            textAlign: "center",
+            height: "6%",
+            left: "13.3%",
+            top: "20%",
+            width: "36.7%",
+            textTransform: "none",
+            bgcolor: "#832ed9",
+            ":hover": {
+              bgcolor: "#832ed9",
+              color: "#F7F3F3",
+              textTransform: "none",
+            },
+          }}
+        >
+          Postings you Accepted
+        </Button>
+    )
+  }
+
+  function PurpleAcceptedOfYours () {
+    return(
+         <Button
+          type="submit"
+          sx={{
+            position: "absolute",
+            display: "flex",
+            color: "#F7F3F3",
+            fontFamily: "Noto Sans",
+            fontSize: 15,
+            fontStyle: "normal",
+            fontWeight: 700,
+            textAlign: "center",
+            height: "6%",
+            left: "13.3%",
+            top: "20%",
+            width: "36.7%",
+            textTransform: "none",
+            bgcolor: "#832ed9",
+            ":hover": {
+              bgcolor: "#832ed9",
+              color: "#F7F3F3",
+              textTransform: "none",
+            },
+          }}
+        >
+          Postings of yours that were Accepted
+        </Button>
+    )
+  }
+
   const dialogStyle = {
     width: '20%',
     height: '40%',
@@ -109,12 +171,7 @@ const Dashboard = ({ auth, logoutUser }) => {
       textTransform: 'none',
     },
   };
-  
-  const ButtonAcceptPostingTwo = ({ onClick }) => (
-    <Button sx={pickupaccept} onClick={onClick}>
-      Accept Posting
-    </Button>
-  );
+
   
   const ButtonViewComments = ({ onClick }) => (
     <Button sx={pickupbutton} onClick={onClick}>
@@ -133,9 +190,42 @@ const Dashboard = ({ auth, logoutUser }) => {
 
   const thriftAcceptedPosts= useMemo(() => (
         userAcceptedPosts && userAcceptedPosts.map((post) => (
-          <div  key={post.posting.email} className="thriftstorepost-dashboard" tabIndex="0" onClick={() => handleThriftPostClick(post.posting.address, post.posting.city)}>
+          <div  key={post.posting.email} className="thriftstorepost-dashboard" tabIndex="0" onClick={() => handleHomelessPostClick(post.posting.address, post.posting.city)}>
             <Logo />
-            {post.posting.thriftstore} - {post.posting.email}
+            <div className="thrifted-name">{post.posting.thriftstore}</div>
+            <div className="address-dashboard">{post.posting.address}</div>
+            <div className="address-dashboard-city">{post.posting.city}, {post.posting.country}</div>
+            <div className="time-dashboard-city">{post.posting.pickuptime}, {post.posting.pickupdate}</div>
+            <div className="website-dashboard-city">{post.posting.website}</div>
+            <div className="email-dashboard-city">{post.posting.userEmail}</div>
+            <div className="phone-dashboard-city">{post.posting.numberofphone}</div>
+            <img src= {mapmarker} className="map-dashboard" />
+            <img src= {clock} className="clock-dashboard" />
+            <img src= {website} className="website-dashboard" />
+            <img src= {phoneicon} className= "phone-dashboard" />
+            <img src= {emailicon} className="email-dashboard" />
+            {post.posting.pickupcomments && (
+          <>
+            <ButtonViewComments onClick={() => handleDialogOpen(post.posting)} />
+            <Dialog
+              open={selectedPostin === post.posting}
+              onClose={handleDialogClose}
+              className='dialoguebackgroundtwice'
+              PaperProps={{
+                style: dialogStyle,
+              }}
+            >
+              <DialogContent>
+                <Button onClick={handleDialogClose}>
+                  <img src={xmark} className="xmarkdialogue" alt="Close" />
+                </Button>
+                <div className='postercomments'>
+                  {post.posting.pickupcomments}
+                </div>
+              </DialogContent>
+            </Dialog>
+          </>
+        )}
           </div>
         ), [userAcceptedPosts])
   )
@@ -257,6 +347,7 @@ const Dashboard = ({ auth, logoutUser }) => {
       <div>
         <div className="pastpostings">Your past postings: </div>
         <div className="page-container-two">
+          <PurpleAcceptedOfYours />
       <div className="postings-container-dashboard">
           {thriftAcceptedPosts}
       </div>
@@ -335,32 +426,7 @@ const Dashboard = ({ auth, logoutUser }) => {
       <div className= "map-container-dashboard">
       {selectedPostAddress && <GoogleMaps className="map-container-dashboard" address={selectedPostAddress} />}
       </div>
-      <Button
-          type="submit"
-          sx={{
-            position: "absolute",
-            display: "flex",
-            color: "#F7F3F3",
-            fontFamily: "Noto Sans",
-            fontSize: 15,
-            fontStyle: "normal",
-            fontWeight: 700,
-            textAlign: "center",
-            height: "6%",
-            left: "13.3%",
-            top: "20%",
-            width: "36.7%",
-            textTransform: "none",
-            bgcolor: "#832ed9",
-            ":hover": {
-              bgcolor: "#832ed9",
-              color: "#F7F3F3",
-              textTransform: "none",
-            },
-          }}
-        >
-          Postings you Accepted
-        </Button>
+      <PurpleAccepted />
         <Button
           type="submit"
           sx={{
