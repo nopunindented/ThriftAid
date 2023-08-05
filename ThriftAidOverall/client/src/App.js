@@ -1,10 +1,12 @@
 import React, { useEffect } from 'react';
-import { Routes, Route, Navigate } from 'react-router-dom';
+import { Routes, Route, useNavigate } from 'react-router-dom';
 import jwt_decode from 'jwt-decode';
 import setAuthToken from './utils/setAuthToken';
 import { setCurrentUser, logoutUser } from './actions/authActions';
 import store from './store';
 import { Provider } from 'react-redux';
+import { persistor } from './store';
+import { PersistGate } from 'redux-persist/integration/react';
 import Login from './auth/Login.js';
 import Home from './pages/Home.js';
 import Register from './auth/Signup';
@@ -15,8 +17,8 @@ import NewPosting from './pages/postings/Posting'
 import AllPostings from './pages/postings/AllPostings';
 
 function App() {
+  const navigate = useNavigate();
   useEffect(() => {
-    // Check if the user is logged in on each App render
     const jwtToken = localStorage.getItem('jwtToken');
     if (jwtToken) {
       setAuthToken(jwtToken);
@@ -27,7 +29,7 @@ function App() {
         const currentTime = Date.now() / 1000;
         if (decoded.exp < currentTime) {
           store.dispatch(logoutUser());
-          window.location.href = '/login';
+          navigate('/login');
         }
       } catch (error) {
         console.error('Error decoding JWT token:', error);
@@ -38,18 +40,20 @@ function App() {
 
   return (
     <Provider store={store}>
-      <div className="App">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/create" element={<NewPosting />} />
-          <Route path="/allpostings" element={<AllPostings />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-        </Routes>
-        <UserNavbar />
-      </div>
+      <PersistGate loading={null} persistor={persistor}>
+        <div className="App">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/create" element={<NewPosting />} />
+            <Route path="/allpostings" element={<AllPostings />} />
+            <Route path="/dashboard" element={<Dashboard />} />
+          </Routes>
+          <UserNavbar />
+        </div>
+      </PersistGate>
     </Provider>
   );
 }
