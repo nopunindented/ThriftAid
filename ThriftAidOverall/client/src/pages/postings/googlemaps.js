@@ -16,6 +16,7 @@ export default function GoogleMaps({ address, className }) {
     const fetchApiKey = async () => {
       try {
         const response = await axios.get("http://localhost:5000/create");
+        console.log(response.data)
         setApiKey(response.data.apiKey);
       } catch (error) {
         console.log(error);

@@ -12,7 +12,7 @@ const users = require("./routes/api/users.js");
 const postings = require("./routes/api/postings.js"); // Import the postings route
 const keys = require("./config/keys");
 const listofpostings= require("./routes/api/everyposting.js")
-const secret_aws= require("./AWSsecret.js").main()
+const {fetchSecret} = require('./fetchSecret.js')
 
 const app = express();
 
@@ -22,7 +22,7 @@ app.use(bodyParser.json());
 
 // DB Config
 const db = keys.mongoURI;
-const REACT_APP_GMAP = secret_aws;
+const REACT_APP_GMAP = keys.REACT_APP_MAP_KEY;
 
 // Connect to MongoDB
 mongoose
@@ -64,16 +64,20 @@ app.get("/", (req, res) => {
   res.send("gmaps");
 });
 
-app.get("/create", (req, res) => {
-  axios
-    .get(`https://maps.googleapis.com/maps/api/js?key=${REACT_APP_GMAP}&libraries=places`)
-    .then(() => {
-      res.json({ apiKey: REACT_APP_GMAP });
-    })
-    .catch((error) => {
-      console.log(error);
-      res.status(500).json({ error: "Failed to fetch API key", message: error.message });
-    });
+app.get("/create", async (req, res) => {
+  try {
+    const apiKey = await fetchSecret("GoogleMapsApiKey");
+    
+    if (!apiKey) {
+      res.status(500).json({ error: "Failed to fetch API key" });
+      return;
+    }
+
+    res.json({ apiKey });
+  } catch (error) {
+    console.error("Error fetching API key:", error);
+    res.status(500).json({ error: "Failed to fetch API key", message: error.message });
+  }
 });
 
 // Routes
