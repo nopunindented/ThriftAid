@@ -212,8 +212,8 @@ overflow: hidden;
 .signupbox{
   position: absolute;
   display: inline-block;
-  width: 335px;
-  height: 400px;
+  width: 33%;
+  height: 40%;
   top: 21%;
   left: 39.3%;
   border-radius: 2%;
@@ -510,8 +510,8 @@ box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);
 .signupbox{
   position: absolute;
   display: inline-block;
-  width: 335px;
-  height: 400px;
+  width: 22%;
+  height: 60%;
   top: 21%;
   left: 39.3%;
   border-radius: 2%;

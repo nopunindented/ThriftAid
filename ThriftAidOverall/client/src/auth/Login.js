@@ -17,15 +17,11 @@ const Login = ({ loginUser, auth, errors }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loginErrors, setLoginErrors] = useState({});
+  const [loggedInEmail, setLoggedInEmail] = useState("");
   useEffect(() => {
     setLoginErrors(errors);
   }, [errors]);
   
-  useEffect(() => {
-    if (auth.isAuthenticated) {
-      navigate("/dashboard");
-    }
-  }, [auth.isAuthenticated, navigate]);
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -34,10 +30,10 @@ const Login = ({ loginUser, auth, errors }) => {
       email: email,
       password: password
     };
-
     loginUser(userData, navigate);
+    setLoggedInEmail(email)
   };
-
+  if (!auth.isAuthenticated){
   return (
     <div className="container">
       <div className="signupbox" />
@@ -139,7 +135,17 @@ const Login = ({ loginUser, auth, errors }) => {
       </div>
     </div>
   );
-};
+}
+if (auth.isAuthenticated){
+  console.log(email)
+  return(
+    <div>
+    <div className="signupbox"/>
+    <h1 className="emailinputbar">{loggedInEmail}</h1>
+    </div>
+  )
+}
+}
 
 Login.propTypes = {
   loginUser: PropTypes.func.isRequired,
