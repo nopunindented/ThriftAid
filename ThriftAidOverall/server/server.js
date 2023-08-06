@@ -72,6 +72,7 @@ app.get("/create", async (req, res) => {
       res.status(500).json({ error: "Failed to fetch API key" });
       return;
     }
+    
 
     res.json({ apiKey });
   } catch (error) {

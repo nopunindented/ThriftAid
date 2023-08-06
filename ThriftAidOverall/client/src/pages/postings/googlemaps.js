@@ -16,10 +16,19 @@ export default function GoogleMaps({ address, className }) {
     const fetchApiKey = async () => {
       try {
         const response = await axios.get("http://localhost:5000/create");
-        console.log(response.data)
-        setApiKey(response.data.apiKey);
+        const apiKeyValue = response.data.apiKey;
+
+        if (!apiKeyValue) {
+          throw new Error("No API key received");
+        }
+
+        const apiKeyObject = JSON.parse(apiKeyValue);
+        const apiKey = Object.keys(apiKeyObject)[0]; // Extract the key
+        console.log(apiKey);
+
+        setApiKey(apiKey);
       } catch (error) {
-        console.log(error);
+        console.log("Error fetching API key:", error);
       }
     };
 
@@ -48,7 +57,7 @@ export default function GoogleMaps({ address, className }) {
           setCenter({ lat, lng });
         })
         .catch((error) => {
-          console.error(error);
+          console.error("Error geocoding:", error);
         });
     }
   }, [address, apiKey, scriptLoaded]);
