@@ -22,7 +22,6 @@ app.use(bodyParser.json());
 
 // DB Config
 const db = keys.mongoURI;
-const REACT_APP_GMAP = keys.REACT_APP_MAP_KEY;
 
 // Connect to MongoDB
 mongoose
