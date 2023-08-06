@@ -12,6 +12,10 @@ export default function GoogleMaps({ address, className }) {
   const [apiKey, setApiKey] = useState(null);
   const [scriptLoaded, setScriptLoaded] = useState(false);
 
+  const initMap = () => {
+    setScriptLoaded(true);
+  };
+
   useEffect(() => {
     const fetchApiKey = async () => {
       try {
@@ -23,8 +27,7 @@ export default function GoogleMaps({ address, className }) {
         }
 
         const apiKeyObject = JSON.parse(apiKeyValue);
-        const apiKey = Object.keys(apiKeyObject)[0]; // Extract the key
-        console.log(apiKey);
+        const apiKey = Object.keys(apiKeyObject)[0];
 
         setApiKey(apiKey);
       } catch (error) {
@@ -37,14 +40,10 @@ export default function GoogleMaps({ address, className }) {
 
   useEffect(() => {
     if (apiKey && !scriptLoaded) {
-      const googleMapsScript = document.createElement("script");
-      googleMapsScript.src = `https://maps.googleapis.com/maps/api/js?key=${apiKey}&libraries=${libraries.join(
-        ","
-      )}`;
-      googleMapsScript.onload = () => {
-        setScriptLoaded(true);
-      };
-      document.body.appendChild(googleMapsScript);
+      window.initMap = initMap;
+      const script = document.createElement("script");
+      script.src = `https://maps.googleapis.com/maps/api/js?key=${apiKey}&libraries=${libraries.join(",")}&callback=initMap`;
+      document.head.appendChild(script);
     }
   }, [apiKey, scriptLoaded]);
 

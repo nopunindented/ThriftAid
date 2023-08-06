@@ -17,9 +17,8 @@ async function fetchSecret() {
       })
     );
   } catch (error) {
-    // Handle the error
     console.error("Error fetching secret:", error);
-    return null; // Return null or handle the error case
+    return null;
   }
 
   const secret = response.SecretString;
