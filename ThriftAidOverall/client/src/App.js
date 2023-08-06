@@ -15,6 +15,7 @@ import UserNavbar from './loggedinnavbar/UserNavbar.js';
 import Profile from './pages/profile/Profile';
 import NewPosting from './pages/postings/Posting'
 import AllPostings from './pages/postings/AllPostings';
+import Errorpage from './Errorpage';
 
 function App() {
   const navigate = useNavigate();
@@ -50,6 +51,7 @@ function App() {
             <Route path="/create" element={<NewPosting />} />
             <Route path="/allpostings" element={<AllPostings />} />
             <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="*" element= {<Errorpage />} />
           </Routes>
           <UserNavbar />
         </div>
