@@ -53,7 +53,7 @@ nav {
   font-style: normal;
   font-weight: 400;
   font-size: 24vh;
-  line-height: 135px;
+  line-height: 66%;
   letter-spacing: 0.1em;
 
 color: #F7F3F3;
@@ -65,15 +65,15 @@ text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.4);
 
 .hometextsecondary{
   /* ThriftAid is an application that links thrift stores and homeless shelters, with the goal of reducing waste. Thrift stores with excess clothes can post a listing (with options for pick up or delivery), and a nearby homeless shelter can choose to accept it. */
-top: 420px;
-left: 410px;
+top: 58%;
+left: 25.1%;
 position: absolute;
-width: 830px;
+width: 58vw;
 font-family: 'Noto Sans';
 font-style: normal;
 font-weight: 600;
-font-size: 15px;
-line-height: 25px;
+font-size: 2.4vh;
+line-height: 135%;
 text-align: center;
 letter-spacing: 0.05em;
 
@@ -87,10 +87,10 @@ mix-blend-mode: normal;
   /* Ellipse 1 */
 
 position: absolute;
-width: 650px;
-height: 650px;
-left: -120px;
-top: -220px;
+width: 42vw;
+height: 90%;
+left: -8%;
+top: -32%;
 border-radius: 50%;
 background: rgba(120, 240, 187, 0.21);
 box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);
@@ -100,10 +100,10 @@ box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);
   /* Ellipse 2 */
 
 position: absolute;
-width: 700px;
-height: 620px;
-left: 1170px;
-top: -330px;
+width: 50%;
+height: 90%;
+left: 80%;
+top: -47%;
 border-radius: 50%;
 background: rgba(120, 240, 187, 0.28);
 box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);
@@ -116,10 +116,10 @@ overflow: hidden;
   /* Ellipse 2 */
 
 position: absolute;
-width: 600px;
-height: 620px;
-left: 770px;
-top: 490px;
+width: 50%;
+height: 82%;
+left: 47%;
+top: 72%;
 border-radius: 50%;
 background: rgba(120, 240, 187, 0.28);
 box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);
