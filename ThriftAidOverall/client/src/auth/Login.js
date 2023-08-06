@@ -22,6 +22,14 @@ const Login = ({ loginUser, auth, errors }) => {
     setLoginErrors(errors);
   }, [errors]);
   
+  useEffect(() => {
+    setLoginErrors(errors);
+  
+    const savedEmail = localStorage.getItem("loggedInEmail");
+    if (savedEmail) {
+      setLoggedInEmail(savedEmail);
+    }
+  }, [errors]);
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -32,6 +40,7 @@ const Login = ({ loginUser, auth, errors }) => {
     };
     loginUser(userData, navigate);
     setLoggedInEmail(email)
+    localStorage.setItem("loggedInEmail", email);
   };
   if (!auth.isAuthenticated){
   return (
@@ -137,11 +146,12 @@ const Login = ({ loginUser, auth, errors }) => {
   );
 }
 if (auth.isAuthenticated){
+  
   console.log(email)
   return(
     <div>
     <div className="signupbox"/>
-    <h1 className="emailinputbar">{loggedInEmail}</h1>
+    <div className="loggedinemail">Hi {loggedInEmail}, you're already logged in!</div>
     </div>
   )
 }

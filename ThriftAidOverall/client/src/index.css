@@ -1364,3 +1364,13 @@ box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);
   left: 52.3%;
   border-radius: 6px;
 }
+
+.loggedinemail{
+  top: 40%;
+  left: 30%;
+  position: absolute;
+  font-size: 4.2vh;
+  color: #000000;
+  width: 20vw;
+  text-align: center;
+}
