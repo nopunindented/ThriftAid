@@ -12,6 +12,7 @@ const users = require("./routes/api/users.js");
 const postings = require("./routes/api/postings.js"); // Import the postings route
 const keys = require("./config/keys");
 const listofpostings= require("./routes/api/everyposting.js")
+const secret_aws= require("./AWSsecret.js").main()
 
 const app = express();
 
@@ -21,7 +22,7 @@ app.use(bodyParser.json());
 
 // DB Config
 const db = keys.mongoURI;
-const REACT_APP_GMAP = keys.REACT_APP_MAP_KEY;
+const REACT_APP_GMAP = secret_aws;
 
 // Connect to MongoDB
 mongoose
