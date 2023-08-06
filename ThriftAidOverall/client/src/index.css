@@ -1366,11 +1366,25 @@ box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);
 }
 
 .loggedinemail{
-  top: 40%;
-  left: 30%;
+  top: 36%;
+  left: 41.55%;
   position: absolute;
-  font-size: 4.2vh;
+  font-size: 3.3vh;
+  font-weight: 600;
   color: #000000;
-  width: 20vw;
+  width: 18vw;
   text-align: center;
+  font-family: 'Uber Move Text';
+}
+
+.loggedinemaildashboard{
+  top: 48%;
+  left: 43.4%;
+  position: absolute;
+  font-size: 3vh;
+  font-weight: 300;
+  color: #000000;
+  width: 14vw;
+  text-align: center;
+  font-family: 'Uber Move Text';
 }

@@ -2,8 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { loginUser } from "../actions/authActions";
-import classnames from "classnames";
+import { loginUser, logoutUser } from "../actions/authActions";
 import { Button } from "@mui/material";
 import LoginLogo from "./Loginpagelogo";
 
@@ -12,16 +11,61 @@ const handleSignupClick = () => {
   window.location.href = "http://localhost:3000/register";
 };
 
-const Login = ({ loginUser, auth, errors }) => {
+const handleAlreadyLogged = () => {
+  window.location.href = "http://localhost:3000/dashboard";
+};
+
+
+function DashboardButton () {
+  return(
+       <Button
+        type="submit"
+        sx={{
+          position: "absolute",
+          display: "flex",
+          color: "#F7F3F3",
+          fontFamily: "Noto Sans",
+          fontSize: 15,
+          fontStyle: "normal",
+          fontWeight: 700,
+          textAlign: "center",
+          height: "5%",
+          left: "42%",
+          top: "61%",
+          width: "17%",
+          textTransform: 'None',
+          bgcolor: "#24a0ed",
+            ":hover": {
+              bgcolor: "#0792e8",
+              color: "#F7F3F3",
+              textTransform: "none"
+            }
+        }}
+        onClick={handleAlreadyLogged}
+      >
+        Dashboard
+      </Button>
+  )
+}
+
+
+const Login = ({ loginUser, logoutUser, auth, errors}) => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loginErrors, setLoginErrors] = useState({});
   const [loggedInEmail, setLoggedInEmail] = useState("");
+
   useEffect(() => {
     setLoginErrors(errors);
   }, [errors]);
-  
+
+  const onLogoutClick = (e) => {
+    e.preventDefault();
+    logoutUser();
+    navigate("/login");
+  };
+
   useEffect(() => {
     setLoginErrors(errors);
   
@@ -152,6 +196,35 @@ if (auth.isAuthenticated){
     <div>
     <div className="signupbox"/>
     <div className="loggedinemail">Hi {loggedInEmail}, you're already logged in!</div>
+    <div className="loggedinemaildashboard">You can go to your dashboard or logout:</div>
+    <DashboardButton />
+    <Button
+        type="submit"
+        sx={{
+          position: "absolute",
+          display: "flex",
+          color: "#F7F3F3",
+          fontFamily: "Noto Sans",
+          fontSize: 15,
+          fontStyle: "normal",
+          fontWeight: 700,
+          textAlign: "center",
+          height: "5%",
+          left: "42%",
+          top: "67%",
+          width: "17%",
+          textTransform: "none",
+          bgcolor: "#5ab0f2",
+          ":hover": {
+            bgcolor: "#4baaf2",
+            color: "#F7F3F3",
+            textTransform: "none"
+          }
+          }}
+        onClick={onLogoutClick}
+      >
+        Logout
+      </Button>
     </div>
   )
 }
@@ -168,4 +241,4 @@ const mapStateToProps = state => ({
   errors: state.errors
 });
 
-export default connect(mapStateToProps, { loginUser })(Login);
+export default connect(mapStateToProps, { loginUser, logoutUser })(Login);
