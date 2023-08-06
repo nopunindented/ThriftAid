@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@mui/material";
 import SignupLogo from "./Signuppagelogo.js";
 import Swal from 'sweetalert2';
+import { useNavigate } from "react-router-dom";
 
 const theAlert = () => {
   Swal.fire('Good job!', 'Your profile was updated successfully', 'success');
@@ -25,14 +26,6 @@ class Register extends Component {
       password2: "",
       errors: {}
     };
-  }
-
-  
-  componentDidMount() {
-    // If logged in and user navigates to Register page, redirect them to the dashboard
-    if (this.props.auth.isAuthenticated) {
-      this.props.history.push("/dashboard");
-    }
   }
 
   componentDidUpdate(prevProps) {
