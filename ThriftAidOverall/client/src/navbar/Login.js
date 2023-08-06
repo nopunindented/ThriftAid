@@ -13,13 +13,13 @@ export default function LoginButton() {
       sx={{
         color: "#F7F3F3",
         fontFamily: 'Noto Sans',
-        fontSize: 30,
+        fontSize: "4.2vh",
         fontStyle: 'normal',
         fontWeight: 700,
         textAlign: 'center',
-        height: 50,
-        left: 500,
-        top: 19,
+        height: "50%",
+        left: "56.5%",
+        top: "23%",
         textTransform: 'none',
         ":hover": {
           bgcolor: "#F7F3F3",

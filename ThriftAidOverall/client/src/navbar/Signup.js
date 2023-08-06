@@ -12,13 +12,13 @@ export default function SignupButton() {
       sx={{
         color: "#F7F3F3",
         fontFamily: 'Noto Sans',
-        fontSize: 30,
+        fontSize: "4vh",
         fontStyle: 'normal',
         fontWeight: 700,
         textAlign: 'center',
-        height: 50,
-        left: 450,
-        top: 19,
+        height: "50%",
+        left: "73%",
+        top: "24%",
         textTransform: 'none',
         ":hover": {
           bgcolor: "#F7F3F3",
