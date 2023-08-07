@@ -48,16 +48,63 @@ const HometextMain = styled('h1')(({ theme }) => ({ // Rename the component to s
   },
 }));
 
+const HometextSecondary = styled('p')(({ theme }) => ({
+    position: 'absolute',
+    fontFamily: 'Noto Sans',
+    fontStyle: 'normal',
+    lineHeight: "135%",
+    textAlign: 'center',
+    letterSpacing: '0.05em',
+    
+    color: "#FFFFFF",
+    mixBlendMode: 'normal',
+    [theme.breakpoints.up('xs')]: {
+        top: "57%",
+        left: "20.5%",
+        width: "66vw",
+        fontWeight: 600,
+        fontSize: "1.4vh",
+    },
+    [theme.breakpoints.up('sm')]: {
+        top: "61%",
+        left: "21.1%",
+        width: "60vw",
+        fontWeight: 600,
+        fontSize: "1.8vh",
+    },
+    [theme.breakpoints.up('md')]: {
+        top: "61%",
+        left: "30.1%",
+        width: "48vw",
+        fontWeight: 600,
+        fontSize: "1.8vh",
+    },
+    [theme.breakpoints.up('lg')]: {
+        top: "58%",
+        left: "33.5%",
+        width: "40vw",
+        fontWeight: 600,
+        fontSize: "2vh",
+    },
+    [theme.breakpoints.up('xl')]: {
+        top: "58%",
+        left: "25.1%",
+        width: "58vw",
+        fontWeight: 600,
+        fontSize: "2.4vh",
+    },
+  }));
+
 export default function Homebody() {
   return (
     <div>
       <div className="bodyofhome">
         <HometextMain>ThriftAid</HometextMain>
-        <p className="hometextsecondary">
+        <HometextSecondary>
           ThriftAid is an application that links thrift stores and homeless shelters, 
           with the goal of reducing waste. Thrift stores with excess clothes can post a listing,
           and a homeless shelter on the platform can choose to accept it. 
-        </p>
+        </HometextSecondary>
         <ellipse className="ellipse1" />
         <ellipse className="ellipse2" />
         <ellipse className="ellipse3" />
