@@ -275,6 +275,36 @@ const ChooseAccount = styled('div')(({ theme }) => ({
   },
 }));
 
+const SignUp = styled('div')(({ theme }) => ({
+  position: 'absolute',
+  fontFamily: 'Open sans',
+  [theme.breakpoints.up('xs')]: {
+    left: '55.2%',
+    top: '26.5%',
+    fontSize: '2.5vh'
+  },
+  [theme.breakpoints.up('sm')]: {
+    left: '50.8%',
+    top: '27%',
+    fontSize: '2.5vh'
+  },
+  [theme.breakpoints.up('md')]: {
+    left: '51.2%',
+    top: '26.5%',
+    fontSize: '2.5vh'
+  },
+  [theme.breakpoints.up('lg')]: {
+    left: '49%',
+    top: '25%',
+    fontSize: '2.5vh'
+  },
+  [theme.breakpoints.up('xl')]: {
+    left: '48.5%',
+    top: '25%',
+    fontSize: '2.5vh'
+  },
+}));
+
 const Register: React.FC<any> = ({ registerUser }: any) => {
   const dispatch = useDispatch();
   const auth = useSelector((state: any) => state.auth);
@@ -529,7 +559,7 @@ const Register: React.FC<any> = ({ registerUser }: any) => {
         <Link to="/">
           <SignupLogo />
         </Link>
-        <div className="singupwelcometo">Sign up</div>
+        <SignUp>Sign up</SignUp>
       </div>
     </div>
   );
