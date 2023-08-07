@@ -214,7 +214,7 @@ const RadioBar = styled('div')(({ theme }) => ({
   borderRadius: '3px',
   border: '0.1px solid #a9a9a9',
   [theme.breakpoints.up('xs')]: {
-    left: '35.4%',
+    left: '31.5%',
     top: '73.5%',
     width: '60.8%',
     height: '8.7vh',
@@ -249,7 +249,7 @@ const ChooseAccount = styled('div')(({ theme }) => ({
   position: 'absolute',
   fontFamily: 'Open sans',
   [theme.breakpoints.up('xs')]: {
-    left: '36%',
+    left: '32%',
     top: '71%',
     fontSize: '12px',
   },
@@ -422,9 +422,9 @@ const Register: React.FC<any> = ({ registerUser }: any) => {
                   fontSize: "2.1vh",
                   fontWeight: 700,
                   height: "4.2vh",
-                  left: "35.7%",
+                  left: "31.5%",
                   top: "85%",
-                  width: "61vw",
+                  width: "61.7vw",
                 },
                 [theme.breakpoints.up('sm')]: {
                   fontSize: "2.1vh",
@@ -473,21 +473,55 @@ const Register: React.FC<any> = ({ registerUser }: any) => {
             display: "flex",
             color: "#F7F3F3",
             fontFamily: "Noto Sans",
-            fontSize: 15,
             fontStyle: "normal",
-            fontWeight: 700,
             textAlign: "center",
-            height: 30,
-            left: "40%",
-            top: "81%",
-            width: 317,
             textTransform: "none",
             bgcolor: "#5ab0f2",
             ":hover": {
               bgcolor: "#4baaf2",
               color: "#F7F3F3",
               textTransform: "none"
-            }
+            },
+            [theme.breakpoints.up('xs')]: {
+              fontSize: "2.1vh",
+              fontWeight: 700,
+              height: "4.2vh",
+              left: "31.5%",
+              top: "92.5%",
+              width: "61.7vw",
+            },
+            [theme.breakpoints.up('sm')]: {
+              fontSize: "2.1vh",
+              fontWeight: 700,
+              height: "4.2vh",
+              left: "36.5%",
+              top: "81.5%",
+              width: "35.5vw",
+            },
+            [theme.breakpoints.up('md')]: {
+              fontSize: "2.1vh",
+              fontWeight: 700,
+              height: "4.2vh",
+              left: "40%",
+              top: "81.5%",
+              width: "28.7vw",
+            },
+            [theme.breakpoints.up('lg')]: {
+              fontSize: "2.1vh",
+              fontWeight: 700,
+              height: "4.2vh",
+              left: "40%",
+              top: "81.5%",
+              width: "22.4vw",
+            },
+            [theme.breakpoints.up('xl')]: {
+              fontSize: "2.1vh",
+              fontWeight: 700,
+              height: "4.2vh",
+              left: "40%",
+              top: "81.5%",
+              width: "20.7vw",
+            },
           }}
           onClick={handleLoginClick}
         >
