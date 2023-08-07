@@ -5,7 +5,7 @@ import { updateProfile } from "../../actions/authActions";
 import axios from "axios";
 import Swal from "sweetalert2";
 import { Button, Fade, Card } from "@mui/material";
-import ProfileLogo from "./Profilepagelogo";
+import ProfileLogo from "./Profilepagelogo.tsx";
 import { setCurrentUser } from "../../actions/authActions";
 import { Link } from "react-router-dom";
 import { styled } from "@mui/material/styles"; // Import styled from the correct location

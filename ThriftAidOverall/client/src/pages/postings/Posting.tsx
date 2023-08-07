@@ -7,8 +7,37 @@ import PostingLogo from './postinglogo';
 import { Link } from 'react-router-dom';
 import GoogleMaps from './googlemaps';
 
-console.log(process.env.REACT_APP_MAP_KEY);
-const NewPosting = ({ auth, createPosting, errors, history }) => {
+interface RootState {
+  auth: AuthState;
+  errors: ErrorState;
+}
+
+interface AuthState {
+  user: {
+    establishmentname: string;
+    phonenumber: string;
+    website: string;
+    email: string;
+  };
+  isAuthenticated: boolean;
+}
+
+interface ErrorState {
+  address: string;
+  country: string;
+  city: string;
+  pickupdate: string;
+  pickuptime: string;
+}
+
+interface NewPostingProps {
+  auth: AuthState;
+  createPosting: (newPosting: any, history: any) => void;
+  errors: ErrorState;
+  history: any;
+}
+
+const NewPosting: React.FC<NewPostingProps> = ({ auth, createPosting, errors, history }) => {
   const { user, isAuthenticated } = auth;
 
   const [address, setAddress] = useState('');
@@ -17,12 +46,11 @@ const NewPosting = ({ auth, createPosting, errors, history }) => {
   const [pickupdate, setPickupdate] = useState('');
   const [pickuptime, setPickuptime] = useState('');
   const [pickupcomments, setPickupcomments] = useState('');
-  const [postingErrors, setPostingErrors] = useState({});
   const [submitted, setSubmitted] = useState(false);
   const [openDialog, setOpenDialog] = useState(false);
-  const [dialogPickupComments, setDialogPickupComments] = useState(''); // New state for pickup comments in dialog
+  const [dialogPickupComments, setDialogPickupComments] = useState('');
 
-  const formatDate = (inputDate) => {
+  const formatDate = (inputDate: string): string => {
     const date = inputDate.replace(/\D/g, '');
     if (date.length >= 6) {
       return `${date.slice(0, 2)}/${date.slice(2, 6)}/${date.slice(6, 8)}`;
@@ -33,20 +61,16 @@ const NewPosting = ({ auth, createPosting, errors, history }) => {
     }
   };
 
-
-  const formatTime = (inputTime) => {
+  const formatTime = (inputTime: string): string => {
     const time = inputTime.replace(/\D/g, '');
-  
-    // Check if the time has at least 3 characters (hhm)
+
     if (time.length >= 3) {
       let hours = time.slice(0, -2);
       let minutes = time.slice(-2);
-  
-      // Remove leading zeros for hours
+
       hours = parseInt(hours, 10).toString();
-      // Remove leading zeros for minutes
       minutes = parseInt(minutes, 10).toString().padStart(2, '0');
-  
+
       let formattedTime = `${hours}:${minutes}`;
       const numericHours = parseInt(hours, 10);
       if (numericHours >= 12) {
@@ -62,14 +86,13 @@ const NewPosting = ({ auth, createPosting, errors, history }) => {
       return time;
     }
   };
-  
 
-  const handleDateChange = (x) => {
+  const handleDateChange = (x: string) => {
     const formattedDate = formatDate(x);
     setPickupdate(formattedDate);
   };
 
-  const handleTimeChange = (y) => {
+  const handleTimeChange = (y: string) => {
     const formattedTime = formatTime(y);
     setPickuptime(formattedTime);
   };
@@ -80,7 +103,7 @@ const NewPosting = ({ auth, createPosting, errors, history }) => {
 
   const handleDialogClose = () => {
     setOpenDialog(false);
-    setPickupcomments(dialogPickupComments); // Update pickupcomments state with dialogPickupComments when closing the dialog
+    setPickupcomments(dialogPickupComments);
   };
 
   const handleDialogCancel = () => {
@@ -88,7 +111,7 @@ const NewPosting = ({ auth, createPosting, errors, history }) => {
     setDialogPickupComments('');
   };
 
-  const onSubmit = (e) => {
+  const onSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
     const newPosting = {
@@ -107,14 +130,14 @@ const NewPosting = ({ auth, createPosting, errors, history }) => {
     createPosting(newPosting, history);
     setSubmitted(true);
   };
-  // Assuming you have 'address' and 'city' variables defined
-const properAddress = {
-  fulladdress: address + ', ' + city,
-};
+
+  const properAddress = {
+    fulladdress: address + ', ' + city,
+  };
 
   if (!isAuthenticated) {
     window.location.href = '/login';
-    return null; // Render nothing until redirected
+    return null;
   }
 
   return (
@@ -131,7 +154,6 @@ const properAddress = {
             name="Pickup Address"
             value={address}
             onChange={(e) => setAddress(e.target.value)}
-            error={postingErrors.address}
           />
           <input
             className="websiteinputbarv3"
@@ -139,7 +161,6 @@ const properAddress = {
             name="country"
             value={country}
             onChange={(e) => setCountry(e.target.value)}
-            error={postingErrors.country}
           />
           <input
             className="phonenumberinputbarv3"
@@ -147,7 +168,6 @@ const properAddress = {
             name="city"
             value={city}
             onChange={(e) => setCity(e.target.value)}
-            error={postingErrors.city}
           />
           <input
             className="pickupd"
@@ -155,7 +175,6 @@ const properAddress = {
             name="pickupdate"
             value={pickupdate}
             onChange={(e) => handleDateChange(e.target.value)}
-            error={postingErrors.pickupdate}
           />
           <input
             className="pickupt"
@@ -163,7 +182,6 @@ const properAddress = {
             name="pickuptime"
             value={pickuptime}
             onChange={(e) => handleTimeChange(e.target.value)}
-            error={postingErrors.pickuptime}
           />
           <Button
             type="submit"
@@ -197,36 +215,36 @@ const properAddress = {
         ) : (
           submitted
         )}
-          <Button
-            type="submit"
-            sx={{
-              position: 'absolute',
-              display: 'flex',
+        <Button
+          type="submit"
+          sx={{
+            position: 'absolute',
+            display: 'flex',
+            color: '#F7F3F3',
+            fontFamily: 'Noto Sans',
+            fontSize: 15,
+            fontStyle: 'normal',
+            fontWeight: 700,
+            textAlign: 'center',
+            height: 30,
+            left: '4.1%',
+            top: '91%',
+            width: '92.6%',
+            textTransform: 'none',
+            bgcolor: '#5ab0f2',
+            ':hover': {
+              bgcolor: '#4baaf2',
               color: '#F7F3F3',
-              fontFamily: 'Noto Sans',
-              fontSize: 15,
-              fontStyle: 'normal',
-              fontWeight: 700,
-              textAlign: 'center',
-              height: 30,
-              left: '4.1%',
-              top: '91%',
-              width: '92.6%',
               textTransform: 'none',
-              bgcolor: "#5ab0f2",
-              ":hover": {
-                bgcolor: "#4baaf2",
-                color: "#F7F3F3",
-                textTransform: "none"
-              }
-            }}
-            onClick={handleDialogOpen}
-          >
-            Add Pickup Comments
-          </Button>
-        <Dialog open={openDialog} onClose={handleDialogClose} className='dialoguebackground'>
-          <Button onClick={handleDialogCancel} variant="contained" color="primary" className='dialoguecancel'>
-              Cancel
+            },
+          }}
+          onClick={handleDialogOpen}
+        >
+          Add Pickup Comments
+        </Button>
+        <Dialog open={openDialog} onClose={handleDialogClose} className="dialoguebackground">
+          <Button onClick={handleDialogCancel} variant="contained" color="primary" className="dialoguecancel">
+            Cancel
           </Button>
           <DialogContent>
             <TextField
@@ -237,7 +255,7 @@ const properAddress = {
               value={dialogPickupComments}
               onChange={(e) => setDialogPickupComments(e.target.value)}
             />
-            <Button onClick={handleDialogClose} variant="contained" color="primary" className='dialoguesubmission'>
+            <Button onClick={handleDialogClose} variant="contained" color="primary" className="dialoguesubmission">
               Submit
             </Button>
           </DialogContent>
@@ -246,15 +264,7 @@ const properAddress = {
     </Fade>
   );
 };
-
-NewPosting.propTypes = {
-  auth: PropTypes.object.isRequired,
-  createPosting: PropTypes.func.isRequired,
-  errors: PropTypes.object.isRequired,
-  history: PropTypes.object.isRequired,
-};
-
-const mapStateToProps = (state) => ({
+const mapStateToProps = (state: RootState) => ({
   auth: state.auth,
   errors: state.errors,
 });
