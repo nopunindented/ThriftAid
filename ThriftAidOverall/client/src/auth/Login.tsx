@@ -313,6 +313,44 @@ const LoggedInEmailStyle = styled('div')(({ theme }) => ({
   },
 }));
 
+const LogoutOrDashboard = styled('div')(({ theme }) => ({
+  position: 'absolute',
+  fontWeight: 300,
+  color: '#000000',
+  textAlign: 'center',
+  fontFamily: 'Uber Move Text',
+  [theme.breakpoints.up('xs')]: {
+    top: '47.5%',
+    left: '45.7%',
+    fontSize: '2.8vh',
+    width: '32vw',
+  },
+  [theme.breakpoints.up('sm')]: {
+    top: '47.5%',
+    left: '45.5%',
+    fontSize: '2.8vh',
+    width: '18vw',
+  },
+  [theme.breakpoints.up('md')]: {
+    top: '48%',
+    left: '47.3%',
+    fontSize: '2.8vh',
+    width: '14vw',
+  },
+  [theme.breakpoints.up('lg')]: {
+    top: '48%',
+    left: '44.5%',
+    fontSize: '2.8vh',
+    width: '14vw',
+  },
+  [theme.breakpoints.up('xl')]: {
+    top: '48%',
+    left: '43.4%',
+    fontSize: '3vh',
+    width: '14vw',
+  },
+}));
+
 
 
 interface LoginProps {
@@ -374,9 +412,9 @@ const Login: React.FC<LoginProps> = ({
           <LoggedInEmailStyle>
             Hi {loggedInEmail}, you're already logged in!
           </LoggedInEmailStyle>
-          <div className="loggedinemaildashboard">
+          <LogoutOrDashboard>
             You can go to your dashboard or logout:
-          </div>
+          </LogoutOrDashboard>
           <DashboardButton />
           <Button
             type="submit"
