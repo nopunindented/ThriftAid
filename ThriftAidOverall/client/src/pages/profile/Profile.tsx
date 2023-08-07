@@ -4,10 +4,13 @@ import PropTypes from 'prop-types';
 import { updateProfile } from '../../actions/authActions';
 import axios from 'axios';
 import Swal from 'sweetalert2';
-import { Button, Fade } from '@mui/material';
+import { Button, Fade, Card } from '@mui/material';
 import ProfileLogo from './Profilepagelogo';
 import { setCurrentUser } from '../../actions/authActions';
 import { Link } from 'react-router-dom';
+import { styled } from "@mui/material/styles"; // Import styled from the correct location
+import Typography from "@mui/material/Typography"; // Import Typography
+import { useTheme } from "@mui/material/styles";
 
 interface ProfileUser {
   establishmentname?: string;
@@ -129,6 +132,44 @@ const Profile: React.FC<ProfileProps> = ({
     );
   };
 
+  const SignupBox = styled(Card)(({ theme }) => ({
+    position: 'absolute',
+    display: 'inline-block',
+    borderRadius: '2%',
+    background: 'white',
+    boxShadow: '0px 4px 30px rgba(0.1, 0.1, 0.1, 0.25)',
+    [theme.breakpoints.up('xs')]: {
+      width: '66%',
+      height: '60%',
+      top: '21%',
+      left: '28.3%',
+    },
+    [theme.breakpoints.up('sm')]: {
+      width: '38%',
+      height: '60%',
+      top: '21%',
+      left: '35%',
+    },
+    [theme.breakpoints.up('md')]: {
+      width: '30%',
+      height: '60%',
+      top: '21%',
+      left: '39.3%',
+    },
+    [theme.breakpoints.up('lg')]: {
+      width: '24%',
+      height: '60%',
+      top: '21%',
+      left: '39.3%',
+    },
+    [theme.breakpoints.up('xl')]: {
+      width: '22%',
+      height: '60%',
+      top: '21%',
+      left: '39.3%',
+    },
+  }));
+
   useEffect(() => {
     setProfileErrors(errors);
   }, [errors]);
@@ -185,7 +226,7 @@ const Profile: React.FC<ProfileProps> = ({
     <div>
       {contentProfile === 'yes' ? (
         <div>
-          <div className="currentprofilebox" />
+          <SignupBox/>
           <Link to="/">
             <ProfileLogo />
           </Link>
