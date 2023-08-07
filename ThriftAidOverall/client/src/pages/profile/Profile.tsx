@@ -34,7 +34,7 @@ const EstablishmentInput = styled('h4')(({ theme }) => ({
   fontWeight: 10,
   [theme.breakpoints.up('xs')]: {
     fontSize: '2.25vh',
-    left: '41.1%',
+    left: '37.1%',
     top: '37.5%',
   },
   [theme.breakpoints.up('sm')]: {
@@ -64,7 +64,7 @@ const WebsiteInput = styled('h4')(({ theme }) => ({
   fontWeight: 10,
   [theme.breakpoints.up('xs')]: {
     fontSize: '2.25vh',
-    left: '41.1%',
+    left: '37.1%',
     top: '46.5%',
   },
   [theme.breakpoints.up('sm')]: {
@@ -94,7 +94,7 @@ const PhoneInput = styled('h4')(({ theme }) => ({
   fontWeight: 10,
   [theme.breakpoints.up('xs')]: {
     fontSize: '2.25vh',
-    left: '41.1%',
+    left: '37.1%',
     top: '55.5%',
   },
   [theme.breakpoints.up('sm')]: {
@@ -154,36 +154,70 @@ const Profile: React.FC<ProfileProps> = ({
   };
 
   const UpdateProfileButton: React.FC = () => {
+    const theme = useTheme();
+  
+    const buttonStyles = {
+      position: 'absolute',
+      display: 'flex',
+      color: '#F7F3F3',
+      fontFamily: 'Noto Sans',
+      textAlign: 'center',
+      fontStyle: 'normal',
+      fontWeight: 700,
+      textTransform: 'none',
+      bgcolor: '#24a0ed',
+      ':hover': {
+        bgcolor: '#0792e8',
+        color: '#F7F3F3',
+        textTransform: 'none',
+      },
+      [theme.breakpoints.up('xs')]: {
+        fontSize: "1.5vh",
+        height: "4.5vh",
+        left: '37.2%',
+        top: '67%',
+        width: "49.2vw",
+      },
+      [theme.breakpoints.up('sm')]: {
+        fontSize: "1.5vh",
+        height: "4.5vh",
+        left: '41.1%',
+        top: '67%',
+        width: "26.6vw",
+      },
+      [theme.breakpoints.up('md')]: {
+        fontSize: "1.5vh",
+        height: "4.5vh",
+        left: '41.1%',
+        top: '67%',
+        width: "26.7vw",
+      },
+      [theme.breakpoints.up('lg')]: {
+        fontSize: "1.5vh",
+        height: "4.5vh",
+        left: '41.1%',
+        top: '67%',
+        width: "20.7vw",
+      },
+      [theme.breakpoints.up('xl')]: {
+        fontSize: "1.5vh",
+        height: "4.5vh",
+        left: '41.1%',
+        top: '67%',
+        width: "18.9vw",
+      },
+    };
+  
     return (
       <Button
         type="submit"
-        sx={{
-          position: 'absolute',
-          display: 'flex',
-          color: '#F7F3F3',
-          fontFamily: 'Noto Sans',
-          fontSize: 10,
-          fontStyle: 'normal',
-          fontWeight: 700,
-          textAlign: 'center',
-          height: 30,
-          left: '41.1%',
-          top: '67%',
-          width: 292,
-          textTransform: 'none',
-          bgcolor: '#24a0ed',
-          ':hover': {
-            bgcolor: '#0792e8',
-            color: '#F7F3F3',
-            textTransform: 'none',
-          },
-        }}
+        sx={buttonStyles}
         onClick={notContent}
       >
         Want to create/update your profile? Click here!
       </Button>
     );
-  };
+  }
 
   const CreateProfileButton: React.FC = () => {
     const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
