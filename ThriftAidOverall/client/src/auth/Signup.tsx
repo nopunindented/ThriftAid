@@ -245,6 +245,36 @@ const RadioBar = styled('div')(({ theme }) => ({
   },
 }));
 
+const ChooseAccount = styled('div')(({ theme }) => ({
+  position: 'absolute',
+  fontFamily: 'Open sans',
+  [theme.breakpoints.up('xs')]: {
+    left: '36%',
+    top: '71%',
+    fontSize: '12px',
+  },
+  [theme.breakpoints.up('sm')]: {
+    left: '36.2%',
+    top: '63%',
+    fontSize: '12px',
+  },
+  [theme.breakpoints.up('md')]: {
+    left: '40%',
+    top: '63%',
+    fontSize: '12px',
+  },
+  [theme.breakpoints.up('lg')]: {
+    left: '40%',
+    top: '63%',
+    fontSize: '12px',
+  },
+  [theme.breakpoints.up('xl')]: {
+    left: '40%',
+    top: '63%',
+    fontSize: '12px',
+  },
+}));
+
 const Register: React.FC<any> = ({ registerUser }: any) => {
   const dispatch = useDispatch();
   const auth = useSelector((state: any) => state.auth);
@@ -304,7 +334,7 @@ const Register: React.FC<any> = ({ registerUser }: any) => {
     <div className="container">
       <div className="row">
         <RadioBar />
-        <div className="choicebetweenaccounts">Choose your account type:</div>
+        <ChooseAccount>Choose your account type:</ChooseAccount>
         <div className="col s8 offset-s2">
           <form noValidate onSubmit={handleSubmit}>
             <label className="radiothriftlabel">
