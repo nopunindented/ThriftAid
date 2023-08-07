@@ -213,6 +213,36 @@ const OrOption = styled('div')(({ theme }) => ({
   },
 }));
 
+const SignIn = styled('div')(({ theme }) => ({
+  position: 'absolute',
+  fontFamily: 'Open sans',
+  [theme.breakpoints.up('xs')]: {
+    left: '55.2%',
+    top: '32.4%',
+    fontSize: '2.5vh'
+  },
+  [theme.breakpoints.up('sm')]: {
+    left: '50.8%',
+    top: '32%',
+    fontSize: '2.5vh'
+  },
+  [theme.breakpoints.up('md')]: {
+    left: '52%',
+    top: '31%',
+    fontSize: '2.5vh'
+  },
+  [theme.breakpoints.up('lg')]: {
+    left: '49%',
+    top: '31%',
+    fontSize: '2.5vh'
+  },
+  [theme.breakpoints.up('xl')]: {
+    left: '48.5%',
+    top: '31%',
+    fontSize: '2.5vh'
+  },
+}));
+
 const DashboardButton: React.FC = () => {
   return (
     <Button
@@ -381,7 +411,7 @@ const Login: React.FC<LoginProps> = ({
       ) : (
         <div className="container">
           <SignupBox />
-          <div className="loginwelcometoo">Sign in</div>
+          <SignIn>Sign in</SignIn>
           <div style={{ marginTop: "4rem" }} className="row">
             <div className="col s8 offset-s2">
               <div className="col s12" style={{ paddingLeft: "11.250px" }}></div>
