@@ -306,12 +306,40 @@ overflow: hidden;
 }
 
 
-.radiothriftlabel{
+.radiothriftlabel {
   position: absolute;
   left: 42.1%;
   top: 66.5%;
   font-size: 14px;
 }
+
+@media (max-width: 1024px) {
+  .radiothriftlabel {
+    position: absolute;
+    left: 43.1%;
+    top: 66.5%;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 768px) {
+  .radiothriftlabel {
+    position: absolute;
+    left: 40.1%;
+    top: 66.5%;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 620px) {
+  .radiothriftlabel {
+    position: absolute;
+    left: 41.5%;
+    top: 74.5%;
+    font-size: 14px;
+  }
+}
+
 .thriftradio{
   border-radius: 3px;
   position: absolute;
@@ -321,11 +349,40 @@ overflow: hidden;
   border-color: '#D3D3D3';
 }
 
+
+
 .radiohomelesslabel{
   position: absolute;
   left: 49.2%;
   top: 66.5%;
   font-size: 14px;
+}
+
+@media (max-width: 1024px) {
+  .radiohomelesslabel{
+    position: absolute;
+    left: 53.5%;
+    top: 66.5%;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 768px) {
+  .radiohomelesslabel{
+    position: absolute;
+    left: 54.5%;
+    top: 66.5%;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 620px) {
+  .radiohomelesslabel{
+    position: absolute;
+    left: 42.5%;
+    top: 78.5%;
+    font-size: 14px;
+  }
 }
 
 .homelessradio{
