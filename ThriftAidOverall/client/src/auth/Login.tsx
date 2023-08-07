@@ -174,6 +174,49 @@ const UserInput = styled('input')(({ theme }) => ({
 }));
 
 
+const OrOption = styled('div')(({ theme }) => ({
+  position: 'absolute',
+  color: '#919394',
+  [theme.breakpoints.up('xs')]: {
+    top: '47%',
+    left: '27%',
+    fontSize: '3vh',
+    fontWeight: '10',
+    width: '60.2vw',
+    height: '5vh',
+  },
+  [theme.breakpoints.up('sm')]: {
+    top: '47.5%',
+    left: '36%',
+    fontSize: '3vh',
+    fontWeight: '10',
+    width: '35.2vw',
+    height: '5vh',
+  },
+  [theme.breakpoints.up('md')]: {
+    top: '47.5%',
+    left: '40%',
+    fontSize: '3vh',
+    fontWeight: '10',
+    width: '28.1vw',
+    height: '5vh',
+  },
+  [theme.breakpoints.up('lg')]: {
+    top: '47.5%',
+    left: '40%',
+    fontSize: '3vh',
+    fontWeight: '10',
+    width: '22vw',
+    height: '5vh',
+  },
+  [theme.breakpoints.up('xl')]: {
+    left: '49.8%',
+    top: '60%',
+    fontSize: '2.1vh',
+    fontWeight: 20,
+  },
+}));
+
 const DashboardButton: React.FC = () => {
   return (
     <Button
@@ -207,6 +250,9 @@ const DashboardButton: React.FC = () => {
 };
 
 
+
+
+
 interface LoginProps {
   loginUser: (userData: any, navigate: any) => void;
   logoutUser: () => void;
@@ -225,6 +271,8 @@ const Login: React.FC<LoginProps> = ({
   const [password, setPassword] = useState("");
   const [loginErrors, setLoginErrors] = useState<any>({});
   const [loggedInEmail, setLoggedInEmail] = useState("");
+
+  const theme= useTheme();
 
   useEffect(() => {
     setLoginErrors(errors);
@@ -275,20 +323,58 @@ const Login: React.FC<LoginProps> = ({
               display: "flex",
               color: "#F7F3F3",
               fontFamily: "Noto Sans",
-              fontSize: 15,
               fontStyle: "normal",
-              fontWeight: 700,
-              textAlign: "center",
-              height: "5%",
-              left: "42%",
-              top: "67%",
-              width: "17%",
               textTransform: "none",
               bgcolor: "#5ab0f2",
               ":hover": {
                 bgcolor: "#4baaf2",
                 color: "#F7F3F3",
                 textTransform: "none",
+              },
+              [theme.breakpoints.up('xs')]: {
+                fontSize: '5vh',
+                fontWeight: 700,
+                textAlign: "center",
+                height: "5%",
+                left: "42%",
+                top: "67%",
+                width: "17%",
+              },
+              [theme.breakpoints.up('sm')]: {
+                fontSize: '5vh',
+                fontWeight: 700,
+                textAlign: "center",
+                height: "5%",
+                left: "42%",
+                top: "67%",
+                width: "17%",
+              },
+              [theme.breakpoints.up('md')]: {
+                fontSize: '5vh',
+                fontWeight: 700,
+                textAlign: "center",
+                height: "5%",
+                left: "42%",
+                top: "67%",
+                width: "17%",
+              },
+              [theme.breakpoints.up('lg')]: {
+                fontSize: '5vh',
+                fontWeight: 700,
+                textAlign: "center",
+                height: "5%",
+                left: "42%",
+                top: "67%",
+                width: "17%",
+              },
+              [theme.breakpoints.up('xl')]: {
+                fontSize: '5vh',
+                fontWeight: 700,
+                textAlign: "center",
+                height: "5%",
+                left: "42%",
+                top: "67%",
+                width: "17%",
               },
             }}
             onClick={onLogoutClick}
@@ -337,14 +423,9 @@ const Login: React.FC<LoginProps> = ({
                     display: "flex",
                     color: "#F7F3F3",
                     fontFamily: "Noto Sans",
-                    fontSize: 15,
                     fontStyle: "normal",
                     fontWeight: 700,
                     textAlign: "center",
-                    height: 30,
-                    left: "40%",
-                    top: "55%",
-                    width: 317,
                     textTransform: "none",
                     bgcolor: "#24a0ed",
                     ":hover": {
@@ -352,11 +433,46 @@ const Login: React.FC<LoginProps> = ({
                       color: "#F7F3F3",
                       textTransform: "none",
                     },
+                    [theme.breakpoints.up('xs')]: {
+                      fontSize: '2.3vh',
+                      height: "4.5vh",
+                      left: "31%",
+                      top: "61.5%",
+                      width: "61.4vw",
+                    },
+                    [theme.breakpoints.up('sm')]: {
+                      fontSize: '2.3vh',
+                      height: "4.5vh",
+                      left: "36%",
+                      top: "55%",
+                      width: "36vw",
+                    },
+                    [theme.breakpoints.up('md')]: {
+                      fontSize: '2.3vh',
+                      height: "4.5vh",
+                      left: "40%",
+                      top: "55%",
+                      width: "28.7vw",
+                    },
+                    [theme.breakpoints.up('lg')]: {
+                      fontSize: '2.3vh',
+                      height: "4.5vh",
+                      left: "40%",
+                      top: "55%",
+                      width: "22.5vw",
+                    },
+                    [theme.breakpoints.up('xl')]: {
+                      fontSize: '2.3vh',
+                      height: "4.5vh",
+                      left: "40%",
+                      top: "55%",
+                      width: "20.7vw",
+                    },
                   }}
                 >
                   Login
                 </Button>
-                <div className="loginoroption">or</div>
+                <OrOption>or</OrOption>
                 <Link to="/">
                   <LoginLogo />
                 </Link>
