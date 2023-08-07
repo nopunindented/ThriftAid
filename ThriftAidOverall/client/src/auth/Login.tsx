@@ -55,6 +55,117 @@ const SignupBox = styled(Card)(({ theme }) => ({
   },
 }));
 
+const EmailInput = styled('input')(({ theme }) => ({
+  borderRadius: '3px',
+  position: 'fixed',
+  borderWidth: '0.5px',
+  borderColor: '#a9a9a9',
+  textIndent: '5px',
+  '::placeholder' : {
+    position: 'relative',
+    fontSize: '22px',
+    fontWeight: '10',
+    left: '0%',
+    top: '7%',
+  },
+  [theme.breakpoints.up('xs')]: {
+    top: '40%',
+    left: '27%',
+    fontSize: '3vh',
+    fontWeight: '10',
+    width: '60.2vw',
+    height: '5vh',
+  },
+  [theme.breakpoints.up('sm')]: {
+    top: '40%',
+    left: '36%',
+    fontSize: '3vh',
+    fontWeight: '10',
+    width: '35.2vw',
+    height: '5vh',
+  },
+  [theme.breakpoints.up('md')]: {
+    top: '40%',
+    left: '40%',
+    fontSize: '3vh',
+    fontWeight: '10',
+    width: '28.1vw',
+    height: '5vh',
+  },
+  [theme.breakpoints.up('lg')]: {
+    top: '40%',
+    left: '40%',
+    fontSize: '3vh',
+    fontWeight: '10',
+    width: '22vw',
+    height: '5vh',
+  },
+  [theme.breakpoints.up('xl')]: {
+    top: '40%',
+    left: '40%',
+    fontSize: '3vh',
+    fontWeight: '10',
+    width: '20.2vw',
+    height: '5vh',
+  },
+}));
+
+const UserInput = styled('input')(({ theme }) => ({
+  borderRadius: '3px',
+  position: 'fixed',
+  borderWidth: '0.5px',
+  borderColor: '#a9a9a9',
+  textIndent: '5px',
+  '::placeholder' : {
+    position: 'relative',
+    fontSize: '22px',
+    fontWeight: '10',
+    left: '0%',
+    top: '7%',
+  },
+  [theme.breakpoints.up('xs')]: {
+    top: '47%',
+    left: '27%',
+    fontSize: '3vh',
+    fontWeight: '10',
+    width: '60.2vw',
+    height: '5vh',
+  },
+  [theme.breakpoints.up('sm')]: {
+    top: '47.5%',
+    left: '36%',
+    fontSize: '3vh',
+    fontWeight: '10',
+    width: '35.2vw',
+    height: '5vh',
+  },
+  [theme.breakpoints.up('md')]: {
+    top: '47.5%',
+    left: '40%',
+    fontSize: '3vh',
+    fontWeight: '10',
+    width: '28.1vw',
+    height: '5vh',
+  },
+  [theme.breakpoints.up('lg')]: {
+    top: '47.5%',
+    left: '40%',
+    fontSize: '3vh',
+    fontWeight: '10',
+    width: '22vw',
+    height: '5vh',
+  },
+  [theme.breakpoints.up('xl')]: {
+    top: '47.5%',
+    left: '40%',
+    fontSize: '3vh',
+    fontWeight: '10',
+    width: '20.2vw',
+    height: '5vh',
+  },
+}));
+
+
 const DashboardButton: React.FC = () => {
   return (
     <Button
@@ -86,6 +197,7 @@ const DashboardButton: React.FC = () => {
     </Button>
   );
 };
+
 
 interface LoginProps {
   loginUser: (userData: any, navigate: any) => void;
@@ -185,13 +297,12 @@ const Login: React.FC<LoginProps> = ({
               <div className="col s12" style={{ paddingLeft: "11.250px" }}></div>
               <form noValidate onSubmit={onSubmit}>
                 <div className="input-field col s12">
-                  <input
+                  <EmailInput
                     onChange={(e) => setEmail(e.target.value)}
                     value={email}
                     onError={loginErrors.email}
                     id="email"
                     type="email"
-                    className="emailinputbar"
                     placeholder="Email"
                   />
                   <span className="inputerror">
@@ -199,14 +310,13 @@ const Login: React.FC<LoginProps> = ({
                   </span>
                 </div>
                 <div className="input-field col s12">
-                  <input
+                  <UserInput
                     onChange={(e) => setPassword(e.target.value)}
                     value={password}
                     onError={loginErrors.password}
                     id="password"
                     type="password"
                     placeholder="Password"
-                    className="passwordinputbar"
                   />
                   <span className="inputerror">
                     {loginErrors.password || loginErrors.passwordincorrect}
