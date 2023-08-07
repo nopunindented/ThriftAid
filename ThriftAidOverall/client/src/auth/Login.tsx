@@ -244,6 +244,7 @@ const SignIn = styled('div')(({ theme }) => ({
 }));
 
 const DashboardButton: React.FC = () => {
+  const theme= useTheme();
   return (
     <Button
       type="button"
@@ -252,20 +253,54 @@ const DashboardButton: React.FC = () => {
         display: "flex",
         color: "#F7F3F3",
         fontFamily: "Noto Sans",
-        fontSize: 15,
         fontStyle: "normal",
-        fontWeight: 700,
         textAlign: "center",
-        height: "5%",
-        left: "42%",
-        top: "61%",
-        width: "17%",
         textTransform: "none",
         bgcolor: "#24a0ed",
         ":hover": {
           bgcolor: "#0792e8",
           color: "#F7F3F3",
           textTransform: "none",
+        },
+        [theme.breakpoints.up('xs')]: {
+          fontSize: '2.6vh',
+          fontWeight: 700,
+          height: "5%",
+          left: "42.5%",
+          top: "61%",
+          width: "40%",
+        },
+        [theme.breakpoints.up('sm')]: {
+          fontSize: '2.6vh',
+          fontWeight: 700,
+          height: "5%",
+          left: "42.5%",
+          top: "61%",
+          width: "24%",
+        },
+        [theme.breakpoints.up('md')]: {
+          fontSize: '2.6vh',
+          fontWeight: 700,
+          height: "5%",
+          left: "44.7%",
+          top: "61%",
+          width: "20%",
+        },
+        [theme.breakpoints.up('lg')]: {
+          fontSize: '2.6vh',
+          fontWeight: 700,
+          height: "5%",
+          left: "42%",
+          top: "61%",
+          width: "17%",
+        },
+        [theme.breakpoints.up('xl')]: {
+          fontSize: '2.6vh',
+          fontWeight: 700,
+          height: "5%",
+          left: "42%",
+          top: "61%",
+          width: "17%",
         },
       }}
       onClick={handleAlreadyLogged}
