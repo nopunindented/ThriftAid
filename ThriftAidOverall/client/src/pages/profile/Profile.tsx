@@ -119,6 +119,36 @@ const PhoneInput = styled('h4')(({ theme }) => ({
   },
 }));
 
+const SignIn = styled('div')(({ theme }) => ({
+  position: 'absolute',
+  fontFamily: 'Open sans',
+  [theme.breakpoints.up('xs')]: {
+    left: '55.4%',
+    top: '32.4%',
+    fontSize: '2.5vh'
+  },
+  [theme.breakpoints.up('sm')]: {
+    left: '51%',
+    top: '32%',
+    fontSize: '2.5vh'
+  },
+  [theme.breakpoints.up('md')]: {
+    left: '52.2%',
+    top: '31%',
+    fontSize: '2.5vh'
+  },
+  [theme.breakpoints.up('lg')]: {
+    left: '49%',
+    top: '31%',
+    fontSize: '2.5vh'
+  },
+  [theme.breakpoints.up('xl')]: {
+    left: '48.7%',
+    top: '31%',
+    fontSize: '2.5vh'
+  },
+}));
+
 const Profile: React.FC<ProfileProps> = ({
   auth,
   updateProfile,
@@ -354,7 +384,7 @@ const Profile: React.FC<ProfileProps> = ({
           <Link to="/">
             <ProfileLogo />
           </Link>
-          <div className="profilewelcometoo">Profile</div>
+          <SignIn>Profile</SignIn>
           <UpdateProfileButton />
           
             <EstablishmentInput>
