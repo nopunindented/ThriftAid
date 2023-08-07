@@ -350,8 +350,8 @@ const Register: React.FC<any> = ({ registerUser }: any) => {
                 checked={state.usertype === "thrift store"}
               />
               Thrift Store
-              <div className="inputerrors">{state.errors.usertype}</div>
             </label>
+            <div className="inputerrors">{state.errors.usertype}</div>
             <label className="radiohomelesslabel">
               <input
                 className="homelessradio"
@@ -363,7 +363,6 @@ const Register: React.FC<any> = ({ registerUser }: any) => {
                 checked={state.usertype === "homeless shelter"}
               />
               Homeless Shelter
-              <div className="inputerrors">{state.errors.usertype}</div>
             </label>
             <div>
               <EmailInput
