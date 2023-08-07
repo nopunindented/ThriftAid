@@ -275,7 +275,43 @@ const DashboardButton: React.FC = () => {
   );
 };
 
-
+const LoggedInEmailStyle = styled('div')(({ theme }) => ({
+  position: 'absolute',
+  fontWeight: 600,
+  color: '#000000',
+  textAlign: 'center',
+  fontFamily: 'Uber Move Text',
+  [theme.breakpoints.up('xs')]: {
+    top: '33.5%',
+    left: '35%',
+    fontSize: '3.1vh',
+    width: '55vw',
+  },
+  [theme.breakpoints.up('sm')]: {
+    top: '33.5%',
+    left: '40.3%',
+    fontSize: '3.1vh',
+    width: '28vw',
+  },
+  [theme.breakpoints.up('md')]: {
+    top: '33.5%',
+    left: '40.5%',
+    fontSize: '3.1vh',
+    width: '28vw',
+  },
+  [theme.breakpoints.up('lg')]: {
+    top: '33.5%',
+    left: '42.4%',
+    fontSize: '3.3vh',
+    width: '18vw',
+  },
+  [theme.breakpoints.up('xl')]: {
+    top: '36%',
+    left: '41.55%',
+    fontSize: '3.3vh',
+    width: '18vw',
+  },
+}));
 
 
 
@@ -335,9 +371,9 @@ const Login: React.FC<LoginProps> = ({
       {auth.isAuthenticated ? (
         <div>
           <SignupBox />
-          <div className="loggedinemail">
+          <LoggedInEmailStyle>
             Hi {loggedInEmail}, you're already logged in!
-          </div>
+          </LoggedInEmailStyle>
           <div className="loggedinemaildashboard">
             You can go to your dashboard or logout:
           </div>
