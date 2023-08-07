@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Logo from "../navbar/Logo.js";
 import SearchButton from "../navbar/searchb.js";
-import SignupButton from "../navbar/Signup.js";
+import SignupButton from "../navbar/Signup.tsx";
 import LoginButton from "../navbar/Login.js";
 import { connect } from "react-redux";
 import { logoutUser } from "../actions/authActions.js";

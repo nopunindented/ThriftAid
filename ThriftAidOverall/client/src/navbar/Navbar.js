@@ -1,6 +1,6 @@
 import React from "react";
 import SearchButton from "./searchb.js";
-import SignupButton from "./Signup.js";
+import SignupButton from "./Signup.tsx";
 import Logo from './Logo.js';
 import { Link } from "react-router-dom";
 import Userfront from "@userfront/react";
