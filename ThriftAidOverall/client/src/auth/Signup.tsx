@@ -6,6 +6,9 @@ import { Link } from "react-router-dom";
 import { Button } from "@mui/material";
 import SignupLogo from "./Signuppagelogo";
 import Swal from 'sweetalert2';
+import { styled } from "@mui/material/styles"; // Import styled from the correct location
+import Typography from "@mui/material/Typography"; // Import Typography
+import { useTheme } from "@mui/material/styles";
 
 interface Errors {
   usertype: string;
@@ -24,6 +27,186 @@ interface NewUser {
   website: string;
   errors: Errors; // Include errors in NewUser interface
 }
+
+
+const EmailInput = styled('input')(({ theme }) => ({
+  borderRadius: '3px',
+  position: 'fixed',
+  borderWidth: '0.5px',
+  borderColor: '#a9a9a9',
+  textIndent: '5px',
+  '::placeholder' : {
+    position: 'relative',
+    fontSize: '22px',
+    fontWeight: '10',
+    left: '0%',
+    top: '7%',
+  },
+  ":focus" : {
+    outline: 0,
+    border: '3px solid #24a0ed',
+  },
+  [theme.breakpoints.up('xs')]: {
+    top: '42%',
+    left: '30.5%',
+    fontSize: '3vh',
+    fontWeight: '10',
+    width: '60.2vw',
+    height: '5vh',
+  },
+  [theme.breakpoints.up('sm')]: {
+    top: '40%',
+    left: '36%',
+    fontSize: '3vh',
+    fontWeight: '10',
+    width: '35.2vw',
+    height: '5vh',
+  },
+  [theme.breakpoints.up('md')]: {
+    top: '40%',
+    left: '40%',
+    fontSize: '3vh',
+    fontWeight: '10',
+    width: '28.1vw',
+    height: '5vh',
+  },
+  [theme.breakpoints.up('lg')]: {
+    top: '40%',
+    left: '40%',
+    fontSize: '3vh',
+    fontWeight: '10',
+    width: '22vw',
+    height: '5vh',
+  },
+  [theme.breakpoints.up('xl')]: {
+    top: '40%',
+    left: '40%',
+    fontSize: '3vh',
+    fontWeight: '10',
+    width: '20.2vw',
+    height: '5vh',
+  },
+}));
+
+const UserInput = styled('input')(({ theme }) => ({
+  borderRadius: '3px',
+  position: 'fixed',
+  borderWidth: '0.5px',
+  borderColor: '#a9a9a9',
+  textIndent: '5px',
+  '::placeholder' : {
+    position: 'relative',
+    fontSize: '22px',
+    fontWeight: '10',
+    left: '0%',
+    top: '7%',
+  },
+  ":focus" : {
+    outline: 0,
+    border: '3px solid #24a0ed',
+  },
+  [theme.breakpoints.up('xs')]: {
+    top: '49%',
+    left: '30.5%',
+    fontSize: '3vh',
+    fontWeight: '10',
+    width: '60.2vw',
+    height: '5vh',
+  },
+  [theme.breakpoints.up('sm')]: {
+    top: '47.5%',
+    left: '36%',
+    fontSize: '3vh',
+    fontWeight: '10',
+    width: '35.2vw',
+    height: '5vh',
+  },
+  [theme.breakpoints.up('md')]: {
+    top: '47.5%',
+    left: '40%',
+    fontSize: '3vh',
+    fontWeight: '10',
+    width: '28.1vw',
+    height: '5vh',
+  },
+  [theme.breakpoints.up('lg')]: {
+    top: '47.5%',
+    left: '40%',
+    fontSize: '3vh',
+    fontWeight: '10',
+    width: '22vw',
+    height: '5vh',
+  },
+  [theme.breakpoints.up('xl')]: {
+    top: '47.5%',
+    left: '40%',
+    fontSize: '3vh',
+    fontWeight: '10',
+    width: '20.2vw',
+    height: '5vh',
+  },
+}));
+
+const UserInputV2 = styled('input')(({ theme }) => ({
+  borderRadius: '3px',
+  position: 'fixed',
+  borderWidth: '0.5px',
+  borderColor: '#a9a9a9',
+  textIndent: '5px',
+  '::placeholder' : {
+    position: 'relative',
+    fontSize: '22px',
+    fontWeight: '10',
+    left: '0%',
+    top: '7%',
+  },
+  ":focus" : {
+    outline: 0,
+    border: '3px solid #24a0ed',
+  },
+  [theme.breakpoints.up('xs')]: {
+    top: '56.5%',
+    left: '30.5%',
+    fontSize: '3vh',
+    fontWeight: '10',
+    width: '60.2vw',
+    height: '5vh',
+  },
+  [theme.breakpoints.up('sm')]: {
+    top: '55%',
+    left: '36%',
+    fontSize: '3vh',
+    fontWeight: '10',
+    width: '35.2vw',
+    height: '5vh',
+  },
+  [theme.breakpoints.up('md')]: {
+    top: '55%',
+    left: '40%',
+    fontSize: '3vh',
+    fontWeight: '10',
+    width: '28.1vw',
+    height: '5vh',
+  },
+  [theme.breakpoints.up('lg')]: {
+    top: '55%',
+    left: '40%',
+    fontSize: '3vh',
+    fontWeight: '10',
+    width: '22vw',
+    height: '5vh',
+  },
+  [theme.breakpoints.up('xl')]: {
+    top: '55%',
+    left: '40%',
+    fontSize: '3vh',
+    fontWeight: '10',
+    width: '20.2vw',
+    height: '5vh',
+  },
+}));
+
+
 
 const Register: React.FC<any> = ({ registerUser }: any) => {
   const dispatch = useDispatch();
@@ -114,29 +297,27 @@ const Register: React.FC<any> = ({ registerUser }: any) => {
               <div className="inputerrors">{state.errors.usertype}</div>
             </label>
             <div>
-              <input
+              <EmailInput
                 onChange={handleChange}
                 value={state.email}
                 id="email"
                 type="email"
                 placeholder="Email"
-                className="emailinputbar"
               />
               <div className="inputerrors">{state.errors.email}</div>
             </div>
             <div className="input-field col s12">
-              <input
+              <UserInput
                 onChange={handleChange}
                 value={state.password}
                 id="password"
                 type="password"
                 placeholder="Password"
-                className="passwordinputbar"
               />
               <div className="inputerrors">{state.errors.password}</div>
             </div>
             <div className="input-field col s12">
-              <input
+              <UserInputV2
                 onChange={handleChange}
                 value={state.password2}
                 id="password2"
