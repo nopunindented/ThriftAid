@@ -611,7 +611,7 @@ const Profile: React.FC<ProfileProps> = ({
             <Link to="/">
               <ProfileLogo />
             </Link>
-            <div className="profilewelcometoo">Profile</div>
+            <SignIn>Profile</SignIn>
             <div className="container">
               <div className="row">
                 <div className="col-md-8 m-auto">
