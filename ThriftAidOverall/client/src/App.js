@@ -12,7 +12,7 @@ import Home from './pages/Home.tsx';
 import Register from './auth/Signup.tsx';
 import Dashboard from './pages/dashboard/Dashboard';
 import UserNavbar from './loggedinnavbar/UserNavbar.tsx';
-import Profile from './pages/profile/Profile';
+import Profile from './pages/profile/Profile.tsx';
 import NewPosting from './pages/postings/Posting'
 import AllPostings from './pages/postings/AllPostings';
 import Errorpage from './Errorpage';
