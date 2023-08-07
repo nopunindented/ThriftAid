@@ -9,7 +9,7 @@ import { persistor } from './store';
 import { PersistGate } from 'redux-persist/integration/react';
 import Login from './auth/Login.tsx';
 import Home from './pages/Home.tsx';
-import Register from './auth/Signup';
+import Register from './auth/Signup.tsx';
 import Dashboard from './pages/dashboard/Dashboard';
 import UserNavbar from './loggedinnavbar/UserNavbar.tsx';
 import Profile from './pages/profile/Profile';
