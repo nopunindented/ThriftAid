@@ -73,8 +73,8 @@ const EmailInput = styled('input')(({ theme }) => ({
     border: '3px solid #24a0ed',
   },
   [theme.breakpoints.up('xs')]: {
-    top: '40%',
-    left: '27%',
+    top: '42%',
+    left: '30.5%',
     fontSize: '3vh',
     fontWeight: '10',
     width: '60.2vw',
@@ -132,8 +132,8 @@ const UserInput = styled('input')(({ theme }) => ({
     border: '3px solid #24a0ed',
   },
   [theme.breakpoints.up('xs')]: {
-    top: '47%',
-    left: '27%',
+    top: '50%',
+    left: '30.5%',
     fontSize: '3vh',
     fontWeight: '10',
     width: '60.2vw',
