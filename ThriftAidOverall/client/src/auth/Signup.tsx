@@ -330,6 +330,8 @@ const Register: React.FC<any> = ({ registerUser }: any) => {
     Swal.fire('Good job!', 'Your profile was updated successfully', 'success');
   };
 
+  const theme= useTheme();
+
   return (
     <div className="container">
       <div className="row">
@@ -400,11 +402,11 @@ const Register: React.FC<any> = ({ registerUser }: any) => {
                 position: "absolute",
                 display: "flex",
                 color: "#F7F3F3",
-                fontFamily: "Noto Sans",
-                fontSize: 15,
-                fontStyle: "normal",
-                fontWeight: 700,
                 textAlign: "center",
+                fontFamily: "Noto Sans",
+                fontStyle: "normal",
+                fontSize: 15,
+                fontWeight: 700,
                 height: 30,
                 left: "40%",
                 top: "73%",
@@ -415,7 +417,47 @@ const Register: React.FC<any> = ({ registerUser }: any) => {
                   bgcolor: "#0792e8",
                   color: "#F7F3F3",
                   textTransform: "none"
-                }
+                },
+                [theme.breakpoints.up('xs')]: {
+                  fontSize: "2.1vh",
+                  fontWeight: 700,
+                  height: "4.2vh",
+                  left: "35.7%",
+                  top: "85%",
+                  width: "61vw",
+                },
+                [theme.breakpoints.up('sm')]: {
+                  fontSize: "2.1vh",
+                  fontWeight: 700,
+                  height: "4.2vh",
+                  left: "36.5%",
+                  top: "73%",
+                  width: "35.5vw",
+                },
+                [theme.breakpoints.up('md')]: {
+                  fontSize: "2.1vh",
+                  fontWeight: 700,
+                  height: "4.2vh",
+                  left: "40%",
+                  top: "73%",
+                  width: "28.7vw",
+                },
+                [theme.breakpoints.up('lg')]: {
+                  fontSize: "2.1vh",
+                  fontWeight: 700,
+                  height: "4.2vh",
+                  left: "40%",
+                  top: "73%",
+                  width: "22.4vw",
+                },
+                [theme.breakpoints.up('xl')]: {
+                  fontSize: "2.1vh",
+                  fontWeight: 700,
+                  height: "4.2vh",
+                  left: "40%",
+                  top: "73%",
+                  width: "20.7vw",
+                },
               }}
               onClick={handleSubmit}
             >
