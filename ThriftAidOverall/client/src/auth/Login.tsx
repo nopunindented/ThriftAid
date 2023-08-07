@@ -68,6 +68,10 @@ const EmailInput = styled('input')(({ theme }) => ({
     left: '0%',
     top: '7%',
   },
+  ":focus" : {
+    outline: 0,
+    border: '3px solid #24a0ed',
+  },
   [theme.breakpoints.up('xs')]: {
     top: '40%',
     left: '27%',
@@ -122,6 +126,10 @@ const UserInput = styled('input')(({ theme }) => ({
     fontWeight: '10',
     left: '0%',
     top: '7%',
+  },
+  ":focus" : {
+    outline: 0,
+    border: '3px solid #24a0ed',
   },
   [theme.breakpoints.up('xs')]: {
     top: '47%',
