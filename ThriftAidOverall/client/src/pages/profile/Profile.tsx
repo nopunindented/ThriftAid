@@ -29,6 +29,96 @@ const theAlert = () => {
   Swal.fire('Good job!', 'Your profile was updated successfully', 'success');
 };
 
+const EstablishmentInput = styled('h4')(({ theme }) => ({
+  position: 'absolute',
+  fontWeight: 10,
+  [theme.breakpoints.up('xs')]: {
+    fontSize: '2.25vh',
+    left: '41.1%',
+    top: '37.5%',
+  },
+  [theme.breakpoints.up('sm')]: {
+    fontSize: '2.1vh',
+    left: '41.2%',
+    top: '37.5%',
+  },
+  [theme.breakpoints.up('md')]: {
+    fontSize: '2.25vh',
+    left: '41.2%',
+    top: '37.5%',
+  },
+  [theme.breakpoints.up('lg')]: {
+    fontSize: '2.25vh',
+    left: '41.2%',
+    top: '37.5%',
+  },
+  [theme.breakpoints.up('xl')]: {
+    fontSize: '2.25vh',
+    left: '41.2%',
+    top: '37.5%',
+  },
+}));
+
+const WebsiteInput = styled('h4')(({ theme }) => ({
+  position: 'absolute',
+  fontWeight: 10,
+  [theme.breakpoints.up('xs')]: {
+    fontSize: '2.25vh',
+    left: '41.1%',
+    top: '46.5%',
+  },
+  [theme.breakpoints.up('sm')]: {
+    fontSize: '2.1vh',
+    left: '41.2%',
+    top: '46.5%',
+  },
+  [theme.breakpoints.up('md')]: {
+    fontSize: '2.25vh',
+    left: '41.2%',
+    top: '46.5%',
+  },
+  [theme.breakpoints.up('lg')]: {
+    fontSize: '2.25vh',
+    left: '41.2%',
+    top: '46.5%',
+  },
+  [theme.breakpoints.up('xl')]: {
+    fontSize: '2.25vh',
+    left: '41.2%',
+    top: '46.5%',
+  },
+}));
+
+const PhoneInput = styled('h4')(({ theme }) => ({
+  position: 'absolute',
+  fontWeight: 10,
+  [theme.breakpoints.up('xs')]: {
+    fontSize: '2.25vh',
+    left: '41.1%',
+    top: '55.5%',
+  },
+  [theme.breakpoints.up('sm')]: {
+    fontSize: '2.1vh',
+    left: '41.2%',
+    top: '55.5%',
+  },
+  [theme.breakpoints.up('md')]: {
+    fontSize: '2.25vh',
+    left: '41.2%',
+    top: '55.5%',
+  },
+  [theme.breakpoints.up('lg')]: {
+    fontSize: '2.25vh',
+    left: '41.2%',
+    top: '55.5%',
+  },
+  [theme.breakpoints.up('xl')]: {
+    fontSize: '2.25vh',
+    left: '41.2%',
+    top: '55.5%',
+  },
+}));
+
 const Profile: React.FC<ProfileProps> = ({
   auth,
   updateProfile,
@@ -232,16 +322,15 @@ const Profile: React.FC<ProfileProps> = ({
           </Link>
           <div className="profilewelcometoo">Profile</div>
           <UpdateProfileButton />
-          <div className="currentprofileinfo">
-            <h4 className="establishmentinputbarv2">
+          
+            <EstablishmentInput>
               Establishment Name: {user.establishmentname || ''}
-            </h4>
-            <h4 className="websiteinputbarv2">Website: {user.website || ''}</h4>
-            <h4 className="phonenumberinputbarv2">
+            </EstablishmentInput>
+            <WebsiteInput>Website: {user.website || ''}</WebsiteInput>
+            <PhoneInput>
               Phone Number: {formatPhoneNumber(user.phonenumber) || ''}
-            </h4>
+            </PhoneInput>
           </div>
-        </div>
       ) : (
         <Fade in={true}>
           <div className="profile">
