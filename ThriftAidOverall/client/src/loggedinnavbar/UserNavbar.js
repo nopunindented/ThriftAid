@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Logo from "../navbar/Logo.js";
 import SearchButton from "../navbar/searchb.js";
 import SignupButton from "../navbar/Signup.tsx";
-import LoginButton from "../navbar/Login.js";
+import LoginButton from "../navbar/Login.tsx";
 import { connect } from "react-redux";
 import { logoutUser } from "../actions/authActions.js";
 import { useNavigate } from "react-router-dom";

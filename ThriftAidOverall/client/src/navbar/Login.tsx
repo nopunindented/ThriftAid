@@ -4,22 +4,25 @@ import { styled } from "@mui/material/styles"; // Import styled from the correct
 import Typography from "@mui/material/Typography"; // Import Typography
 import { useTheme } from "@mui/material/styles";
 
-const handleSignupBClick = () => {
-  window.location.href = 'http://localhost:3000/register';
+const handleLoginClick = () => {
+  window.location.href = 'http://localhost:3000/login';
 };
 
-export default function SignupButton() {
-    const theme= useTheme();
+export default function LoginButton() {
+  const theme= useTheme();
     return(
         <Button
       variant="text"
       sx={{
         color: "#F7F3F3",
         fontFamily: 'Noto Sans',
-        fontSize: "4vh",
+        fontSize: "4.2vh",
         fontStyle: 'normal',
         fontWeight: 700,
         textAlign: 'center',
+        height: "50%",
+        left: "56.5%",
+        top: "23%",
         textTransform: 'none',
         ":hover": {
           bgcolor: "#F7F3F3",
@@ -27,32 +30,32 @@ export default function SignupButton() {
         },
         [theme.breakpoints.up('xl')]: {
           height: "50%",
-          left: "74%",
-          top: "24%",
+          left: "56.5%",
+          top: "23%",
         },
         [theme.breakpoints.up('lg')]: {
           height: "50%",
-          left: "71.9%",
-          top: "24%",
+          left: "55%",
+          top: "23%",
         },
         [theme.breakpoints.up('md')]: {
           height: "50%",
-          left: "62.9%",
-          top: "24%",
+          left: "41.5%",
+          top: "23%",
         },
         [theme.breakpoints.up('sm')]: {
           height: "50%",
-          left: "50%",
-          top: "24%",
+          left: "22.5%",
+          top: "23%",
         },
         [theme.breakpoints.up('xs')]: {
           height: "42%",
-          left: "10%",
-          top: "46%",
+          left: "74%",
+          top: "-48%",
         },
       }}
-    onClick={handleSignupBClick}>
-      Sign up
+    onClick={handleLoginClick}>
+      Login
     </Button>
   );
 }
