@@ -305,6 +305,45 @@ const SignUp = styled('div')(({ theme }) => ({
   },
 }));
 
+const OrOption = styled('div')(({ theme }) => ({
+  position: 'absolute',
+  color: '#919394',
+  [theme.breakpoints.up('xs')]: {
+    top: '89%',
+    left: '60.1%',
+    fontSize: '2.4vh',
+    fontWeight: 50,
+    width: '35.2vw',
+    height: '5vh',
+  },
+  [theme.breakpoints.up('sm')]: {
+    top: '77.5%',
+    left: '53%',
+    fontSize: '2.4vh',
+    fontWeight: 50,
+    width: '35.2vw',
+    height: '5vh',
+  },
+  [theme.breakpoints.up('md')]: {
+    left: '53.8%',
+    top: '77.5%',
+    fontSize: '2.1vh',
+    fontWeight: 20,
+  },
+  [theme.breakpoints.up('lg')]: {
+    left: '50.8%',
+    top: '77.5%',
+    fontSize: '2.1vh',
+    fontWeight: 20,
+  },
+  [theme.breakpoints.up('xl')]: {
+    left: '49.8%',
+    top: '77.5%',
+    fontSize: '2.1vh',
+    fontWeight: 20,
+  },
+}));
+
 const Register: React.FC<any> = ({ registerUser }: any) => {
   const dispatch = useDispatch();
   const auth = useSelector((state: any) => state.auth);
@@ -494,7 +533,7 @@ const Register: React.FC<any> = ({ registerUser }: any) => {
             </Button>
           </form>
         </div>
-        <div className="oroption">or</div>
+        <OrOption>or</OrOption>
         <Button
           variant="text"
           sx={{
