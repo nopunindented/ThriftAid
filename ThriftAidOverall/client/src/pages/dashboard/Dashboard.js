@@ -5,7 +5,7 @@ import { logoutUser } from "../../actions/authActions";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { Button, Dialog, DialogContent } from "@mui/material";
-import GoogleMaps from "../postings/googlemaps";
+import GoogleMaps from "../postings/googlemaps.js";
 import Logo from "./PostingLogo";
 import mapmarker from "../postings/mapmarker.svg"
 import clock from "../postings/clock.svg"

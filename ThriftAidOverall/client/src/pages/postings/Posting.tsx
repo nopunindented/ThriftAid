@@ -6,6 +6,9 @@ import { Button, Dialog, DialogContent, Fade, TextField } from '@mui/material';
 import PostingLogo from './postinglogo';
 import { Link } from 'react-router-dom';
 import GoogleMaps from './googlemaps';
+import { styled } from "@mui/material/styles"; // Import styled from the correct location
+import Typography from "@mui/material/Typography"; // Import Typography
+import { useTheme } from "@mui/material/styles";
 
 interface RootState {
   auth: AuthState;
@@ -29,7 +32,6 @@ interface ErrorState {
   pickupdate: string;
   pickuptime: string;
 }
-
 interface NewPostingProps {
   auth: AuthState;
   createPosting: (newPosting: any, history: any) => void;
@@ -205,6 +207,7 @@ const NewPosting: React.FC<NewPostingProps> = ({ auth, createPosting, errors, hi
                 color: '#F7F3F3',
                 textTransform: 'none',
               },
+
             }}
           >
             Create Posting
