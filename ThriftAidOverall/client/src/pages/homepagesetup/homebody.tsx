@@ -94,7 +94,131 @@ const HometextSecondary = styled('p')(({ theme }) => ({
         fontSize: "2.4vh",
     },
   }));
+  const EllipseOne = styled('div')(({ theme }) => ({
+    position: 'absolute',
+    width: '42vw',
+    height: '90%',
+    left: '-8%',
+    top: '-32%',
+    borderRadius: '50%',
+    background: 'rgba(120, 240, 187, 0.21)',
+    boxShadow: '0px 4px 30px rgba(0, 0, 0, 0.2)',
+    [theme.breakpoints.up('xs')]: {
+        width: '76vw',
+        height: '90%',
+        left: '-20%',
+        top: '-40%',
+    },
+    [theme.breakpoints.up('sm')]: {
+        width: '46vw',
+        height: '90%',
+        left: '-10%',
+        top: '-40%',
+    },
+    [theme.breakpoints.up('md')]: {
+        width: '42vw',
+        height: '90%',
+        left: '-8%',
+        top: '-32%',
+    },
+    [theme.breakpoints.up('lg')]: {
+        width: '42vw',
+        height: '90%',
+        left: '-8%',
+        top: '-32%',
+    },
+    [theme.breakpoints.up('xl')]: {
+        width: '42vw',
+        height: '90%',
+        left: '-8%',
+        top: '-32%',
+    },
+  }));
 
+  const EllipseTwo = styled('div')(({ theme }) => ({
+    position: 'absolute',
+    width: '50%',
+    height: '90%',
+    left: '80%',
+    top: '-47%',
+    borderRadius: '50%',
+    background: 'rgba(120, 240, 187, 0.28)',
+    boxShadow: '0px 4px 30px rgba(0, 0, 0, 0.2)',
+    overflow: 'hidden',
+    [theme.breakpoints.up('xs')]: {
+        width: '60%',
+        height: '90%',
+        left: '80%',
+        top: -'47%',
+    },
+    [theme.breakpoints.up('sm')]: {
+        width: '50%',
+        height: '90%',
+        left: '80%',
+        top: -'47%',
+    },
+    [theme.breakpoints.up('md')]: {
+        width: '50%',
+        height: '90%',
+        left: '80%',
+        top: -'47%',
+    },
+    [theme.breakpoints.up('lg')]: {
+        width: '50%',
+        height: '90%',
+        left: '80%',
+        top: -'47%',
+    },
+    [theme.breakpoints.up('xl')]: {
+        width: '50%',
+        height: '90%',
+        left: '80%',
+        top: '-47%',
+    },
+  }));
+
+  const EllipseThree = styled('div')(({ theme }) => ({
+    position: 'absolute',
+    width: '50%',
+    height: '82%',
+    left: '47%',
+    top: '72%',
+    borderRadius: '50%',
+    background: 'rgba(120, 240, 187, 0.28)',
+    boxShadow: '0px 4px 30px rgba(0, 0, 0, 0.2)',
+    overflow: 'hidden',
+    [theme.breakpoints.up('xs')]: {
+        width: '50%',
+        height: '90%',
+        left: '75%',
+        top: -'47%',
+    },
+    [theme.breakpoints.up('sm')]: {
+        width: '50%',
+        height: '90%',
+        left: '80%',
+        top: -'47%',
+    },
+    [theme.breakpoints.up('md')]: {
+        width: '50%',
+        height: '90%',
+        left: '80%',
+        top: -'47%',
+    },
+    [theme.breakpoints.up('lg')]: {
+        width: '50%',
+        height: '82%',
+        left: '47%',
+        top: '72%',
+    },
+    [theme.breakpoints.up('xl')]: {
+        width: '50%',
+        height: '82%',
+        left: '47%',
+        top: '72%',
+    },
+  }));
+  
 export default function Homebody() {
   return (
     <div>
@@ -105,9 +229,9 @@ export default function Homebody() {
           with the goal of reducing waste. Thrift stores with excess clothes can post a listing,
           and a homeless shelter on the platform can choose to accept it. 
         </HometextSecondary>
-        <ellipse className="ellipse1" />
-        <ellipse className="ellipse2" />
-        <ellipse className="ellipse3" />
+        <EllipseOne />
+        <EllipseTwo />
+        <EllipseThree />
       </div>
     </div>
   );
