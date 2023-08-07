@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Logo from "../navbar/Logo.js";
-import SearchButton from "../navbar/searchb.js";
+import Logo from "../navbar/Logo.tsx";
+import SearchButton from "../navbar/searchb.tsx";
 import SignupButton from "../navbar/Signup.tsx";
 import LoginButton from "../navbar/Login.tsx";
 import { connect } from "react-redux";
