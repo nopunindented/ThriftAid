@@ -8,7 +8,7 @@ import { Provider } from 'react-redux';
 import { persistor } from './store';
 import { PersistGate } from 'redux-persist/integration/react';
 import Login from './auth/Login.js';
-import Home from './pages/Home.js';
+import Home from './pages/Home.tsx';
 import Register from './auth/Signup';
 import Dashboard from './pages/dashboard/Dashboard';
 import UserNavbar from './loggedinnavbar/UserNavbar.js';
