@@ -11,7 +11,7 @@ import Login from './auth/Login.js';
 import Home from './pages/Home.tsx';
 import Register from './auth/Signup';
 import Dashboard from './pages/dashboard/Dashboard';
-import UserNavbar from './loggedinnavbar/UserNavbar.js';
+import UserNavbar from './loggedinnavbar/UserNavbar.tsx';
 import Profile from './pages/profile/Profile';
 import NewPosting from './pages/postings/Posting'
 import AllPostings from './pages/postings/AllPostings';
