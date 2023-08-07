@@ -1,0 +1,252 @@
+import React, { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { loginUser, logoutUser } from "../actions/authActions";
+import { Button } from "@mui/material";
+import LoginLogo from "./Loginpagelogo.tsx";
+
+const handleSignupClick = () => {
+  window.location.href = "http://localhost:3000/register";
+};
+
+const handleAlreadyLogged = () => {
+  window.location.href = "http://localhost:3000/dashboard";
+};
+
+const DashboardButton: React.FC = () => {
+  return (
+    <Button
+      type="button"
+      sx={{
+        position: "absolute",
+        display: "flex",
+        color: "#F7F3F3",
+        fontFamily: "Noto Sans",
+        fontSize: 15,
+        fontStyle: "normal",
+        fontWeight: 700,
+        textAlign: "center",
+        height: "5%",
+        left: "42%",
+        top: "61%",
+        width: "17%",
+        textTransform: "none",
+        bgcolor: "#24a0ed",
+        ":hover": {
+          bgcolor: "#0792e8",
+          color: "#F7F3F3",
+          textTransform: "none",
+        },
+      }}
+      onClick={handleAlreadyLogged}
+    >
+      Dashboard
+    </Button>
+  );
+};
+
+interface LoginProps {
+  loginUser: (userData: any, navigate: any) => void;
+  logoutUser: () => void;
+  auth: any;
+  errors: any;
+}
+
+const Login: React.FC<LoginProps> = ({
+  loginUser,
+  logoutUser,
+  auth,
+  errors,
+}) => {
+  const navigate = useNavigate();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [loginErrors, setLoginErrors] = useState<any>({});
+  const [loggedInEmail, setLoggedInEmail] = useState("");
+
+  useEffect(() => {
+    setLoginErrors(errors);
+  }, [errors]);
+
+  const onLogoutClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    logoutUser();
+    navigate("/login");
+  };
+
+  useEffect(() => {
+    setLoginErrors(errors);
+
+    const savedEmail = localStorage.getItem("loggedInEmail");
+    if (savedEmail) {
+      setLoggedInEmail(savedEmail);
+    }
+  }, [errors]);
+
+  const onSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+
+    const userData = {
+      email: email,
+      password: password,
+    };
+    loginUser(userData, navigate);
+    setLoggedInEmail(email);
+    localStorage.setItem("loggedInEmail", email);
+  };
+  return (
+    <div className="container">
+      {auth.isAuthenticated ? (
+        <div>
+          <div className="signupbox" />
+          <div className="loggedinemail">
+            Hi {loggedInEmail}, you're already logged in!
+          </div>
+          <div className="loggedinemaildashboard">
+            You can go to your dashboard or logout:
+          </div>
+          <DashboardButton />
+          <Button
+            type="submit"
+            sx={{
+              position: "absolute",
+              display: "flex",
+              color: "#F7F3F3",
+              fontFamily: "Noto Sans",
+              fontSize: 15,
+              fontStyle: "normal",
+              fontWeight: 700,
+              textAlign: "center",
+              height: "5%",
+              left: "42%",
+              top: "67%",
+              width: "17%",
+              textTransform: "none",
+              bgcolor: "#5ab0f2",
+              ":hover": {
+                bgcolor: "#4baaf2",
+                color: "#F7F3F3",
+                textTransform: "none",
+              },
+            }}
+            onClick={onLogoutClick}
+          >
+            Logout
+          </Button>
+        </div>
+      ) : (
+        <div className="container">
+          <div className="signupbox" />
+          <div className="loginwelcometoo">Sign in</div>
+          <div style={{ marginTop: "4rem" }} className="row">
+            <div className="col s8 offset-s2">
+              <div className="col s12" style={{ paddingLeft: "11.250px" }}></div>
+              <form noValidate onSubmit={onSubmit}>
+                <div className="input-field col s12">
+                  <input
+                    onChange={(e) => setEmail(e.target.value)}
+                    value={email}
+                    onError={loginErrors.email}
+                    id="email"
+                    type="email"
+                    className="emailinputbar"
+                    placeholder="Email"
+                  />
+                  <span className="inputerror">
+                    {loginErrors.email || loginErrors.emailnotfound}
+                  </span>
+                </div>
+                <div className="input-field col s12">
+                  <input
+                    onChange={(e) => setPassword(e.target.value)}
+                    value={password}
+                    onError={loginErrors.password}
+                    id="password"
+                    type="password"
+                    placeholder="Password"
+                    className="passwordinputbar"
+                  />
+                  <span className="inputerror">
+                    {loginErrors.password || loginErrors.passwordincorrect}
+                  </span>
+                </div>
+                <Button
+                  type="submit"
+                  sx={{
+                    position: "absolute",
+                    display: "flex",
+                    color: "#F7F3F3",
+                    fontFamily: "Noto Sans",
+                    fontSize: 15,
+                    fontStyle: "normal",
+                    fontWeight: 700,
+                    textAlign: "center",
+                    height: 30,
+                    left: "40%",
+                    top: "55%",
+                    width: 317,
+                    textTransform: "none",
+                    bgcolor: "#24a0ed",
+                    ":hover": {
+                      bgcolor: "#0792e8",
+                      color: "#F7F3F3",
+                      textTransform: "none",
+                    },
+                  }}
+                >
+                  Login
+                </Button>
+                <div className="loginoroption">or</div>
+                <Link to="/">
+                  <LoginLogo />
+                </Link>
+              </form>
+              <Button
+                type="button"
+                sx={{
+                  position: "absolute",
+                  display: "flex",
+                  color: "#F7F3F3",
+                  fontFamily: "Noto Sans",
+                  fontSize: 15,
+                  fontStyle: "normal",
+                  fontWeight: 700,
+                  textAlign: "center",
+                  height: 30,
+                  left: "40%",
+                  top: "64%",
+                  width: 317,
+                  textTransform: "none",
+                  bgcolor: "#5ab0f2",
+                  ":hover": {
+                    bgcolor: "#4baaf2",
+                    color: "#F7F3F3",
+                    textTransform: "none",
+                  },
+                }}
+                onClick={handleSignupClick}
+              >
+                Click here to sign up instead!
+              </Button>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+};
+
+Login.propTypes = {
+  loginUser: PropTypes.func.isRequired,
+  logoutUser: PropTypes.func.isRequired,
+  auth: PropTypes.object.isRequired,
+  errors: PropTypes.object.isRequired,
+};
+
+const mapStateToProps = (state: any) => ({
+  auth: state.auth,
+  errors: state.errors,
+});
+
+export default connect(mapStateToProps, { loginUser, logoutUser })(Login);
