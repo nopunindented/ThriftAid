@@ -14,7 +14,7 @@ import Dashboard from './pages/dashboard/Dashboard';
 import UserNavbar from './loggedinnavbar/UserNavbar.tsx';
 import Profile from './pages/profile/Profile.tsx';
 import NewPosting from './pages/postings/Posting.tsx'
-import AllPostings from './pages/postings/AllPostings';
+import AllPostings from './pages/postings/AllPostings.tsx';
 import Errorpage from './Errorpage';
 
 function App() {
