@@ -3,8 +3,11 @@ import { Link, useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { loginUser, logoutUser } from "../actions/authActions";
-import { Button } from "@mui/material";
-import LoginLogo from "./Loginpagelogo.tsx";
+import { Button, Card } from "@mui/material";
+import  LoginLogo from "./Loginpagelogo.tsx";
+import { styled } from "@mui/material/styles"; // Import styled from the correct location
+import Typography from "@mui/material/Typography"; // Import Typography
+import { useTheme } from "@mui/material/styles";
 
 const handleSignupClick = () => {
   window.location.href = "http://localhost:3000/register";
@@ -13,6 +16,44 @@ const handleSignupClick = () => {
 const handleAlreadyLogged = () => {
   window.location.href = "http://localhost:3000/dashboard";
 };
+
+const SignupBox = styled(Card)(({ theme }) => ({
+  position: 'absolute',
+  display: 'inline-block',
+  borderRadius: '2%',
+  background: 'white',
+  boxShadow: '0px 4px 30px rgba(0.1, 0.1, 0.1, 0.25)',
+  [theme.breakpoints.up('xs')]: {
+    width: '66%',
+    height: '60%',
+    top: '21%',
+    left: '28.3%',
+  },
+  [theme.breakpoints.up('sm')]: {
+    width: '38%',
+    height: '60%',
+    top: '21%',
+    left: '35%',
+  },
+  [theme.breakpoints.up('md')]: {
+    width: '30%',
+    height: '60%',
+    top: '21%',
+    left: '39.3%',
+  },
+  [theme.breakpoints.up('lg')]: {
+    width: '24%',
+    height: '60%',
+    top: '21%',
+    left: '39.3%',
+  },
+  [theme.breakpoints.up('xl')]: {
+    width: '22%',
+    height: '60%',
+    top: '21%',
+    left: '39.3%',
+  },
+}));
 
 const DashboardButton: React.FC = () => {
   return (
@@ -99,7 +140,7 @@ const Login: React.FC<LoginProps> = ({
     <div className="container">
       {auth.isAuthenticated ? (
         <div>
-          <div className="signupbox" />
+          <SignupBox />
           <div className="loggedinemail">
             Hi {loggedInEmail}, you're already logged in!
           </div>
@@ -137,7 +178,7 @@ const Login: React.FC<LoginProps> = ({
         </div>
       ) : (
         <div className="container">
-          <div className="signupbox" />
+          <SignupBox />
           <div className="loginwelcometoo">Sign in</div>
           <div style={{ marginTop: "4rem" }} className="row">
             <div className="col s8 offset-s2">
