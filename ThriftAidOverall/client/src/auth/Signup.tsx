@@ -165,7 +165,7 @@ const UserInputV2 = styled('input')(({ theme }) => ({
     border: '3px solid #24a0ed',
   },
   [theme.breakpoints.up('xs')]: {
-    top: '56.5%',
+    top: '56%',
     left: '30.5%',
     fontSize: '3vh',
     fontWeight: '10',
@@ -207,6 +207,43 @@ const UserInputV2 = styled('input')(({ theme }) => ({
 }));
 
 
+
+const RadioBar = styled('div')(({ theme }) => ({
+  position: 'absolute',
+  background: 'transparent',
+  borderRadius: '3px',
+  border: '0.1px solid #a9a9a9',
+  [theme.breakpoints.up('xs')]: {
+    left: '35.4%',
+    top: '73.5%',
+    width: '60.8%',
+    height: '8.7vh',
+  },
+  [theme.breakpoints.up('sm')]: {
+    left: '36.3%',
+    top: '65.7%',
+    width: '35.5%',
+    height: '4.7vh',
+  },
+  [theme.breakpoints.up('md')]: {
+    left: '40%',
+    top: '65.7%',
+    width: '28.5%',
+    height: '4.5vh',
+  },
+  [theme.breakpoints.up('lg')]: {
+    left: '40%',
+    top: '65.7%',
+    width: '22.2%',
+    height: '4.5vh',
+  },
+  [theme.breakpoints.up('xl')]: {
+    left: '40%',
+    top: '65.7%',
+    width: '20.5%',
+    height: '4.5vh',
+  },
+}));
 
 const Register: React.FC<any> = ({ registerUser }: any) => {
   const dispatch = useDispatch();
@@ -266,7 +303,7 @@ const Register: React.FC<any> = ({ registerUser }: any) => {
   return (
     <div className="container">
       <div className="row">
-        <div className="typeofaccountoutline"></div>
+        <RadioBar />
         <div className="choicebetweenaccounts">Choose your account type:</div>
         <div className="col s8 offset-s2">
           <form noValidate onSubmit={handleSubmit}>
