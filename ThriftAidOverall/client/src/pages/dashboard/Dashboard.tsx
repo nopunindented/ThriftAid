@@ -14,6 +14,7 @@ import emailicon from "../postings/email.svg";
 import phoneicon from "../postings/phone.svg";
 import xmark from "../postings/xmark.png";
 import { PaperProps } from "@mui/material";
+import { ThemeProvider, createTheme, useTheme } from '@mui/material';
 
 // Define types
 interface RootState {
@@ -47,7 +48,9 @@ const Dashboard: React.FC<DashboardProps> = ({ auth, logoutUser }) => {
   const [selectedPostAddress, setSelectedPostAddress] = useState<string | null>(null);
   const [selectedPostin, setSelectedPostin] = useState<any | null>(null);
 
-  const PurpleAccepted = () => (
+  function PurpleAccepted () {
+    const theme= useTheme();
+    return(
     <Button
       type="submit"
       variant="contained"
@@ -56,14 +59,9 @@ const Dashboard: React.FC<DashboardProps> = ({ auth, logoutUser }) => {
         display: "flex",
         color: "#F7F3F3",
         fontFamily: "Noto Sans",
-        fontSize: 15,
-        fontStyle: "normal",
         fontWeight: 700,
         textAlign: "center",
-        height: "6%",
-        left: "13.3%",
-        top: "20%",
-        width: "36.7%",
+        fontStyle: "normal",
         textTransform: "none",
         bgcolor: "#832ed9",
         ":hover": {
@@ -71,13 +69,51 @@ const Dashboard: React.FC<DashboardProps> = ({ auth, logoutUser }) => {
           color: "#F7F3F3",
           textTransform: "none",
         },
+        [theme.breakpoints.up("xs")]: {
+          fontSize: "2.3vh",
+          height: "3%",
+          left: "4.4%",
+          top: "14.6%",
+          width: "90.1%",
+        },
+        [theme.breakpoints.up("sm")]: {
+          fontSize: "2.3vh",
+          height: "6%",
+          left: "2.1%",
+          top: "18%",
+          width: "59.2%",
+        },
+        [theme.breakpoints.up("md")]: {
+          fontSize: "2.3vh",
+          height: "6%",
+          left: "0.2%",
+          top: "20%",
+          width: "49.8%",
+        },
+        [theme.breakpoints.up("lg")]: {
+          fontSize: "2.3vh",
+          height: "6%",
+          left: "9.5%",
+          top: "20%",
+          width: "40.8%",
+        },
+        [theme.breakpoints.up("xl")]: {
+          fontSize: "2.3vh",
+          height: "6%",
+          left: "13.3%",
+          top: "18%",
+          width: "36.7%",
+        },
       }}
     >
-      Postings you Accepted
+      Postings you accepted
     </Button>
   );
+    }
 
-  const PurpleAcceptedOfYours = () => (
+function PurpleAcceptedOfYours () {
+    const theme= useTheme();
+    return(
     <Button
       type="submit"
       variant="contained"
@@ -86,27 +122,57 @@ const Dashboard: React.FC<DashboardProps> = ({ auth, logoutUser }) => {
         display: "flex",
         color: "#F7F3F3",
         fontFamily: "Noto Sans",
-        fontSize: 15,
-        fontStyle: "normal",
         fontWeight: 700,
         textAlign: "center",
-        height: "6%",
-        left: "13.3%",
-        top: "18%",
-        width: "36.7%",
+        fontStyle: "normal",
         textTransform: "none",
         bgcolor: "#832ed9",
         ":hover": {
           bgcolor: "#832ed9",
           color: "#F7F3F3",
           textTransform: "none",
+        },
+        [theme.breakpoints.up("xs")]: {
+          fontSize: "2.3vh",
+          height: "3%",
+          left: "4.4%",
+          top: "14.6%",
+          width: "90.1%",
+        },
+        [theme.breakpoints.up("sm")]: {
+          fontSize: "2.3vh",
+          height: "6%",
+          left: "2.1%",
+          top: "18%",
+          width: "59.2%",
+        },
+        [theme.breakpoints.up("md")]: {
+          fontSize: "2.3vh",
+          height: "6%",
+          left: "0.2%",
+          top: "20%",
+          width: "49.8%",
+        },
+        [theme.breakpoints.up("lg")]: {
+          fontSize: "2.3vh",
+          height: "6%",
+          left: "9.5%",
+          top: "20%",
+          width: "40.8%",
+        },
+        [theme.breakpoints.up("xl")]: {
+          fontSize: "2.3vh",
+          height: "6%",
+          left: "13.3%",
+          top: "18%",
+          width: "36.7%",
         },
       }}
     >
       Postings of yours that were Accepted
     </Button>
   );
-
+    }
   const dialogStyle = {
     width: "20%",
     height: "40%",
@@ -376,7 +442,6 @@ const Dashboard: React.FC<DashboardProps> = ({ auth, logoutUser }) => {
 
     return (
       <div>
-        <div className="pastpostings">Your past postings: </div>
         <div className="page-container-two">
           <PurpleAcceptedOfYours />
           <div className="postings-container-dashboard-thrift">
