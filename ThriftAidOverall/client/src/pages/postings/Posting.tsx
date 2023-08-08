@@ -146,6 +146,7 @@ const NewPosting: React.FC<NewPostingProps> = ({ auth, createPosting, errors, hi
           <PostingLogo />
         </Link>
         <div className="postingwelcometoo">Create Posting</div>
+        <div className="postingwelcometoo-v2">Need a profile to be able to create a posting</div>
         <form onSubmit={onSubmit}>
           <input
             className="establishmentinputbarv3"

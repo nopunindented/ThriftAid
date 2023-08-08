@@ -460,7 +460,7 @@ function PurpleAcceptedOfYours () {
           }}
           onClick={createPosting}
         >
-          Check Profile
+          Create/Update Profile
         </Button>
         <Button
           type="submit"

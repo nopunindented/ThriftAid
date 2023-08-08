@@ -1256,6 +1256,15 @@ box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);
       font-family: 'Open sans';
     }
 
+    .postingwelcometoo-v2{
+      position: absolute;
+      color: red;
+      left: 21.1%;
+      top: 24.7%;
+      font-size: 1.5vh;
+      font-family: 'Open sans';
+    }
+
 .map-container {
   width: 44vh;
   height: 67vh;
