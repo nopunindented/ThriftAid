@@ -37,6 +37,36 @@ interface ButtonProps {
   onClick: () => void;
 }
 
+const SignIn = styled('div')(({ theme }) => ({
+  position: 'absolute',
+  fontFamily: 'Open sans',
+  [theme.breakpoints.up('xs')]: {
+    left: '55.2%',
+    top: '32.4%',
+    fontSize: '2.5vh'
+  },
+  [theme.breakpoints.up('sm')]: {
+    left: '50.8%',
+    top: '32%',
+    fontSize: '2.5vh'
+  },
+  [theme.breakpoints.up('md')]: {
+    left: '52%',
+    top: '31%',
+    fontSize: '2.5vh'
+  },
+  [theme.breakpoints.up('lg')]: {
+    left: '49%',
+    top: '31%',
+    fontSize: '2.5vh'
+  },
+  [theme.breakpoints.up('xl')]: {
+    left: '48.5%',
+    top: '31%',
+    fontSize: '2.5vh'
+  },
+}));
+
 const AllPostings: React.FC = () => {
   const [postings, setPostings] = useState<Posting[]>([]);
   const [selectedPostin, setSelectedPostin] = useState<Posting | null>(null);
@@ -103,10 +133,10 @@ const AllPostings: React.FC = () => {
           textTransform: 'none',
         },
         [theme.breakpoints.up('xs')]: {
-          fontSize: '0.7vh',
+          fontSize: '1vh',
           top: '91%',
-          height: '3%',
-          left: '10.7%',
+          height: '5%',
+          left: '26.7%',
           width: '50%',
         },
         [theme.breakpoints.up('sm')]: {
@@ -163,10 +193,10 @@ const AllPostings: React.FC = () => {
           textTransform: 'none',
         },
         [theme.breakpoints.up('xs')]: {
-          fontSize: '0.7vh',
-          top: '84.5%',
-          height: '7%',
-          left: '10.7%',
+          fontSize: '1vh',
+          top: '85.5%',
+          height: '6.5%',
+          left: '26.7%',
           width: '50%',
         },
         [theme.breakpoints.up('sm')]: {
@@ -224,10 +254,10 @@ const AllPostings: React.FC = () => {
           textTransform: 'none',
         },
         [theme.breakpoints.up('xs')]: {
-          fontSize: '0.7vh',
-          top: '92%',
-          height: '7%',
-          left: '10.1%',
+          fontSize: '1vh',
+          top: '92.5%',
+          height: '6.5%',
+          left: '26.7%',
           width: '50%',
         },
         [theme.breakpoints.up('sm')]: {
