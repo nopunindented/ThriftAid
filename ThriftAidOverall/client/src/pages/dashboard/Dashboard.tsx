@@ -143,7 +143,7 @@ function PurpleAcceptedOfYours () {
           height: "6%",
           left: "2.1%",
           top: "18%",
-          width: "59.2%",
+          width: "60.5%",
         },
         [theme.breakpoints.up("md")]: {
           fontSize: "2.3vh",

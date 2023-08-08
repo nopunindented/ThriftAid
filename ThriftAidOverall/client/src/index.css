@@ -1042,6 +1042,18 @@ box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);
   padding-top: 10%;
 }
 
+@media (max-width: 620px) {
+  .page-container {
+    position: fixed;
+    top: 0%;
+    height: calc(200vh - 6rem);
+    width: 100vw;
+    background-color: #f3f3f8;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-top: 10%;
+  }
+}
 
 .allpostings-container {
   display: flex;
@@ -1323,6 +1335,8 @@ box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);
   width: 100vw;
   background-color: #eeeded;
   padding-top: 10%;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 @media (max-width: 620px) {
@@ -1797,12 +1811,23 @@ box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);
   border-radius: 6px;
 }
 
+@media (max-width: 768px) {
+  .map-container-dashboard-thrift {
+    position: absolute;
+    width: 33%;
+    height: 63.5vh;
+    top: 25%;
+    left: 64.3%;
+    border-radius: 6px;
+  }
+}
+
 @media (max-width: 620px) {
   .map-container-dashboard-thrift {
     width: 60.5%;
     height: 67.95vh;
-    top: 59.7%;
-    left: 86.5%;
+    top: 109.7%;
+    left: 4.5%;
     border-radius: 6px;
   }
 }
