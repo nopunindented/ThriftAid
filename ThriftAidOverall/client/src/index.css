@@ -1101,7 +1101,7 @@ box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);
     .websiteinputbarv3 {
       border-radius: 3px;
       position: fixed;
-      top: 46%;
+      top: 53%;
       left: 29.1%;
       font-size: 18px;
       font-weight: 10;
@@ -1115,10 +1115,10 @@ box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);
   }
 
   @media (max-width: 1024px){
-    .establishmentinputbarv3 {
+    .websiteinputbarv3 {
       border-radius: 3px;
       position: fixed;
-      top: 46%;
+      top: 53%;
       left: 29.1%;
       font-size: 18px;
       font-weight: 10;
@@ -1132,10 +1132,10 @@ box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);
   }
 
   @media (max-width: 768px){
-    .establishmentinputbarv3 {
+    .websiteinputbarv3 {
       border-radius: 3px;
       position: fixed;
-      top: 46%;
+      top: 53%;
       left: 29.1%;
       font-size: 18px;
       font-weight: 10;
@@ -1149,10 +1149,10 @@ box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);
   }
 
   @media (max-width: 620px){
-    .establishmentinputbarv3 {
+    .websiteinputbarv3 {
       border-radius: 3px;
       position: fixed;
-      top: 46%;
+      top: 52.8%;
       left: 6.2%;
       font-size: 18px;
       font-weight: 10;
@@ -1176,16 +1176,84 @@ box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);
   .phonenumberinputbarv3{
     border-radius: 3px;
     position: fixed;
-    top: 60%;
-    left: 29.15%;
+    top: 59.5%;
+    left: 29.1%;
     font-size: 18px;
     font-weight: 10;
-    width: 310px;
-    height: 35px;
+    width: 20.2vw;
+    height: 5vh;
     border-width: 0.5px;
     border-color: #a9a9a9;
     padding: 0 10px; /* Add padding/margin effect to the wrapped lines */
     box-sizing: border-box; /* Include padding in the element's total width */
+  }
+
+  @media (max-width: 1440px){
+    .phonenumberinputbarv3 {
+      border-radius: 3px;
+      position: fixed;
+      top: 59.5%;
+      left: 29.1%;
+      font-size: 18px;
+      font-weight: 10;
+      width: 21.6vw;
+      height: 5.2vh;
+      border-width: 0.5px;
+      border-color: #a9a9a9;
+      padding: 0 10px; /* Add padding/margin effect to the wrapped lines */
+      box-sizing: border-box; /* Include padding in the element's total width */
+    }
+  }
+
+  @media (max-width: 1024px){
+    .phonenumberinputbarv3 {
+      border-radius: 3px;
+      position: fixed;
+      top: 59.7%;
+      left: 29.1%;
+      font-size: 18px;
+      font-weight: 10;
+      width: 30.3vw;
+      height: 6vh;
+      border-width: 0.5px;
+      border-color: #a9a9a9;
+      padding: 0 10px; /* Add padding/margin effect to the wrapped lines */
+      box-sizing: border-box; /* Include padding in the element's total width */
+    }
+  }
+
+  @media (max-width: 768px){
+    .phonenumberinputbarv3 {
+      border-radius: 3px;
+      position: fixed;
+      top: 60%;
+      left: 29.1%;
+      font-size: 18px;
+      font-weight: 10;
+      width: 40.5vw;
+      height: 6vh;
+      border-width: 0.5px;
+      border-color: #a9a9a9;
+      padding: 0 10px; /* Add padding/margin effect to the wrapped lines */
+      box-sizing: border-box; /* Include padding in the element's total width */
+    }
+  }
+
+  @media (max-width: 620px){
+    .phonenumberinputbarv3 {
+      border-radius: 3px;
+      position: fixed;
+      top: 59.8%;
+      left: 6.2%;
+      font-size: 18px;
+      font-weight: 10;
+      width: 64.5vw;
+      height: 6vh;
+      border-width: 0.5px;
+      border-color: #a9a9a9;
+      padding: 0 10px; /* Add padding/margin effect to the wrapped lines */
+      box-sizing: border-box; /* Include padding in the element's total width */
+    }
   }
   
   .phonenumberinputbarv3:focus{
@@ -1343,19 +1411,97 @@ box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);
     }
 
     .pickupd {
+    border-radius: 3px;
+    position: fixed;
+    top: 66%;
+    left: 29.1%;
+    font-size: 18px;
+    font-weight: 10;
+    width: 20.2vw;
+    height: 5vh;
+    border-width: 0.5px;
+    border-color: #a9a9a9;
+    padding: 0 10px; /* Add padding/margin effect to the wrapped lines */
+    box-sizing: border-box; /* Include padding in the element's total width */
+  }
+
+  @media (max-width: 1440px){
+    .pickupd {
       border-radius: 3px;
       position: fixed;
       top: 66%;
-      left: 29.15%;
+      left: 29.1%;
       font-size: 18px;
       font-weight: 10;
-      width: 310px;
-      height: 35px;
+      width: 21.6vw;
+      height: 5.2vh;
       border-width: 0.5px;
       border-color: #a9a9a9;
-      padding: 0 10px;
-      box-sizing: border-box;
+      padding: 0 10px; /* Add padding/margin effect to the wrapped lines */
+      box-sizing: border-box; /* Include padding in the element's total width */
     }
+  }
+
+  @media (max-width: 1024px){
+    .pickupd {
+      border-radius: 3px;
+      position: fixed;
+      top: 66.4%;
+      left: 29.1%;
+      font-size: 18px;
+      font-weight: 10;
+      width: 30.3vw;
+      height: 6vh;
+      border-width: 0.5px;
+      border-color: #a9a9a9;
+      padding: 0 10px; /* Add padding/margin effect to the wrapped lines */
+      box-sizing: border-box; /* Include padding in the element's total width */
+    }
+  }
+
+  @media (max-width: 768px){
+    .pickupd {
+      border-radius: 3px;
+      position: fixed;
+      top: 67%;
+      left: 29.1%;
+      font-size: 18px;
+      font-weight: 10;
+      width: 40.5vw;
+      height: 6vh;
+      border-width: 0.5px;
+      border-color: #a9a9a9;
+      padding: 0 10px; /* Add padding/margin effect to the wrapped lines */
+      box-sizing: border-box; /* Include padding in the element's total width */
+    }
+  }
+
+  @media (max-width: 620px){
+    .pickupd {
+      border-radius: 3px;
+      position: fixed;
+      top: 66.8%;
+      left: 6.2%;
+      font-size: 16px;
+      font-weight: 10;
+      width: 64.5vw;
+      height: 6vh;
+      border-width: 0.5px;
+      border-color: #a9a9a9;
+      padding: 0 10px; /* Add padding/margin effect to the wrapped lines */
+      box-sizing: border-box; /* Include padding in the element's total width */
+    }
+  }
+
+  @media (max-width: 620px){
+    .pickupd::placeholder {
+      position: relative;
+      font-size: 20px;
+      font-weight: 10;
+      left:0%;
+      top: 7%;
+    }
+  }
 
     .pickupt:focus{
       outline: 0;
@@ -1371,19 +1517,87 @@ box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);
     }
 
     .pickupt {
+    border-radius: 3px;
+    position: fixed;
+    top: 72.5%;
+    left: 29.1%;
+    font-size: 18px;
+    font-weight: 10;
+    width: 20.2vw;
+    height: 5vh;
+    border-width: 0.5px;
+    border-color: #a9a9a9;
+    padding: 0 10px; /* Add padding/margin effect to the wrapped lines */
+    box-sizing: border-box; /* Include padding in the element's total width */
+  }
+
+  @media (max-width: 1440px){
+    .pickupt {
       border-radius: 3px;
       position: fixed;
-      top: 73%;
-      left: 29.15%;
+      top: 72.5%;
+      left: 29.1%;
       font-size: 18px;
       font-weight: 10;
-      width: 310px;
-      height: 35px;
+      width: 21.6vw;
+      height: 5.2vh;
       border-width: 0.5px;
       border-color: #a9a9a9;
-      padding: 0 10px;
-      box-sizing: border-box;
+      padding: 0 10px; /* Add padding/margin effect to the wrapped lines */
+      box-sizing: border-box; /* Include padding in the element's total width */
     }
+  }
+
+  @media (max-width: 1024px){
+    .pickupt {
+      border-radius: 3px;
+      position: fixed;
+      top: 73.5%;
+      left: 29.1%;
+      font-size: 18px;
+      font-weight: 10;
+      width: 30.3vw;
+      height: 6vh;
+      border-width: 0.5px;
+      border-color: #a9a9a9;
+      padding: 0 10px; /* Add padding/margin effect to the wrapped lines */
+      box-sizing: border-box; /* Include padding in the element's total width */
+    }
+  }
+
+  @media (max-width: 768px){
+    .pickupt {
+      border-radius: 3px;
+      position: fixed;
+      top: 74%;
+      left: 29.1%;
+      font-size: 18px;
+      font-weight: 10;
+      width: 40.5vw;
+      height: 6vh;
+      border-width: 0.5px;
+      border-color: #a9a9a9;
+      padding: 0 10px; /* Add padding/margin effect to the wrapped lines */
+      box-sizing: border-box; /* Include padding in the element's total width */
+    }
+  }
+
+  @media (max-width: 620px){
+    .pickupt {
+      border-radius: 3px;
+      position: fixed;
+      top: 73.7%;
+      left: 6.2%;
+      font-size: 16px;
+      font-weight: 10;
+      width: 64.5vw;
+      height: 6vh;
+      border-width: 0.5px;
+      border-color: #a9a9a9;
+      padding: 0 10px; /* Add padding/margin effect to the wrapped lines */
+      box-sizing: border-box; /* Include padding in the element's total width */
+    }
+  }
 
     .postingwelcometoo{
       position: absolute;
