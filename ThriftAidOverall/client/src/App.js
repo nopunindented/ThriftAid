@@ -19,6 +19,7 @@ import Errorpage from './Errorpage.tsx';
 
 function App() {
   const navigate = useNavigate();
+
   useEffect(() => {
     const jwtToken = localStorage.getItem('jwtToken');
     if (jwtToken) {
@@ -39,6 +40,34 @@ function App() {
     }
   }, []);
 
+  useEffect(() => {
+    const path = window.location.pathname;
+    let title = 'ThriftAid'; // Default title
+
+    // Customize titles based on paths
+    if (path === '/dashboard') {
+      title = 'Dashboard';
+    } else if (path === '/profile') {
+      title = 'Profile';
+    } // Add more conditions as needed
+    else if (path === '/create') {
+      title = 'Create';
+    } 
+    else if (path === '/allpostings') {
+      title = 'All Postings';
+    }
+    else if (path === '/register') {
+      title = 'Sign up';
+    } 
+    else if (path === '/login') {
+      title = 'Login';
+    } 
+    else {
+      title = '404';
+    } 
+    document.title = title; // Update the document's title
+  }, []);
+
   return (
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
@@ -51,7 +80,7 @@ function App() {
             <Route path="/create" element={<NewPosting />} />
             <Route path="/allpostings" element={<AllPostings />} />
             <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="*" element= {<Errorpage />} />
+            <Route path="*" element={<Errorpage />} />
           </Routes>
           <UserNavbar />
         </div>
