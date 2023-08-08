@@ -5,6 +5,9 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import jwt_decode from 'jwt-decode';
+import { styled } from "@mui/material/styles"; // Import styled from the correct location
+import Typography from "@mui/material/Typography"; // Import Typography
+import { useTheme } from "@mui/material/styles";
 
 import setAuthToken from '../../utils/setAuthToken';
 import { setCurrentUser, logoutUser } from '../../actions/authActions';
@@ -15,10 +18,19 @@ const AccountMenu = ({ auth, logoutUser }) => {
   const open = Boolean(anchorEl);
   const navigate = useNavigate(); // Declare navigate here
   const { user, isAuthenticated } = auth;
+  const theme= useTheme();
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
+
+  const ifThrift= () =>{
+    if(user.usertype=== 'thrift store'){
+      return(
+        <h1>HELLO</h1>
+      )
+    }
+  }
 
   const handleClose = () => {
     setAnchorEl(null);
@@ -58,16 +70,43 @@ const AccountMenu = ({ auth, logoutUser }) => {
             variant="text"
             onClick={handleClick}
             sx={{
-              width: 180,
-              height: 30,
-              backgroundColor: 'transparent',
-              fontSize: 12,
               color: '#F7F3F3',
               fontFamily: 'Noto Sans',
               fontWeight: 700,
-              left: 1330,
+              backgroundColor: 'transparent',
+
               position: 'absolute',
               ':hover': { bgcolor: '#F7F3F3', color: '#25A96F' },
+              [theme.breakpoints.up('xs')]: {
+                width: "32vw",
+                height: 30,
+                fontSize: "2.vh",
+                left: "68.5%",
+              },
+              [theme.breakpoints.up('sm')]: {
+                width: "19vw",
+                height: 30,
+                fontSize: "2.vh",
+                left: "73.5%",
+              },
+              [theme.breakpoints.up('md')]: {
+                width: "15.5vw",
+                height: 30,
+                fontSize: "2.vh",
+                left: "76.5%",
+              },
+              [theme.breakpoints.up('lg')]: {
+                width: "12vw",
+                height: 30,
+                fontSize: "2.vh",
+                left: "80%",
+              },
+              [theme.breakpoints.up('xl')]: {
+                width: "12vw",
+                height: 30,
+                fontSize: "2.vh",
+                left: "85%",
+              },
             }}
             aria-controls={open ? 'account-menu' : undefined}
             aria-haspopup="true"
