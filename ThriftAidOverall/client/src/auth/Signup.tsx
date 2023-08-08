@@ -344,6 +344,8 @@ const OrOption = styled('div')(({ theme }) => ({
   },
 }));
 
+
+
 const Register: React.FC<any> = ({ registerUser }: any) => {
   const dispatch = useDispatch();
   const auth = useSelector((state: any) => state.auth);
