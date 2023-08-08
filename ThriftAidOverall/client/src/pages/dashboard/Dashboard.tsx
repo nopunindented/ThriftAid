@@ -47,9 +47,9 @@ const Dashboard: React.FC<DashboardProps> = ({ auth, logoutUser }) => {
   const [acceptedposts, setAcceptedPosts] = useState<any[]>([]);
   const [selectedPostAddress, setSelectedPostAddress] = useState<string | null>(null);
   const [selectedPostin, setSelectedPostin] = useState<any | null>(null);
+  const theme= useTheme();
 
   function PurpleAccepted () {
-    const theme= useTheme();
     return(
     <Button
       type="submit"
@@ -112,7 +112,6 @@ const Dashboard: React.FC<DashboardProps> = ({ auth, logoutUser }) => {
     }
 
 function PurpleAcceptedOfYours () {
-    const theme= useTheme();
     return(
     <Button
       type="submit"
@@ -194,50 +193,6 @@ function PurpleAcceptedOfYours () {
 
   const handleDialogClose = () => {
     setSelectedPostin(null);
-  };
-
-  const pickupaccept = {
-    position: "absolute",
-    display: "flex",
-    color: "#F7F3F3",
-    fontFamily: "Noto Sans",
-    fontSize: "1.4vh",
-    fontStyle: "normal",
-    fontWeight: 700,
-    textAlign: "center",
-    top: "84.5%",
-    height: "7%",
-    left: "21.7%",
-    width: "55%",
-    textTransform: "none",
-    bgcolor: "#5ab0f2",
-    ":hover": {
-      bgcolor: "#4baaf2",
-      color: "#F7F3F3",
-      textTransform: "none",
-    },
-  };
-
-  const buttonStyle = {
-    position: "absolute",
-    display: "flex",
-    color: "#F7F3F3",
-    fontFamily: "Noto Sans",
-    fontSize: "1.4vh",
-    fontStyle: "normal",
-    fontWeight: 700,
-    textAlign: "center",
-    top: "91%",
-    height: "7%",
-    left: "21.7%",
-    width: "55%",
-    textTransform: "none",
-    bgcolor: "#5ab0f2",
-    ":hover": {
-      bgcolor: "#4baaf2",
-      color: "#F7F3F3",
-      textTransform: "none",
-    },
   };
 
   const pickupbutton = {
@@ -457,20 +412,50 @@ function PurpleAcceptedOfYours () {
             display: "flex",
             color: "#F7F3F3",
             fontFamily: "Noto Sans",
-            fontSize: 15,
             fontStyle: "normal",
             fontWeight: 700,
             textAlign: "center",
-            height: "6%",
-            left: "52.3%",
-            top: "19.7%",
-            width: "18.15%",
             textTransform: "none",
             bgcolor: "#24a0ed",
             ":hover": {
               bgcolor: "#0792e8",
               color: "#F7F3F3",
               textTransform: "none",
+            },
+            [theme.breakpoints.up("xs")]: {
+              fontSize: "2.3vh",
+              height: "5%",
+              left: "4.4%",
+              top: "104.6%",
+              width: "90.1%",
+            },
+            [theme.breakpoints.up("sm")]: {
+              fontSize: "2vh",
+              height: "6%",
+              left: "64.3%",
+              top: "17.5%",
+              width: "16.15%",
+            },
+            [theme.breakpoints.up("md")]: {
+              fontSize: "2.3vh",
+              height: "6%",
+              left: "52.3%",
+              top: "20.5%",
+              width: "18.15%",
+            },
+            [theme.breakpoints.up("lg")]: {
+              fontSize: "2.3vh",
+              height: "6%",
+              left: "52.3%",
+              top: "21.5%",
+              width: "18.15%",
+            },
+            [theme.breakpoints.up("xl")]: {
+              fontSize: "2.3vh",
+              height: "6%",
+              left: "52.3%",
+              top: "19.7%",
+              width: "18.15%",
             },
           }}
           onClick={createPosting}
@@ -499,6 +484,41 @@ function PurpleAcceptedOfYours () {
               bgcolor: "#0792e8",
               color: "#F7F3F3",
               textTransform: "none",
+            },
+            [theme.breakpoints.up("xs")]: {
+              fontSize: "2.3vh",
+              height: "5%",
+              left: "4.4%",
+              top: "111.6%",
+              width: "90.1%",
+            },
+            [theme.breakpoints.up("sm")]: {
+              fontSize: "2vh",
+              height: "6%",
+              left: "81.3%",
+              top: "17.5%",
+              width: "16.15%",
+            },
+            [theme.breakpoints.up("md")]: {
+              fontSize: "2.3vh",
+              height: "6%",
+              left: "71%",
+              top: "20.5%",
+              width: "18.15%",
+            },
+            [theme.breakpoints.up("lg")]: {
+              fontSize: "2.3vh",
+              height: "6%",
+              left: "71.1%",
+              top: "21.5%",
+              width: "18.15%",
+            },
+            [theme.breakpoints.up("xl")]: {
+              fontSize: "2.3vh",
+              height: "6%",
+              left: "71%",
+              top: "19.7%",
+              width: "18.15%",
             },
           }}
           onClick={newPosting}
