@@ -37,33 +37,57 @@ interface ButtonProps {
   onClick: () => void;
 }
 
-const SignIn = styled('div')(({ theme }) => ({
+const SearchPost = styled("input")(({ theme }) => ({
   position: 'absolute',
-  fontFamily: 'Open sans',
-  [theme.breakpoints.up('xs')]: {
-    left: '55.2%',
-    top: '32.4%',
-    fontSize: '2.5vh'
+  borderRadius: '4%',
+  borderWidth: '1px',
+  borderColor: '#a9a9a9',
+  boxSizing: 'border-box',
+  "::placeholder": {
+    position: 'relative',
+    fontSize: '2.6vh',
+    fontWeight: 10,
+    left: '0%',
+    top: '7%'
   },
-  [theme.breakpoints.up('sm')]: {
-    left: '50.8%',
-    top: '32%',
-    fontSize: '2.5vh'
+  ":focus": {
+    outline: 0,
+    border: '2px solid #000000',
   },
-  [theme.breakpoints.up('md')]: {
-    left: '52%',
-    top: '31%',
-    fontSize: '2.5vh'
+  [theme.breakpoints.up("xs")]: {
+    left: '8%',
+    width: '88%',
+    fontSize: '2.3vh',
+    height: '4.5%',
+    top: "21.5%"
   },
-  [theme.breakpoints.up('lg')]: {
-    left: '49%',
-    top: '31%',
-    fontSize: '2.5vh'
+  [theme.breakpoints.up("sm")]: {
+    left: '26%',
+    width: '45%',
+    fontSize: '2.3vh',
+    height: '4.5%',
+    top: "19.5%"
   },
-  [theme.breakpoints.up('xl')]: {
-    left: '48.5%',
-    top: '31%',
-    fontSize: '2.5vh'
+  [theme.breakpoints.up("md")]: {
+    left: '29.55%',
+    width: '42%',
+    fontSize: '2.3vh',
+    height: '4.5%',
+    top: "19.5%"
+  },
+  [theme.breakpoints.up("lg")]: {
+    left: '29.55%',
+    width: '42%',
+    fontSize: '2.3vh',
+    height: '4.5%',
+    top: "19.5%"
+  },
+  [theme.breakpoints.up("xl")]: {
+    left: '29.55%',
+    width: '42%',
+    fontSize: '2.3vh',
+    height: '4.5%',
+    top: "19.5%"
   },
 }));
 
@@ -344,8 +368,7 @@ const AllPostings: React.FC = () => {
   return (
     <div className="page-container">
       <div>
-        <input
-          className="searchbar-for-posts"
+        <SearchPost
           type="text"
           placeholder="Enter a city or country to view posts from there"
           value={filterCity}
