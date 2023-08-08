@@ -2509,3 +2509,7 @@ box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);
   width: 200vw;
   color: #000000;
 }
+
+.thriftstorepost-dashboard-v3.focused {
+  outline: 2px solid black;
+}

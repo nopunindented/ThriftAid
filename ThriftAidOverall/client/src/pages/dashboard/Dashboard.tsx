@@ -42,6 +42,7 @@ type PropsFromRedux = ConnectedProps<typeof connector>;
 type DashboardProps = PropsFromRedux;
 
 const Dashboard: React.FC<DashboardProps> = ({ auth, logoutUser }) => {
+  const [focusedPost, setFocusedPost] = useState(null);
   const navigate = useNavigate();
   const { user, isAuthenticated } = auth;
   const [acceptedposts, setAcceptedPosts] = useState<any[]>([]);
@@ -231,15 +232,25 @@ function PurpleAcceptedOfYours () {
     (post) => post.userEmail === user.email
   );
 
+  const handlePostFocus = (post) => {
+    setFocusedPost(post);
+  };
+
+  const handlePostBlur = () => {
+    setFocusedPost(null);
+  };
+
   const thriftAcceptedPosts = useMemo(
     () =>
       userAcceptedPosts &&
       userAcceptedPosts.map((post) => (
         <div
           key={post.posting.email}
-          className="thriftstorepost-dashboard-v3"
+          className={`thriftstorepost-dashboard-v3${focusedPost === post ? ' focused' : ''}`}
           tabIndex={0}
           onClick={() => handleHomelessPostClick(post.posting.address, post.posting.city)}
+          onFocus={() => handlePostFocus(post)}
+          onBlur={handlePostBlur}
         >
           <Logo />
           <div className="thrifted-name">{post.posting.thriftstore}</div>
@@ -287,9 +298,11 @@ function PurpleAcceptedOfYours () {
       homelessAcceptedPosts.map((post) => (
         <div
           key={post.posting.email}
-          className="thriftstorepost-dashboard-v3"
+          className={`thriftstorepost-dashboard-v3${focusedPost === post ? ' focused' : ''}`}
           tabIndex={0}
           onClick={() => handleHomelessPostClick(post.posting.address, post.posting.city)}
+          onFocus={() => handlePostFocus(post)}
+          onBlur={handlePostBlur}
         >
           <Logo />
           <div className="thrifted-name">{post.posting.thriftstore}</div>
