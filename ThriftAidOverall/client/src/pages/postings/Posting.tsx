@@ -1,13 +1,11 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
 import { createPosting } from '../../actions/authActions';
 import { Button, Dialog, DialogContent, Fade, TextField, Card } from '@mui/material';
 import PostingLogo from './postinglogo.tsx';
 import { Link } from 'react-router-dom';
 import GoogleMaps from './googlemaps';
 import { styled } from "@mui/material/styles"; // Import styled from the correct location
-import Typography from "@mui/material/Typography"; // Import Typography
 import { useTheme } from "@mui/material/styles";
 
 interface RootState {

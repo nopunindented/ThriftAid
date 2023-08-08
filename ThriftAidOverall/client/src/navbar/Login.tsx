@@ -1,7 +1,5 @@
 import React from "react";
 import Button from '@mui/material/Button';
-import { styled } from "@mui/material/styles"; // Import styled from the correct location
-import Typography from "@mui/material/Typography"; // Import Typography
 import { useTheme } from "@mui/material/styles";
 
 const handleLoginClick = () => {

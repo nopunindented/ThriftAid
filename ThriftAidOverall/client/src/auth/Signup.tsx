@@ -3,11 +3,10 @@ import PropTypes from "prop-types";
 import { connect, useDispatch, useSelector } from "react-redux";
 import { registerUser } from "../actions/authActions";
 import { Link } from "react-router-dom";
-import { Button, InputLabel, Radio } from "@mui/material";
+import { Button} from "@mui/material";
 import SignupLogo from "./Signuppagelogo.tsx";
 import Swal from 'sweetalert2';
 import { styled } from "@mui/material/styles"; // Import styled from the correct location
-import Typography from "@mui/material/Typography"; // Import Typography
 import { useTheme } from "@mui/material/styles";
 
 interface Errors {

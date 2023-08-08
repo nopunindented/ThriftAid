@@ -1,7 +1,6 @@
 import React from "react";
 import Button from '@mui/material/Button';
 import { styled } from "@mui/material/styles";
-import Typography from "@mui/material/Typography";
 
 const CustomButton = styled(Button)({
   color: "#F7F3F3",

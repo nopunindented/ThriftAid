@@ -6,7 +6,6 @@ import { loginUser, logoutUser } from "../actions/authActions";
 import { Button, Card } from "@mui/material";
 import  LoginLogo from "./Loginpagelogo.tsx";
 import { styled } from "@mui/material/styles"; // Import styled from the correct location
-import Typography from "@mui/material/Typography"; // Import Typography
 import { useTheme } from "@mui/material/styles";
 
 const handleSignupClick = () => {
