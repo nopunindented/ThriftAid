@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { Button, Dialog, DialogContent } from "@mui/material";
 import GoogleMaps from "../postings/googlemaps";
-import Logo from "./PostingLogo";
+import Logo from "./PostingLogo.tsx";
 import mapmarker from "../postings/mapmarker.svg";
 import clock from "../postings/clock.svg";
 import website from "../postings/internet.svg";

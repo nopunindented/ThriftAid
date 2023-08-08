@@ -522,22 +522,108 @@ box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);
 .loginshirt{
   position: absolute;
   display: inline-block;
-  left: 5px;
-  width: 52px;
-  height: 52px;
-  top: 4.3px;
+  left: -12%;
+  width: 5vw;
+  height: 7vh;
+  top: 5.8%;
   
+}
+
+@media (max-width: 1024px){
+  .loginshirt{
+    position: absolute;
+    display: inline-block;
+    left: -4.5%;
+    width: 5vw;
+    height: 7vh;
+    top: 5.8%;
+    
+  }
+}
+
+@media (max-width: 768px){
+  .loginshirt{
+    position: absolute;
+    display: inline-block;
+    left: 2.5%;
+    width: 5vw;
+    height: 7vh;
+    top: 5.8%;
+  }
+}
+
+@media (max-width: 620px){
+  .loginshirt{
+    position: absolute;
+    display: inline-block;
+    left: 3.8%;
+    width: 8.5vw;
+    height: 7vh;
+    top: 3%;
+  }
 }
 
 .ellipse6{
   position: absolute;
-  width: 60px;
-  height: 60px;
+  width: 3.9vw;
+  height: 8vh;
   left: 48.25%;
   border-radius: 50%;
   top: 22%;
   background: rgba(24, 170, 237, 0.589);
   box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);
+  }
+
+  @media (max-width: 1440px){
+    .ellipse6{
+      position: absolute;
+      width: 3.9vw;
+      height: 8vh;
+      left: 49%;
+      border-radius: 50%;
+      top: 22%;
+      background: rgba(24, 170, 237, 0.589);
+      box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);
+      }
+  }
+
+  @media (max-width: 1024px){
+    .ellipse6{
+      position: absolute;
+      width: 4.4vw;
+      height: 8.1vh;
+      left: 51.8%;
+      border-radius: 50%;
+      top: 22%;
+      background: rgba(24, 170, 237, 0.589);
+      box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);
+      }
+  }
+  
+  @media (max-width: 768px){
+    .ellipse6{
+      position: absolute;
+      width: 5.2vw;
+      height: 7.8vh;
+      left: 51.8%;
+      border-radius: 50%;
+      top: 22%;
+      background: rgba(24, 170, 237, 0.589);
+      box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);
+      }
+  }
+
+  @media (max-width: 620px){
+    .ellipse6{
+      position: absolute;
+      width: 8.8vw;
+      height: 7.4vh;
+      left: 55.8%;
+      border-radius: 50%;
+      top: 24%;
+      background: rgba(24, 170, 237, 0.589);
+      box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);
+      }
   }
 
 .loginwelcometoo{
