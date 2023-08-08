@@ -2,10 +2,13 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { createPosting } from '../../actions/authActions';
-import { Button, Dialog, DialogContent, Fade, TextField } from '@mui/material';
+import { Button, Dialog, DialogContent, Fade, TextField, Card } from '@mui/material';
 import PostingLogo from './postinglogo.tsx';
 import { Link } from 'react-router-dom';
 import GoogleMaps from './googlemaps';
+import { styled } from "@mui/material/styles"; // Import styled from the correct location
+import Typography from "@mui/material/Typography"; // Import Typography
+import { useTheme } from "@mui/material/styles";
 
 interface RootState {
   auth: AuthState;
@@ -35,6 +38,44 @@ interface NewPostingProps {
   errors: ErrorState;
   history: any;
 }
+
+const SignupBox = styled(Card)(({ theme }) => ({
+  position: 'absolute',
+  display: 'inline-block',
+  borderRadius: '2%',
+  background: 'white',
+  boxShadow: '0px 4px 30px rgba(0.1, 0.1, 0.1, 0.25)',
+  [theme.breakpoints.up('xs')]: {
+    width: '66%',
+    height: '73%',
+    top: '21%',
+    left: '5.3%',
+  },
+  [theme.breakpoints.up('sm')]: {
+    width: '42.4%',
+    height: '75%',
+    top: '21%',
+    left: '28%',
+  },
+  [theme.breakpoints.up('md')]: {
+    width: '32%',
+    height: '74%',
+    top: '21%',
+    left: '28.2%',
+  },
+  [theme.breakpoints.up('lg')]: {
+    width: '23.6%',
+    height: '74%',
+    top: '21%',
+    left: '28.2%',
+  },
+  [theme.breakpoints.up('xl')]: {
+    width: '22%',
+    height: '74%',
+    top: '21%',
+    left: '28.2%',
+  },
+}));
 
 const NewPosting: React.FC<NewPostingProps> = ({ auth, createPosting, errors, history }) => {
   const { user, isAuthenticated } = auth;
@@ -141,7 +182,8 @@ const NewPosting: React.FC<NewPostingProps> = ({ auth, createPosting, errors, hi
 
   return (
     <Fade in={true}>
-      <div className="newpostbox">
+      <div>
+      <SignupBox>
         <Link to="/">
           <PostingLogo />
         </Link>
@@ -211,11 +253,6 @@ const NewPosting: React.FC<NewPostingProps> = ({ auth, createPosting, errors, hi
             Create Posting
           </Button>
         </form>
-        {submitted && address !== '' ? (
-          <GoogleMaps className="map-container" address={properAddress.fulladdress} />
-        ) : (
-          submitted
-        )}
         <Button
           type="submit"
           sx={{
@@ -261,7 +298,13 @@ const NewPosting: React.FC<NewPostingProps> = ({ auth, createPosting, errors, hi
             </Button>
           </DialogContent>
         </Dialog>
-      </div>
+      </SignupBox>
+      {submitted && address !== '' ? (
+          <GoogleMaps className="map-container" address={properAddress.fulladdress} />
+        ) : (
+          submitted
+        )}
+        </div>
     </Fade>
   );
 };
