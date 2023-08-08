@@ -71,9 +71,9 @@ const Dashboard: React.FC<DashboardProps> = ({ auth, logoutUser }) => {
         },
         [theme.breakpoints.up("xs")]: {
           fontSize: "2.3vh",
-          height: "3%",
+          height: "5%",
           left: "4.4%",
-          top: "14.6%",
+          top: "17.6%",
           width: "90.1%",
         },
         [theme.breakpoints.up("sm")]: {
@@ -564,7 +564,7 @@ function PurpleAcceptedOfYours () {
               fontSize: "2.3vh",
               height: "5%",
               left: "4.4%",
-              top: "51.6%",
+              top: "78.5%",
               width: "91.1%",
             },
             [theme.breakpoints.up("sm")]: {

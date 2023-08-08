@@ -1977,9 +1977,11 @@ box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);
     position: fixed;
     top: 0%;
     height: calc(200vh - 6rem);
-    width: 100vw;
+    width: 140vw;
     background-color: #eeeded;
     padding-top: 10%;
+    overflow-y: auto;
+    overflow-x: hidden;
   }
 }
 .postings-container-dashboard {
@@ -2237,10 +2239,10 @@ box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);
     position: absolute;
     display: flex;
     justify-content: flex-start;
-    top: 17.8%;
+    top: 20.8%;
     left: -9%;
     width: 130%;
-    height: 32%;
+    height: 55%;
     flex-wrap: nowrap;
     flex-direction: column;
     overflow-y: auto;
@@ -2302,10 +2304,10 @@ box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);
 
 @media (max-width: 620px) {
   .map-container-dashboard {
-    width: 95%;
-    height: 71.5vh;
-    top: 81.7%;
-    left: 5.1%;
+    width: 95.5%;
+    height: 33.5vh;
+    top: 251.7%;
+    left: 5%;
     border-radius: 6px;
   }
 }

@@ -78,10 +78,10 @@ const AccountMenu = ({ auth, logoutUser }) => {
               position: 'absolute',
               ':hover': { bgcolor: '#F7F3F3', color: '#25A96F' },
               [theme.breakpoints.up('xs')]: {
-                width: "32vw",
+                width: "36vw",
                 height: 30,
                 fontSize: "2.vh",
-                left: "68.5%",
+                left: "50%",
               },
               [theme.breakpoints.up('sm')]: {
                 width: "19vw",
