@@ -1042,6 +1042,7 @@ box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);
   padding-top: 10%;
 }
 
+
 .allpostings-container {
   display: flex;
   flex-direction: column;
@@ -1324,6 +1325,16 @@ box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);
   padding-top: 10%;
 }
 
+@media (max-width: 620px) {
+  .page-container-two {
+    position: fixed;
+    top: 0%;
+    height: calc(200vh - 6rem);
+    width: 100vw;
+    background-color: #eeeded;
+    padding-top: 10%;
+  }
+}
 .postings-container-dashboard {
   position: absolute;
   display: flex;
@@ -1352,6 +1363,22 @@ box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);
   overflow-x: hidden;
 }
 
+@media (max-width: 768px) {
+  .postings-container-dashboard-thrift {
+    position: absolute;
+    display: flex;
+    justify-content: flex-start;
+    top: 25%;
+    left: 0%;
+    width: 60%;
+    height: 68%;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+}
+
 .thriftstorepost-dashboard {
   position: relative;
   margin: 1rem;
@@ -1371,6 +1398,207 @@ box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
+}
+
+@media (max-width: 1440px) {
+  .thriftstorepost-dashboard {
+    position: relative;
+    margin: 1rem;
+    flex-grow: 0;
+    flex-shrink: 0;
+    height: 24%;
+    width: 49.3vw;
+    padding-left: 3%;
+    margin-right: 6%;
+    margin-bottom: 6%;
+    left: 25%;
+    top: -3%;
+    border-radius: 2%;
+    background-color: #e0dfdf;
+    flex-basis: 25%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+  }
+}
+
+
+.thriftstorepost-dashboard-v3 {
+  position: relative;
+  margin: 1rem;
+  flex-grow: 0;
+  flex-shrink: 0;
+  height: 24%;
+  width: 35.3vw;
+  padding-left: 3%;
+  margin-right: 6%;
+  margin-bottom: 6%;
+  left: 25%;
+  top: -3%;
+  border-radius: 2%;
+  background-color: #e0dfdf;
+  flex-basis: 25%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+@media (max-width: 1440px) {
+  .thriftstorepost-dashboard-v3 {
+    position: relative;
+    margin: 1rem;
+    flex-grow: 0;
+    flex-shrink: 0;
+    height: 24%;
+    width: 40.3vw;
+    padding-left: 3%;
+    margin-right: 6%;
+    margin-bottom: 6%;
+    left: 20%;
+    top: -3%;
+    border-radius: 2%;
+    background-color: #e0dfdf;
+    flex-basis: 25%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+  }
+}
+
+@media (max-width: 1024px) {
+  .thriftstorepost-dashboard-v3 {
+    position: relative;
+    margin: 1rem;
+    flex-grow: 0;
+    flex-shrink: 0;
+    height: 24%;
+    width: 49vw;
+    padding-left: 3%;
+    margin-right: 6%;
+    margin-bottom: 6%;
+    left: 1.5%;
+    top: -3%;
+    border-radius: 2%;
+    background-color: #e0dfdf;
+    flex-basis: 25%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+  }
+}
+
+@media (max-width: 768px) {
+  .thriftstorepost-dashboard-v3 {
+    position: relative;
+    margin: 1rem;
+    flex-grow: 0;
+    flex-shrink: 0;
+    height: 24%;
+    width: 59.5vw;
+    padding-left: 3%;
+    margin-right: 6%;
+    margin-bottom: 6%;
+    left: 0%;
+    top: -3%;
+    border-radius: 2%;
+    background-color: #e0dfdf;
+    flex-basis: 25%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+  }
+}
+
+@media (max-width: 620px) {
+  .thriftstorepost-dashboard-v3 {
+    position: relative;
+    margin: 1rem;
+    flex-grow: 0;
+    flex-shrink: 0;
+    height: 24%;
+    width: 89.3vw;
+    padding-left: 3%;
+    margin-right: 6%;
+    margin-bottom: 6%;
+    left: 8%;
+    top: -3%;
+    border-radius: 2%;
+    background-color: #e0dfdf;
+    flex-basis: 25%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+  }
+}
+
+@media (max-width: 1440px) {
+  .postings-container-dashboard-thrift {
+    position: absolute;
+    display: flex;
+    justify-content: flex-start;
+    top: 27.8%;
+    left: -2%;
+    width: 52.5%;
+    height: 82%;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+}
+
+@media (max-width: 1024px) {
+  .postings-container-dashboard-thrift {
+    position: absolute;
+    display: flex;
+    justify-content: flex-start;
+    top: 27.8%;
+    left: -2%;
+    width: 52.5%;
+    height: 82%;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+}
+
+@media (max-width: 768px) {
+  .postings-container-dashboard-thrift {
+    position: absolute;
+    display: flex;
+    justify-content: flex-start;
+    top: 25%;
+    left: 0%;
+    width: 63%;
+    height: 68%;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+}
+
+@media (max-width: 620px) {
+  .postings-container-dashboard-thrift {
+    position: absolute;
+    display: flex;
+    justify-content: flex-start;
+    top: 17.8%;
+    left: -9%;
+    width: 130%;
+    height: 32%;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
 }
 
 .thriftstorepost-dashboard:focus{
@@ -1537,6 +1765,16 @@ box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);
   top: 27%;
   left: 52.3%;
   border-radius: 6px;
+}
+
+@media (max-width: 620px) {
+  .map-container-dashboard-thrift {
+    width: 60.5%;
+    height: 67.95vh;
+    top: 59.7%;
+    left: 86.5%;
+    border-radius: 6px;
+  }
 }
 
 .loggedinemail{

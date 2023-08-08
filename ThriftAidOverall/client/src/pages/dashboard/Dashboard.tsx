@@ -216,7 +216,7 @@ const Dashboard: React.FC<DashboardProps> = ({ auth, logoutUser }) => {
       userAcceptedPosts.map((post) => (
         <div
           key={post.posting.email}
-          className="thriftstorepost-dashboard"
+          className="thriftstorepost-dashboard-v3"
           tabIndex={0}
           onClick={() => handleHomelessPostClick(post.posting.address, post.posting.city)}
         >
@@ -266,7 +266,7 @@ const Dashboard: React.FC<DashboardProps> = ({ auth, logoutUser }) => {
       homelessAcceptedPosts.map((post) => (
         <div
           key={post.posting.email}
-          className="thriftstorepost-dashboard"
+          className="thriftstorepost-dashboard-v3"
           tabIndex={0}
           onClick={() => handleHomelessPostClick(post.posting.address, post.posting.city)}
         >
@@ -450,7 +450,7 @@ const Dashboard: React.FC<DashboardProps> = ({ auth, logoutUser }) => {
     return (
       <div>
         <div className="page-container-two" />
-        <div className="postings-container-dashboard">
+        <div className="postings-container-dashboard-thrift">
           {homelessPosts}
         </div>
         <div className="map-container-dashboard">
