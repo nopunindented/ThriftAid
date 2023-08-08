@@ -299,7 +299,7 @@ const SignUp = styled('div')(({ theme }) => ({
     fontSize: '2.5vh'
   },
   [theme.breakpoints.up('xl')]: {
-    left: '48.5%',
+    left: '48%',
     top: '25%',
     fontSize: '2.5vh'
   },
