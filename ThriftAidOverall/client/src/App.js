@@ -45,7 +45,10 @@ function App() {
     let title = 'ThriftAid'; // Default title
 
     // Customize titles based on paths
-    if (path === '/dashboard') {
+    if (path === '/') {
+      title = 'ThriftAid';
+    } 
+    else if (path === '/dashboard') {
       title = 'Dashboard';
     } else if (path === '/profile') {
       title = 'Profile';
