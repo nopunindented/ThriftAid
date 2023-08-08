@@ -569,7 +569,7 @@ function PurpleAcceptedOfYours () {
             },
             [theme.breakpoints.up("sm")]: {
               height: "6%",
-              left: "62.3%",
+              left: "63%",
               top: "18%",
               width: "36.7%",
             },

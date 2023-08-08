@@ -1623,6 +1623,36 @@ box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);
   border-radius: 6px;
 }
 
+@media (max-width: 1024px) {
+  .map-container-dashboard {
+    width: 60.5%;
+    height: 71.5vh;
+    top: 39.7%;
+    left: 86.5%;
+    border-radius: 6px;
+  }
+}
+
+@media (max-width: 768px) {
+  .map-container-dashboard {
+    width: 60.5%;
+    height: 71.5vh;
+    top: 35.7%;
+    left: 104.3%;
+    border-radius: 6px;
+  }
+}
+
+@media (max-width: 620px) {
+  .map-container-dashboard {
+    width: 95%;
+    height: 71.5vh;
+    top: 81.7%;
+    left: 5.1%;
+    border-radius: 6px;
+  }
+}
+
 .shirt-posting{
   left: -18.8%;
   top: 17.8%;
