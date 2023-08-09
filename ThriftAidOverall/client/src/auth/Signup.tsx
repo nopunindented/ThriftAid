@@ -375,11 +375,7 @@ const Register: React.FC<any> = ({ registerUser }: any) => {
     }
   };
 
-  const theAlert = () => {
-    Swal.fire('Good job!', 'You Signed up Successfully! Login to see your dashboard.', 'success');
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
     const newUser: NewUser = {
@@ -393,15 +389,15 @@ const Register: React.FC<any> = ({ registerUser }: any) => {
       errors: state.errors
     };
 
-  await registerUser(newUser);
-  console.log(state.errors);
-  if (Object.keys(state.errors).length === 0) {
-    theAlert();
-  }
+    registerUser(newUser);
   };
 
   const handleLoginClick = () => {
     window.location.href = "https://thriftaidforall.com/login";
+  };
+
+  const theAlert = () => {
+    Swal.fire('Good job!', 'Your profile was updated successfully', 'success');
   };
 
   const theme= useTheme();
