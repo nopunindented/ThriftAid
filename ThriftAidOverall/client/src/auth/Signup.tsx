@@ -379,7 +379,7 @@ const Register: React.FC<any> = ({ registerUser }: any) => {
     Swal.fire('Good job!', 'You Signed up Successfully! Login to see your dashboard.', 'success');
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     const newUser: NewUser = {
@@ -393,10 +393,11 @@ const Register: React.FC<any> = ({ registerUser }: any) => {
       errors: state.errors
     };
 
-    registerUser(newUser);
-    if (!state.errors){
-      theAlert();
-    }
+  await registerUser(newUser);
+
+  if (!state.errors) {
+    theAlert();
+  }
   };
 
   const handleLoginClick = () => {
