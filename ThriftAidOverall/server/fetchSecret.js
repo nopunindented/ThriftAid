@@ -23,6 +23,7 @@ async function fetchSecret() {
 
   const secret = response.SecretString;
   return secret;
+  console.log(secret)
 }
 
 module.exports = { fetchSecret };
