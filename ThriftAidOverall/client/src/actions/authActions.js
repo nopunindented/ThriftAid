@@ -6,7 +6,7 @@ import { GET_ERRORS, SET_CURRENT_USER, USER_LOADING } from "./types";
 // Register User
 export const registerUser = (userData, history) => dispatch => {
   axios
-    .post("https://thriftaid-39eb36def246.herokuapp.com/api/users/register", userData)
+    .post("https://thriftaidreal-291fee9b2aaa.herokuapp.com/api/users/register", userData)
     .then(res => history.push("/login"))
     .catch(err => {
       if (err.response) {
@@ -22,7 +22,7 @@ export const registerUser = (userData, history) => dispatch => {
 
 export const updateProfile = (updatedProfile) => dispatch => {
   axios
-    .post("https://thriftaid-39eb36def246.herokuapp.com/api/users/profile", updatedProfile)
+    .post("https://thriftaidreal-291fee9b2aaa.herokuapp.com/api/users/profile", updatedProfile)
     .then(res => {
       console.log("Profile updated successfully:", res.data);
       dispatch(setCurrentUser(res.data));
@@ -48,7 +48,7 @@ export const createPosting = (postingData) => (dispatch) => {
   }
 
   axios
-    .post("https://thriftaid-39eb36def246.herokuapp.com/api/postings/create", postingData)
+    .post("https://thriftaidreal-291fee9b2aaa.herokuapp.com/api/postings/create", postingData)
     .then((res) => {
       // Update the user object in the Redux store
 
@@ -64,7 +64,7 @@ export const createPosting = (postingData) => (dispatch) => {
 
 export const loginUser = userData => dispatch => {
   axios
-    .post("https://thriftaid-39eb36def246.herokuapp.com/api/users/login", userData)
+    .post("https://thriftaidreal-291fee9b2aaa.herokuapp.com/api/users/login", userData)
     .then(res => {
       // Save token to local storage
       const { token } = res.data;
