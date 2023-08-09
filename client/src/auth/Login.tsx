@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import { loginUser, logoutUser } from "../actions/authActions";
 import { Button, Card } from "@mui/material";
 import  LoginLogo from "./Loginpagelogo.tsx";
-import { styled } from "@mui/material/styles"; // Import styled from the correct location
+import { styled } from "@mui/material/styles";
 import { useTheme } from "@mui/material/styles";
 
 const handleSignupClick = () => {
