@@ -86,6 +86,7 @@ app.get("/create", async (req, res) => {
 });
 
 // Routes
+app.options('*', cors());
 app.use("/api/users", users);
 app.use("/api/postings", postings);
 app.use("/api/everyposting", listofpostings); // Use the postings route
