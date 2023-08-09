@@ -1959,10 +1959,10 @@ box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);
 }
 
 
-.xmarkdialoguetwo{
+.xmarkdialogue{
   position:fixed;
-  left: 200%;
-  top: 80%;
+  left: 90%;
+  top: 30%;
   width: 0.8vw;
   height: 2vh;
 }

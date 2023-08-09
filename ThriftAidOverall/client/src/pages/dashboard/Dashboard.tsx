@@ -181,13 +181,6 @@ function PurpleAcceptedOfYours () {
     overflowY: "auto",
   };
 
-  const xmarkStyle: React.CSSProperties = {
-    position: 'fixed',
-    top: '10%',
-    right: 0,
-    cursor: 'pointer',
-  };
-
   const handleDialogOpen = (postin: any) => {
     setSelectedPostin(postin);
   };
@@ -284,7 +277,7 @@ const thriftAcceptedPosts = useMemo(
               >
                 <DialogContent>
                   <Button onClick={handleDialogClose}>
-                  <img src={xmark} style={xmarkStyle} alt="Close" />
+                    <img src={xmark} className="xmarkdialogue" alt="Close" />
                   </Button>
                   <div className="postercomments">
                     {post.posting.pickupcomments}
@@ -331,14 +324,15 @@ const thriftAcceptedPosts = useMemo(
               <Dialog
                 open={selectedPostin === post.posting}
                 onClose={handleDialogClose}
+                className="dialoguebackgroundtwice"
                 PaperProps={{
                   style: dialogStyle as PaperProps['style'],
                 }}
               >
                 <DialogContent>
-                <Button onClick={handleDialogClose}>
-                <img src={xmark} style={xmarkStyle} alt="Close" />
-                </Button>
+                  <Button onClick={handleDialogClose}>
+                    <img src={xmark} className="xmarkdialogue" alt="Close" />
+                  </Button>
                   <div className="postercomments">
                     {post.posting.pickupcomments}
                   </div>
