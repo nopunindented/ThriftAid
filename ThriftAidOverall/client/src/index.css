@@ -1830,6 +1830,12 @@ box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);
   overflow-x: hidden;
 }
 
+.dialoguebackgroundtwice{
+  position: absolute;
+  width: 100vw;
+  overflow-x: hidden;
+}
+
 .dialoguebacktwice{
   position: absolute;
   width: 100vw;
@@ -1953,13 +1959,14 @@ box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);
 }
 
 
-.xmarkdialogue{
-  position: fixed;
-  left: 5%;
-  top: 30%;
+.xmarkdialoguetwo{
+  position:fixed;
+  left: 200%;
+  top: 80%;
   width: 0.8vw;
   height: 2vh;
 }
+
 
 .page-container-two {
   position: fixed;
