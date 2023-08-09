@@ -375,6 +375,10 @@ const Register: React.FC<any> = ({ registerUser }: any) => {
     }
   };
 
+  const theAlert = () => {
+    Swal.fire('Good job!', 'You Signed up Successfully! Login to see your dashboard.', 'success');
+  };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
@@ -390,14 +394,13 @@ const Register: React.FC<any> = ({ registerUser }: any) => {
     };
 
     registerUser(newUser);
+    if (!state.errors){
+      theAlert();
+    }
   };
 
   const handleLoginClick = () => {
     window.location.href = "https://thriftaidforall.com/login";
-  };
-
-  const theAlert = () => {
-    Swal.fire('Good job!', 'Your profile was updated successfully', 'success');
   };
 
   const theme= useTheme();
