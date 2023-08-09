@@ -6,7 +6,7 @@ export default function PostingLogo() {
         <div>
         <div className="ellipse10">
         <div>
-            <img src={logo} className="postingshirt"/>
+            <img src={logo} className="postingshirt" alt= "fixshirt"/>
         </div>
         </div>
         </div>

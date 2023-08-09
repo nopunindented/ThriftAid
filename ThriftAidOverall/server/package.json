@@ -8,7 +8,9 @@
     "start": "node server.js",
     "server": "nodemon server.js",
     "client": "npm start --prefix client",
-    "dev": "concurrently \"npm run server\" \"npm run client\""
+    "start-backend": "cd server && node server.js",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "build": "echo Placeholder build script for backend"
   },
   "author": "",
   "license": "MIT",

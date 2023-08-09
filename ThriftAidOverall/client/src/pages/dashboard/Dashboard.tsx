@@ -14,7 +14,7 @@ import emailicon from "../postings/email.svg";
 import phoneicon from "../postings/phone.svg";
 import xmark from "../postings/xmark.png";
 import { PaperProps } from "@mui/material";
-import { ThemeProvider, createTheme, useTheme } from '@mui/material';
+import { useTheme } from '@mui/material';
 
 // Define types
 interface RootState {
@@ -184,10 +184,6 @@ function PurpleAcceptedOfYours () {
     setSelectedPostin(postin);
   };
 
-  const handleThriftPostClick = (address: string, city: string) => {
-    setSelectedPostAddress(`${address}, ${city}`);
-  };
-
   const handleHomelessPostClick = (address: string, city: string) => {
     setSelectedPostAddress(`${address}, ${city}`);
   };
@@ -289,7 +285,7 @@ function PurpleAcceptedOfYours () {
           )}
         </div>
       )),
-    [userAcceptedPosts]
+    [userAcceptedPosts,focusedPost, selectedPostin]
   );
 
   const homelessPosts = useMemo(
@@ -341,7 +337,7 @@ function PurpleAcceptedOfYours () {
           )}
         </div>
       )),
-    [homelessAcceptedPosts]
+    [homelessAcceptedPosts, focusedPost, selectedPostin]
   );
 
   useEffect(() => {
@@ -402,10 +398,6 @@ function PurpleAcceptedOfYours () {
 
     const newPosting = () => {
       navigate("/create");
-    };
-
-    const findPostings = () => {
-      navigate("/allpostings");
     };
 
     return (

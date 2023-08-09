@@ -1,7 +1,5 @@
 import React from "react";
 import { styled } from "@mui/material/styles"; // Import styled from the correct location
-import Typography from "@mui/material/Typography"; // Import Typography
-import { useTheme } from "@mui/material/styles";
 
 const HometextMain = styled('h1')(({ theme }) => ({ // Rename the component to start with an uppercase letter
   position: 'absolute',

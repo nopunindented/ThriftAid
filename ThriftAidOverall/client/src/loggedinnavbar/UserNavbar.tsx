@@ -6,11 +6,9 @@ import SignupButton from "../navbar/Signup.tsx";
 import LoginButton from "../navbar/Login.tsx";
 import { connect } from "react-redux";
 import { logoutUser } from "../actions/authActions.js";
-import { useNavigate } from "react-router-dom";
 import AccountMenu from "../pages/account/accountnavbar.tsx";
 
 const UserNavbar = ({ auth, logoutUser }) => {
-  const navigate = useNavigate();
   const currentPath = window.location.pathname;
 
   if (auth.isAuthenticated) {
@@ -23,7 +21,7 @@ const UserNavbar = ({ auth, logoutUser }) => {
           <Link to="/postings">
             <SearchButton />
           </Link>
-          <AccountMenu logoutUser={logoutUser} />
+          <AccountMenu />
         </nav>
       </div>
     );

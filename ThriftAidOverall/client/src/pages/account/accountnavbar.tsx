@@ -5,8 +5,6 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import jwt_decode from 'jwt-decode';
-import { styled } from "@mui/material/styles"; // Import styled from the correct location
-import Typography from "@mui/material/Typography"; // Import Typography
 import { useTheme } from "@mui/material/styles";
 
 import setAuthToken from '../../utils/setAuthToken';
@@ -23,14 +21,6 @@ const AccountMenu = ({ auth, logoutUser }) => {
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
-
-  const ifThrift= () =>{
-    if(user.usertype=== 'thrift store'){
-      return(
-        <h1>HELLO</h1>
-      )
-    }
-  }
 
   const handleClose = () => {
     setAnchorEl(null);
@@ -60,7 +50,7 @@ const AccountMenu = ({ auth, logoutUser }) => {
         window.location.href = '/login';
       }
     }
-  }, []);
+  }, [logoutUser]);
 
   return (
     <>

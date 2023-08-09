@@ -6,7 +6,7 @@ export default function SignupLogo() {
         <div>
         <div className="ellipse5">
         <div>
-            <img src={logo} className="signupshirt"/>
+            <img src={logo} className="signupshirt" alt="signups"/>
         </div>
         </div>
         </div>
