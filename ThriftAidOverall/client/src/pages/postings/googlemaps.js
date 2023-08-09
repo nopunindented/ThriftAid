@@ -20,7 +20,6 @@ export default function GoogleMaps({ address, className }) {
     const fetchApiKey = async () => {
       try {
         const response = await axios.get("https://api.thriftaidforall.com/create");
-        console.log(response.data.apiKey)
         const apiKeyValue = response.data.apiKey;
 
         if (!apiKeyValue) {
