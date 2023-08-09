@@ -1821,6 +1821,7 @@ box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);
 }
 
 .dialoguesubmission{
+  position: fixed;
   left: 4.6%;
 }
 
@@ -1848,7 +1849,7 @@ box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);
 }
 
 .dialoguecancel {
-  position: absolute;
+  position: fixed;
   width: 25%;
   left: 71.8%;
   top: 14vh;
