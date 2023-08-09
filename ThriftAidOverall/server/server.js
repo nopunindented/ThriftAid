@@ -15,6 +15,9 @@ const { fetchSecret } = require('./fetchSecret.js')
 
 const app = express();
 
+// Enable CORS for all routes
+app.use(cors());
+
 // Bodyparser middleware
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
