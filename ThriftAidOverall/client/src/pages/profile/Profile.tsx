@@ -546,7 +546,7 @@ const Profile: React.FC<ProfileProps> = ({
 
   const fetchProfile = (email: string) => {
     axios
-      .get(`/api/users/profile?email=${email}`)
+      .get(`https://api.thriftaidforall.com/api/users/profile?email=${email}`)
       .then((res) => {
         const profile = res.data;
         if (profile) {

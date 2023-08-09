@@ -350,7 +350,7 @@ const thriftAcceptedPosts = useMemo(
       navigate("/login");
     } else {
       axios
-        .post('/api/everyposting/deletedposts')
+        .post('https://api.thriftaidforall.com/api/everyposting/deletedposts')
         .then((response) => {
           setAcceptedPosts(response.data);
         })

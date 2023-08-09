@@ -19,7 +19,7 @@ export default function GoogleMaps({ address, className }) {
   useEffect(() => {
     const fetchApiKey = async () => {
       try {
-        const response = await axios.get("/create");
+        const response = await axios.get("https://api.thriftaidforall.com/create");
         const apiKeyValue = response.data.apiKey;
 
         if (!apiKeyValue) {

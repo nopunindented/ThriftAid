@@ -6,7 +6,7 @@ import { GET_ERRORS, SET_CURRENT_USER, USER_LOADING } from "./types";
 // Register User
 export const registerUser = (userData, history) => dispatch => {
   axios
-    .post("/api/users/register", userData)
+    .post("https://api.thriftaidforall.com/api/users/register", userData)
     .then(res => history.push("/login"))
     .catch(err => {
       if (err.response) {
@@ -22,7 +22,7 @@ export const registerUser = (userData, history) => dispatch => {
 
 export const updateProfile = (updatedProfile) => dispatch => {
   axios
-    .post("/api/users/profile", updatedProfile)
+    .post("https://api.thriftaidforall.com/api/users/profile", updatedProfile)
     .then(res => {
       console.log("Profile updated successfully:", res.data);
       dispatch(setCurrentUser(res.data));
@@ -48,7 +48,7 @@ export const createPosting = (postingData) => (dispatch) => {
   }
 
   axios
-    .post("/api/postings/create", postingData)
+    .post("https://api.thriftaidforall.com/api/postings/create", postingData)
     .then((res) => {
       // Update the user object in the Redux store
 
@@ -64,7 +64,7 @@ export const createPosting = (postingData) => (dispatch) => {
 
 export const loginUser = userData => dispatch => {
   axios
-    .post("/api/users/login", userData)
+    .post("https://api.thriftaidforall.com/api/users/login", userData)
     .then(res => {
       // Save token to local storage
       const { token } = res.data;

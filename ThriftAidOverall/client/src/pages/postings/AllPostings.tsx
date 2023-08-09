@@ -104,7 +104,7 @@ const AllPostings: React.FC = () => {
     setPostings((prevPostings) => prevPostings.filter((p) => p._id !== postin._id));
 
     axios
-      .post('/api/everyposting/acceptposting', { postinId: postin._id })
+      .post('https://api.thriftaidforall.com/api/everyposting/acceptposting', { postinId: postin._id })
       .catch((err) => {
         console.log('Error accepting posting', err);
       });
@@ -116,7 +116,7 @@ const AllPostings: React.FC = () => {
 
   useEffect(() => {
     axios
-      .get('/api/everyposting/allpostings')
+      .get('https://api.thriftaidforall.com/api/everyposting/allpostings')
       .then((response) => {
         setPostings(response.data);
       })
