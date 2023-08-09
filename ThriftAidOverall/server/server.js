@@ -64,9 +64,13 @@ app.get("/", (req, res) => {
 });
 
 
-app.use(cors({
-  origin: "https://thriftaidforall.com/"
-}));
+// Replace the current cors configuration with a simple one
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+
 
 app.get("/create", async (req, res) => {
   try {
