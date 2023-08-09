@@ -477,7 +477,7 @@ const Profile: React.FC<ProfileProps> = ({
       <Button type="submit" sx={buttonStyles} onClick={notContent}>
         Want to create/update your profile? Click here!
       </Button>
-      <Button type="submit" sx={buttonStyles} onClick={goBack}>
+      <Button type="submit" sx={buttonStylesV2} onClick={goBack}>
         Click here to back to your Dashboard
       </Button>
       </div>
