@@ -10,6 +10,7 @@ import { setCurrentUser } from "../../actions/authActions";
 import { Link } from "react-router-dom";
 import { styled } from "@mui/material/styles"; // Import styled from the correct location
 import { useTheme } from "@mui/material/styles";
+import { useNavigate } from "react-router-dom";
 
 interface ProfileUser {
   establishmentname?: string;
@@ -338,6 +339,11 @@ const Profile: React.FC<ProfileProps> = ({
   const [profileErrors, setProfileErrors] = useState<any>({});
   const [profile, setProfileUser] = useState<string>("");
   const [contentProfile, setContentProfile] = useState<string>("yes");
+  const navigate= useNavigate();
+
+  const goBack= () => {
+    navigate('/dashboard');
+  }
 
   const notContent = () => {
     setContentProfile("no");
@@ -414,10 +420,68 @@ const Profile: React.FC<ProfileProps> = ({
       },
     };
 
+    const buttonStylesV2 = {
+      position: "absolute",
+      display: "flex",
+      color: "#F7F3F3",
+      fontFamily: "Noto Sans",
+      textAlign: "center",
+      fontStyle: "normal",
+      fontWeight: 700,
+      textTransform: "none",
+      bgcolor: "#8f35f0",
+      ":hover": {
+        bgcolor: '#5c209e',
+        color: "#F7F3F3",
+        textTransform: "none",
+      },
+      [theme.breakpoints.up("xs")]: {
+        fontSize: "1.5vh",
+        height: "4.5vh",
+        left: "37.2%",
+        top: "72%",
+        width: "49.2vw",
+      },
+      [theme.breakpoints.up("sm")]: {
+        fontSize: "1.5vh",
+        height: "4.5vh",
+        left: "41.1%",
+        top: "72%",
+        width: "26.6vw",
+      },
+      [theme.breakpoints.up("md")]: {
+        fontSize: "1.5vh",
+        height: "4.5vh",
+        left: "41.1%",
+        top: "72%",
+        width: "26.7vw",
+      },
+      [theme.breakpoints.up("lg")]: {
+        fontSize: "1.5vh",
+        height: "4.5vh",
+        left: "41.1%",
+        top: "72%",
+        width: "20.7vw",
+      },
+      [theme.breakpoints.up("xl")]: {
+        fontSize: "1.5vh",
+        height: "4.5vh",
+        left: "41.1%",
+        top: "72%",
+        width: "18.9vw",
+      },
+    };
+
     return (
+      <div>
       <Button type="submit" sx={buttonStyles} onClick={notContent}>
         Want to create/update your profile? Click here!
       </Button>
+      <Button type="submit" sx={buttonStyles} onClick={goBack}>
+        Click here to back to your Dashboard
+      </Button>
+      </div>
+
     );
   };
 
