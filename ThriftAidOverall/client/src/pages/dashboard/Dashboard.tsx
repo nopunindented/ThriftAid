@@ -546,9 +546,7 @@ const thriftAcceptedPosts = useMemo(
       <div>
         <div className="page-container-two" />
         <div className="postings-container-dashboard-thrift">
-          <div className="scroll-content">
           {homelessPosts}
-        </div>
         </div>
         <div className="map-container-dashboard">
           {selectedPostAddress && <GoogleMaps className="map-container-dashboard" address={selectedPostAddress} />}
