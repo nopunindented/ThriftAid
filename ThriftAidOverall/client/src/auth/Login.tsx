@@ -9,11 +9,11 @@ import { styled } from "@mui/material/styles"; // Import styled from the correct
 import { useTheme } from "@mui/material/styles";
 
 const handleSignupClick = () => {
-  window.location.href = "http://localhost:3000/register";
+  window.location.href = "https://thriftaidforall.com/register";
 };
 
 const handleAlreadyLogged = () => {
-  window.location.href = "http://localhost:3000/dashboard";
+  window.location.href = "https://thriftaidforall.com/dashboard";
 };
 
 const SignupBox = styled(Card)(({ theme }) => ({

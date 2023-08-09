@@ -546,7 +546,7 @@ const Profile: React.FC<ProfileProps> = ({
 
   const fetchProfile = (email: string) => {
     axios
-      .get(`http://localhost:5000/api/users/profile?email=${email}`)
+      .get(`https://thriftaid-39eb36def246.herokuapp.com/api/users/profile?email=${email}`)
       .then((res) => {
         const profile = res.data;
         if (profile) {

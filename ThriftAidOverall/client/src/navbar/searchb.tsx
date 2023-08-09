@@ -22,7 +22,7 @@ const CustomButton = styled(Button)({
 
 export default function SearchButton() {
   const handleButtonClick = () => {
-    window.location.href = 'http://localhost:3000/postings';
+    window.location.href = 'https://thriftaidforall.com/postings';
   };
 
   return (

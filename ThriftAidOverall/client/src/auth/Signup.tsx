@@ -393,7 +393,7 @@ const Register: React.FC<any> = ({ registerUser }: any) => {
   };
 
   const handleLoginClick = () => {
-    window.location.href = "http://localhost:3000/login";
+    window.location.href = "https://thriftaidforall.com/login";
   };
 
   const theAlert = () => {

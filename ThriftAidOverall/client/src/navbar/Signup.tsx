@@ -3,7 +3,7 @@ import Button from '@mui/material/Button';
 import { useTheme } from "@mui/material/styles";
 
 const handleSignupBClick = () => {
-  window.location.href = 'http://localhost:3000/register';
+  window.location.href = 'https://thriftaidforall.com/register';
 };
 
 export default function SignupButton() {

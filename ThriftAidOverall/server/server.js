@@ -63,6 +63,11 @@ app.get("/", (req, res) => {
   res.send("gmaps");
 });
 
+
+app.use(cors({
+  origin: "https://thriftaidforall.com/"
+}));
+
 app.get("/create", async (req, res) => {
   try {
     const apiKey = await fetchSecret("GoogleMapsApiKey");
