@@ -65,6 +65,8 @@ app.get("/create", async (req, res) => {
   try {
     const apiKey = await fetchSecret("GoogleMapsApiKey");
 
+    console.log(apiKey)
+
     if (!apiKey) {
       res.status(500).json({ error: "Failed to fetch API key" });
       return;
