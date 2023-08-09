@@ -395,7 +395,7 @@ const Register: React.FC<any> = ({ registerUser }: any) => {
 
   await registerUser(newUser);
 
-  if (!state.errors) {
+  if (Object.keys(state.errors).length === 0) {
     theAlert();
   }
   };
