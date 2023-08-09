@@ -350,7 +350,7 @@ const thriftAcceptedPosts = useMemo(
       navigate("/login");
     } else {
       axios
-        .post('https://thriftaidreal-291fee9b2aaa.herokuapp.com/api/everyposting/deletedposts')
+        .post('/api/everyposting/deletedposts')
         .then((response) => {
           setAcceptedPosts(response.data);
         })

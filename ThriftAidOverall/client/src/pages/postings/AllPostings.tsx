@@ -104,7 +104,7 @@ const AllPostings: React.FC = () => {
     setPostings((prevPostings) => prevPostings.filter((p) => p._id !== postin._id));
 
     axios
-      .post('https://thriftaidreal-291fee9b2aaa.herokuapp.com/api/everyposting/acceptposting', { postinId: postin._id })
+      .post('/api/everyposting/acceptposting', { postinId: postin._id })
       .catch((err) => {
         console.log('Error accepting posting', err);
       });
@@ -116,7 +116,7 @@ const AllPostings: React.FC = () => {
 
   useEffect(() => {
     axios
-      .get('https://thriftaidreal-291fee9b2aaa.herokuapp.com/api/everyposting/allpostings')
+      .get('/api/everyposting/allpostings')
       .then((response) => {
         setPostings(response.data);
       })

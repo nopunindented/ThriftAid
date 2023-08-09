@@ -19,7 +19,7 @@ export default function GoogleMaps({ address, className }) {
   useEffect(() => {
     const fetchApiKey = async () => {
       try {
-        const response = await axios.get("https://thriftaid-39eb36def246.herokuapp.com/create");
+        const response = await axios.get("/create");
         const apiKeyValue = response.data.apiKey;
 
         if (!apiKeyValue) {

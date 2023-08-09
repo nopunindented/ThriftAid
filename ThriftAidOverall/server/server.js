@@ -79,7 +79,7 @@ app.get("/create", async (req, res) => {
 
 // Routes
 const corsOptions = {
-  origin: ['https://thriftaidforall.com'], // List of allowed origins
+  origin: ['https://thriftaidforall.com', 'https://thriftaidforall.com/', 'thriftaidforall.com'], // List of allowed origins
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization'],
 };
