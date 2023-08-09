@@ -8,10 +8,10 @@ const MongoDBStore = require("connect-mongodb-session")(session);
 const axios = require("axios");
 
 const users = require("./routes/api/users.js");
-const postings = require("./routes/api/postings.js"); // Import the postings route
+const postings = require("./routes/api/postings.js");
 const keys = require("./config/keys");
-const listofpostings= require("./routes/api/everyposting.js")
-const {fetchSecret} = require('./fetchSecret.js')
+const listofpostings = require("./routes/api/everyposting.js");
+const { fetchSecret } = require('./fetchSecret.js')
 
 const app = express();
 
@@ -38,7 +38,7 @@ app.use(passport.initialize());
 // Passport config
 require("./config/passport")(passport);
 
-// Enable CORS
+// Enable CORS using cors middleware
 app.use(cors());
 
 // Create a new instance of the session store
@@ -57,29 +57,18 @@ app.use(
   })
 );
 
-app.use(cors());
 app.get("/", (req, res) => {
   res.send("gmaps");
 });
 
-
-// Replace the current cors configuration with a simple one
-app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  next();
-});
-
-
 app.get("/create", async (req, res) => {
   try {
     const apiKey = await fetchSecret("GoogleMapsApiKey");
-    
+
     if (!apiKey) {
       res.status(500).json({ error: "Failed to fetch API key" });
       return;
     }
-    
 
     res.json({ apiKey });
   } catch (error) {
@@ -89,10 +78,10 @@ app.get("/create", async (req, res) => {
 });
 
 // Routes
-app.options('*', cors());
+app.options('*', cors()); // Preflight requests
 app.use("/api/users", users);
 app.use("/api/postings", postings);
-app.use("/api/everyposting", listofpostings); // Use the postings route
+app.use("/api/everyposting", listofpostings);
 
 const port = process.env.PORT || 5000;
 
