@@ -64,7 +64,7 @@ export const createPosting = (postingData) => (dispatch) => {
 
 export const loginUser = userData => dispatch => {
   axios
-    .post("/login", userData)
+    .post("/api/users/login", userData)
     .then(res => {
       // Save token to local storage
       const { token } = res.data;
