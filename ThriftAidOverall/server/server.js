@@ -38,9 +38,6 @@ app.use(passport.initialize());
 // Passport config
 require("./config/passport")(passport);
 
-// Enable CORS using cors middleware
-app.use(cors());
-
 // Create a new instance of the session store
 const store = new MongoDBStore({
   uri: db,
@@ -78,6 +75,13 @@ app.get("/create", async (req, res) => {
 });
 
 // Routes
+const corsOptions = {
+  origin: ['https://thriftaidforall.com/'], // List of allowed origins
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+};
+
+app.use(cors(corsOptions));
 app.options('*', cors()); // Preflight requests
 app.use("/api/users", users);
 app.use("/api/postings", postings);
