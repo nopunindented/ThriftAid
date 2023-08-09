@@ -236,8 +236,9 @@ function PurpleAcceptedOfYours () {
     setFocusedPost(null);
   };
 
-  const thriftAcceptedPosts = useMemo(
-    () =>
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+const thriftAcceptedPosts = useMemo(
+  () =>
       userAcceptedPosts &&
       userAcceptedPosts.map((post) => (
         <div
@@ -263,6 +264,7 @@ function PurpleAcceptedOfYours () {
           <img src={emailicon} className="email-dashboard" alt="Email" />
           {post.posting.pickupcomments && (
             <>
+              
               <ButtonViewComments onClick={() => handleDialogOpen(post.posting)} />
               <Dialog
                 open={selectedPostin === post.posting}
@@ -285,11 +287,13 @@ function PurpleAcceptedOfYours () {
           )}
         </div>
       )),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [userAcceptedPosts,focusedPost, selectedPostin]
   );
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const homelessPosts = useMemo(
-    () =>
+  () =>
       homelessAcceptedPosts &&
       homelessAcceptedPosts.map((post) => (
         <div
@@ -337,6 +341,7 @@ function PurpleAcceptedOfYours () {
           )}
         </div>
       )),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [homelessAcceptedPosts, focusedPost, selectedPostin]
   );
 
